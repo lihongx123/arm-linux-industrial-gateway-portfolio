@@ -1,0 +1,26 @@
+set(CMAKE_SYSTEM_NAME Linux)
+set(CMAKE_SYSTEM_PROCESSOR aarch64)
+
+if(NOT DEFINED ENV{BUILDROOT_OUTPUT_DIR})
+    message(FATAL_ERROR "BUILDROOT_OUTPUT_DIR must name the completed Buildroot output directory")
+endif()
+
+file(TO_CMAKE_PATH "$ENV{BUILDROOT_OUTPUT_DIR}" BUILDROOT_OUTPUT_DIR)
+set(BUILDROOT_HOST_DIR "${BUILDROOT_OUTPUT_DIR}/host")
+set(BUILDROOT_SYSROOT "${BUILDROOT_HOST_DIR}/aarch64-buildroot-linux-gnu/sysroot")
+
+set(CMAKE_C_COMPILER "${BUILDROOT_HOST_DIR}/bin/aarch64-buildroot-linux-gnu-gcc")
+set(CMAKE_CXX_COMPILER "${BUILDROOT_HOST_DIR}/bin/aarch64-buildroot-linux-gnu-g++")
+set(CMAKE_AR "${BUILDROOT_HOST_DIR}/bin/aarch64-buildroot-linux-gnu-ar")
+set(CMAKE_RANLIB "${BUILDROOT_HOST_DIR}/bin/aarch64-buildroot-linux-gnu-ranlib")
+set(CMAKE_STRIP "${BUILDROOT_HOST_DIR}/bin/aarch64-buildroot-linux-gnu-strip")
+set(CMAKE_SYSROOT "${BUILDROOT_SYSROOT}")
+set(CMAKE_FIND_ROOT_PATH "${BUILDROOT_SYSROOT}")
+set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
+set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
+set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
+set(CMAKE_FIND_ROOT_PATH_MODE_PACKAGE ONLY)
+
+set(ENV{PKG_CONFIG_SYSROOT_DIR} "${BUILDROOT_SYSROOT}")
+set(ENV{PKG_CONFIG_LIBDIR} "${BUILDROOT_SYSROOT}/usr/lib/pkgconfig:${BUILDROOT_SYSROOT}/usr/share/pkgconfig")
+set(PKG_CONFIG_EXECUTABLE "${BUILDROOT_HOST_DIR}/bin/pkg-config" CACHE FILEPATH "Buildroot pkg-config")

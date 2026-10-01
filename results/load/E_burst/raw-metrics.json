@@ -1,0 +1,39 @@
+{
+  "command": {
+    "scenario": "E_burst",
+    "devices": 100,
+    "rate": 5000.0,
+    "duration": 2.0,
+    "broker_port": 18886,
+    "gateway_pid": 9560,
+    "metrics_file": "<REPOSITORY_ROOT>/results/load/E_burst/gateway-metrics.json",
+    "output": "<REPOSITORY_ROOT>/results/summary.csv",
+    "raw_output": "<REPOSITORY_ROOT>/results/load/E_burst/raw-metrics.json",
+    "interface": "vcan0"
+  },
+  "timestamp_utc": "2026-09-21T04:14:39Z",
+  "sent": 10000,
+  "received": 6055,
+  "lost": 3945,
+  "malformed": 0,
+  "latency_count": 6055,
+  "latency_min_ms": 5.911356,
+  "latency_max_ms": 2792.526601,
+  "summary": {
+    "scenario": "E_burst",
+    "devices": 100,
+    "mqtt_rate": 3027.352935735714,
+    "modbus_rate": 0.0,
+    "can_rate": 4999.75711929928,
+    "duration": 2.0000971569998,
+    "p50_ms": 1431.825021,
+    "p95_ms": 2646.0767712,
+    "p99_ms": 2758.4000678400002,
+    "cpu_percent": 6.9944668241799235,
+    "rss_mb": 7.9140625,
+    "queue_peak": 2,
+    "error_rate": 0.0,
+    "loss_rate": 0.3945,
+    "reconnect_time_s": ""
+  }
+}

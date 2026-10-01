@@ -1,0 +1,6 @@
+topic=resume/gateway/devices/gateway-demo-001/command
+command_id=cloud-command-1790131925918
+device_id=gateway-demo-001
+published_payload={"command_id":"cloud-command-1790131925918","can_id":1110,"data":"deadbeef","timeout_ms":5000}
+southbound_frame=(1790131926.535872) vcan0 456#DEADBEEF
+result=PASS

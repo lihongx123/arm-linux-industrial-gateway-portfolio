@@ -1,0 +1,7 @@
+duration_seconds=30
+rate=1000
+devices=100
+queue=1024
+workers=2
+qos=0
+observe=1

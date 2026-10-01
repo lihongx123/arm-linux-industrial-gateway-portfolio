@@ -1,0 +1,61 @@
+PHASE=2 baseline validation
+BASELINE_COMMIT=b6f24d3b2c4596a19082e584326df70adffedbb6
+WSL_DISTRIBUTION=Ubuntu-24.04
+OS=Ubuntu 24.04.5 LTS
+ARCH=x86_64
+
+1. git rev-parse HEAD
+   PASS: b6f24d3b2c4596a19082e584326df70adffedbb6
+
+2. git status --short
+   PASS (inspection): expected tracked CRLF/LF M entries plus untracked docs/results
+
+3. grep '^CMAKE_BUILD_TYPE:' /tmp/mqmgateway-baseline-build/CMakeCache.txt
+   WARNING: CMAKE_BUILD_TYPE:STRING=Release~ (not Release)
+
+4. cmake --build /tmp/mqmgateway-baseline-build -j"$(nproc)"
+   PASS: exit 0; nproc=32; all targets built
+
+5. ctest --test-dir /tmp/mqmgateway-baseline-build --output-on-failure
+   COMMAND_EXIT=0
+   VALIDATION=FAIL: No tests were found; total=0 passed=0 failed=0
+
+6. cd /tmp/mqmgateway-baseline-build/unittests && ./tests
+   FAIL: exit 1
+   TEST_CASES_TOTAL=149
+   TEST_CASES_PASSED=146
+   TEST_CASES_FAILED=3
+   ASSERTIONS_TOTAL=2187
+   ASSERTIONS_PASSED=2182
+   ASSERTIONS_FAILED=5
+   ROOT_CAUSE=exprconv.so absent because EXPRTK_INCLUDE_DIR-NOTFOUND
+
+CORE_SOURCE_MODIFIED=NO
+BASELINE_OVERALL=FAIL (build passes; test registration and full test suite do not)
+
+POST_BASELINE_REMEDIATION:
+7. clone official ExprTk to /tmp/exprtk-src
+   PASS: commit 1e4a80b5ec9b4832ed59c6faa65f625a01b18ef0
+
+8. cmake -S . -B /tmp/mqmgateway-release-build -DCMAKE_BUILD_TYPE=Release -DEXPRTK_INCLUDE_DIR=/tmp/exprtk-src
+   PASS: actual build type Release; ExprTk found
+
+9. cmake --build /tmp/mqmgateway-release-build -j"$(nproc)"
+   PASS: clean build; -O3 -DNDEBUG; exprconv.so built
+
+10. cd /tmp/mqmgateway-release-build/unittests && ./tests
+    PASS: exit 0
+    TEST_CASES_TOTAL=173
+    TEST_CASES_PASSED=173
+    TEST_CASES_FAILED=0
+    ASSERTIONS_TOTAL=2359
+    ASSERTIONS_PASSED=2359
+    ASSERTIONS_FAILED=0
+
+11. add CTest registration in CMakeLists.txt and unittests/CMakeLists.txt
+    PASS: test infrastructure only; no runtime/core business logic changed
+
+12. ctest --test-dir /tmp/mqmgateway-release-build --output-on-failure
+    PASS: 1/1 CTest passed; 0 failed; 170.29 seconds
+
+POST_REMEDIATION_OVERALL=PASS

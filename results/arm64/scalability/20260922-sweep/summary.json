@@ -1,0 +1,2528 @@
+[
+  {
+    "profile": "base",
+    "result_path": "base/guest-results/pipeline-results/rate-4000-qos-1-observe-1-window-20/result.json",
+    "config": {
+      "workers": 2,
+      "queue": 1024,
+      "devices": 100,
+      "qemu_vcpus": 2,
+      "qemu_memory_mb": 1024,
+      "variants": "1:1:20"
+    },
+    "result": {
+      "classification": "FAIL",
+      "target_rate": 4000.0,
+      "actual_send_rate": 3999.989738,
+      "receive_rate_during_load": 3452.674475,
+      "final_receive_rate_after_drain": 3922.756602,
+      "throughput_ratio": 0.863169,
+      "duration_seconds": 60.000154,
+      "sent": 240000,
+      "received_at_load_end": 207161,
+      "received": 235366,
+      "lost": 4634,
+      "loss_rate": 0.019308,
+      "malformed": 0,
+      "p50_ms": 5311.8,
+      "p95_ms": 7520.3,
+      "p99_ms": 8026.2,
+      "cpu_percent": 75.717937,
+      "peak_rss_mb": 13.203125,
+      "queue_peak": 99,
+      "rejected": 0,
+      "publish_failures": 0,
+      "process_alive": true
+    },
+    "gateway_metrics": {
+      "enqueued": 240000,
+      "dequeued": 240000,
+      "current_depth": 0,
+      "peak_depth": 99,
+      "rejected": 0,
+      "processing_latency_ms": 0.338772,
+      "published": 240067,
+      "publish_failures": 0,
+      "command_timeouts": 0,
+      "can_errors": 0,
+      "telemetry_qos": 1,
+      "mqtt_max_inflight": 20,
+      "pipeline_metrics_enabled": true,
+      "can_pipeline": {
+        "frames_read": 240000,
+        "parsed": 240000,
+        "rejected_frames": 0,
+        "read_errors": 0,
+        "parse": {
+          "count": 240000,
+          "mean_us": 6.57502,
+          "max_us": 6272.85,
+          "p50_upper_us": 4,
+          "p95_upper_us": 16,
+          "p99_upper_us": 128
+        }
+      },
+      "telemetry_enqueued": 240000,
+      "telemetry_dequeued": 240000,
+      "telemetry_queue_wait": {
+        "count": 240000,
+        "mean_us": 337.178,
+        "max_us": 9738.77,
+        "p50_upper_us": 256,
+        "p95_upper_us": 2048,
+        "p99_upper_us": 4096
+      },
+      "command_queue_wait": {
+        "count": 0,
+        "mean_us": 0,
+        "max_us": 0,
+        "p50_upper_us": 0,
+        "p95_upper_us": 0,
+        "p99_upper_us": 0
+      },
+      "telemetry_worker_before_publish": {
+        "count": 240000,
+        "mean_us": 28.2574,
+        "max_us": 6293.07,
+        "p50_upper_us": 16,
+        "p95_upper_us": 128,
+        "p99_upper_us": 256
+      },
+      "mqtt_pipeline": {
+        "publish_calls": 240067,
+        "publish_accepted": 240067,
+        "publish_api_errors": 0,
+        "puback_received": 77940,
+        "qos0_local_completed": 0,
+        "telemetry_accepted": 240000,
+        "telemetry_puback_received": 77911,
+        "pending_tracked": 317,
+        "pending_peak": 4096,
+        "oldest_pending_us": 4995480.0,
+        "tracking_dropped": 161810,
+        "unmatched_callbacks": 160908,
+        "tracking_complete": false,
+        "publish_api": {
+          "count": 240067,
+          "mean_us": 12.6049,
+          "max_us": 9172.16,
+          "p50_upper_us": 4,
+          "p95_upper_us": 64,
+          "p99_upper_us": 256
+        },
+        "telemetry_puback": {
+          "count": 77911,
+          "mean_us": 3088180.0,
+          "max_us": 7892540.0,
+          "p50_upper_us": 4194300.0,
+          "p95_upper_us": 7892540.0,
+          "p99_upper_us": 7892540.0
+        }
+      }
+    },
+    "processes": {
+      "gateway": {
+        "cpu_percent": 76.46505797555625,
+        "sample_span_seconds": 63.82,
+        "samples": 12,
+        "pid": 142,
+        "sampled_hwm_kib": 13520,
+        "threads": [
+          {
+            "tid": 142,
+            "cpu_percent": 0.04700720777185835,
+            "sample_span_seconds": 63.82,
+            "samples": 12
+          },
+          {
+            "tid": 144,
+            "cpu_percent": 29.849576935130052,
+            "sample_span_seconds": 63.82,
+            "samples": 12
+          },
+          {
+            "tid": 145,
+            "cpu_percent": 22.062049514258852,
+            "sample_span_seconds": 63.82,
+            "samples": 12
+          },
+          {
+            "tid": 146,
+            "cpu_percent": 12.159197743654026,
+            "sample_span_seconds": 63.82,
+            "samples": 12
+          },
+          {
+            "tid": 147,
+            "cpu_percent": 11.90849263553745,
+            "sample_span_seconds": 63.82,
+            "samples": 12
+          },
+          {
+            "tid": 148,
+            "cpu_percent": 0.2820432466311501,
+            "sample_span_seconds": 63.82,
+            "samples": 12
+          }
+        ]
+      },
+      "broker": {
+        "cpu_percent": 51.73926668755876,
+        "sample_span_seconds": 63.82,
+        "samples": 12,
+        "pid": 140,
+        "sampled_hwm_kib": 2476,
+        "threads": [
+          {
+            "tid": 140,
+            "cpu_percent": 51.73926668755876,
+            "sample_span_seconds": 63.82,
+            "samples": 12
+          }
+        ]
+      },
+      "probe": {
+        "cpu_percent": 57.6778439360702,
+        "sample_span_seconds": 63.82,
+        "samples": 12,
+        "pid": 150,
+        "sampled_hwm_kib": 7980,
+        "threads": [
+          {
+            "tid": 150,
+            "cpu_percent": 25.289877781259793,
+            "sample_span_seconds": 63.82,
+            "samples": 12
+          },
+          {
+            "tid": 154,
+            "cpu_percent": 32.340958947038544,
+            "sample_span_seconds": 63.82,
+            "samples": 12
+          }
+        ]
+      }
+    },
+    "broker_drop_log_lines": 1
+  },
+  {
+    "profile": "cpu4",
+    "result_path": "cpu4/guest-results/pipeline-results/rate-4000-qos-1-observe-1-window-20/result.json",
+    "config": {
+      "workers": 2,
+      "queue": 1024,
+      "devices": 100,
+      "qemu_vcpus": 4,
+      "qemu_memory_mb": 1024,
+      "variants": "1:1:20"
+    },
+    "result": {
+      "classification": "FAIL",
+      "target_rate": 4000.0,
+      "actual_send_rate": 3999.985502,
+      "receive_rate_during_load": 3552.437124,
+      "final_receive_rate_after_drain": 3706.1699,
+      "throughput_ratio": 0.888109,
+      "duration_seconds": 60.000217,
+      "sent": 240000,
+      "received_at_load_end": 213147,
+      "received": 222371,
+      "lost": 17629,
+      "loss_rate": 0.073454,
+      "malformed": 0,
+      "p50_ms": 1748.9,
+      "p95_ms": 2334.5,
+      "p99_ms": 2455.1,
+      "cpu_percent": 133.634252,
+      "peak_rss_mb": 6.328125,
+      "queue_peak": 39,
+      "rejected": 0,
+      "publish_failures": 0,
+      "process_alive": true
+    },
+    "gateway_metrics": {
+      "enqueued": 240000,
+      "dequeued": 240000,
+      "current_depth": 0,
+      "peak_depth": 39,
+      "rejected": 0,
+      "processing_latency_ms": 0.244278,
+      "published": 240067,
+      "publish_failures": 0,
+      "command_timeouts": 0,
+      "can_errors": 0,
+      "telemetry_qos": 1,
+      "mqtt_max_inflight": 20,
+      "pipeline_metrics_enabled": true,
+      "can_pipeline": {
+        "frames_read": 240000,
+        "parsed": 240000,
+        "rejected_frames": 0,
+        "read_errors": 0,
+        "parse": {
+          "count": 240000,
+          "mean_us": 11.1393,
+          "max_us": 4672.5,
+          "p50_upper_us": 8,
+          "p95_upper_us": 32,
+          "p99_upper_us": 256
+        }
+      },
+      "telemetry_enqueued": 240000,
+      "telemetry_dequeued": 240000,
+      "telemetry_queue_wait": {
+        "count": 240000,
+        "mean_us": 241.472,
+        "max_us": 6601.52,
+        "p50_upper_us": 128,
+        "p95_upper_us": 1024,
+        "p99_upper_us": 4096
+      },
+      "command_queue_wait": {
+        "count": 0,
+        "mean_us": 0,
+        "max_us": 0,
+        "p50_upper_us": 0,
+        "p95_upper_us": 0,
+        "p99_upper_us": 0
+      },
+      "telemetry_worker_before_publish": {
+        "count": 240000,
+        "mean_us": 35.9649,
+        "max_us": 5749.73,
+        "p50_upper_us": 32,
+        "p95_upper_us": 128,
+        "p99_upper_us": 512
+      },
+      "mqtt_pipeline": {
+        "publish_calls": 240067,
+        "publish_accepted": 240067,
+        "publish_api_errors": 0,
+        "puback_received": 181708,
+        "qos0_local_completed": 0,
+        "telemetry_accepted": 240000,
+        "telemetry_puback_received": 181652,
+        "pending_tracked": 1,
+        "pending_peak": 4096,
+        "oldest_pending_us": 1493.71,
+        "tracking_dropped": 58358,
+        "unmatched_callbacks": 58358,
+        "tracking_complete": false,
+        "publish_api": {
+          "count": 240067,
+          "mean_us": 23.6004,
+          "max_us": 6220.45,
+          "p50_upper_us": 8,
+          "p95_upper_us": 128,
+          "p99_upper_us": 512
+        },
+        "telemetry_puback": {
+          "count": 181652,
+          "mean_us": 1049010.0,
+          "max_us": 2239430.0,
+          "p50_upper_us": 2097150.0,
+          "p95_upper_us": 2097150.0,
+          "p99_upper_us": 2239430.0
+        }
+      }
+    },
+    "processes": {
+      "gateway": {
+        "cpu_percent": 140.26606099935108,
+        "sample_span_seconds": 61.64,
+        "samples": 12,
+        "pid": 160,
+        "sampled_hwm_kib": 6480,
+        "threads": [
+          {
+            "tid": 160,
+            "cpu_percent": 0.08111615833874107,
+            "sample_span_seconds": 61.64,
+            "samples": 12
+          },
+          {
+            "tid": 162,
+            "cpu_percent": 58.48475016223232,
+            "sample_span_seconds": 61.64,
+            "samples": 12
+          },
+          {
+            "tid": 163,
+            "cpu_percent": 37.134977287475664,
+            "sample_span_seconds": 61.64,
+            "samples": 12
+          },
+          {
+            "tid": 164,
+            "cpu_percent": 22.144711226476314,
+            "sample_span_seconds": 61.64,
+            "samples": 12
+          },
+          {
+            "tid": 165,
+            "cpu_percent": 21.99870214146658,
+            "sample_span_seconds": 61.64,
+            "samples": 12
+          },
+          {
+            "tid": 166,
+            "cpu_percent": 0.3082414016872161,
+            "sample_span_seconds": 61.64,
+            "samples": 12
+          }
+        ]
+      },
+      "broker": {
+        "cpu_percent": 94.4841012329656,
+        "sample_span_seconds": 61.64,
+        "samples": 12,
+        "pid": 158,
+        "sampled_hwm_kib": 2368,
+        "threads": [
+          {
+            "tid": 158,
+            "cpu_percent": 94.50032446463335,
+            "sample_span_seconds": 61.64,
+            "samples": 12
+          }
+        ]
+      },
+      "probe": {
+        "cpu_percent": 102.62816353017521,
+        "sample_span_seconds": 61.64,
+        "samples": 12,
+        "pid": 169,
+        "sampled_hwm_kib": 7940,
+        "threads": [
+          {
+            "tid": 169,
+            "cpu_percent": 39.16288124594419,
+            "sample_span_seconds": 61.64,
+            "samples": 12
+          },
+          {
+            "tid": 173,
+            "cpu_percent": 63.416612589227775,
+            "sample_span_seconds": 61.64,
+            "samples": 12
+          }
+        ]
+      }
+    },
+    "broker_drop_log_lines": 1
+  },
+  {
+    "profile": "cpu4-workers4",
+    "result_path": "cpu4-workers4/guest-results/pipeline-results/rate-4000-qos-1-observe-1-window-20/result.json",
+    "config": {
+      "workers": 4,
+      "queue": 1024,
+      "devices": 100,
+      "qemu_vcpus": 4,
+      "qemu_memory_mb": 1024,
+      "variants": "1:1:20"
+    },
+    "result": {
+      "classification": "FAIL",
+      "target_rate": 4000.0,
+      "actual_send_rate": 3999.978851,
+      "receive_rate_during_load": 3538.812701,
+      "final_receive_rate_after_drain": 3658.829233,
+      "throughput_ratio": 0.884703,
+      "duration_seconds": 60.000067,
+      "sent": 239999,
+      "received_at_load_end": 212329,
+      "received": 219530,
+      "lost": 20469,
+      "loss_rate": 0.085288,
+      "malformed": 0,
+      "p50_ms": 1156.1,
+      "p95_ms": 1766.1,
+      "p99_ms": 1841.8,
+      "cpu_percent": 139.754895,
+      "peak_rss_mb": 5.304688,
+      "queue_peak": 42,
+      "rejected": 0,
+      "publish_failures": 0,
+      "process_alive": true
+    },
+    "gateway_metrics": {
+      "enqueued": 239999,
+      "dequeued": 239999,
+      "current_depth": 0,
+      "peak_depth": 42,
+      "rejected": 0,
+      "processing_latency_ms": 0.247361,
+      "published": 240066,
+      "publish_failures": 0,
+      "command_timeouts": 0,
+      "can_errors": 0,
+      "telemetry_qos": 1,
+      "mqtt_max_inflight": 20,
+      "pipeline_metrics_enabled": true,
+      "can_pipeline": {
+        "frames_read": 239999,
+        "parsed": 239999,
+        "rejected_frames": 0,
+        "read_errors": 0,
+        "parse": {
+          "count": 239999,
+          "mean_us": 10.6343,
+          "max_us": 2997.47,
+          "p50_upper_us": 8,
+          "p95_upper_us": 32,
+          "p99_upper_us": 256
+        }
+      },
+      "telemetry_enqueued": 239999,
+      "telemetry_dequeued": 239999,
+      "telemetry_queue_wait": {
+        "count": 239999,
+        "mean_us": 243.894,
+        "max_us": 6970.21,
+        "p50_upper_us": 256,
+        "p95_upper_us": 1024,
+        "p99_upper_us": 4096
+      },
+      "command_queue_wait": {
+        "count": 0,
+        "mean_us": 0,
+        "max_us": 0,
+        "p50_upper_us": 0,
+        "p95_upper_us": 0,
+        "p99_upper_us": 0
+      },
+      "telemetry_worker_before_publish": {
+        "count": 239999,
+        "mean_us": 45.4916,
+        "max_us": 6294.03,
+        "p50_upper_us": 32,
+        "p95_upper_us": 128,
+        "p99_upper_us": 512
+      },
+      "mqtt_pipeline": {
+        "publish_calls": 240066,
+        "publish_accepted": 240066,
+        "publish_api_errors": 0,
+        "puback_received": 219403,
+        "qos0_local_completed": 0,
+        "telemetry_accepted": 239999,
+        "telemetry_puback_received": 219340,
+        "pending_tracked": 1,
+        "pending_peak": 4096,
+        "oldest_pending_us": 1454.42,
+        "tracking_dropped": 20662,
+        "unmatched_callbacks": 20662,
+        "tracking_complete": false,
+        "publish_api": {
+          "count": 240066,
+          "mean_us": 24.6361,
+          "max_us": 6396.94,
+          "p50_upper_us": 16,
+          "p95_upper_us": 128,
+          "p99_upper_us": 512
+        },
+        "telemetry_puback": {
+          "count": 219340,
+          "mean_us": 742015,
+          "max_us": 1615680.0,
+          "p50_upper_us": 1048580.0,
+          "p95_upper_us": 1615680.0,
+          "p99_upper_us": 1615680.0
+        }
+      }
+    },
+    "processes": {
+      "gateway": {
+        "cpu_percent": 145.16541473549626,
+        "sample_span_seconds": 62.56999999999999,
+        "samples": 12,
+        "pid": 159,
+        "sampled_hwm_kib": 5432,
+        "threads": [
+          {
+            "tid": 159,
+            "cpu_percent": 0.06392840019178521,
+            "sample_span_seconds": 62.56999999999999,
+            "samples": 12
+          },
+          {
+            "tid": 161,
+            "cpu_percent": 56.96020457088062,
+            "sample_span_seconds": 62.56999999999999,
+            "samples": 12
+          },
+          {
+            "tid": 162,
+            "cpu_percent": 36.95061531085185,
+            "sample_span_seconds": 62.56999999999999,
+            "samples": 12
+          },
+          {
+            "tid": 163,
+            "cpu_percent": 12.945501038836504,
+            "sample_span_seconds": 62.56999999999999,
+            "samples": 12
+          },
+          {
+            "tid": 164,
+            "cpu_percent": 12.545948537637846,
+            "sample_span_seconds": 62.56999999999999,
+            "samples": 12
+          },
+          {
+            "tid": 165,
+            "cpu_percent": 12.83362633850088,
+            "sample_span_seconds": 62.56999999999999,
+            "samples": 12
+          },
+          {
+            "tid": 166,
+            "cpu_percent": 12.306217036918653,
+            "sample_span_seconds": 62.56999999999999,
+            "samples": 12
+          },
+          {
+            "tid": 167,
+            "cpu_percent": 0.31964200095892603,
+            "sample_span_seconds": 62.56999999999999,
+            "samples": 12
+          }
+        ]
+      },
+      "broker": {
+        "cpu_percent": 89.33993926801983,
+        "sample_span_seconds": 62.56999999999999,
+        "samples": 12,
+        "pid": 157,
+        "sampled_hwm_kib": 2288,
+        "threads": [
+          {
+            "tid": 157,
+            "cpu_percent": 89.21208246763625,
+            "sample_span_seconds": 62.56999999999999,
+            "samples": 12
+          }
+        ]
+      },
+      "probe": {
+        "cpu_percent": 101.66213840498642,
+        "sample_span_seconds": 62.56999999999999,
+        "samples": 12,
+        "pid": 170,
+        "sampled_hwm_kib": 7760,
+        "threads": [
+          {
+            "tid": 170,
+            "cpu_percent": 38.11730861435193,
+            "sample_span_seconds": 62.56999999999999,
+            "samples": 12
+          },
+          {
+            "tid": 174,
+            "cpu_percent": 63.400990890202976,
+            "sample_span_seconds": 62.56999999999999,
+            "samples": 12
+          }
+        ]
+      }
+    },
+    "broker_drop_log_lines": 1
+  },
+  {
+    "profile": "devices10",
+    "result_path": "devices10/guest-results/pipeline-results/rate-4000-qos-1-observe-1-window-20/result.json",
+    "config": {
+      "workers": 2,
+      "queue": 1024,
+      "devices": 10,
+      "qemu_vcpus": 2,
+      "qemu_memory_mb": 1024,
+      "variants": "1:1:20"
+    },
+    "result": {
+      "classification": "FAIL",
+      "target_rate": 4000.0,
+      "actual_send_rate": 3999.991291,
+      "receive_rate_during_load": 3300.359481,
+      "final_receive_rate_after_drain": 3778.025107,
+      "throughput_ratio": 0.82509,
+      "duration_seconds": 60.000131,
+      "sent": 240000,
+      "received_at_load_end": 198022,
+      "received": 226682,
+      "lost": 13318,
+      "loss_rate": 0.055492,
+      "malformed": 0,
+      "p50_ms": 6778.9,
+      "p95_ms": 10079.9,
+      "p99_ms": 10413.0,
+      "cpu_percent": 80.799511,
+      "peak_rss_mb": 16.242188,
+      "queue_peak": 67,
+      "rejected": 0,
+      "publish_failures": 0,
+      "process_alive": true
+    },
+    "gateway_metrics": {
+      "enqueued": 240000,
+      "dequeued": 240000,
+      "current_depth": 0,
+      "peak_depth": 67,
+      "rejected": 0,
+      "processing_latency_ms": 0.278858,
+      "published": 240067,
+      "publish_failures": 0,
+      "command_timeouts": 0,
+      "can_errors": 0,
+      "telemetry_qos": 1,
+      "mqtt_max_inflight": 20,
+      "pipeline_metrics_enabled": true,
+      "can_pipeline": {
+        "frames_read": 240000,
+        "parsed": 240000,
+        "rejected_frames": 0,
+        "read_errors": 0,
+        "parse": {
+          "count": 240000,
+          "mean_us": 6.88498,
+          "max_us": 5735.6,
+          "p50_upper_us": 4,
+          "p95_upper_us": 16,
+          "p99_upper_us": 128
+        }
+      },
+      "telemetry_enqueued": 240000,
+      "telemetry_dequeued": 240000,
+      "telemetry_queue_wait": {
+        "count": 240000,
+        "mean_us": 277.014,
+        "max_us": 7590.86,
+        "p50_upper_us": 256,
+        "p95_upper_us": 1024,
+        "p99_upper_us": 2048
+      },
+      "command_queue_wait": {
+        "count": 0,
+        "mean_us": 0,
+        "max_us": 0,
+        "p50_upper_us": 0,
+        "p95_upper_us": 0,
+        "p99_upper_us": 0
+      },
+      "telemetry_worker_before_publish": {
+        "count": 240000,
+        "mean_us": 32.0898,
+        "max_us": 14533.3,
+        "p50_upper_us": 32,
+        "p95_upper_us": 128,
+        "p99_upper_us": 256
+      },
+      "mqtt_pipeline": {
+        "publish_calls": 240067,
+        "publish_accepted": 240067,
+        "publish_api_errors": 0,
+        "puback_received": 75748,
+        "qos0_local_completed": 0,
+        "telemetry_accepted": 240000,
+        "telemetry_puback_received": 75725,
+        "pending_tracked": 583,
+        "pending_peak": 4096,
+        "oldest_pending_us": 7129340.0,
+        "tracking_dropped": 163736,
+        "unmatched_callbacks": 154056,
+        "tracking_complete": false,
+        "publish_api": {
+          "count": 240067,
+          "mean_us": 15.6639,
+          "max_us": 7819.33,
+          "p50_upper_us": 8,
+          "p95_upper_us": 64,
+          "p99_upper_us": 256
+        },
+        "telemetry_puback": {
+          "count": 75725,
+          "mean_us": 3192350.0,
+          "max_us": 10483400.0,
+          "p50_upper_us": 2097150.0,
+          "p95_upper_us": 10483400.0,
+          "p99_upper_us": 10483400.0
+        }
+      }
+    },
+    "processes": {
+      "gateway": {
+        "cpu_percent": 81.17154811715481,
+        "sample_span_seconds": 64.53,
+        "samples": 12,
+        "pid": 143,
+        "sampled_hwm_kib": 16632,
+        "threads": [
+          {
+            "tid": 143,
+            "cpu_percent": 0.07748334108166743,
+            "sample_span_seconds": 64.53,
+            "samples": 12
+          },
+          {
+            "tid": 145,
+            "cpu_percent": 28.83929955059662,
+            "sample_span_seconds": 64.53,
+            "samples": 12
+          },
+          {
+            "tid": 146,
+            "cpu_percent": 24.004339067100574,
+            "sample_span_seconds": 64.53,
+            "samples": 12
+          },
+          {
+            "tid": 147,
+            "cpu_percent": 14.070974740430808,
+            "sample_span_seconds": 64.53,
+            "samples": 12
+          },
+          {
+            "tid": 148,
+            "cpu_percent": 13.869518053618473,
+            "sample_span_seconds": 64.53,
+            "samples": 12
+          },
+          {
+            "tid": 149,
+            "cpu_percent": 0.2789400278940028,
+            "sample_span_seconds": 64.53,
+            "samples": 12
+          }
+        ]
+      },
+      "broker": {
+        "cpu_percent": 49.186424918642494,
+        "sample_span_seconds": 64.53,
+        "samples": 12,
+        "pid": 141,
+        "sampled_hwm_kib": 2336,
+        "threads": [
+          {
+            "tid": 141,
+            "cpu_percent": 49.17092825042616,
+            "sample_span_seconds": 64.53,
+            "samples": 12
+          }
+        ]
+      },
+      "probe": {
+        "cpu_percent": 56.70230900356423,
+        "sample_span_seconds": 64.53,
+        "samples": 12,
+        "pid": 151,
+        "sampled_hwm_kib": 7800,
+        "threads": [
+          {
+            "tid": 151,
+            "cpu_percent": 26.654269332093598,
+            "sample_span_seconds": 64.53,
+            "samples": 12
+          },
+          {
+            "tid": 155,
+            "cpu_percent": 29.9860529986053,
+            "sample_span_seconds": 64.53,
+            "samples": 12
+          }
+        ]
+      }
+    },
+    "broker_drop_log_lines": 1
+  },
+  {
+    "profile": "devices1000",
+    "result_path": "devices1000/guest-results/pipeline-results/rate-4000-qos-1-observe-1-window-20/result.json",
+    "config": {
+      "workers": 2,
+      "queue": 1024,
+      "devices": 1000,
+      "qemu_vcpus": 2,
+      "qemu_memory_mb": 1024,
+      "variants": "1:1:20"
+    },
+    "result": {
+      "classification": "FAIL",
+      "target_rate": 4000.0,
+      "actual_send_rate": 3999.998753,
+      "receive_rate_during_load": 3310.548968,
+      "final_receive_rate_after_drain": 3739.465501,
+      "throughput_ratio": 0.827637,
+      "duration_seconds": 60.000019,
+      "sent": 240000,
+      "received_at_load_end": 198633,
+      "received": 224368,
+      "lost": 15632,
+      "loss_rate": 0.065133,
+      "malformed": 0,
+      "p50_ms": 6338.4,
+      "p95_ms": 9915.2,
+      "p99_ms": 10175.6,
+      "cpu_percent": 81.330469,
+      "peak_rss_mb": 16.507812,
+      "queue_peak": 56,
+      "rejected": 0,
+      "publish_failures": 0,
+      "process_alive": true
+    },
+    "gateway_metrics": {
+      "enqueued": 240000,
+      "dequeued": 240000,
+      "current_depth": 0,
+      "peak_depth": 56,
+      "rejected": 0,
+      "processing_latency_ms": 0.274311,
+      "published": 240067,
+      "publish_failures": 0,
+      "command_timeouts": 0,
+      "can_errors": 0,
+      "telemetry_qos": 1,
+      "mqtt_max_inflight": 20,
+      "pipeline_metrics_enabled": true,
+      "can_pipeline": {
+        "frames_read": 240000,
+        "parsed": 240000,
+        "rejected_frames": 0,
+        "read_errors": 0,
+        "parse": {
+          "count": 240000,
+          "mean_us": 7.25351,
+          "max_us": 5044.53,
+          "p50_upper_us": 4,
+          "p95_upper_us": 16,
+          "p99_upper_us": 128
+        }
+      },
+      "telemetry_enqueued": 240000,
+      "telemetry_dequeued": 240000,
+      "telemetry_queue_wait": {
+        "count": 240000,
+        "mean_us": 272.487,
+        "max_us": 8544.38,
+        "p50_upper_us": 256,
+        "p95_upper_us": 1024,
+        "p99_upper_us": 4096
+      },
+      "command_queue_wait": {
+        "count": 0,
+        "mean_us": 0,
+        "max_us": 0,
+        "p50_upper_us": 0,
+        "p95_upper_us": 0,
+        "p99_upper_us": 0
+      },
+      "telemetry_worker_before_publish": {
+        "count": 240000,
+        "mean_us": 35.2423,
+        "max_us": 6692.45,
+        "p50_upper_us": 32,
+        "p95_upper_us": 128,
+        "p99_upper_us": 256
+      },
+      "mqtt_pipeline": {
+        "publish_calls": 240067,
+        "publish_accepted": 240067,
+        "publish_api_errors": 0,
+        "puback_received": 67278,
+        "qos0_local_completed": 0,
+        "telemetry_accepted": 240000,
+        "telemetry_puback_received": 67261,
+        "pending_tracked": 1011,
+        "pending_peak": 4096,
+        "oldest_pending_us": 7796370.0,
+        "tracking_dropped": 171778,
+        "unmatched_callbacks": 160919,
+        "tracking_complete": false,
+        "publish_api": {
+          "count": 240067,
+          "mean_us": 15.674,
+          "max_us": 7448.19,
+          "p50_upper_us": 8,
+          "p95_upper_us": 64,
+          "p99_upper_us": 256
+        },
+        "telemetry_puback": {
+          "count": 67261,
+          "mean_us": 3562670.0,
+          "max_us": 10198500.0,
+          "p50_upper_us": 4194300.0,
+          "p95_upper_us": 10198500.0,
+          "p99_upper_us": 10198500.0
+        }
+      }
+    },
+    "processes": {
+      "gateway": {
+        "cpu_percent": 82.01843461959068,
+        "sample_span_seconds": 64.01,
+        "samples": 12,
+        "pid": 142,
+        "sampled_hwm_kib": 16904,
+        "threads": [
+          {
+            "tid": 142,
+            "cpu_percent": 0.04686767692548039,
+            "sample_span_seconds": 64.01,
+            "samples": 12
+          },
+          {
+            "tid": 144,
+            "cpu_percent": 27.448836119356347,
+            "sample_span_seconds": 64.01,
+            "samples": 12
+          },
+          {
+            "tid": 145,
+            "cpu_percent": 24.589907826902046,
+            "sample_span_seconds": 64.01,
+            "samples": 12
+          },
+          {
+            "tid": 146,
+            "cpu_percent": 14.56022496484924,
+            "sample_span_seconds": 64.01,
+            "samples": 12
+          },
+          {
+            "tid": 147,
+            "cpu_percent": 14.982034057178565,
+            "sample_span_seconds": 64.01,
+            "samples": 12
+          },
+          {
+            "tid": 148,
+            "cpu_percent": 0.2968286205280425,
+            "sample_span_seconds": 64.01,
+            "samples": 12
+          }
+        ]
+      },
+      "broker": {
+        "cpu_percent": 48.28932979221996,
+        "sample_span_seconds": 64.01,
+        "samples": 12,
+        "pid": 140,
+        "sampled_hwm_kib": 2356,
+        "threads": [
+          {
+            "tid": 140,
+            "cpu_percent": 48.30495235119512,
+            "sample_span_seconds": 64.01,
+            "samples": 12
+          }
+        ]
+      },
+      "probe": {
+        "cpu_percent": 57.03796281830964,
+        "sample_span_seconds": 64.01,
+        "samples": 12,
+        "pid": 150,
+        "sampled_hwm_kib": 7940,
+        "threads": [
+          {
+            "tid": 150,
+            "cpu_percent": 26.30838931416966,
+            "sample_span_seconds": 64.01,
+            "samples": 12
+          },
+          {
+            "tid": 154,
+            "cpu_percent": 30.698328386189655,
+            "sample_span_seconds": 64.01,
+            "samples": 12
+          }
+        ]
+      }
+    },
+    "broker_drop_log_lines": 1
+  },
+  {
+    "profile": "memory2048",
+    "result_path": "memory2048/guest-results/pipeline-results/rate-4000-qos-1-observe-1-window-20/result.json",
+    "config": {
+      "workers": 2,
+      "queue": 1024,
+      "devices": 100,
+      "qemu_vcpus": 2,
+      "qemu_memory_mb": 2048,
+      "variants": "1:1:20"
+    },
+    "result": {
+      "classification": "FAIL",
+      "target_rate": 4000.0,
+      "actual_send_rate": 3999.989145,
+      "receive_rate_during_load": 3195.441328,
+      "final_receive_rate_after_drain": 3698.673296,
+      "throughput_ratio": 0.79886,
+      "duration_seconds": 60.000163,
+      "sent": 240000,
+      "received_at_load_end": 191727,
+      "received": 221921,
+      "lost": 18079,
+      "loss_rate": 0.075329,
+      "malformed": 0,
+      "p50_ms": 7032.0,
+      "p95_ms": 11308.5,
+      "p99_ms": 11717.8,
+      "cpu_percent": 79.576039,
+      "peak_rss_mb": 17.894531,
+      "queue_peak": 101,
+      "rejected": 0,
+      "publish_failures": 0,
+      "process_alive": true
+    },
+    "gateway_metrics": {
+      "enqueued": 240000,
+      "dequeued": 240000,
+      "current_depth": 0,
+      "peak_depth": 101,
+      "rejected": 0,
+      "processing_latency_ms": 0.301457,
+      "published": 240067,
+      "publish_failures": 0,
+      "command_timeouts": 0,
+      "can_errors": 0,
+      "telemetry_qos": 1,
+      "mqtt_max_inflight": 20,
+      "pipeline_metrics_enabled": true,
+      "can_pipeline": {
+        "frames_read": 240000,
+        "parsed": 240000,
+        "rejected_frames": 0,
+        "read_errors": 0,
+        "parse": {
+          "count": 240000,
+          "mean_us": 7.06565,
+          "max_us": 5360.03,
+          "p50_upper_us": 4,
+          "p95_upper_us": 16,
+          "p99_upper_us": 128
+        }
+      },
+      "telemetry_enqueued": 240000,
+      "telemetry_dequeued": 240000,
+      "telemetry_queue_wait": {
+        "count": 240000,
+        "mean_us": 299.664,
+        "max_us": 23329.1,
+        "p50_upper_us": 256,
+        "p95_upper_us": 2048,
+        "p99_upper_us": 4096
+      },
+      "command_queue_wait": {
+        "count": 0,
+        "mean_us": 0,
+        "max_us": 0,
+        "p50_upper_us": 0,
+        "p95_upper_us": 0,
+        "p99_upper_us": 0
+      },
+      "telemetry_worker_before_publish": {
+        "count": 240000,
+        "mean_us": 34.6508,
+        "max_us": 5669.28,
+        "p50_upper_us": 32,
+        "p95_upper_us": 128,
+        "p99_upper_us": 256
+      },
+      "mqtt_pipeline": {
+        "publish_calls": 240067,
+        "publish_accepted": 240067,
+        "publish_api_errors": 0,
+        "puback_received": 65361,
+        "qos0_local_completed": 0,
+        "telemetry_accepted": 240000,
+        "telemetry_puback_received": 65336,
+        "pending_tracked": 2099,
+        "pending_peak": 4096,
+        "oldest_pending_us": 8415490.0,
+        "tracking_dropped": 172607,
+        "unmatched_callbacks": 159852,
+        "tracking_complete": false,
+        "publish_api": {
+          "count": 240067,
+          "mean_us": 15.6433,
+          "max_us": 7831.17,
+          "p50_upper_us": 8,
+          "p95_upper_us": 64,
+          "p99_upper_us": 256
+        },
+        "telemetry_puback": {
+          "count": 65336,
+          "mean_us": 3674260.0,
+          "max_us": 11813800.0,
+          "p50_upper_us": 4194300.0,
+          "p95_upper_us": 11813800.0,
+          "p99_upper_us": 11813800.0
+        }
+      }
+    },
+    "processes": {
+      "gateway": {
+        "cpu_percent": 80.00310510790248,
+        "sample_span_seconds": 64.41000000000001,
+        "samples": 12,
+        "pid": 142,
+        "sampled_hwm_kib": 18324,
+        "threads": [
+          {
+            "tid": 142,
+            "cpu_percent": 0.04657661853749417,
+            "sample_span_seconds": 64.41000000000001,
+            "samples": 12
+          },
+          {
+            "tid": 144,
+            "cpu_percent": 28.706722558608906,
+            "sample_span_seconds": 64.41000000000001,
+            "samples": 12
+          },
+          {
+            "tid": 145,
+            "cpu_percent": 22.884645241422135,
+            "sample_span_seconds": 64.41000000000001,
+            "samples": 12
+          },
+          {
+            "tid": 146,
+            "cpu_percent": 13.786679087098275,
+            "sample_span_seconds": 64.41000000000001,
+            "samples": 12
+          },
+          {
+            "tid": 147,
+            "cpu_percent": 14.112715416860734,
+            "sample_span_seconds": 64.41000000000001,
+            "samples": 12
+          },
+          {
+            "tid": 148,
+            "cpu_percent": 0.29498525073746307,
+            "sample_span_seconds": 64.41000000000001,
+            "samples": 12
+          }
+        ]
+      },
+      "broker": {
+        "cpu_percent": 49.883558453656256,
+        "sample_span_seconds": 64.41000000000001,
+        "samples": 12,
+        "pid": 140,
+        "sampled_hwm_kib": 2420,
+        "threads": [
+          {
+            "tid": 140,
+            "cpu_percent": 49.83698183511876,
+            "sample_span_seconds": 64.41000000000001,
+            "samples": 12
+          }
+        ]
+      },
+      "probe": {
+        "cpu_percent": 56.57506598354292,
+        "sample_span_seconds": 64.41000000000001,
+        "samples": 12,
+        "pid": 150,
+        "sampled_hwm_kib": 7924,
+        "threads": [
+          {
+            "tid": 150,
+            "cpu_percent": 26.22263623660922,
+            "sample_span_seconds": 64.41000000000001,
+            "samples": 12
+          },
+          {
+            "tid": 154,
+            "cpu_percent": 30.29032758888371,
+            "sample_span_seconds": 64.41000000000001,
+            "samples": 12
+          }
+        ]
+      }
+    },
+    "broker_drop_log_lines": 1
+  },
+  {
+    "profile": "memory512",
+    "result_path": "memory512/guest-results/pipeline-results/rate-4000-qos-1-observe-1-window-20/result.json",
+    "config": {
+      "workers": 2,
+      "queue": 1024,
+      "devices": 100,
+      "qemu_vcpus": 2,
+      "qemu_memory_mb": 512,
+      "variants": "1:1:20"
+    },
+    "result": {
+      "classification": "FAIL",
+      "target_rate": 4000.0,
+      "actual_send_rate": 3999.698986,
+      "receive_rate_during_load": 3190.719605,
+      "final_receive_rate_after_drain": 3686.530086,
+      "throughput_ratio": 0.79768,
+      "duration_seconds": 60.002765,
+      "sent": 239993,
+      "received_at_load_end": 191452,
+      "received": 221202,
+      "lost": 18791,
+      "loss_rate": 0.078298,
+      "malformed": 0,
+      "p50_ms": 7330.0,
+      "p95_ms": 11426.4,
+      "p99_ms": 11806.6,
+      "cpu_percent": 79.774688,
+      "peak_rss_mb": 17.800781,
+      "queue_peak": 75,
+      "rejected": 0,
+      "publish_failures": 0,
+      "process_alive": true
+    },
+    "gateway_metrics": {
+      "enqueued": 239993,
+      "dequeued": 239993,
+      "current_depth": 0,
+      "peak_depth": 75,
+      "rejected": 0,
+      "processing_latency_ms": 0.312349,
+      "published": 240060,
+      "publish_failures": 0,
+      "command_timeouts": 0,
+      "can_errors": 0,
+      "telemetry_qos": 1,
+      "mqtt_max_inflight": 20,
+      "pipeline_metrics_enabled": true,
+      "can_pipeline": {
+        "frames_read": 239993,
+        "parsed": 239993,
+        "rejected_frames": 0,
+        "read_errors": 0,
+        "parse": {
+          "count": 239993,
+          "mean_us": 7.75597,
+          "max_us": 5661.76,
+          "p50_upper_us": 4,
+          "p95_upper_us": 16,
+          "p99_upper_us": 128
+        }
+      },
+      "telemetry_enqueued": 239993,
+      "telemetry_dequeued": 239993,
+      "telemetry_queue_wait": {
+        "count": 239993,
+        "mean_us": 310.544,
+        "max_us": 11761.8,
+        "p50_upper_us": 256,
+        "p95_upper_us": 2048,
+        "p99_upper_us": 4096
+      },
+      "command_queue_wait": {
+        "count": 0,
+        "mean_us": 0,
+        "max_us": 0,
+        "p50_upper_us": 0,
+        "p95_upper_us": 0,
+        "p99_upper_us": 0
+      },
+      "telemetry_worker_before_publish": {
+        "count": 239993,
+        "mean_us": 31.1469,
+        "max_us": 14290.8,
+        "p50_upper_us": 32,
+        "p95_upper_us": 128,
+        "p99_upper_us": 256
+      },
+      "mqtt_pipeline": {
+        "publish_calls": 240060,
+        "publish_accepted": 240060,
+        "publish_api_errors": 0,
+        "puback_received": 61169,
+        "qos0_local_completed": 0,
+        "telemetry_accepted": 239993,
+        "telemetry_puback_received": 61150,
+        "pending_tracked": 1442,
+        "pending_peak": 4096,
+        "oldest_pending_us": 8438260.0,
+        "tracking_dropped": 177449,
+        "unmatched_callbacks": 164130,
+        "tracking_complete": false,
+        "publish_api": {
+          "count": 240060,
+          "mean_us": 15.9,
+          "max_us": 10532,
+          "p50_upper_us": 8,
+          "p95_upper_us": 64,
+          "p99_upper_us": 256
+        },
+        "telemetry_puback": {
+          "count": 61150,
+          "mean_us": 3922160.0,
+          "max_us": 11818800.0,
+          "p50_upper_us": 4194300.0,
+          "p95_upper_us": 11818800.0,
+          "p99_upper_us": 11818800.0
+        }
+      }
+    },
+    "processes": {
+      "gateway": {
+        "cpu_percent": 80.38725796377264,
+        "sample_span_seconds": 64.04,
+        "samples": 12,
+        "pid": 141,
+        "sampled_hwm_kib": 18228,
+        "threads": [
+          {
+            "tid": 141,
+            "cpu_percent": 0.062460961898813235,
+            "sample_span_seconds": 64.04,
+            "samples": 12
+          },
+          {
+            "tid": 143,
+            "cpu_percent": 28.232354778263584,
+            "sample_span_seconds": 64.04,
+            "samples": 12
+          },
+          {
+            "tid": 144,
+            "cpu_percent": 24.094316052467207,
+            "sample_span_seconds": 64.04,
+            "samples": 12
+          },
+          {
+            "tid": 145,
+            "cpu_percent": 13.850718301061836,
+            "sample_span_seconds": 64.04,
+            "samples": 12
+          },
+          {
+            "tid": 146,
+            "cpu_percent": 13.803872579637725,
+            "sample_span_seconds": 64.04,
+            "samples": 12
+          },
+          {
+            "tid": 147,
+            "cpu_percent": 0.2966895690193629,
+            "sample_span_seconds": 64.04,
+            "samples": 12
+          }
+        ]
+      },
+      "broker": {
+        "cpu_percent": 49.562773266708305,
+        "sample_span_seconds": 64.04,
+        "samples": 12,
+        "pid": 139,
+        "sampled_hwm_kib": 2488,
+        "threads": [
+          {
+            "tid": 139,
+            "cpu_percent": 49.562773266708305,
+            "sample_span_seconds": 64.04,
+            "samples": 12
+          }
+        ]
+      },
+      "probe": {
+        "cpu_percent": 57.229856339787624,
+        "sample_span_seconds": 64.04,
+        "samples": 12,
+        "pid": 149,
+        "sampled_hwm_kib": 7996,
+        "threads": [
+          {
+            "tid": 149,
+            "cpu_percent": 26.53029356652092,
+            "sample_span_seconds": 64.04,
+            "samples": 12
+          },
+          {
+            "tid": 153,
+            "cpu_percent": 30.652717051842597,
+            "sample_span_seconds": 64.04,
+            "samples": 12
+          }
+        ]
+      }
+    },
+    "broker_drop_log_lines": 1
+  },
+  {
+    "profile": "queue256",
+    "result_path": "queue256/guest-results/pipeline-results/rate-4000-qos-1-observe-1-window-20/result.json",
+    "config": {
+      "workers": 2,
+      "queue": 256,
+      "devices": 100,
+      "qemu_vcpus": 2,
+      "qemu_memory_mb": 1024,
+      "variants": "1:1:20"
+    },
+    "result": {
+      "classification": "FAIL",
+      "target_rate": 4000.0,
+      "actual_send_rate": 3999.71032,
+      "receive_rate_during_load": 3492.50104,
+      "final_receive_rate_after_drain": 3880.965951,
+      "throughput_ratio": 0.873125,
+      "duration_seconds": 60.002845,
+      "sent": 239994,
+      "received_at_load_end": 209560,
+      "received": 232869,
+      "lost": 7125,
+      "loss_rate": 0.029688,
+      "malformed": 0,
+      "p50_ms": 4413.2,
+      "p95_ms": 7340.5,
+      "p99_ms": 7485.7,
+      "cpu_percent": 78.01892,
+      "peak_rss_mb": 12.21875,
+      "queue_peak": 53,
+      "rejected": 0,
+      "publish_failures": 0,
+      "process_alive": true
+    },
+    "gateway_metrics": {
+      "enqueued": 239994,
+      "dequeued": 239994,
+      "current_depth": 0,
+      "peak_depth": 53,
+      "rejected": 0,
+      "processing_latency_ms": 0.295792,
+      "published": 240061,
+      "publish_failures": 0,
+      "command_timeouts": 0,
+      "can_errors": 0,
+      "telemetry_qos": 1,
+      "mqtt_max_inflight": 20,
+      "pipeline_metrics_enabled": true,
+      "can_pipeline": {
+        "frames_read": 239994,
+        "parsed": 239994,
+        "rejected_frames": 0,
+        "read_errors": 0,
+        "parse": {
+          "count": 239994,
+          "mean_us": 7.02278,
+          "max_us": 5390.7,
+          "p50_upper_us": 4,
+          "p95_upper_us": 16,
+          "p99_upper_us": 128
+        }
+      },
+      "telemetry_enqueued": 239994,
+      "telemetry_dequeued": 239994,
+      "telemetry_queue_wait": {
+        "count": 239994,
+        "mean_us": 294.083,
+        "max_us": 8261.36,
+        "p50_upper_us": 256,
+        "p95_upper_us": 2048,
+        "p99_upper_us": 4096
+      },
+      "command_queue_wait": {
+        "count": 0,
+        "mean_us": 0,
+        "max_us": 0,
+        "p50_upper_us": 0,
+        "p95_upper_us": 0,
+        "p99_upper_us": 0
+      },
+      "telemetry_worker_before_publish": {
+        "count": 239994,
+        "mean_us": 30.1491,
+        "max_us": 9718.8,
+        "p50_upper_us": 32,
+        "p95_upper_us": 128,
+        "p99_upper_us": 256
+      },
+      "mqtt_pipeline": {
+        "publish_calls": 240061,
+        "publish_accepted": 240061,
+        "publish_api_errors": 0,
+        "puback_received": 86276,
+        "qos0_local_completed": 0,
+        "telemetry_accepted": 239994,
+        "telemetry_puback_received": 86245,
+        "pending_tracked": 1,
+        "pending_peak": 4096,
+        "oldest_pending_us": 664.016,
+        "tracking_dropped": 153784,
+        "unmatched_callbacks": 153784,
+        "tracking_complete": false,
+        "publish_api": {
+          "count": 240061,
+          "mean_us": 13.307,
+          "max_us": 5486.38,
+          "p50_upper_us": 8,
+          "p95_upper_us": 64,
+          "p99_upper_us": 256
+        },
+        "telemetry_puback": {
+          "count": 86245,
+          "mean_us": 2840820.0,
+          "max_us": 7326020.0,
+          "p50_upper_us": 4194300.0,
+          "p95_upper_us": 7326020.0,
+          "p99_upper_us": 7326020.0
+        }
+      }
+    },
+    "processes": {
+      "gateway": {
+        "cpu_percent": 79.7209449817663,
+        "sample_span_seconds": 63.07,
+        "samples": 12,
+        "pid": 142,
+        "sampled_hwm_kib": 12512,
+        "threads": [
+          {
+            "tid": 142,
+            "cpu_percent": 0.06342159505311558,
+            "sample_span_seconds": 63.07,
+            "samples": 12
+          },
+          {
+            "tid": 144,
+            "cpu_percent": 29.395909307119073,
+            "sample_span_seconds": 63.07,
+            "samples": 12
+          },
+          {
+            "tid": 145,
+            "cpu_percent": 23.656254954812113,
+            "sample_span_seconds": 63.07,
+            "samples": 12
+          },
+          {
+            "tid": 146,
+            "cpu_percent": 13.159980973521485,
+            "sample_span_seconds": 63.07,
+            "samples": 12
+          },
+          {
+            "tid": 147,
+            "cpu_percent": 13.112414777231647,
+            "sample_span_seconds": 63.07,
+            "samples": 12
+          },
+          {
+            "tid": 148,
+            "cpu_percent": 0.2853971777390201,
+            "sample_span_seconds": 63.07,
+            "samples": 12
+          }
+        ]
+      },
+      "broker": {
+        "cpu_percent": 49.548121135246554,
+        "sample_span_seconds": 63.07,
+        "samples": 12,
+        "pid": 140,
+        "sampled_hwm_kib": 2296,
+        "threads": [
+          {
+            "tid": 140,
+            "cpu_percent": 49.59568733153639,
+            "sample_span_seconds": 63.07,
+            "samples": 12
+          }
+        ]
+      },
+      "probe": {
+        "cpu_percent": 58.23687965752339,
+        "sample_span_seconds": 63.07,
+        "samples": 12,
+        "pid": 150,
+        "sampled_hwm_kib": 7960,
+        "threads": [
+          {
+            "tid": 150,
+            "cpu_percent": 26.954177897574123,
+            "sample_span_seconds": 63.07,
+            "samples": 12
+          },
+          {
+            "tid": 154,
+            "cpu_percent": 31.29855715871254,
+            "sample_span_seconds": 63.07,
+            "samples": 12
+          }
+        ]
+      }
+    },
+    "broker_drop_log_lines": 1
+  },
+  {
+    "profile": "queue4096",
+    "result_path": "queue4096/guest-results/pipeline-results/rate-4000-qos-1-observe-1-window-20/result.json",
+    "config": {
+      "workers": 2,
+      "queue": 4096,
+      "devices": 100,
+      "qemu_vcpus": 2,
+      "qemu_memory_mb": 1024,
+      "variants": "1:1:20"
+    },
+    "result": {
+      "classification": "FAIL",
+      "target_rate": 4000.0,
+      "actual_send_rate": 3999.838241,
+      "receive_rate_during_load": 3069.471989,
+      "final_receive_rate_after_drain": 3503.789568,
+      "throughput_ratio": 0.767368,
+      "duration_seconds": 60.002176,
+      "sent": 239999,
+      "received_at_load_end": 184175,
+      "received": 210235,
+      "lost": 29764,
+      "loss_rate": 0.124017,
+      "malformed": 0,
+      "p50_ms": 7584.5,
+      "p95_ms": 12965.4,
+      "p99_ms": 13339.1,
+      "cpu_percent": 80.422436,
+      "peak_rss_mb": 19.898438,
+      "queue_peak": 112,
+      "rejected": 0,
+      "publish_failures": 0,
+      "process_alive": true
+    },
+    "gateway_metrics": {
+      "enqueued": 239999,
+      "dequeued": 239999,
+      "current_depth": 0,
+      "peak_depth": 112,
+      "rejected": 0,
+      "processing_latency_ms": 0.274886,
+      "published": 240066,
+      "publish_failures": 0,
+      "command_timeouts": 0,
+      "can_errors": 0,
+      "telemetry_qos": 1,
+      "mqtt_max_inflight": 20,
+      "pipeline_metrics_enabled": true,
+      "can_pipeline": {
+        "frames_read": 239999,
+        "parsed": 239999,
+        "rejected_frames": 0,
+        "read_errors": 0,
+        "parse": {
+          "count": 239999,
+          "mean_us": 7.40942,
+          "max_us": 5102.05,
+          "p50_upper_us": 4,
+          "p95_upper_us": 16,
+          "p99_upper_us": 128
+        }
+      },
+      "telemetry_enqueued": 239999,
+      "telemetry_dequeued": 239999,
+      "telemetry_queue_wait": {
+        "count": 239999,
+        "mean_us": 272.948,
+        "max_us": 27318,
+        "p50_upper_us": 256,
+        "p95_upper_us": 1024,
+        "p99_upper_us": 4096
+      },
+      "command_queue_wait": {
+        "count": 0,
+        "mean_us": 0,
+        "max_us": 0,
+        "p50_upper_us": 0,
+        "p95_upper_us": 0,
+        "p99_upper_us": 0
+      },
+      "telemetry_worker_before_publish": {
+        "count": 239999,
+        "mean_us": 33.4013,
+        "max_us": 6164.98,
+        "p50_upper_us": 32,
+        "p95_upper_us": 128,
+        "p99_upper_us": 256
+      },
+      "mqtt_pipeline": {
+        "publish_calls": 240066,
+        "publish_accepted": 240066,
+        "publish_api_errors": 0,
+        "puback_received": 71504,
+        "qos0_local_completed": 0,
+        "telemetry_accepted": 239999,
+        "telemetry_puback_received": 71482,
+        "pending_tracked": 2032,
+        "pending_peak": 4096,
+        "oldest_pending_us": 11482100.0,
+        "tracking_dropped": 166530,
+        "unmatched_callbacks": 141190,
+        "tracking_complete": false,
+        "publish_api": {
+          "count": 240066,
+          "mean_us": 16.6782,
+          "max_us": 5904.35,
+          "p50_upper_us": 8,
+          "p95_upper_us": 64,
+          "p99_upper_us": 256
+        },
+        "telemetry_puback": {
+          "count": 71482,
+          "mean_us": 3022570.0,
+          "max_us": 13387000.0,
+          "p50_upper_us": 2097150.0,
+          "p95_upper_us": 13387000.0,
+          "p99_upper_us": 13387000.0
+        }
+      }
+    },
+    "processes": {
+      "gateway": {
+        "cpu_percent": 80.94941634241245,
+        "sample_span_seconds": 64.25,
+        "samples": 12,
+        "pid": 142,
+        "sampled_hwm_kib": 20376,
+        "threads": [
+          {
+            "tid": 142,
+            "cpu_percent": 0.0622568093385214,
+            "sample_span_seconds": 64.25,
+            "samples": 12
+          },
+          {
+            "tid": 144,
+            "cpu_percent": 28.747081712062258,
+            "sample_span_seconds": 64.25,
+            "samples": 12
+          },
+          {
+            "tid": 145,
+            "cpu_percent": 23.424124513618676,
+            "sample_span_seconds": 64.25,
+            "samples": 12
+          },
+          {
+            "tid": 146,
+            "cpu_percent": 14.287937743190662,
+            "sample_span_seconds": 64.25,
+            "samples": 12
+          },
+          {
+            "tid": 147,
+            "cpu_percent": 14.101167315175097,
+            "sample_span_seconds": 64.25,
+            "samples": 12
+          },
+          {
+            "tid": 148,
+            "cpu_percent": 0.2801556420233463,
+            "sample_span_seconds": 64.25,
+            "samples": 12
+          }
+        ]
+      },
+      "broker": {
+        "cpu_percent": 49.69649805447471,
+        "sample_span_seconds": 64.25,
+        "samples": 12,
+        "pid": 140,
+        "sampled_hwm_kib": 2412,
+        "threads": [
+          {
+            "tid": 140,
+            "cpu_percent": 49.66536964980545,
+            "sample_span_seconds": 64.25,
+            "samples": 12
+          }
+        ]
+      },
+      "probe": {
+        "cpu_percent": 56.12451361867704,
+        "sample_span_seconds": 64.25,
+        "samples": 12,
+        "pid": 150,
+        "sampled_hwm_kib": 7992,
+        "threads": [
+          {
+            "tid": 150,
+            "cpu_percent": 26.56809338521401,
+            "sample_span_seconds": 64.25,
+            "samples": 12
+          },
+          {
+            "tid": 154,
+            "cpu_percent": 29.509727626459146,
+            "sample_span_seconds": 64.25,
+            "samples": 12
+          }
+        ]
+      }
+    },
+    "broker_drop_log_lines": 1
+  },
+  {
+    "profile": "workers1",
+    "result_path": "workers1/guest-results/pipeline-results/rate-4000-qos-1-observe-1-window-20/result.json",
+    "config": {
+      "workers": 1,
+      "queue": 1024,
+      "devices": 100,
+      "qemu_vcpus": 2,
+      "qemu_memory_mb": 1024,
+      "variants": "1:1:20"
+    },
+    "result": {
+      "classification": "FAIL",
+      "target_rate": 4000.0,
+      "actual_send_rate": 3999.973625,
+      "receive_rate_during_load": 3207.325549,
+      "final_receive_rate_after_drain": 3749.2409,
+      "throughput_ratio": 0.801831,
+      "duration_seconds": 60.000146,
+      "sent": 239999,
+      "received_at_load_end": 192440,
+      "received": 224955,
+      "lost": 15044,
+      "loss_rate": 0.062684,
+      "malformed": 0,
+      "p50_ms": 6130.9,
+      "p95_ms": 10266.7,
+      "p99_ms": 10578.9,
+      "cpu_percent": 76.882236,
+      "peak_rss_mb": 16.519531,
+      "queue_peak": 49,
+      "rejected": 0,
+      "publish_failures": 0,
+      "process_alive": true
+    },
+    "gateway_metrics": {
+      "enqueued": 239999,
+      "dequeued": 239999,
+      "current_depth": 0,
+      "peak_depth": 49,
+      "rejected": 0,
+      "processing_latency_ms": 0.387407,
+      "published": 240066,
+      "publish_failures": 0,
+      "command_timeouts": 0,
+      "can_errors": 0,
+      "telemetry_qos": 1,
+      "mqtt_max_inflight": 20,
+      "pipeline_metrics_enabled": true,
+      "can_pipeline": {
+        "frames_read": 239999,
+        "parsed": 239999,
+        "rejected_frames": 0,
+        "read_errors": 0,
+        "parse": {
+          "count": 239999,
+          "mean_us": 8.56908,
+          "max_us": 4154.14,
+          "p50_upper_us": 8,
+          "p95_upper_us": 16,
+          "p99_upper_us": 256
+        }
+      },
+      "telemetry_enqueued": 239999,
+      "telemetry_dequeued": 239999,
+      "telemetry_queue_wait": {
+        "count": 239999,
+        "mean_us": 385.658,
+        "max_us": 9183.52,
+        "p50_upper_us": 256,
+        "p95_upper_us": 2048,
+        "p99_upper_us": 4096
+      },
+      "command_queue_wait": {
+        "count": 0,
+        "mean_us": 0,
+        "max_us": 0,
+        "p50_upper_us": 0,
+        "p95_upper_us": 0,
+        "p99_upper_us": 0
+      },
+      "telemetry_worker_before_publish": {
+        "count": 239999,
+        "mean_us": 30.0359,
+        "max_us": 8727.68,
+        "p50_upper_us": 32,
+        "p95_upper_us": 128,
+        "p99_upper_us": 256
+      },
+      "mqtt_pipeline": {
+        "publish_calls": 240066,
+        "publish_accepted": 240066,
+        "publish_api_errors": 0,
+        "puback_received": 76656,
+        "qos0_local_completed": 0,
+        "telemetry_accepted": 239999,
+        "telemetry_puback_received": 76632,
+        "pending_tracked": 1003,
+        "pending_peak": 4096,
+        "oldest_pending_us": 7440910.0,
+        "tracking_dropped": 162407,
+        "unmatched_callbacks": 152008,
+        "tracking_complete": false,
+        "publish_api": {
+          "count": 240066,
+          "mean_us": 15.1788,
+          "max_us": 8607.52,
+          "p50_upper_us": 8,
+          "p95_upper_us": 64,
+          "p99_upper_us": 256
+        },
+        "telemetry_puback": {
+          "count": 76632,
+          "mean_us": 3080690.0,
+          "max_us": 10671200.0,
+          "p50_upper_us": 2097150.0,
+          "p95_upper_us": 10671200.0,
+          "p99_upper_us": 10671200.0
+        }
+      }
+    },
+    "processes": {
+      "gateway": {
+        "cpu_percent": 78.13597191190551,
+        "sample_span_seconds": 62.660000000000004,
+        "samples": 12,
+        "pid": 142,
+        "sampled_hwm_kib": 16916,
+        "threads": [
+          {
+            "tid": 142,
+            "cpu_percent": 0.04787743376954995,
+            "sample_span_seconds": 62.660000000000004,
+            "samples": 12
+          },
+          {
+            "tid": 144,
+            "cpu_percent": 28.47111394829237,
+            "sample_span_seconds": 62.660000000000004,
+            "samples": 12
+          },
+          {
+            "tid": 145,
+            "cpu_percent": 25.007979572294925,
+            "sample_span_seconds": 62.660000000000004,
+            "samples": 12
+          },
+          {
+            "tid": 146,
+            "cpu_percent": 24.241940631982125,
+            "sample_span_seconds": 62.660000000000004,
+            "samples": 12
+          },
+          {
+            "tid": 147,
+            "cpu_percent": 0.2872646026172997,
+            "sample_span_seconds": 62.660000000000004,
+            "samples": 12
+          }
+        ]
+      },
+      "broker": {
+        "cpu_percent": 49.88828598787105,
+        "sample_span_seconds": 62.660000000000004,
+        "samples": 12,
+        "pid": 140,
+        "sampled_hwm_kib": 2288,
+        "threads": [
+          {
+            "tid": 140,
+            "cpu_percent": 49.9042451324609,
+            "sample_span_seconds": 62.660000000000004,
+            "samples": 12
+          }
+        ]
+      },
+      "probe": {
+        "cpu_percent": 58.72965209064794,
+        "sample_span_seconds": 62.660000000000004,
+        "samples": 12,
+        "pid": 149,
+        "sampled_hwm_kib": 7988,
+        "threads": [
+          {
+            "tid": 149,
+            "cpu_percent": 29.14139802106607,
+            "sample_span_seconds": 62.660000000000004,
+            "samples": 12
+          },
+          {
+            "tid": 153,
+            "cpu_percent": 29.54037663581232,
+            "sample_span_seconds": 62.660000000000004,
+            "samples": 12
+          }
+        ]
+      }
+    },
+    "broker_drop_log_lines": 1
+  },
+  {
+    "profile": "workers4",
+    "result_path": "workers4/guest-results/pipeline-results/rate-4000-qos-1-observe-1-window-20/result.json",
+    "config": {
+      "workers": 4,
+      "queue": 1024,
+      "devices": 100,
+      "qemu_vcpus": 2,
+      "qemu_memory_mb": 1024,
+      "variants": "1:1:20"
+    },
+    "result": {
+      "classification": "FAIL",
+      "target_rate": 4000.0,
+      "actual_send_rate": 3999.981788,
+      "receive_rate_during_load": 2723.820932,
+      "final_receive_rate_after_drain": 3136.485719,
+      "throughput_ratio": 0.680955,
+      "duration_seconds": 60.000273,
+      "sent": 240000,
+      "received_at_load_end": 163430,
+      "received": 188190,
+      "lost": 51810,
+      "loss_rate": 0.215875,
+      "malformed": 0,
+      "p50_ms": 10760.4,
+      "p95_ms": 18648.2,
+      "p99_ms": 18992.8,
+      "cpu_percent": 85.735092,
+      "peak_rss_mb": 26.828125,
+      "queue_peak": 46,
+      "rejected": 0,
+      "publish_failures": 0,
+      "process_alive": true
+    },
+    "gateway_metrics": {
+      "enqueued": 240000,
+      "dequeued": 240000,
+      "current_depth": 0,
+      "peak_depth": 46,
+      "rejected": 0,
+      "processing_latency_ms": 0.240369,
+      "published": 240067,
+      "publish_failures": 0,
+      "command_timeouts": 0,
+      "can_errors": 0,
+      "telemetry_qos": 1,
+      "mqtt_max_inflight": 20,
+      "pipeline_metrics_enabled": true,
+      "can_pipeline": {
+        "frames_read": 240000,
+        "parsed": 240000,
+        "rejected_frames": 0,
+        "read_errors": 0,
+        "parse": {
+          "count": 240000,
+          "mean_us": 8.50127,
+          "max_us": 4149.58,
+          "p50_upper_us": 8,
+          "p95_upper_us": 16,
+          "p99_upper_us": 256
+        }
+      },
+      "telemetry_enqueued": 240000,
+      "telemetry_dequeued": 240000,
+      "telemetry_queue_wait": {
+        "count": 240000,
+        "mean_us": 238.233,
+        "max_us": 8664.98,
+        "p50_upper_us": 256,
+        "p95_upper_us": 1024,
+        "p99_upper_us": 2048
+      },
+      "command_queue_wait": {
+        "count": 0,
+        "mean_us": 0,
+        "max_us": 0,
+        "p50_upper_us": 0,
+        "p95_upper_us": 0,
+        "p99_upper_us": 0
+      },
+      "telemetry_worker_before_publish": {
+        "count": 240000,
+        "mean_us": 36.1896,
+        "max_us": 5849.2,
+        "p50_upper_us": 32,
+        "p95_upper_us": 128,
+        "p99_upper_us": 256
+      },
+      "mqtt_pipeline": {
+        "publish_calls": 240067,
+        "publish_accepted": 240067,
+        "publish_api_errors": 0,
+        "puback_received": 44790,
+        "qos0_local_completed": 0,
+        "telemetry_accepted": 240000,
+        "telemetry_puback_received": 44777,
+        "pending_tracked": 296,
+        "pending_peak": 4096,
+        "oldest_pending_us": 15935000.0,
+        "tracking_dropped": 194981,
+        "unmatched_callbacks": 150242,
+        "tracking_complete": false,
+        "publish_api": {
+          "count": 240067,
+          "mean_us": 17.1609,
+          "max_us": 6529.36,
+          "p50_upper_us": 8,
+          "p95_upper_us": 64,
+          "p99_upper_us": 256
+        },
+        "telemetry_puback": {
+          "count": 44777,
+          "mean_us": 4308490.0,
+          "max_us": 17783600.0,
+          "p50_upper_us": 4194300.0,
+          "p95_upper_us": 16777200.0,
+          "p99_upper_us": 17783600.0
+        }
+      }
+    },
+    "processes": {
+      "gateway": {
+        "cpu_percent": 89.49579831932773,
+        "sample_span_seconds": 59.5,
+        "samples": 11,
+        "pid": 142,
+        "sampled_hwm_kib": 27216,
+        "threads": [
+          {
+            "tid": 142,
+            "cpu_percent": 0.06722689075630252,
+            "sample_span_seconds": 59.5,
+            "samples": 11
+          },
+          {
+            "tid": 144,
+            "cpu_percent": 25.3781512605042,
+            "sample_span_seconds": 59.5,
+            "samples": 11
+          },
+          {
+            "tid": 145,
+            "cpu_percent": 27.529411764705884,
+            "sample_span_seconds": 59.5,
+            "samples": 11
+          },
+          {
+            "tid": 146,
+            "cpu_percent": 9.126050420168067,
+            "sample_span_seconds": 59.5,
+            "samples": 11
+          },
+          {
+            "tid": 147,
+            "cpu_percent": 9.008403361344538,
+            "sample_span_seconds": 59.5,
+            "samples": 11
+          },
+          {
+            "tid": 148,
+            "cpu_percent": 8.907563025210084,
+            "sample_span_seconds": 59.5,
+            "samples": 11
+          },
+          {
+            "tid": 149,
+            "cpu_percent": 9.260504201680673,
+            "sample_span_seconds": 59.5,
+            "samples": 11
+          },
+          {
+            "tid": 150,
+            "cpu_percent": 0.2857142857142857,
+            "sample_span_seconds": 59.5,
+            "samples": 11
+          }
+        ]
+      },
+      "broker": {
+        "cpu_percent": 43.81512605042017,
+        "sample_span_seconds": 59.5,
+        "samples": 11,
+        "pid": 140,
+        "sampled_hwm_kib": 2376,
+        "threads": [
+          {
+            "tid": 140,
+            "cpu_percent": 43.78151260504202,
+            "sample_span_seconds": 59.5,
+            "samples": 11
+          }
+        ]
+      },
+      "probe": {
+        "cpu_percent": 56.08403361344538,
+        "sample_span_seconds": 59.5,
+        "samples": 11,
+        "pid": 152,
+        "sampled_hwm_kib": 7932,
+        "threads": [
+          {
+            "tid": 152,
+            "cpu_percent": 28.638655462184875,
+            "sample_span_seconds": 59.5,
+            "samples": 11
+          },
+          {
+            "tid": 156,
+            "cpu_percent": 27.3781512605042,
+            "sample_span_seconds": 59.5,
+            "samples": 11
+          }
+        ]
+      }
+    },
+    "broker_drop_log_lines": 1
+  },
+  {
+    "profile": "workers8",
+    "result_path": "workers8/guest-results/pipeline-results/rate-4000-qos-1-observe-1-window-20/result.json",
+    "config": {
+      "workers": 8,
+      "queue": 1024,
+      "devices": 100,
+      "qemu_vcpus": 2,
+      "qemu_memory_mb": 1024,
+      "variants": "1:1:20"
+    },
+    "result": {
+      "classification": "FAIL",
+      "target_rate": 4000.0,
+      "actual_send_rate": 3999.905083,
+      "receive_rate_during_load": 2833.66332,
+      "final_receive_rate_after_drain": 3288.943438,
+      "throughput_ratio": 0.708416,
+      "duration_seconds": 60.000424,
+      "sent": 239996,
+      "received_at_load_end": 170021,
+      "received": 197338,
+      "lost": 42658,
+      "loss_rate": 0.177745,
+      "malformed": 0,
+      "p50_ms": 9621.7,
+      "p95_ms": 16766.6,
+      "p99_ms": 17035.0,
+      "cpu_percent": 83.402944,
+      "peak_rss_mb": 24.433594,
+      "queue_peak": 44,
+      "rejected": 0,
+      "publish_failures": 0,
+      "process_alive": true
+    },
+    "gateway_metrics": {
+      "enqueued": 239996,
+      "dequeued": 239996,
+      "current_depth": 0,
+      "peak_depth": 44,
+      "rejected": 0,
+      "processing_latency_ms": 0.267039,
+      "published": 240063,
+      "publish_failures": 0,
+      "command_timeouts": 0,
+      "can_errors": 0,
+      "telemetry_qos": 1,
+      "mqtt_max_inflight": 20,
+      "pipeline_metrics_enabled": true,
+      "can_pipeline": {
+        "frames_read": 239996,
+        "parsed": 239996,
+        "rejected_frames": 0,
+        "read_errors": 0,
+        "parse": {
+          "count": 239996,
+          "mean_us": 7.88455,
+          "max_us": 5904.34,
+          "p50_upper_us": 4,
+          "p95_upper_us": 16,
+          "p99_upper_us": 128
+        }
+      },
+      "telemetry_enqueued": 239996,
+      "telemetry_dequeued": 239996,
+      "telemetry_queue_wait": {
+        "count": 239996,
+        "mean_us": 264.979,
+        "max_us": 9222.77,
+        "p50_upper_us": 256,
+        "p95_upper_us": 1024,
+        "p99_upper_us": 2048
+      },
+      "command_queue_wait": {
+        "count": 0,
+        "mean_us": 0,
+        "max_us": 0,
+        "p50_upper_us": 0,
+        "p95_upper_us": 0,
+        "p99_upper_us": 0
+      },
+      "telemetry_worker_before_publish": {
+        "count": 239996,
+        "mean_us": 36.1258,
+        "max_us": 11942.2,
+        "p50_upper_us": 32,
+        "p95_upper_us": 128,
+        "p99_upper_us": 512
+      },
+      "mqtt_pipeline": {
+        "publish_calls": 240063,
+        "publish_accepted": 240063,
+        "publish_api_errors": 0,
+        "puback_received": 58234,
+        "qos0_local_completed": 0,
+        "telemetry_accepted": 239996,
+        "telemetry_puback_received": 58215,
+        "pending_tracked": 833,
+        "pending_peak": 4096,
+        "oldest_pending_us": 13678800.0,
+        "tracking_dropped": 180996,
+        "unmatched_callbacks": 145972,
+        "tracking_complete": false,
+        "publish_api": {
+          "count": 240063,
+          "mean_us": 15.975,
+          "max_us": 5909.06,
+          "p50_upper_us": 8,
+          "p95_upper_us": 64,
+          "p99_upper_us": 256
+        },
+        "telemetry_puback": {
+          "count": 58215,
+          "mean_us": 3623630.0,
+          "max_us": 16551200.0,
+          "p50_upper_us": 2097150.0,
+          "p95_upper_us": 16551200.0,
+          "p99_upper_us": 16551200.0
+        }
+      }
+    },
+    "processes": {
+      "gateway": {
+        "cpu_percent": 85.74914592484137,
+        "sample_span_seconds": 61.470000000000006,
+        "samples": 11,
+        "pid": 143,
+        "sampled_hwm_kib": 25020,
+        "threads": [
+          {
+            "tid": 143,
+            "cpu_percent": 0.04880429477794045,
+            "sample_span_seconds": 61.470000000000006,
+            "samples": 11
+          },
+          {
+            "tid": 145,
+            "cpu_percent": 26.744753538311368,
+            "sample_span_seconds": 61.470000000000006,
+            "samples": 11
+          },
+          {
+            "tid": 146,
+            "cpu_percent": 24.46721978200748,
+            "sample_span_seconds": 61.470000000000006,
+            "samples": 11
+          },
+          {
+            "tid": 147,
+            "cpu_percent": 4.164633154384252,
+            "sample_span_seconds": 61.470000000000006,
+            "samples": 11
+          },
+          {
+            "tid": 148,
+            "cpu_percent": 4.245973645680819,
+            "sample_span_seconds": 61.470000000000006,
+            "samples": 11
+          },
+          {
+            "tid": 149,
+            "cpu_percent": 4.180901252643565,
+            "sample_span_seconds": 61.470000000000006,
+            "samples": 11
+          },
+          {
+            "tid": 150,
+            "cpu_percent": 4.376118431755327,
+            "sample_span_seconds": 61.470000000000006,
+            "samples": 11
+          },
+          {
+            "tid": 151,
+            "cpu_percent": 4.376118431755327,
+            "sample_span_seconds": 61.470000000000006,
+            "samples": 11
+          },
+          {
+            "tid": 152,
+            "cpu_percent": 4.278509842199447,
+            "sample_span_seconds": 61.470000000000006,
+            "samples": 11
+          },
+          {
+            "tid": 153,
+            "cpu_percent": 4.245973645680819,
+            "sample_span_seconds": 61.470000000000006,
+            "samples": 11
+          },
+          {
+            "tid": 154,
+            "cpu_percent": 4.197169350902879,
+            "sample_span_seconds": 61.470000000000006,
+            "samples": 11
+          },
+          {
+            "tid": 155,
+            "cpu_percent": 0.2928257686676427,
+            "sample_span_seconds": 61.470000000000006,
+            "samples": 11
+          }
+        ]
+      },
+      "broker": {
+        "cpu_percent": 46.16886285993167,
+        "sample_span_seconds": 61.470000000000006,
+        "samples": 11,
+        "pid": 141,
+        "sampled_hwm_kib": 2316,
+        "threads": [
+          {
+            "tid": 141,
+            "cpu_percent": 46.16886285993167,
+            "sample_span_seconds": 61.470000000000006,
+            "samples": 11
+          }
+        ]
+      },
+      "probe": {
+        "cpu_percent": 54.921099723442325,
+        "sample_span_seconds": 61.470000000000006,
+        "samples": 11,
+        "pid": 157,
+        "sampled_hwm_kib": 7996,
+        "threads": [
+          {
+            "tid": 157,
+            "cpu_percent": 26.09402960793883,
+            "sample_span_seconds": 61.470000000000006,
+            "samples": 11
+          },
+          {
+            "tid": 161,
+            "cpu_percent": 28.745729624206927,
+            "sample_span_seconds": 61.470000000000006,
+            "samples": 11
+          }
+        ]
+      }
+    },
+    "broker_drop_log_lines": 1
+  }
+]

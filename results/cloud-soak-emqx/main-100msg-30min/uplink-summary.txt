@@ -1,0 +1,20 @@
+{
+  "start_utc": "2026-09-23T08:30:11.751+00:00",
+  "end_utc": "2026-09-23T09:01:00.731+00:00",
+  "duration_seconds": 1800.0001801869948,
+  "target_rate_msg_s": 100,
+  "average_generated_rate_msg_s": 99.9999899896124,
+  "generated": 180000,
+  "gateway_publish_attempts_message_level": 180000,
+  "gateway_publish_success_api_accepted": 180000,
+  "gateway_publish_success_puback": 180000,
+  "subscriber_received_total": 180000,
+  "subscriber_received_unique": 180000,
+  "duplicates": 0,
+  "missing_seq_count": 0,
+  "out_of_order": 64,
+  "invalid_messages": 0,
+  "publish_failures": 0,
+  "gateway_reconnect_count": 0,
+  "subscriber_reconnect_count": 0
+}

@@ -1,0 +1,3 @@
+machine=aarch64
+Linux buildroot 6.12.27 #1 SMP Mon Sep 21 13:54:31 CST 2026 aarch64 GNU/Linux
+4.2.0

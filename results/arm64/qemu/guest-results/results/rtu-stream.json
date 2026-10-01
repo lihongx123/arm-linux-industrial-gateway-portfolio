@@ -1,0 +1,1 @@
+{"status":"PASS","checks":14,"scenarios":["fragmented","sticky","noise","bad_crc_resync","termios_pty_rx_tx"]}

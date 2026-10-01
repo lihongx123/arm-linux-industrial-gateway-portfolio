@@ -1,0 +1,39 @@
+{
+  "command": {
+    "scenario": "C_50_devices",
+    "devices": 50,
+    "rate": 1000.0,
+    "duration": 5.0,
+    "broker_port": 18886,
+    "gateway_pid": 9534,
+    "metrics_file": "<REPOSITORY_ROOT>/results/load/C_50_devices/gateway-metrics.json",
+    "output": "<REPOSITORY_ROOT>/results/summary.csv",
+    "raw_output": "<REPOSITORY_ROOT>/results/load/C_50_devices/raw-metrics.json",
+    "interface": "vcan0"
+  },
+  "timestamp_utc": "2026-09-21T04:14:29Z",
+  "sent": 5000,
+  "received": 5000,
+  "lost": 0,
+  "malformed": 0,
+  "latency_count": 5000,
+  "latency_min_ms": 0.335913,
+  "latency_max_ms": 17.456335,
+  "summary": {
+    "scenario": "C_50_devices",
+    "devices": 50,
+    "mqtt_rate": 999.9878363479908,
+    "modbus_rate": 0.0,
+    "can_rate": 999.9878363479908,
+    "duration": 5.0000608189998275,
+    "p50_ms": 0.4177235,
+    "p95_ms": 0.636243,
+    "p99_ms": 2.9582589100000534,
+    "cpu_percent": 5.799927464947239,
+    "rss_mb": 5.79296875,
+    "queue_peak": 1,
+    "error_rate": 0.0,
+    "loss_rate": 0.0,
+    "reconnect_time_s": ""
+  }
+}

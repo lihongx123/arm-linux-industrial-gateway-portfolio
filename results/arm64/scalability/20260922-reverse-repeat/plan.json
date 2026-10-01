@@ -1,0 +1,38 @@
+{
+  "started_utc": "2026-09-22T08:46:10Z",
+  "seconds_per_case": 60,
+  "rates": "4000",
+  "defaults": {
+    "workers": 2,
+    "queue": 1024,
+    "devices": 100,
+    "vcpus": 2,
+    "memory-mb": 1024
+  },
+  "profiles": {
+    "cpu8": {
+      "vcpus": 8
+    },
+    "cpu4": {
+      "vcpus": 4
+    },
+    "base": {}
+  },
+  "source_before": {
+    "src/iot_gateway/CMakeLists.txt": "7c7ee4e025d637de87d9ea8a700a9f629eb62105341cc8136bd016e30e162f70",
+    "src/iot_gateway/bounded_queue.hpp": "1e553255821b99548a64412320f5744f8b676a7042408cf5d869826e690c177a",
+    "src/iot_gateway/can_socket.cpp": "0d90f54fc168d67f7a049259d1e24eacab4b4e40f9994e0eab8e02c5aa9ae1c3",
+    "src/iot_gateway/can_socket.hpp": "682421af92a6879b9ea66023fe28ad163e3a70412763a3690596c2ba72c5b70d",
+    "src/iot_gateway/command_router.cpp": "8f6eefdb60a84f2b33498e2f83249c6cf9cd4ba834ba2192f747bb027508ca8c",
+    "src/iot_gateway/command_router.hpp": "667cd0602f65d22a3ae171cb1b4f9df0e3647f6067e4696e206f499b7e5047bf",
+    "src/iot_gateway/gateway.cpp": "c6b37a4a35f22eff498ea53060ec50bf9e36be1e3fddacb0adb60e3eede49d68",
+    "src/iot_gateway/gateway.hpp": "61de0419becf403b3b6dd38984c3a9ecfb97bc6e98244d43d881ef22545d5fef",
+    "src/iot_gateway/main.cpp": "110a04cbd12c57152809381cb0f9ccc29e7ac7c0f0c07553a5dbb2cc407f1062",
+    "src/iot_gateway/pipeline_metrics.hpp": "ab2da24b80b33a4361fc7368873a285749370b8204f6ff90e6f8700f2a53d289",
+    "src/iot_gateway/unified_message.cpp": "85f1c9185f77ef9c2e1ab7e4e0763968658698cc426111bfbc772e8817591f93",
+    "src/iot_gateway/unified_message.hpp": "2fa2e10a2de580fb324064a0da6f7ce669d6b9406c5f920f40b106b325057dca",
+    "src/serial/CMakeLists.txt": "66b5588a1db1bac54c077810076f50627b5358c8843ce4cbc8bc9a2d345f465b",
+    "src/serial/termios_rtu_transport.cpp": "8b461e552b377e5b9e7781cdb7e416c73e24f47ddf1d7527f641d4d80ae89dd3",
+    "src/serial/termios_rtu_transport.hpp": "618d695feb33151b649021d48fc586400b030a9abd7af0652556b881e88d51b8"
+  }
+}

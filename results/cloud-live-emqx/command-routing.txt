@@ -1,0 +1,6 @@
+command_id=cloud-command-1790131925918
+router=PASS
+simulated_can_device=PASS
+command_result_topic=resume/gateway/devices/gateway-demo-001/command/result
+command_result_payload={"status":"ok","detail":"CAN frame transmitted"}
+command_result_publication=PASS

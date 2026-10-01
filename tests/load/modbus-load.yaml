@@ -1,0 +1,29 @@
+modmqttd:
+  log_level: warning
+  converter_search_path:
+    - /tmp/mqmgateway-release-build/stdconv
+  converter_plugins:
+    - stdconv.so
+modbus:
+  networks:
+    - name: loadtcp
+      address: 127.0.0.1
+      port: 15021
+      response_timeout: 200ms
+      response_data_timeout: 200ms
+mqtt:
+  client_id: modbus-load
+  refresh: 1ms
+  publish_mode: every_poll
+  broker:
+    host: 127.0.0.1
+    port: 18887
+    keepalive: 10
+  objects:
+    - topic: load/modbus
+      network: loadtcp
+      slave: 1
+      state:
+        register: 0x0
+        register_type: holding
+        refresh: 1ms

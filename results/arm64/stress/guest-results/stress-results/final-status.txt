@@ -1,0 +1,5 @@
+last_stable_rate=1000
+first_fail_rate=2000
+workers=2
+queue_capacity=1024
+devices=100

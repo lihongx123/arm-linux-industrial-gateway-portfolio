@@ -1,0 +1,22 @@
+{
+  "classification":"DEGRADED",
+  "target_rate":1500.000000,
+  "actual_send_rate":1498.167681,
+  "actual_receive_rate":1498.167681,
+  "throughput_ratio":0.998778,
+  "duration_seconds":5.006115,
+  "sent":7500,
+  "received":7500,
+  "lost":0,
+  "loss_rate":0.000000,
+  "malformed":0,
+  "p50_ms":12.364816,
+  "p95_ms":90.966140,
+  "p99_ms":100.420617,
+  "cpu_percent":76.706903,
+  "peak_rss_mb":3.191406,
+  "queue_peak":14,
+  "rejected":0,
+  "publish_failures":0,
+  "process_alive":true
+}

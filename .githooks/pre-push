@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# Checks clang-format and clang-tidy naming on lines changed vs origin/master.
+# Delegates to scripts/clang-lint.sh (the same implementation the CMake
+# format-check/tidy-naming targets use) so local checks and the gate agree.
+# Skip with: git push --no-verify
+set -euo pipefail
+
+PUSH_TO_MASTER=
+while read -r _local_ref _local_sha remote_ref _remote_sha; do
+    [[ "$remote_ref" == "refs/heads/master" ]] && PUSH_TO_MASTER=1
+done
+[[ -z "$PUSH_TO_MASTER" ]] && exit 0
+
+ROOT="$(git rev-parse --show-toplevel)"
+BUILD="$ROOT/build"
+LINT="$ROOT/scripts/clang-lint.sh"
+
+echo "pre-push: format-check (diff vs origin/master)..."
+"$LINT" format-check "$BUILD"
+
+echo "pre-push: tidy-naming (diff vs origin/master)..."
+"$LINT" tidy-naming "$BUILD"
+
+echo "pre-push: all checks passed."

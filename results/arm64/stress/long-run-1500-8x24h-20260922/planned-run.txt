@@ -1,0 +1,14 @@
+status=USER_INTERRUPTED
+duration_seconds=691200
+duration_hours=192
+duration_days=8
+rate=1500
+devices=100
+queue_capacity=1024
+workers=2
+qemu_vcpus=2
+qemu_memory_mb=1024
+expected_messages=1036800000
+evidence_policy=constant-space
+previous_results_preserved=true
+initial_start_attempt=guard_rejected_precreated_evidence_directory_before_qemu_start

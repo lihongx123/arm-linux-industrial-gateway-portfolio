@@ -1,0 +1,1 @@
+{"status":"PASS","architecture":"aarch64","requested_seconds":120,"actual_seconds":125,"sent":10000,"received":10000,"broker_restarts":1}

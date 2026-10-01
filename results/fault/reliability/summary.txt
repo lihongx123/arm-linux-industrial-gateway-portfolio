@@ -1,0 +1,7 @@
+broker_recovered=True
+reconnect_time_s=1.539577
+queue_rejected=641
+command_timeouts=223
+publish_failures=0
+queue_peak=4
+processing_latency_ms=19.7359

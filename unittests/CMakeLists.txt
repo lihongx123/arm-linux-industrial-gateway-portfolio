@@ -1,0 +1,131 @@
+if(WITHOUT_TESTS)
+  return()
+endif()
+
+find_package(Catch2 REQUIRED)
+
+# plugins with a mismatched and with a missing converter ABI marker, loaded by
+# server_config_tests to check that modmqttd refuses both
+add_subdirectory(abiconv)
+
+add_executable(tests
+    jsonutils.cpp
+    jsonutils.hpp
+    main.cpp
+    mockedmodbuscontext.cpp
+    mockedmodbuscontext.hpp
+    mockedmqttimpl.cpp
+    mockedmqttimpl.hpp
+    mockedserver.hpp
+    modbus_utils.hpp
+    testnumbers.cpp
+    testnumbers.hpp
+    timing.cpp
+    timing.hpp
+    # tests
+    conv_parity_tests.cpp
+    converter_name_parser_tests.cpp
+    convtools_tests.cpp
+    exprconv_float_tests.cpp
+    exprconv_float64_tests.cpp
+    exprconv_gate_tests.cpp
+    exprconv_int16_tests.cpp
+    exprconv_int64_tests.cpp
+    exprconv_uint64_tests.cpp
+    exprconv_uint16_tests.cpp
+    exprconv_int32_tests.cpp
+    exprconv_tests.cpp
+    exprconv_uint32_tests.cpp
+    exprconv_write_tests.cpp
+    exprconv_write64_tests.cpp
+    modbus_config_tests.cpp
+    modbus_executor_tests.cpp
+    modbus_executor_single_delay_tests.cpp
+    modbus_silence_before_first_poll_tests.cpp
+    modbus_silence_before_poll_tests.cpp
+    modbus_poll_specification_tests.cpp
+    modbus_request_queues_tests.cpp
+    modbus_retry_tests.cpp
+    modbus_watchdog_tests.cpp
+    mqtt_availablility_tests.cpp
+    mqtt_command_tests.cpp
+    mqtt_command_only_tests.cpp
+    mqtt_command_conv_tests.cpp
+    mqtt_every_poll_tests.cpp
+    mqtt_expr_conv_tests.cpp
+    mqtt_expr_json_tests.cpp
+    mqtt_config_tests.cpp
+    mqtt_converter_error_tests.cpp
+    mqtt_json_conv_tests.cpp
+    mqtt_named_list_conv_tests.cpp
+    mqtt_named_list_tests.cpp
+    mqtt_named_scalar_conv_tests.cpp
+    mqtt_object_tests.cpp
+    mqtt_once_tests.cpp
+    mqtt_poll_groups_tests.cpp
+    mqtt_publish_retain_tests.cpp
+    mqtt_register_count_warning_tests.cpp
+    mqtt_publish_type_tests.cpp
+    mqtt_refresh_config_tests.cpp
+    mqtt_register_default_slave_tests.cpp
+    mqtt_register_id_parser_tests.cpp
+    mqtt_slave_sets_tests.cpp
+    mqtt_state_map_conv_tests.cpp
+    mqtt_state_map_tests.cpp
+    mqtt_unnamed_list_conv_tests.cpp
+    mqtt_unnamed_list_expr_tests.cpp
+    mqtt_unnamed_list_tests.cpp
+    mqtt_unnamed_scalar_conv_tests.cpp
+    mqtt_unnamed_scalar_expr_tests.cpp
+    mqtt_unnamed_scalar_tests.cpp
+    mqtt_value_tests.cpp
+    real_server_tests.cpp
+    refresh_tests.cpp
+    register_address_tests.cpp
+    rpc_tests.cpp
+    scheduler_tests.cpp
+    server_config_tests.cpp
+    single_register_noavail_tests.cpp
+    single_register_tests.cpp
+    stdconv_bit_tests.cpp
+    stdconv_debug_tests.cpp
+    stdconv_divide_tests.cpp
+    stdconv_int8_tests.cpp
+    stdconv_int16_tests.cpp
+    stdconv_int32_tests.cpp
+    stdconv_int64_tests.cpp
+    stdconv_map_tests.cpp
+    stdconv_multiply_tests.cpp
+    stdconv_register_count_tests.cpp
+    stdconv_float_tests.cpp
+    stdconv_float64_tests.cpp
+    stdconv_string_tests.cpp
+    stdconv_tests.cpp
+    stdconv_uint32_tests.cpp
+    stdconv_uint64_tests.cpp
+    two_slaves_tests.cpp
+    yaml_converters_tests.cpp
+    iot_gateway_tests.cpp
+    pipeline_metrics_tests.cpp
+)
+
+add_dependencies(tests badabiconv noabiconv)
+
+target_link_libraries(tests
+    modmqttsrv
+    ${MOSQUITTO_LIBRARIES}
+    Catch2::Catch2
+    yaml-cpp
+    spdlog::spdlog
+    fmt::fmt
+    ${LIBMODBUS_LIBRARIES}
+    Threads::Threads
+    -lpthread
+    ${CMAKE_DL_LIBS}
+    iot_gateway_core
+)
+
+add_test(NAME unit_tests COMMAND tests)
+set_tests_properties(unit_tests PROPERTIES
+    WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}"
+)

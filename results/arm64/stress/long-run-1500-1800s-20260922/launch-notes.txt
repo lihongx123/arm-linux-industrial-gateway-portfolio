@@ -1,0 +1,8 @@
+2026-09-22 initial launch attempt: INFRASTRUCTURE STARTUP ERROR
+
+The first inline Windows-to-WSL command did not start QEMU because shell variables
+were expanded away at the command boundary. mkdir received empty paths and exited.
+No product process ran, no workload was generated, and no existing evidence was
+overwritten. The test was then started through the reproducible wrapper
+scripts/run_arm64_stress_1500_30m.sh with the intended parameters.
+

@@ -1,0 +1,21 @@
+{
+  "timestamp_utc": "2026-09-21T04:16:22Z",
+  "message_count": 4820,
+  "summary": {
+    "scenario": "Modbus_TCP_poll",
+    "devices": 1,
+    "mqtt_rate": 962.1435824434437,
+    "modbus_rate": 962.1435824434437,
+    "can_rate": 0.0,
+    "duration": 5.00964729999987,
+    "p50_ms": "",
+    "p95_ms": "",
+    "p99_ms": "",
+    "cpu_percent": 6.587290087268391,
+    "rss_mb": 8.32421875,
+    "queue_peak": "",
+    "error_rate": 0.0,
+    "loss_rate": 0.0,
+    "reconnect_time_s": ""
+  }
+}

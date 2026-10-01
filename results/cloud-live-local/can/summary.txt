@@ -1,0 +1,4 @@
+can_to_mqtt=pass
+mqtt_to_can=pass
+invalid_command_rejected=pass
+invalid_can_rejected=pass

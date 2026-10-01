@@ -1,0 +1,7 @@
+mode=soak
+qemu=/usr/bin/qemu-system-aarch64
+qemu_version=QEMU emulator version 8.2.2 (Debian 1:8.2.2+ds-0ubuntu1.18)
+elapsed_seconds=75.081
+guest_exit=PASS
+debugfs_exit=0
+failure_reason=none

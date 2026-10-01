@@ -1,0 +1,147 @@
+modmqttd:
+  # critical,error,warning,info,debug,trace,none
+  log_level: debug
+  converter_search_path:
+    - /usr/lib/modmqttd
+  converter_plugins:
+    - stdconv.so
+    # needs exprtk expression library
+    # - exprconv.so
+modbus:
+  networks:
+    # list of modbus networks to poll from.
+    - name: rtutest
+      # default values for waiting for modbus response
+      # how log to wait for the first byte of a response
+      response_timeout: 500ms
+      # how log to wait for next bytes of a response
+      response_data_timeout: 500ms
+      # if device is defined then this is a ModbusRTU network
+      device: /dev/ttyUSB0
+      # serial port parameters
+      baud: 9600
+      parity: E
+      data_bit: 8
+      stop_bit: 1
+
+      # Optional settings for RTU 
+
+      #rtu_serial_mode: rs232
+      #rtu_serial_mode: rs485
+
+      #rtu_rts_mode: up
+      #rtu_rts_mode: down
+
+      #rtu_rts_delay: 100   in microseconds
+      # set minimum delay before sending next command
+      delay_before_command: 15ms
+
+    - name: tcptest
+      # if address is defined then this is a ModbusTCP network
+      address: 192.168.31.10
+      port: 502
+
+      slaves:
+        - address: 1
+          # force 50ms silence before poll 
+          # if last poll was from different slave
+          # makes sense only if delay_before_command is not set here
+          # or on global level.
+          delay_before_first_command: 50ms
+
+          # Modbus polling optimalization
+          # poll group will force a single modbus multiple registers read call 
+          # for isma_switch_1 and isma_switch_2 MQTT topics defined below
+          poll_groups:
+            - register: 273
+              register_type: coil
+              count: 3
+        - address: 2
+          # override global timeout for this slave
+          response_timeout: 50ms
+
+mqtt:
+  client_id: modbus
+  refresh: 10s
+  # default, if set to "every_poll" then mqtt message is sent after every register read
+  publish_mode: on_change
+  broker:
+    host: localhost
+    # optional: default is 1883 for plain MQTT or 8883 for MQTT over TLS
+    port: 1883
+
+    # optional: default is 60sec
+    keepalive: 60
+
+    # username: bob
+    # password: secret
+
+    # tls:
+    #   cafile: /etc/modmqttd/ca.crt
+
+  objects:
+    - topic: isma_switch_1
+      # default values used in all register: 
+      # declarations for this topic
+      network: tcptest
+      slave: 1
+      refresh: 1s
+      commands:
+        - name: set
+          register: 273
+          register_type: coil
+        # this declarating expect json list with size=4 from MQTT publish
+        # on isma_switch_1/set_list topic
+        - name: set_list
+          register: 273
+          register_type: coil
+          count: 4
+      state:
+        register: 273
+        register_type: coil
+      availability:
+        refresh: 1s
+        name: avail
+        register: 225
+        register_type: bit
+        available_value: 0
+    - topic: isma_switch_2
+      # multiple registers in payload will generate json array as mqtt value
+      # if defined as a list then read request per each register is issued.
+      state:
+        - register: tcptest.1.274
+          register_type: coil
+        - register: tcptest.1.275
+          register_type: coil
+
+    - topic: gtb_sensor/presence
+      refresh: 5s
+      # override default, publish after every modbus read call.
+      publish_mode: every_poll
+      state:
+        register: rtutest.1.1
+        register_type: input
+
+    - topic: gtb_sensor/lightlevel
+      state:
+        register: rtutest.1.2
+        register_type: input
+        refresh: 1s
+
+    - topic: somesensor/value
+      state:
+        converter: std.int32()
+        # if register list is declared as register and count
+        # then registers are polled with single modbus_read_registers call
+        register: rtutest.1.2
+        count: 2
+        register_type: input
+        refresh: 1s
+
+    - topic: exprtk/value
+      state:
+        # math expression on two registers, result with precision=2
+        converter: expr.evaluate("(R1 + R2*100)/2", 2)
+        register: rtutest.1.2
+        count: 2
+        register_type: input

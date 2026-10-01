@@ -1,0 +1,35 @@
+modmqttd:
+  log_level: info
+  converter_search_path:
+    - /tmp/mqmgateway-release-build/stdconv
+  converter_plugins:
+    - stdconv.so
+
+modbus:
+  networks:
+    - name: localtcp
+      address: 127.0.0.1
+      port: 15020
+      response_timeout: 500ms
+      response_data_timeout: 500ms
+
+mqtt:
+  client_id: mqmgateway-phase3
+  refresh: 100ms
+  publish_mode: every_poll
+  broker:
+    host: 127.0.0.1
+    port: 18883
+    keepalive: 10
+  objects:
+    - topic: device/phase3
+      network: localtcp
+      slave: 1
+      commands:
+        - name: set
+          register: 0x0
+          register_type: holding
+      state:
+        register: 0x0
+        register_type: holding
+        refresh: 100ms

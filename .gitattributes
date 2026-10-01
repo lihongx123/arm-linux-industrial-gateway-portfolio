@@ -1,0 +1,3 @@
+# Preserve reviewed evidence byte-for-byte; whitespace in generated result files
+# is not source formatting.
+results/** -whitespace

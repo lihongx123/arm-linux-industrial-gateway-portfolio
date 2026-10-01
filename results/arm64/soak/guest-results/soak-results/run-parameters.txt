@@ -1,0 +1,6 @@
+duration_seconds=28800
+rate=500
+devices=100
+queue_capacity=1024
+workers=2
+probe_exit=0

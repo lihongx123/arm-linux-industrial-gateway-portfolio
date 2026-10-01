@@ -1,0 +1,1 @@
+{"enqueued":2,"dequeued":2,"current_depth":0,"peak_depth":1,"rejected":0,"processing_latency_ms":0.104222,"published":10,"publish_failures":0,"command_timeouts":0,"can_errors":0,"telemetry_qos":1,"mqtt_max_inflight":20,"pipeline_metrics_enabled":false}

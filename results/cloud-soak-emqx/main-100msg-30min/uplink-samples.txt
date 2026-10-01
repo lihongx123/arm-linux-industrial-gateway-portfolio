@@ -1,0 +1,246 @@
+{
+  "first_20": [
+    {
+      "received_at": "2026-09-23T08:30:11.781+00:00",
+      "seq": 1,
+      "device_id": "can-801",
+      "payload_hex": "6ffd04e700000001"
+    },
+    {
+      "received_at": "2026-09-23T08:30:11.830+00:00",
+      "seq": 2,
+      "device_id": "can-801",
+      "payload_hex": "6ffd04e700000002"
+    },
+    {
+      "received_at": "2026-09-23T08:30:11.830+00:00",
+      "seq": 3,
+      "device_id": "can-801",
+      "payload_hex": "6ffd04e700000003"
+    },
+    {
+      "received_at": "2026-09-23T08:30:11.841+00:00",
+      "seq": 4,
+      "device_id": "can-801",
+      "payload_hex": "6ffd04e700000004"
+    },
+    {
+      "received_at": "2026-09-23T08:30:11.841+00:00",
+      "seq": 5,
+      "device_id": "can-801",
+      "payload_hex": "6ffd04e700000005"
+    },
+    {
+      "received_at": "2026-09-23T08:30:11.841+00:00",
+      "seq": 6,
+      "device_id": "can-801",
+      "payload_hex": "6ffd04e700000006"
+    },
+    {
+      "received_at": "2026-09-23T08:30:11.841+00:00",
+      "seq": 7,
+      "device_id": "can-801",
+      "payload_hex": "6ffd04e700000007"
+    },
+    {
+      "received_at": "2026-09-23T08:30:11.887+00:00",
+      "seq": 8,
+      "device_id": "can-801",
+      "payload_hex": "6ffd04e700000008"
+    },
+    {
+      "received_at": "2026-09-23T08:30:11.892+00:00",
+      "seq": 9,
+      "device_id": "can-801",
+      "payload_hex": "6ffd04e700000009"
+    },
+    {
+      "received_at": "2026-09-23T08:30:11.893+00:00",
+      "seq": 10,
+      "device_id": "can-801",
+      "payload_hex": "6ffd04e70000000a"
+    },
+    {
+      "received_at": "2026-09-23T08:30:11.893+00:00",
+      "seq": 11,
+      "device_id": "can-801",
+      "payload_hex": "6ffd04e70000000b"
+    },
+    {
+      "received_at": "2026-09-23T08:30:11.893+00:00",
+      "seq": 12,
+      "device_id": "can-801",
+      "payload_hex": "6ffd04e70000000c"
+    },
+    {
+      "received_at": "2026-09-23T08:30:11.927+00:00",
+      "seq": 13,
+      "device_id": "can-801",
+      "payload_hex": "6ffd04e70000000d"
+    },
+    {
+      "received_at": "2026-09-23T08:30:11.927+00:00",
+      "seq": 14,
+      "device_id": "can-801",
+      "payload_hex": "6ffd04e70000000e"
+    },
+    {
+      "received_at": "2026-09-23T08:30:11.927+00:00",
+      "seq": 15,
+      "device_id": "can-801",
+      "payload_hex": "6ffd04e70000000f"
+    },
+    {
+      "received_at": "2026-09-23T08:30:11.941+00:00",
+      "seq": 16,
+      "device_id": "can-801",
+      "payload_hex": "6ffd04e700000010"
+    },
+    {
+      "received_at": "2026-09-23T08:30:11.941+00:00",
+      "seq": 17,
+      "device_id": "can-801",
+      "payload_hex": "6ffd04e700000011"
+    },
+    {
+      "received_at": "2026-09-23T08:30:11.941+00:00",
+      "seq": 18,
+      "device_id": "can-801",
+      "payload_hex": "6ffd04e700000012"
+    },
+    {
+      "received_at": "2026-09-23T08:30:11.973+00:00",
+      "seq": 19,
+      "device_id": "can-801",
+      "payload_hex": "6ffd04e700000013"
+    },
+    {
+      "received_at": "2026-09-23T08:30:11.993+00:00",
+      "seq": 20,
+      "device_id": "can-801",
+      "payload_hex": "6ffd04e700000014"
+    }
+  ],
+  "last_20": [
+    {
+      "received_at": "2026-09-23T09:01:00.564+00:00",
+      "seq": 179981,
+      "device_id": "can-801",
+      "payload_hex": "6ffd04e70002bf0d"
+    },
+    {
+      "received_at": "2026-09-23T09:01:00.564+00:00",
+      "seq": 179982,
+      "device_id": "can-801",
+      "payload_hex": "6ffd04e70002bf0e"
+    },
+    {
+      "received_at": "2026-09-23T09:01:00.582+00:00",
+      "seq": 179983,
+      "device_id": "can-801",
+      "payload_hex": "6ffd04e70002bf0f"
+    },
+    {
+      "received_at": "2026-09-23T09:01:00.582+00:00",
+      "seq": 179984,
+      "device_id": "can-801",
+      "payload_hex": "6ffd04e70002bf10"
+    },
+    {
+      "received_at": "2026-09-23T09:01:00.595+00:00",
+      "seq": 179985,
+      "device_id": "can-801",
+      "payload_hex": "6ffd04e70002bf11"
+    },
+    {
+      "received_at": "2026-09-23T09:01:00.609+00:00",
+      "seq": 179986,
+      "device_id": "can-801",
+      "payload_hex": "6ffd04e70002bf12"
+    },
+    {
+      "received_at": "2026-09-23T09:01:00.609+00:00",
+      "seq": 179987,
+      "device_id": "can-801",
+      "payload_hex": "6ffd04e70002bf13"
+    },
+    {
+      "received_at": "2026-09-23T09:01:00.623+00:00",
+      "seq": 179988,
+      "device_id": "can-801",
+      "payload_hex": "6ffd04e70002bf14"
+    },
+    {
+      "received_at": "2026-09-23T09:01:00.638+00:00",
+      "seq": 179989,
+      "device_id": "can-801",
+      "payload_hex": "6ffd04e70002bf15"
+    },
+    {
+      "received_at": "2026-09-23T09:01:00.638+00:00",
+      "seq": 179990,
+      "device_id": "can-801",
+      "payload_hex": "6ffd04e70002bf16"
+    },
+    {
+      "received_at": "2026-09-23T09:01:00.651+00:00",
+      "seq": 179991,
+      "device_id": "can-801",
+      "payload_hex": "6ffd04e70002bf17"
+    },
+    {
+      "received_at": "2026-09-23T09:01:00.667+00:00",
+      "seq": 179992,
+      "device_id": "can-801",
+      "payload_hex": "6ffd04e70002bf18"
+    },
+    {
+      "received_at": "2026-09-23T09:01:00.684+00:00",
+      "seq": 179993,
+      "device_id": "can-801",
+      "payload_hex": "6ffd04e70002bf19"
+    },
+    {
+      "received_at": "2026-09-23T09:01:00.684+00:00",
+      "seq": 179994,
+      "device_id": "can-801",
+      "payload_hex": "6ffd04e70002bf1a"
+    },
+    {
+      "received_at": "2026-09-23T09:01:00.697+00:00",
+      "seq": 179995,
+      "device_id": "can-801",
+      "payload_hex": "6ffd04e70002bf1b"
+    },
+    {
+      "received_at": "2026-09-23T09:01:00.698+00:00",
+      "seq": 179996,
+      "device_id": "can-801",
+      "payload_hex": "6ffd04e70002bf1c"
+    },
+    {
+      "received_at": "2026-09-23T09:01:00.719+00:00",
+      "seq": 179997,
+      "device_id": "can-801",
+      "payload_hex": "6ffd04e70002bf1d"
+    },
+    {
+      "received_at": "2026-09-23T09:01:00.734+00:00",
+      "seq": 179998,
+      "device_id": "can-801",
+      "payload_hex": "6ffd04e70002bf1e"
+    },
+    {
+      "received_at": "2026-09-23T09:01:00.735+00:00",
+      "seq": 179999,
+      "device_id": "can-801",
+      "payload_hex": "6ffd04e70002bf1f"
+    },
+    {
+      "received_at": "2026-09-23T09:01:00.785+00:00",
+      "seq": 180000,
+      "device_id": "can-801",
+      "payload_hex": "6ffd04e70002bf20"
+    }
+  ]
+}

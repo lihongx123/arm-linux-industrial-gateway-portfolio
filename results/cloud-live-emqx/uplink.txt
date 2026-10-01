@@ -1,0 +1,6 @@
+broker=kf7bd96b.ala.dedicated.aliyun.emqxcloud.cn:8883
+topic=resume/gateway/devices/can-291/telemetry
+input_can=123#A1B2C3D4
+independent_message_count=1
+received_payload={"timestamp_ms":1790131925896,"device_id":"can-291","protocol":"can","direction":"northbound","data_type":"telemetry","address":291,"payload":"a1b2c3d4","quality":"good"}
+result=PASS

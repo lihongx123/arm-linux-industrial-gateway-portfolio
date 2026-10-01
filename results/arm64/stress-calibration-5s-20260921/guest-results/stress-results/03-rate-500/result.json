@@ -1,0 +1,22 @@
+{
+  "classification":"STABLE",
+  "target_rate":500.000000,
+  "actual_send_rate":499.961549,
+  "actual_receive_rate":499.961549,
+  "throughput_ratio":0.999923,
+  "duration_seconds":5.000385,
+  "sent":2500,
+  "received":2500,
+  "lost":0,
+  "loss_rate":0.000000,
+  "malformed":0,
+  "p50_ms":1.569808,
+  "p95_ms":5.065691,
+  "p99_ms":17.486936,
+  "cpu_percent":49.395978,
+  "peak_rss_mb":3.183594,
+  "queue_peak":4,
+  "rejected":0,
+  "publish_failures":0,
+  "process_alive":true
+}

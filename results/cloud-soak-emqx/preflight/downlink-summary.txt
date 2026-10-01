@@ -1,0 +1,10 @@
+{
+  "commands_sent": 1,
+  "commands_routed": 1,
+  "command_results_received": 1,
+  "command_missing": [],
+  "command_duplicates": 0,
+  "command_failures": 0,
+  "command_topic": "resume/gateway/devices/cloud-soak-001/command",
+  "command_result_topic": "resume/gateway/devices/cloud-soak-001/command/result"
+}

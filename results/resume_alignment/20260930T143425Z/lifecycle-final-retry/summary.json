@@ -1,0 +1,6 @@
+{
+  "startup_failure_exit": 1,
+  "serial_disconnect_exit": 1,
+  "aborted_by_signal": false,
+  "result": "PASS"
+}

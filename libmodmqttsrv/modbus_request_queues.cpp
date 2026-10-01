@@ -1,0 +1,118 @@
+#include "modbus_request_queues.hpp"
+
+namespace modmqttd {
+
+void
+ModbusRequestsQueues::addPollList(const std::vector<std::shared_ptr<RegisterPoll>>& pollList) {
+    for (auto& regPollPtr: pollList) {
+
+        std::deque<std::shared_ptr<RegisterPoll>>::const_iterator it = std::find(
+            mPollQueue.begin(), mPollQueue.end(), regPollPtr
+        );
+
+        if (it == mPollQueue.end()) {
+            mPollQueue.push_back(regPollPtr);
+        }
+    }
+}
+
+std::shared_ptr<RegisterCommand>
+ModbusRequestsQueues::popNext() {
+    std::shared_ptr<RegisterCommand> ret;
+    if (mPopFromPoll) {
+        if (mPollQueue.empty()) {
+            ret = popNext(mWriteQueue);
+        } else {
+            mPopFromPoll = false;
+            ret = popNext(mPollQueue);
+        }
+    } else {
+        if (mWriteQueue.empty()) {
+            ret = popNext(mPollQueue);
+        } else {
+            mPopFromPoll = true;
+            ret = popNext(mWriteQueue);
+        }
+    }
+    return ret;
+}
+
+
+template<typename T>
+std::shared_ptr<RegisterCommand>
+ModbusRequestsQueues::popNext(T& queue) {
+    assert(!queue.empty());
+    std::shared_ptr<RegisterCommand> ret(queue.front());
+    queue.pop_front();
+    return ret;
+}
+
+std::chrono::steady_clock::duration
+ModbusRequestsQueues::findForSilencePeriod(std::chrono::steady_clock::duration pPeriod, bool ignore_first_read) {
+    auto ret = std::chrono::steady_clock::duration::max();
+    for(auto pi = mPollQueue.begin(); pi != mPollQueue.end(); pi++) {
+        std::chrono::steady_clock::duration delay = std::chrono::steady_clock::duration::zero();
+
+        // if we are searching for delay before first command
+        // assume that it is longer than delay before every command
+        // and use it
+        if (ignore_first_read || !(*pi)->hasDelayBeforeFirstCommand()) {
+            delay = (*pi)->getDelayBeforeCommand();
+        } else {
+            delay = (*pi)->getDelayBeforeFirstCommand();
+        }
+
+        if (delay == std::chrono::steady_clock::duration::zero())
+            continue;
+
+#if __cplusplus < 201703L
+        auto diff = delay - pPeriod;
+        if (diff < diff.zero())
+            diff = - diff;
+#else
+        auto diff = std::chrono::abs(delay - pPeriod);
+#endif
+        if (diff == std::chrono::steady_clock::duration::zero()) {
+            ret = delay;
+            mLastPollFound = pi;
+            break;
+        } else if (diff < ret) {
+            ret = delay;
+            mLastPollFound = pi;
+        }
+    }
+    return ret;
+}
+
+std::shared_ptr<RegisterCommand>
+ModbusRequestsQueues::popFirstWithDelay(std::chrono::steady_clock::duration pPeriod, bool ignore_first_read) {
+    auto ret = std::shared_ptr<RegisterCommand>();
+check_cache:
+    if (mLastPollFound != mPollQueue.end()) {
+        ret = *mLastPollFound;
+        mPollQueue.erase(mLastPollFound);
+    } else {
+        findForSilencePeriod(pPeriod, ignore_first_read);
+        goto check_cache;
+    }
+    return ret;
+}
+
+void
+ModbusRequestsQueues::addWriteCommand(const std::shared_ptr<RegisterWrite>& pReq) {
+    mWriteQueue.push_back(pReq);
+}
+
+
+void
+ModbusRequestsQueues::readdCommand(const std::shared_ptr<RegisterCommand>& pCmd) {
+    if (typeid(*pCmd) == typeid(RegisterPoll)) {
+        mPollQueue.push_front(std::static_pointer_cast<RegisterPoll>(pCmd));
+        mPopFromPoll = true;
+    } else {
+        mWriteQueue.push_front(std::static_pointer_cast<RegisterWrite>(pCmd));
+        mPopFromPoll = false;
+    }
+}
+
+}

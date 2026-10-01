@@ -1,0 +1,39 @@
+timestamp_local=2026-09-21 Asia/Shanghai
+source_commit=b6f24d3b2c4596a19082e584326df70adffedbb6
+host_os=Microsoft Windows 11 Professional
+host_version=10.0.26200
+host_architecture=x64
+hypervisor_present=true
+
+[commands]
+wsl --status
+wsl -l -v
+docker version --format '{{.Client.Version}}|{{.Server.Version}}'
+gcc --version
+g++ --version
+cmake --version
+make --version
+pkg-config --version
+Get-Command bash,podman,nerdctl,multipass,vagrant,qemu-system-x86_64,clang,msbuild
+
+[results]
+wsl=NOT_INSTALLED
+wsl_distribution=NONE
+docker=NOT_FOUND
+bash=NOT_FOUND
+podman=NOT_FOUND
+nerdctl=NOT_FOUND
+multipass=NOT_FOUND
+vagrant=NOT_FOUND
+qemu-system-x86_64=NOT_FOUND
+gcc=NOT_FOUND
+g++=NOT_FOUND
+cmake=NOT_FOUND
+make=NOT_FOUND
+pkg-config=NOT_FOUND
+clang=NOT_FOUND
+msbuild=NOT_FOUND
+
+[conclusion]
+No usable Linux execution environment or C/C++ build toolchain is available in the current host session.
+No configure, build, run, test, benchmark, or dependency-version result was fabricated.

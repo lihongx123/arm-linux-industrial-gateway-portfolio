@@ -1,0 +1,9 @@
+fault_injection=reversible gateway process pause exceeding the real broker keepalive window
+disconnect_detection_ms=20016
+reconnect_after_network_restore_ms=1113
+subscription_recovery=PASS
+first_post_reconnect_telemetry_ms=21
+first_post_reconnect_command_ms=209
+pending_retry_behavior=CAN telemetry injected during isolation was received through EMQX after recovery
+final_publish_failures=0
+result=PASS

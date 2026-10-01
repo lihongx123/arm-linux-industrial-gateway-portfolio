@@ -1,0 +1,26 @@
+name: Extension build and tests
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  native:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y cmake g++ pkg-config catch2 libfmt-dev libmodbus-dev libmosquitto-dev libspdlog-dev libyaml-cpp-dev rapidjson-dev
+          git clone https://github.com/ArashPartow/exprtk.git /tmp/mqm-exprtk
+          git -C /tmp/mqm-exprtk checkout 1e4a80b5ec9b4832ed59c6faa65f625a01b18ef0
+      - name: Configure and build
+        run: |
+          cmake -S . -B build-native -DCMAKE_BUILD_TYPE=Release -DEXPRTK_INCLUDE_DIR=/tmp/mqm-exprtk -DBUILD_STRESS_TOOLS=ON
+          cmake --build build-native -j2
+      - name: Tests
+        run: ctest --test-dir build-native --output-on-failure

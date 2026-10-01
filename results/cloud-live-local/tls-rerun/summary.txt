@@ -1,0 +1,10 @@
+result=PASS
+verification_scope=local TLS broker only; not EMQX Cloud
+tls_peer_verification=PASS
+uplink=PASS
+downlink_to_vcan=PASS
+command_result=PASS
+reconnect_and_subscription_recovery=PASS
+first_uplink_after_reconnect=PASS
+startup_ms=95
+reconnect_ms=1081

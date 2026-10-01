@@ -1,0 +1,16 @@
+{
+  "duration_s": 0.81577,
+  "checks_total": 8,
+  "checks_passed": 8,
+  "checks_failed": 0,
+  "checks": {
+    "holding_read": true,
+    "input_read": true,
+    "holding_write": true,
+    "coil_write_read": true,
+    "fault_timeout_detected": true,
+    "fault_crc_detected": true,
+    "fault_invalid_detected": true,
+    "recovery": true
+  }
+}

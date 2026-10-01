@@ -1,0 +1,15 @@
+broker=kf7bd96b.ala.dedicated.aliyun.emqxcloud.cn:8883
+username=gateway-client
+ca=<HOME>/certs/emqxcloud-ca.crt
+tls_peer_verification=enabled
+tls_hostname_verification=enabled
+qos=1
+can_interface=vcan0
+telemetry_topic=resume/gateway/devices/can-801/telemetry
+command_topic=resume/gateway/devices/cloud-soak-001/command
+result_topic=resume/gateway/devices/cloud-soak-001/command/result
+run_id=123d2cfa
+target_rate=250
+target_duration_seconds=600
+target_messages=150000
+credentials=process environment only

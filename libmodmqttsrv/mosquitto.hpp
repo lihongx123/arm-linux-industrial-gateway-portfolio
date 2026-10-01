@@ -1,0 +1,49 @@
+#pragma once
+
+#include <mosquitto.h>
+#include "config.hpp"
+#include "common.hpp"
+#include "mqttobject.hpp"
+#include "modbus_client.hpp"
+#include "imqttimpl.hpp"
+
+namespace modmqttd {
+
+class MqttClient;
+
+class Mosquitto : public IMqttImpl {
+    public:
+        static void libInit();
+        static void libCleanup();
+
+        Mosquitto();
+        virtual void init(MqttClient* owner, const char* clientId);
+        virtual void connect(const MqttBrokerConfig& config);
+        virtual void stop();
+
+        virtual void reconnect();
+        virtual void disconnect();
+
+        virtual void subscribe(const char* topic);
+        virtual int publish(const char* topic, int len, const void* data, bool retain);
+        virtual int publishResponse(const char* pTopic, int pLen, const void* pData,
+                                    const void* pCorrelationData, int pCorrelationLen,
+                                    const std::vector<std::pair<std::string, std::string>>& pUserProperties = {}) override;
+
+        virtual void on_disconnect(int rc);
+        virtual void on_connect(int rc);
+        virtual void on_log(int level, const char* message);
+        virtual void on_message(const struct mosquitto_message *message);
+        virtual void onMessageV5(const struct mosquitto_message* pMessage, const mosquitto_property* pRops);
+        virtual void on_publish(int messageId);
+        virtual ~Mosquitto();
+    private:
+        mosquitto *mMosq = NULL;
+        MqttClient* mOwner;
+        bool mProtocolV5 = false;
+
+        const char* returnCodeToStr(int code);
+        void throwOnCriticalError(int code);
+};
+
+}

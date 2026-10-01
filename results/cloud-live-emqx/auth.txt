@@ -1,0 +1,9 @@
+broker=kf7bd96b.ala.dedicated.aliyun.emqxcloud.cn:8883
+username=gateway-client
+tls=verified CA and hostname
+authentication=PASS
+subscribe=PASS
+publish=PASS
+qos=1
+independent_receive=PASS
+result=PASS

@@ -1,0 +1,10 @@
+timestamp_utc=2026-09-21T04:21:58.575195+00:00
+message_count=20
+success_count=20
+failed_count=0
+latency_min_ms=3.957
+latency_mean_ms=6.748
+latency_p50_ms=4.435
+latency_p95_ms=8.432
+latency_p99_ms=41.234
+latency_max_ms=49.435

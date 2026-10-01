@@ -1,0 +1,41 @@
+build/
+buildtests/
+modmqttd/config.yaml
+release
+.cache/
+.claude/
+AGENTS.md
+__pycache__/
+*.pyc
+*.o
+*.a
+*.so
+*.out
+*.log
+core
+core.*
+.vscode/
+.idea/
+.DS_Store
+*.swp
+
+# Runtime images, builds and private configuration are not publication evidence.
+*.ext4
+*.qcow2
+*.img
+*.cpio
+*.cpio.gz
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.p12
+*.pfx
+*.crt
+credentials*.json
+build-*/
+cmake-build-*/
+
+# Curated, reviewed evidence is kept as JSON/CSV/TXT/Markdown. Generated
+# runtime images and raw logs remain local.
