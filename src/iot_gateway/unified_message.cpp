@@ -30,6 +30,8 @@ std::string toString(const Protocol value) {
         case Protocol::spi: return "spi";
         case Protocol::i2c: return "i2c";
         case Protocol::gpio: return "gpio";
+        case Protocol::adc: return "adc";
+        case Protocol::pwm: return "pwm";
         case Protocol::uart: return "uart";
         case Protocol::mitsubishi_mc: return "mitsubishi_mc";
         case Protocol::opcua: return "opcua";

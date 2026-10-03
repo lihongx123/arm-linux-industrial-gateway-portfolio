@@ -1,0 +1,202 @@
+[
+  {
+    "topic": "device/can-291/cmd/can_tx",
+    "body": {
+      "command_id": "phase65-control",
+      "can_id": 291,
+      "data": "0102",
+      "timeout_ms": 1500
+    },
+    "at": 1062751.278581833
+  },
+  {
+    "topic": "device/can-291/status",
+    "body": {
+      "status": "accepted",
+      "detail": "queued for driver dispatch",
+      "command_id": "phase65-control",
+      "state": "accepted"
+    },
+    "at": 1062751.320294465
+  },
+  {
+    "topic": "device/can-291/telemetry",
+    "body": {
+      "timestamp_ms": 1791040985864,
+      "device_id": "can-291",
+      "protocol": "can",
+      "direction": "northbound",
+      "data_type": "telemetry",
+      "address": 291,
+      "payload": "0000000000000000",
+      "quality": "good",
+      "point_id": "frame",
+      "raw_value": "0000000000000000",
+      "value": "0000000000000000",
+      "driver_id": "can"
+    },
+    "at": 1062751.449432639
+  },
+  {
+    "topic": "device/can-291/status",
+    "body": {
+      "status": "ok",
+      "detail": "CAN frame transmitted",
+      "command_id": "phase65-control",
+      "state": "succeeded"
+    },
+    "at": 1062751.478939778
+  },
+  {
+    "topic": "device/can-291/telemetry",
+    "body": {
+      "timestamp_ms": 1791040985864,
+      "device_id": "can-291",
+      "protocol": "can",
+      "direction": "northbound",
+      "data_type": "telemetry",
+      "address": 291,
+      "payload": "0000000000000001",
+      "quality": "good",
+      "point_id": "frame",
+      "raw_value": "0000000000000001",
+      "value": "0000000000000001",
+      "driver_id": "can"
+    },
+    "at": 1062751.649442278
+  },
+  {
+    "topic": "device/can-291/telemetry",
+    "body": {
+      "timestamp_ms": 1791040985864,
+      "device_id": "can-291",
+      "protocol": "can",
+      "direction": "northbound",
+      "data_type": "telemetry",
+      "address": 291,
+      "payload": "0000000000000002",
+      "quality": "good",
+      "point_id": "frame",
+      "raw_value": "0000000000000002",
+      "value": "0000000000000002",
+      "driver_id": "can"
+    },
+    "at": 1062751.849560176
+  },
+  {
+    "topic": "device/can-291/telemetry",
+    "body": {
+      "timestamp_ms": 1791040985864,
+      "device_id": "can-291",
+      "protocol": "can",
+      "direction": "northbound",
+      "data_type": "telemetry",
+      "address": 291,
+      "payload": "0000000000000003",
+      "quality": "good",
+      "point_id": "frame",
+      "raw_value": "0000000000000003",
+      "value": "0000000000000003",
+      "driver_id": "can"
+    },
+    "at": 1062752.050174192
+  },
+  {
+    "topic": "device/can-291/cmd/can_tx",
+    "body": {
+      "command_id": "phase65-inverse-0",
+      "can_id": 291,
+      "data": "0304",
+      "timeout_ms": 2500
+    },
+    "at": 1062752.124858444
+  },
+  {
+    "topic": "device/can-291/cmd/can_tx",
+    "body": {
+      "command_id": "phase65-inverse-1",
+      "can_id": 291,
+      "data": "0304",
+      "timeout_ms": 2500
+    },
+    "at": 1062752.124964034
+  },
+  {
+    "topic": "device/can-291/cmd/can_tx",
+    "body": {
+      "command_id": "phase65-inverse-2",
+      "can_id": 291,
+      "data": "0304",
+      "timeout_ms": 2500
+    },
+    "at": 1062752.125020065
+  },
+  {
+    "topic": "device/can-291/cmd/can_tx",
+    "body": {
+      "command_id": "phase65-inverse-3",
+      "can_id": 291,
+      "data": "0304",
+      "timeout_ms": 2500
+    },
+    "at": 1062752.125046148
+  },
+  {
+    "topic": "device/can-291/status",
+    "body": {
+      "status": "accepted",
+      "detail": "queued for driver dispatch",
+      "command_id": "phase65-inverse-0",
+      "state": "accepted"
+    },
+    "at": 1062752.168293452
+  },
+  {
+    "topic": "device/can-291/status",
+    "body": {
+      "status": "accepted",
+      "detail": "queued for driver dispatch",
+      "command_id": "phase65-inverse-1",
+      "state": "accepted"
+    },
+    "at": 1062752.168406303
+  },
+  {
+    "topic": "device/can-291/status",
+    "body": {
+      "status": "accepted",
+      "detail": "queued for driver dispatch",
+      "command_id": "phase65-inverse-2",
+      "state": "accepted"
+    },
+    "at": 1062752.168454467
+  },
+  {
+    "topic": "device/can-291/status",
+    "body": {
+      "status": "accepted",
+      "detail": "queued for driver dispatch",
+      "command_id": "phase65-inverse-3",
+      "state": "accepted"
+    },
+    "at": 1062752.16851241
+  },
+  {
+    "topic": "device/can-291/telemetry",
+    "body": {
+      "timestamp_ms": 1791040985864,
+      "device_id": "can-291",
+      "protocol": "can",
+      "direction": "northbound",
+      "data_type": "telemetry",
+      "address": 291,
+      "payload": "0000000000000036",
+      "quality": "good",
+      "point_id": "frame",
+      "raw_value": "0000000000000036",
+      "value": "0000000000000036",
+      "driver_id": "can"
+    },
+    "at": 1062752.250168172
+  }
+]

@@ -1,13 +1,13 @@
 # MQMGateway 源码学习与当前架构技术文档
 
-> 适用对象：当前工作区的 `mqmgateway_iot` 扩展程序。基准 HEAD 为 `644187153744cf7ecb66ccdca9f9be44ba87e8f5`，但 Phase 1–6 升级尚在未提交工作区中，因此**只检出该 commit 得不到本文描述的全部代码**。原上游 `modmqttd` 是独立进程，不等同于新驱动框架。本文按 2026-10-03 实际源码编写；测试结论以相应证据目录为准。
+> 适用对象：当前 `mqmgateway_iot` 扩展程序。原始升级起点为 `644187153744cf7ecb66ccdca9f9be44ba87e8f5`；本文按 2026-10-04 源码更新。原上游 `modmqttd` 是独立进程，不等同于新驱动框架。测试结论以对应证据目录为准。
 
 ## 1. 一句话理解系统
 
 工业设备数据由驱动采集，经 `GatewayCore` 的设备/点位校验与映射，进入有界工作队列，再由北向管理器交给 MQTT 适配器；反向命令从 MQTT 进入，经过 ID、截止时间、设备/点位权限检查后交给对应驱动，回执沿相同关联 ID 返回。
 
 ```text
-CAN / RTU / TCP / MC / S7 / OPC UA / SPI / I2C / GPIO / UART
+CAN / RTU / TCP / MC / S7 / OPC UA / SPI / I2C / GPIO / ADC / PWM / UART
               │
        IDeviceDriver + DriverManager
               │
@@ -22,7 +22,7 @@ CAN / RTU / TCP / MC / S7 / OPC UA / SPI / I2C / GPIO / UART
       MqttNorthboundAdapter → 本地/远端 broker
 ```
 
-CAN、RTU、Modbus TCP、Generic TCP、MC 和 Raw UART 的 fd 由 `SouthboundReactor` 用 epoll 分发，协议处理在驱动内；SPI、I2C、GPIO、S7、OPC UA 等定时/同步采集进入 `AcquisitionScheduler`，不会硬塞进 epoll。当前共享采集调度器固定 2 个线程。`GatewayCore` 不通过 `if (protocol == ...)` 选择驱动。
+CAN、RTU、Modbus TCP、Generic TCP、MC 和 Raw UART 的 fd 由 `SouthboundReactor` 用 epoll 分发，协议处理在驱动内；SPI、I2C、GPIO、ADC、PWM、S7、OPC UA 等定时/同步采集进入 `AcquisitionScheduler`，不会硬塞进 epoll。当前共享采集调度器固定 2 个线程。`GatewayCore` 不通过 `if (protocol == ...)` 选择驱动。
 
 ## 2. 建议阅读顺序与源码职责
 
@@ -84,9 +84,11 @@ CAN、RTU、Modbus TCP、Generic TCP、MC 和 Raw UART 的 fd 由 `SouthboundRea
 | Siemens S7 | Snap7，DB word 读写 | 同步库调用的调度、超时与断线恢复 |
 | OPC UA | open62541 客户端定时读/可写点 | 当前是 polling，不是 Subscription；安全模式/证书未完成 |
 | SPI/I2C/GPIO | Linux 后端及软件模拟测试 | 驱动按时采集、点位映射；未做实体总线电气验证 |
+| ADC | Linux IIO 原始值属性读取，4 字节无符号整数及 scale/offset | 原始码与工程值分层、输入合法性、定时采样 |
+| PWM | Linux PWM 属性写入、8 字节占空比命令、读回与停机安全态 | 周期/占空比约束和软件回执与真实波形的区别 |
 | Raw UART/RS485 | Raw UART 定界或固定长度帧，RS485 配置能力 | UART/RS485 是传输层，不等于 Modbus RTU |
 
-ADC、PWM 仍未实现；不把它们列为已有功能。S7/OPC UA 依赖可选，基础构建可关闭。详细协议子集和 ARM64 证据分别见 [`industrial_gateway_phase4.md`](industrial_gateway_phase4.md)、[`industrial_gateway_phase5.md`](industrial_gateway_phase5.md)。
+ADC/PWM 的软件与 ARM64 客体仿真、配置和边界见 [ADC/PWM 技术文档](ADC_PWM_TECHNICAL_GUIDE.md)。S7/OPC UA 依赖可选，基础构建可关闭。其他协议子集和 ARM64 证据分别见 [`industrial_gateway_phase4.md`](industrial_gateway_phase4.md)、[`industrial_gateway_phase5.md`](industrial_gateway_phase5.md)。
 
 ## 6. Phase 6 可靠性与可观测性
 
@@ -98,7 +100,7 @@ ADC、PWM 仍未实现；不把它们列为已有功能。S7/OPC UA 依赖可选
 - Phase 4.5 当前代码的本机全量 CTest 为 **11/11 PASS**，北向单元测试 **8 用例/102 断言 PASS**；原始失败和修正后日志见 [`phase4_5-20261003`](../results/edge_core/phase4_5-20261003/README.md)。
 - Phase 6 当前本地闭环：[阶段文档](industrial_gateway_phase6.md)与[新证据](../results/edge_core/phase6-closure-20261003/README.md)。相关单元测试 **12 用例/155 断言 PASS**，完整 CTest **11/11 PASS**；独立告警主题、设备 stale/offline/恢复、队列停滞/确认/恢复均以本地 broker/vcan 验证。
 - 历史 ARM64 Buildroot/QEMU、8 小时 soak、30 分钟压力及 EMQX 实验**对应各自当时二进制**。本轮 Phase 6 按用户要求只做本地模拟回归，不将历史结果自动写成当前版本的 ARM/云端通过。
-- 当前工作区尚未提交；要复现必须包含现有未提交 Phase 1–6 文件。源码和证据结项后再单独整理 Git 提交，不覆盖历史材料。
+- 复现当前功能应使用包含 Phase 1–6.5 与 ADC/PWM 代码的源码快照；每轮历史结果仍对应其当时二进制。
 
 ## 8. 学习时最值得自己回答的 6 个问题
 
@@ -108,3 +110,9 @@ ADC、PWM 仍未实现；不把它们列为已有功能。S7/OPC UA 依赖可选
 4. QoS1 PUBACK、网关 `accepted`、驱动 `succeeded` 三个确认分别代表什么？
 5. 为什么健康超时用单调时钟、事件记录用墙钟？被动 CAN 设备为什么默认不做 stale 判定？
 6. 如何区分队列停滞、broker 断线、设备离线和点位映射失败？各自对应哪些指标和日志？
+
+## 9. Phase 6.5：上报策略与控制面隔离
+
+当前源码先由 GatewayCore 校验/映射，并调用 Diagnostics.observe；Gateway 回调才执行 TelemetryPolicy。COV 表示“值发生有意义变化才上报”，数字死区相对上次成功进入遥测队列的值计算，质量变化无条件上报；maxReportInterval 用 steady_clock 强制周期上报。未配置策略时每个有效样本仍尝试入队。PointMapper 只负责值变换，不保留上报历史。策略细节和例子见 [Phase 6.5](industrial_gateway_phase6_5.md)。
+
+Gateway 现在有独立的 telemetryQueue/commandQueue 和对应 worker；前者满不会占用后者容量。MQTT 适配器还有第二层有界出站队列，解决网络发送背压，不代替 Gateway 的命令执行隔离。区分“命令已进入队列”“Mosquitto publish API 接受”“broker PUBACK”“设备操作成功”，不能把其中一个写成另一个。两个队列和出站队列的限额与拒绝指标都要一起看。

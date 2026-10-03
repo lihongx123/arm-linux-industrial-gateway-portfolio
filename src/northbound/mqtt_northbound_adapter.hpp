@@ -60,7 +60,8 @@ private:
     void onMessage(const std::string& topic, const std::string& payload);
     PublishResult publishRaw(const std::string& topic, const std::string& payload,
                              bool retain, bool telemetry);
-    PublishResult queueRaw(std::string topic, std::string payload, bool retain, bool telemetry);
+    PublishResult queueRaw(std::string topic, std::string payload, bool retain, bool telemetry,
+                           bool routine = false);
     void senderLoop();
     std::string gatewayStatusTopic() const;
     std::string diagnosticsTopic() const;
@@ -76,8 +77,9 @@ private:
     struct Outbound { std::string topic, payload; bool retain{false}, telemetry{false}; };
     mutable std::mutex outboundMutex_;
     std::condition_variable outboundReady_;
-    std::deque<Outbound> outbound_;
+    std::deque<Outbound> telemetryOutbound_, controlOutbound_;
     std::size_t outboundPeak_{0};
+    unsigned consecutiveControl_{0};
     bool senderRunning_{false};
     bool outboundInFlight_{false};
     std::thread sender_;

@@ -1,0 +1,9 @@
+{
+  "result": "PASS",
+  "telemetry_queue_rejected": 195,
+  "command_queue_rejected": 0,
+  "command_admission_ms": 42.946,
+  "command_terminal_ms": 200.918,
+  "telemetry_peak": 4,
+  "command_peak": 1
+}

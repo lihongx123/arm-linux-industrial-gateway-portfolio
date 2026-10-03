@@ -19,6 +19,9 @@ bool GatewayCore::addDevice(DeviceDefinition device) {
 bool GatewayCore::addPoint(PointDefinition point) {
     return devices_.find(point.deviceId) && points_.add(std::move(point));
 }
+std::optional<PointDefinition> GatewayCore::pointDefinition(const std::string& deviceId, const std::string& pointId) const {
+    return points_.find(deviceId, pointId);
+}
 std::optional<DeviceDefinition> GatewayCore::ensureDevice(const std::string& deviceId, const std::string& hint) {
     auto device = devices_.find(deviceId);
     if (!device) {
@@ -62,7 +65,7 @@ std::string GatewayCore::defaultCommand(const std::string& deviceId) {
 std::vector<std::shared_ptr<IEventDrivenDriver>> GatewayCore::eventDrivers() const { return drivers_.eventDrivers(); }
 std::vector<std::shared_ptr<IAcquisitionDriver>> GatewayCore::acquisitionDrivers() const { return drivers_.acquisitionDrivers(); }
 void GatewayCore::evaluateDiagnostics() { diagnostics_.evaluate(); }
-void GatewayCore::reportQueueStall(bool stalled) { diagnostics_.reportQueueStall(stalled); }
+void GatewayCore::reportQueueStall(bool stalled, const std::string& key) { diagnostics_.reportQueueStall(stalled, key); }
 bool GatewayCore::acknowledgeAlarm(const std::string& key) { return diagnostics_.acknowledgeAlarm(key); }
 std::vector<AlarmEvent> GatewayCore::alarmEventsSince(std::uint64_t sequence) const {
     return diagnostics_.alarmEventsSince(sequence);

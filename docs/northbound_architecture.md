@@ -61,3 +61,7 @@ Mosquitto 网络回调线程解析命令后调用统一命令入口，入口只�
 - `NOT_IMPLEMENTED`：其他北向 SDK/平台适配器、已提交南向写操作的通用取消/撤销保证、离线持久化命令结果。
 
 历史 Phase 5 和此前 ARM64/云端证据仍属于各自当时的源码与测试条件，不能自动继承为本轮二进制的验证结论。
+
+## Phase 6.5 出站隔离补充
+
+原“单一固定上限队列”是 Phase 4.5 时的实现记录。当前 MqttNorthboundAdapter 在相同 outboundCapacity 总上限内保留至少 1/4（向下取整且至少 1）给控制消息，其余给常规数据。capacity=1 的兼容边界允许常规数据先使用唯一槽位；控制到来时抢占尚未发送的常规消息并增加 dropped，绝不超过总容量 1。控制包含 CommandResult、关键 Status、Alarm/Ack；网关 heartbeat 和周期诊断快照走常规通道，不占用控制保留槽位，但仍保持原 MQTT QoS 规则。发送线程最多连续取 3 条控制消息，然后若有常规数据则取 1 条，避免持续控制流饿死遥测。每条消息满额时明确返回 rejected，并计入 dropped；控制空间只能保证不被常规数据占用，无法保证断线、控制流自身过载、PUBACK 或设备成功。Gateway 的命令队列是另一层独立隔离，见 [Phase 6.5](industrial_gateway_phase6_5.md)。

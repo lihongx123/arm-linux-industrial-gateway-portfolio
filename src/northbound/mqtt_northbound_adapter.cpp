@@ -96,7 +96,7 @@ void MqttNorthboundAdapter::stop() noexcept {
         if (connected_) {
             std::unique_lock<std::mutex> lock(outboundMutex_);
             outboundReady_.wait_for(lock, std::chrono::seconds(2), [this] {
-                return outbound_.empty() && !outboundInFlight_;
+                return telemetryOutbound_.empty() && controlOutbound_.empty() && !outboundInFlight_;
             });
         }
         if (connected_) {
@@ -109,8 +109,9 @@ void MqttNorthboundAdapter::stop() noexcept {
         {
             std::lock_guard<std::mutex> lock(outboundMutex_);
             senderRunning_ = false;
-            dropped_ += outbound_.size();
-            outbound_.clear();
+            dropped_ += telemetryOutbound_.size() + controlOutbound_.size();
+            telemetryOutbound_.clear();
+            controlOutbound_.clear();
         }
         outboundReady_.notify_all();
         if (sender_.joinable()) sender_.join();
@@ -235,10 +236,15 @@ PublishResult MqttNorthboundAdapter::publishRaw(const std::string& topic, const 
     return {false, "MQTT disconnected or publish failed"};
 }
 PublishResult MqttNorthboundAdapter::publish(const edge::UnifiedMessageV2& message) {
+    const bool routine = message.northboundType == edge::NorthboundType::telemetry ||
+        (message.northboundType == edge::NorthboundType::status &&
+         message.sourceDescriptor == "gateway" && message.operation == "heartbeat") ||
+        (message.northboundType == edge::NorthboundType::diagnostic &&
+         message.operation == "legacy_snapshot");
     return queueRaw(topicFor(message), serialize(message),
                       message.northboundType == edge::NorthboundType::status &&
                           message.sourceDescriptor == "gateway" && message.operation != "heartbeat",
-                      message.northboundType == edge::NorthboundType::telemetry);
+                      message.northboundType == edge::NorthboundType::telemetry, routine);
 }
 AdapterMetrics MqttNorthboundAdapter::metrics() const {
     std::size_t pending;
@@ -248,19 +254,30 @@ AdapterMetrics MqttNorthboundAdapter::metrics() const {
     }
     std::lock_guard<std::mutex> lock(outboundMutex_);
     return {published_.load(), failed_.load(), dropped_.load(), inbound_.load(),
-            connected_.load(), outbound_.size(), outboundPeak_, pending};
+            connected_.load(), telemetryOutbound_.size() + controlOutbound_.size(), outboundPeak_, pending};
 }
 PublishResult MqttNorthboundAdapter::queueRaw(std::string topic, std::string payload,
-                                              bool retain, bool telemetry) {
+                                              bool retain, bool telemetry, bool routine) {
     if (topic.empty() || payload.empty()) { ++dropped_; return {false, "empty topic or payload"}; }
     {
         std::lock_guard<std::mutex> lock(outboundMutex_);
-        if (!senderRunning_ || outbound_.size() >= config_.outboundCapacity) {
+        // Reserve at least one slot for control, while keeping the original total bound.
+        const auto reserve = std::max<std::size_t>(1, config_.outboundCapacity / 4);
+        auto& lane = routine ? telemetryOutbound_ : controlOutbound_;
+        const auto laneCapacity = routine
+            ? (config_.outboundCapacity == 1 ? 1 : config_.outboundCapacity - reserve) : reserve;
+        if (!senderRunning_ || lane.size() >= laneCapacity ||
+            (config_.outboundCapacity == 1 && routine && !controlOutbound_.empty())) {
             ++dropped_;
-            return {false, "MQTT outbound queue stopped or full"};
+            return {false, routine ? "MQTT routine outbound lane stopped or full"
+                                   : "MQTT control outbound lane stopped or full"};
         }
-        outbound_.push_back({std::move(topic), std::move(payload), retain, telemetry});
-        outboundPeak_ = std::max(outboundPeak_, outbound_.size());
+        if (config_.outboundCapacity == 1 && !routine && !telemetryOutbound_.empty()) {
+            telemetryOutbound_.pop_front(); // explicit metric; control preempts only the one-slot edge case
+            ++dropped_;
+        }
+        lane.push_back({std::move(topic), std::move(payload), retain, telemetry});
+        outboundPeak_ = std::max(outboundPeak_, telemetryOutbound_.size() + controlOutbound_.size());
     }
     outboundReady_.notify_one();
     return {true, {}};
@@ -270,10 +287,16 @@ void MqttNorthboundAdapter::senderLoop() {
         Outbound item;
         {
             std::unique_lock<std::mutex> lock(outboundMutex_);
-            outboundReady_.wait(lock, [this] { return !senderRunning_ || !outbound_.empty(); });
+            outboundReady_.wait(lock, [this] {
+                return !senderRunning_ || !telemetryOutbound_.empty() || !controlOutbound_.empty();
+            });
             if (!senderRunning_) return;
-            item = std::move(outbound_.front());
-            outbound_.pop_front();
+            const bool useControl = !controlOutbound_.empty() &&
+                (telemetryOutbound_.empty() || consecutiveControl_ < 3);
+            auto& lane = useControl ? controlOutbound_ : telemetryOutbound_;
+            item = std::move(lane.front());
+            lane.pop_front();
+            consecutiveControl_ = useControl ? consecutiveControl_ + 1 : 0;
             outboundInFlight_ = true;
         }
         publishRaw(item.topic, item.payload, item.retain, item.telemetry);

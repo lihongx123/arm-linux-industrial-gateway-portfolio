@@ -1,0 +1,11 @@
+{
+  "result": "PASS",
+  "telemetry_queue_rejected": 195,
+  "command_queue_rejected": 0,
+  "command_admission_ms": 42.005,
+  "command_terminal_ms": 200.65,
+  "telemetry_peak": 4,
+  "command_peak": 3,
+  "cov_suppressed": 4,
+  "telemetry_progressed_during_command_burst": true
+}

@@ -16,9 +16,9 @@ void DiagnosticsManager::evaluate() {
     std::lock_guard<std::mutex> lock(mutex_);
     for (const auto& transition : health_.evaluate()) alarms_.healthTransition(transition);
 }
-void DiagnosticsManager::reportQueueStall(bool stalled) {
+void DiagnosticsManager::reportQueueStall(bool stalled, const std::string& key) {
     std::lock_guard<std::mutex> lock(mutex_);
-    alarms_.setSystemAlarm("queue_stalled", stalled, time_.epochMs());
+    alarms_.setSystemAlarm(key, stalled, time_.epochMs());
 }
 bool DiagnosticsManager::acknowledgeAlarm(const std::string& key) {
     std::lock_guard<std::mutex> lock(mutex_);

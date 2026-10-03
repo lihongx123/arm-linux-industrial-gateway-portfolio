@@ -1,0 +1,12 @@
+{
+  "mode": "legacy-shared",
+  "telemetry_queue_capacity": 4,
+  "telemetry_workers": 1,
+  "processing_delay_ms": 200,
+  "flood_frames": 200,
+  "telemetry_rejected": 195,
+  "command_first_state": "rejected",
+  "command_first_ms": 43.541,
+  "command_terminal_state": "rejected",
+  "command_terminal_ms": 43.541
+}

@@ -6,8 +6,42 @@
 #include <linux/i2c.h>
 #include <linux/i2c-dev.h>
 #include <linux/gpio.h>
+#include <charconv>
+#include <fstream>
+#include <limits>
+#include <regex>
+#include <sstream>
 #include <stdexcept>
 namespace mqmgateway::board {
+namespace {
+std::uint64_t readNumber(const std::string& path) {
+    std::ifstream input(path);
+    std::string text, extra;
+    if (!input || !(input >> text) || (input >> extra)) throw std::runtime_error("board numeric read failed");
+    std::uint64_t value = 0;
+    const auto parsed = std::from_chars(text.data(), text.data() + text.size(), value);
+    if (parsed.ec != std::errc{} || parsed.ptr != text.data() + text.size())
+        throw std::runtime_error("board numeric value invalid");
+    return value;
+}
+void writeNumber(const std::string& path, std::uint64_t value) {
+    std::ofstream output(path);
+    if (!output) throw std::runtime_error("board numeric open for write failed");
+    output << value << '\n';
+    output.flush();
+    if (!output) throw std::runtime_error("board numeric write failed");
+}
+std::vector<std::uint8_t> bigEndian(std::uint64_t value, std::size_t bytes) {
+    std::vector<std::uint8_t> data(bytes);
+    for (std::size_t i = bytes; i != 0; --i) { data[i - 1] = static_cast<std::uint8_t>(value); value >>= 8; }
+    return data;
+}
+std::uint64_t decodeBigEndian(const std::vector<std::uint8_t>& data) {
+    std::uint64_t value = 0;
+    for (auto byte : data) value = (value << 8) | byte;
+    return value;
+}
+}
 SpiBackend::SpiBackend(SpiConfig c) : mConfig(std::move(c)) {
     if (mConfig.point.path.rfind("/dev/spidev", 0) || mConfig.mode > 3 ||
         mConfig.speedHz < 1000 || mConfig.speedHz > 100000000 || mConfig.bits != 8 ||
@@ -103,5 +137,67 @@ void GpioBackend::write(const std::vector<std::uint8_t>& bytes) {
     if (!mConfig.output || mLine < 0 || bytes.size() != 1 || bytes[0] > 1) throw std::runtime_error("GPIO write invalid");
     gpio_v2_line_values values{}; values.mask = 1; values.bits = bytes[0];
     if (ioctl(mLine, GPIO_V2_LINE_SET_VALUES_IOCTL, &values)) throw std::runtime_error("GPIO write failed");
+}
+AdcBackend::AdcBackend(AdcConfig c) : mConfig(std::move(c)) {
+    const static std::regex path(R"(^/sys/bus/iio/devices/iio:device[0-9]+/in_voltage[0-9]+_raw$)");
+    if ((!mConfig.simulation && !std::regex_match(mConfig.point.path, path)) ||
+        mConfig.point.path.empty() || mConfig.point.readLength != 4 ||
+        mConfig.point.writable || mConfig.point.type != edge::PointValueType::integer)
+        throw std::invalid_argument("invalid ADC config");
+}
+void AdcBackend::open() {
+    if (readNumber(mConfig.point.path) > std::numeric_limits<std::uint32_t>::max())
+        throw std::runtime_error("ADC raw value exceeds 32 bits");
+    mOpen = true;
+}
+void AdcBackend::close() noexcept { mOpen = false; }
+std::vector<std::uint8_t> AdcBackend::read() {
+    if (!mOpen) throw std::runtime_error("ADC closed");
+    const auto value = readNumber(mConfig.point.path);
+    if (value > std::numeric_limits<std::uint32_t>::max()) throw std::runtime_error("ADC raw value exceeds 32 bits");
+    return bigEndian(value, 4);
+}
+void AdcBackend::write(const std::vector<std::uint8_t>&) { throw std::runtime_error("ADC is read-only"); }
+PwmBackend::PwmBackend(PwmConfig c) : mConfig(std::move(c)) {
+    const static std::regex path(R"(^/sys/class/pwm/pwmchip[0-9]+/pwm[0-9]+$)");
+    if ((!mConfig.simulation && !std::regex_match(mConfig.point.path, path)) ||
+        mConfig.point.path.empty() || mConfig.point.readLength != 8 ||
+        !mConfig.point.writable || mConfig.point.type != edge::PointValueType::integer ||
+        mConfig.periodNs == 0 || mConfig.periodNs > 1000000000ULL)
+        throw std::invalid_argument("invalid PWM config");
+}
+void PwmBackend::open() {
+    const auto& p = mConfig.point.path;
+    try {
+        (void)readNumber(p + "/enable");
+        (void)readNumber(p + "/duty_cycle");
+        writeNumber(p + "/enable", 0);
+        writeNumber(p + "/duty_cycle", 0);
+        writeNumber(p + "/period", mConfig.periodNs);
+        mOpen = true;
+    } catch (...) { close(); throw; }
+}
+void PwmBackend::close() noexcept {
+    const auto& p = mConfig.point.path;
+    try { writeNumber(p + "/enable", 0); } catch (...) {}
+    try { writeNumber(p + "/duty_cycle", 0); } catch (...) {}
+    mOpen = false;
+}
+std::vector<std::uint8_t> PwmBackend::read() {
+    if (!mOpen) throw std::runtime_error("PWM closed");
+    const auto duty = readNumber(mConfig.point.path + "/duty_cycle");
+    if (duty > mConfig.periodNs) throw std::runtime_error("PWM duty exceeds period");
+    return bigEndian(duty, 8);
+}
+void PwmBackend::write(const std::vector<std::uint8_t>& bytes) {
+    if (!mOpen || bytes.size() != 8) throw std::runtime_error("PWM write invalid");
+    const auto duty = decodeBigEndian(bytes);
+    if (duty > mConfig.periodNs) throw std::runtime_error("PWM duty exceeds period");
+    const auto& p = mConfig.point.path;
+    try {
+        writeNumber(p + "/enable", 0);
+        writeNumber(p + "/duty_cycle", duty);
+        if (duty) writeNumber(p + "/enable", 1);
+    } catch (...) { close(); throw; }
 }
 }

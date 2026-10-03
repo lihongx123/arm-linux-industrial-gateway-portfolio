@@ -1,0 +1,16 @@
+{
+  "command": [
+    "/tmp/mqmgateway-phase65-build/src/iot_gateway/mqmgateway_iot",
+    "--mqtt-port=33893",
+    "--can-interface=vcan0",
+    "--telemetry-queue-capacity=4",
+    "--command-queue-capacity=4",
+    "--mqtt-outbound-capacity=64",
+    "--point-policy=can-291,frame,1,0,0",
+    "--workers=1",
+    "--command-workers=1",
+    "--processing-delay-ms=200",
+    "--heartbeat-ms=50",
+    "--metrics-file=results/edge_core/phase6-5-20261003/queue-isolation-attempt2/metrics.json"
+  ]
+}

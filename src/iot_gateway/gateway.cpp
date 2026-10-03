@@ -12,21 +12,33 @@ namespace mqmgateway::iot {
 
 Gateway::Gateway(GatewayConfig config)
     : config_(std::move(config)),
-      queue_(config_.queueCapacity),
+      telemetryQueue_(config_.queueCapacity),
+      commandQueue_(config_.commandQueueCapacity),
       core_([this](edge::UnifiedMessageV2 message) {
           if (!message.correlationId.empty() && message.dataType == DataType::status &&
               northbound_.completeCommand(message)) return;
-          if (queue_.tryPush(std::move(message))) ++telemetryEnqueued_;
+          if (message.dataType == DataType::telemetry) {
+              const auto point = core_.pointDefinition(message.deviceId, message.pointId);
+              const auto decision = telemetryPolicy_.process(message,
+                  point ? point->type : edge::PointValueType::bytes,
+                  [this, &message] { return telemetryQueue_.tryPush(message); });
+              if (decision == edge::TelemetryPolicy::Decision::published) ++telemetryEnqueued_;
+          } else if (telemetryQueue_.tryPush(std::move(message))) ++telemetryEnqueued_;
       }, config_.health),
-      queueWatchdog_(config_.queueWatchdogThreshold) {
+      telemetryQueueWatchdog_(config_.queueWatchdogThreshold),
+      commandQueueWatchdog_(config_.queueWatchdogThreshold) {
     drivers::registerSouthboundDrivers(core_, config_.canInterface, config_.pipelineMetrics, config_.rtu, config_.queueCapacity);
     drivers::registerTcpDrivers(core_, config_.modbusTcp, config_.genericTcp, config_.queueCapacity);
     drivers::registerMcDrivers(core_, config_.mc, config_.queueCapacity);
     drivers::registerOpcUaDrivers(core_, config_.opcua);
     drivers::registerS7Drivers(core_, config_.s7);
-    drivers::registerBoardDrivers(core_, config_.spi, config_.i2c, config_.gpio);
+    drivers::registerBoardDrivers(core_, config_.spi, config_.i2c, config_.gpio, config_.adc, config_.pwm);
     drivers::registerUartDrivers(core_, config_.uart, config_.queueCapacity);
-    if (!config_.queueCapacity || !config_.workers) throw std::invalid_argument("queue/workers must be positive");
+    if (!config_.queueCapacity || !config_.workers || !config_.commandQueueCapacity || !config_.commandWorkers)
+        throw std::invalid_argument("telemetry/command queue capacities and workers must be positive");
+    for (const auto& entry : config_.pointPolicies)
+        if (!telemetryPolicy_.configure(entry.deviceId, entry.pointId, entry.policy))
+            throw std::invalid_argument("invalid or excessive point policy");
     if (config_.cloudMode) {
         config_.mqttTls = true;
     }
@@ -57,7 +69,7 @@ Gateway::Gateway(GatewayConfig config)
     mqtt.clientId = config_.clientId;
     mqtt.telemetryQos = config_.telemetryQos;
     mqtt.maxInflight = config_.mqttMaxInflight;
-    mqtt.outboundCapacity = config_.queueCapacity;
+    mqtt.outboundCapacity = config_.mqttOutboundCapacity ? config_.mqttOutboundCapacity : config_.queueCapacity;
     mqtt.pipelineMetrics = config_.pipelineMetrics;
     mqtt.diagnostics = config_.diagnosticsMqtt;
     mqtt.resolveCommand = [this](const std::string& id) { return core_.defaultCommand(id); };
@@ -70,7 +82,7 @@ Gateway::Gateway(GatewayConfig config)
             return "command does not match registered driver";
         if (!core_.prepare(command)) return "device has no matching registered driver";
         command.enqueuedAt = std::chrono::steady_clock::now();
-        if (!queue_.tryPush(command)) return "queue capacity exceeded";
+        if (!commandQueue_.tryPush(command)) return "command queue capacity exceeded";
         return {};
     });
 }
@@ -91,8 +103,10 @@ void Gateway::start() {
     if (!northbound_.start()) throw std::runtime_error("northbound adapter start failed");
     receiver_ = std::thread(&Gateway::receiveLoop, this);
     for (std::size_t index = 0; index < std::max<std::size_t>(1, config_.workers); ++index) {
-        workers_.emplace_back(&Gateway::workerLoop, this);
+        workers_.emplace_back(&Gateway::telemetryWorkerLoop, this);
     }
+    for (std::size_t index = 0; index < config_.commandWorkers; ++index)
+        commandWorkers_.emplace_back(&Gateway::commandWorkerLoop, this);
     heartbeat_ = std::thread(&Gateway::heartbeatLoop, this);
     } catch (...) {
         stop();
@@ -102,7 +116,8 @@ void Gateway::start() {
 
 void Gateway::stop() {
     running_ = false;
-    queue_.stop();
+    telemetryQueue_.stop();
+    commandQueue_.stop();
     if (acquisition_) acquisition_->stop();
     if (southbound_) southbound_->wake();
     if (receiver_.joinable()) receiver_.join();
@@ -111,6 +126,8 @@ void Gateway::stop() {
         if (worker.joinable()) worker.join();
     }
     workers_.clear();
+    for (auto& worker : commandWorkers_) if (worker.joinable()) worker.join();
+    commandWorkers_.clear();
     northbound_.stop();
     writeMetrics();
     core_.stop();
@@ -130,46 +147,29 @@ void Gateway::receiveLoop() {
     } catch (const std::exception& error) {
         std::cerr << "southbound reactor failed: " << error.what() << '\n';
         running_ = false;
-        queue_.stop();
+        telemetryQueue_.stop();
+        commandQueue_.stop();
     }
 }
 
-void Gateway::workerLoop() {
+void Gateway::telemetryWorkerLoop() {
     while (running_) {
-        auto item = queue_.pop();
+        auto item = telemetryQueue_.pop();
         if (!item) {
             return;
         }
         const auto workerStart = std::chrono::steady_clock::now();
         if (config_.pipelineMetrics) {
-            if (item->dataType == DataType::command) {
-                commandQueueWait_.observe(workerStart - item->enqueuedAt);
-            } else {
-                ++telemetryDequeued_;
-                telemetryQueueWait_.observe(workerStart - item->enqueuedAt);
-            }
+            ++telemetryDequeued_;
+            telemetryQueueWait_.observe(workerStart - item->enqueuedAt);
         }
         const auto latency = std::chrono::duration<double, std::milli>(
             std::chrono::steady_clock::now() - item->enqueuedAt).count();
-        queue_.observeLatency(latency);
+        telemetryQueue_.observeLatency(latency);
         if (config_.processingDelay.count() > 0) {
             std::this_thread::sleep_for(config_.processingDelay);
         }
-        if (item->dataType == DataType::command) {
-            if ((item->deadline && std::chrono::steady_clock::now() >= *item->deadline) ||
-                std::chrono::steady_clock::now() - item->enqueuedAt > item->timeout) {
-                ++commandTimeouts_;
-                item->status = "timeout";
-                item->detail = "command expired in queue";
-                item->quality = Quality::timeout;
-                northbound_.completeCommand(*item);
-            } else if (!core_.submit(*item)) {
-                item->status = "rejected";
-                item->detail = "device unavailable or command rejected";
-                item->quality = Quality::unavailable;
-                northbound_.completeCommand(*item);
-            }
-        } else if (item->dataType == DataType::status) {
+        if (item->dataType == DataType::status) {
             item->northboundType = edge::NorthboundType::status;
             if (item->status.empty()) item->status = item->quality == Quality::good ? "ok" : toString(item->quality);
             northbound_.publish(*item);
@@ -180,16 +180,48 @@ void Gateway::workerLoop() {
         }
     }
 }
+void Gateway::commandWorkerLoop() {
+    while (running_) {
+        auto item = commandQueue_.pop();
+        if (!item) return;
+        const auto now = std::chrono::steady_clock::now();
+        if (config_.pipelineMetrics) commandQueueWait_.observe(now - item->enqueuedAt);
+        commandQueue_.observeLatency(std::chrono::duration<double, std::milli>(now - item->enqueuedAt).count());
+        if (config_.processingDelay.count() > 0) std::this_thread::sleep_for(config_.processingDelay);
+        if ((item->deadline && std::chrono::steady_clock::now() >= *item->deadline) ||
+            std::chrono::steady_clock::now() - item->enqueuedAt > item->timeout) {
+            ++commandTimeouts_;
+            item->status = "timeout";
+            item->detail = "command expired in queue";
+            item->quality = Quality::timeout;
+            northbound_.completeCommand(*item);
+        } else if (!core_.submit(*item)) {
+            item->status = "rejected";
+            item->detail = "device unavailable or command rejected";
+            item->quality = Quality::unavailable;
+            northbound_.completeCommand(*item);
+        }
+    }
+}
 
 void Gateway::heartbeatLoop() {
     while (running_) {
-        const auto metrics = queue_.metrics();
-        const auto watchdog = queueWatchdog_.observe(
+        const auto metrics = telemetryQueue_.metrics();
+        const auto commands = commandQueue_.metrics();
+        const auto watchdog = telemetryQueueWatchdog_.observe(
             metrics.currentDepth, metrics.dequeued, std::chrono::steady_clock::now());
         if (watchdog) {
             const bool stalled = *watchdog == edge::QueueWatchdog::Transition::stalled;
-            core_.reportQueueStall(stalled);
-            std::cerr << "queue watchdog " << (stalled ? "stalled" : "recovered") << '\n';
+            core_.reportQueueStall(stalled, "telemetry_queue_stalled");
+            core_.reportQueueStall(stalled, "queue_stalled"); // legacy Phase 6 alarm key
+            std::cerr << "telemetry queue watchdog " << (stalled ? "stalled" : "recovered") << '\n';
+        }
+        const auto commandWatchdog = commandQueueWatchdog_.observe(
+            commands.currentDepth, commands.dequeued, std::chrono::steady_clock::now());
+        if (commandWatchdog) {
+            const bool stalled = *commandWatchdog == edge::QueueWatchdog::Transition::stalled;
+            core_.reportQueueStall(stalled, "command_queue_stalled");
+            std::cerr << "command queue watchdog " << (stalled ? "stalled" : "recovered") << '\n';
         }
         core_.evaluateDiagnostics();
         northbound_.expireCommands();
@@ -241,7 +273,9 @@ void Gateway::writeMetrics() const {
     if (config_.metricsFile.empty()) {
         return;
     }
-    const auto metrics = queue_.metrics();
+    const auto metrics = telemetryQueue_.metrics();
+    const auto commands = commandQueue_.metrics();
+    const auto policy = telemetryPolicy_.metrics();
     const auto temporary = config_.metricsFile + ".tmp";
     std::ofstream output(temporary, std::ios::trunc);
     const auto mqttMetrics = mqttAdapter_->metrics();
@@ -251,6 +285,25 @@ void Gateway::writeMetrics() const {
            << ",\"peak_depth\":" << metrics.peakDepth
            << ",\"rejected\":" << metrics.rejected
            << ",\"processing_latency_ms\":" << metrics.processingLatencyMs
+           << ",\"telemetry_samples_valid\":" << policy.valid
+           << ",\"telemetry_published\":" << policy.published
+           << ",\"telemetry_suppressed_cov\":" << policy.suppressedCov
+           << ",\"telemetry_forced_max_interval\":" << policy.forcedMaxInterval
+           << ",\"telemetry_mapping_failed\":" << core_.mappingFailures()
+           << ",\"telemetry_queue_rejected\":" << metrics.rejected
+           << ",\"command_queue_rejected\":" << commands.rejected
+           << ",\"telemetry_queue\":{\"enqueued\":" << metrics.enqueued
+           << ",\"dequeued\":" << metrics.dequeued
+           << ",\"current_depth\":" << metrics.currentDepth
+           << ",\"peak_depth\":" << metrics.peakDepth
+           << ",\"rejected\":" << metrics.rejected
+           << ",\"processing_latency_ms\":" << metrics.processingLatencyMs << '}'
+           << ",\"command_queue\":{\"enqueued\":" << commands.enqueued
+           << ",\"dequeued\":" << commands.dequeued
+           << ",\"current_depth\":" << commands.currentDepth
+           << ",\"peak_depth\":" << commands.peakDepth
+           << ",\"rejected\":" << commands.rejected
+           << ",\"processing_latency_ms\":" << commands.processingLatencyMs << '}'
            << ",\"published\":" << mqttMetrics.published
            << ",\"publish_failures\":" << mqttMetrics.publishFailed
            << ",\"command_timeouts\":" << commandTimeouts_.load()
@@ -272,7 +325,9 @@ void Gateway::writeMetrics() const {
     }
     northbound_.writeMetrics(output);
     core_.appendMetrics(output);
-    queueWatchdog_.appendMetrics(output);
+    telemetryQueueWatchdog_.appendMetrics(output); // legacy Phase 6 metric
+    telemetryQueueWatchdog_.appendMetrics(output, "telemetry_queue_watchdog");
+    commandQueueWatchdog_.appendMetrics(output, "command_queue_watchdog");
     if (acquisition_) acquisition_->appendMetrics(output);
     output << "}\n";
     output.close();

@@ -6,6 +6,7 @@
 #include "gateway_core.hpp"
 #include "acquisition_scheduler.hpp"
 #include "watchdog.hpp"
+#include "telemetry_policy.hpp"
 #include "southbound_reactor.hpp"
 #include "mqtt_northbound_adapter.hpp"
 #include "northbound_manager.hpp"
@@ -33,7 +34,15 @@ struct GatewayConfig {
     std::string clientId{"mqmgateway-iot"};
     std::string canInterface{"vcan0"};
     std::size_t queueCapacity{1024};
+    std::size_t commandQueueCapacity{64};
+    std::size_t mqttOutboundCapacity{0}; // 0 preserves legacy alias to queueCapacity
     std::size_t workers{2};
+    std::size_t commandWorkers{1};
+    struct PointPolicyEntry {
+        std::string deviceId, pointId;
+        edge::ReportingPolicy policy;
+    };
+    std::vector<PointPolicyEntry> pointPolicies;
     std::chrono::milliseconds heartbeatInterval{1000};
     std::chrono::milliseconds processingDelay{0};
     std::string metricsFile;
@@ -52,6 +61,8 @@ struct GatewayConfig {
     std::vector<board::SpiConfig> spi;
     std::vector<board::I2cConfig> i2c;
     std::vector<board::GpioConfig> gpio;
+    std::vector<board::AdcConfig> adc;
+    std::vector<board::PwmConfig> pwm;
     std::vector<drivers::RawUartConfig> uart;
 };
 
@@ -69,12 +80,15 @@ public:
 
 private:
     void receiveLoop();
-    void workerLoop();
+    void telemetryWorkerLoop();
+    void commandWorkerLoop();
     void heartbeatLoop();
     void writeMetrics() const;
 
     GatewayConfig config_;
-    BoundedQueue<edge::UnifiedMessageV2> queue_;
+    BoundedQueue<edge::UnifiedMessageV2> telemetryQueue_;
+    BoundedQueue<edge::UnifiedMessageV2> commandQueue_;
+    edge::TelemetryPolicy telemetryPolicy_;
     edge::GatewayCore core_;
     northbound::NorthboundManager northbound_;
     northbound::MqttNorthboundAdapter* mqttAdapter_{nullptr}; // owned by northbound_
@@ -86,10 +100,11 @@ private:
     std::uint64_t lastAlarmSequence_{0}; // heartbeat thread only
     std::atomic<std::uint64_t> alarmHistoryMissed_{0};
     StageLatency telemetryQueueWait_, commandQueueWait_, telemetryWork_;
-    edge::QueueWatchdog queueWatchdog_;
+    edge::QueueWatchdog telemetryQueueWatchdog_, commandQueueWatchdog_;
     std::thread receiver_;
     std::thread heartbeat_;
     std::vector<std::thread> workers_;
+    std::vector<std::thread> commandWorkers_;
 };
 
 }  // namespace mqmgateway::iot

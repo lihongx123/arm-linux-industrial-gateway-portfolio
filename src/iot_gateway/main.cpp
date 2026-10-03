@@ -151,6 +151,27 @@ mqmgateway::board::GpioConfig parseGpio(const std::string& text) {
     c.point.intervalMs=tcpUnsigned(f[6]); c.point.type=mqmgateway::edge::PointValueType::boolean;
     return c;
 }
+mqmgateway::board::AdcConfig parseAdc(const std::string& text) {
+    const auto f = tcpFields(text);
+    if (f.size() != 6) throw std::invalid_argument("ADC: id,point,iio_raw_path,poll_ms,scale,offset");
+    mqmgateway::board::AdcConfig c;
+    c.point.deviceId=f[0]; c.point.pointId=f[1]; c.point.path=f[2];
+    c.point.intervalMs=tcpUnsigned(f[3]); c.point.scale=boardReal(f[4]); c.point.offset=boardReal(f[5]);
+    c.point.readLength=4; c.point.type=mqmgateway::edge::PointValueType::integer;
+    return c;
+}
+mqmgateway::board::PwmConfig parsePwm(const std::string& text) {
+    const auto f = tcpFields(text);
+    if (f.size() != 5) throw std::invalid_argument("PWM: id,point,pwm_channel_path,period_ns,poll_ms");
+    mqmgateway::board::PwmConfig c;
+    c.point.deviceId=f[0]; c.point.pointId=f[1]; c.point.path=f[2];
+    const auto parsed = std::from_chars(f[3].data(), f[3].data() + f[3].size(), c.periodNs);
+    if (parsed.ec != std::errc{} || parsed.ptr != f[3].data() + f[3].size())
+        throw std::invalid_argument("PWM period_ns must be decimal");
+    c.point.intervalMs=tcpUnsigned(f[4]); c.point.readLength=8;
+    c.point.type=mqmgateway::edge::PointValueType::integer; c.point.writable=true;
+    return c;
+}
 mqmgateway::serial::Rs485Config parseRs485(const std::string& text) {
     const auto f = tcpFields(text);
     if (f.size() != 5) throw std::invalid_argument("RS485: enabled,rts_on_send,rts_after_send,before_ms,after_ms");
@@ -170,6 +191,27 @@ mqmgateway::drivers::RawUartConfig parseUart(const std::string& text) {
     if (f.size() > 8) { if (f[8].size()!=1) throw std::invalid_argument("UART parity N/E/O"); c.serial.parity=f[8][0]; }
     if (f.size() > 9) c.serial.stopBits=tcpUnsigned(f[9]);
     return c;
+}
+mqmgateway::iot::GatewayConfig::PointPolicyEntry parsePointPolicy(const std::string& text) {
+    const auto fields = tcpFields(text);
+    if (fields.size() != 5 || fields[0].empty() || fields[1].empty())
+        throw std::invalid_argument("point policy: device_id,point_id,cov,deadband,max_report_ms");
+    mqmgateway::iot::GatewayConfig::PointPolicyEntry entry;
+    entry.deviceId = fields[0];
+    entry.pointId = fields[1];
+    entry.policy.covEnabled = parseBoolean(fields[2], "point policy cov");
+    entry.policy.absoluteDeadband = boardReal(fields[3]);
+    if (entry.policy.absoluteDeadband < 0) throw std::invalid_argument("point policy deadband must be nonnegative");
+    entry.policy.maxReportInterval = std::chrono::milliseconds(tcpUnsigned(fields[4]));
+    return entry;
+}
+std::size_t positiveCapacity(const std::string& text, const char* name) {
+    if (text.empty() || text.find_first_not_of("0123456789") != std::string::npos)
+        throw std::invalid_argument(std::string(name) + " must be a positive decimal integer");
+    const auto value = std::stoull(text);
+    if (value == 0 || value > 65536)
+        throw std::invalid_argument(std::string(name) + " must be in range 1..65536");
+    return static_cast<std::size_t>(value);
 }
 
 const char* nonEmptyEnvironmentValue(const char* name) {
@@ -218,11 +260,14 @@ int main(int argc, char** argv) {
                 else config.genericTcp.push_back(parseGenericTcp(value));
             } catch (const std::exception& e) { std::cerr << e.what() << '\n'; return 2; }
         }
-        else if (key == "--spi" || key == "--i2c" || key == "--gpio") {
+        else if (key == "--spi" || key == "--i2c" || key == "--gpio" ||
+                 key == "--adc" || key == "--pwm") {
             try {
                 if (key == "--spi") config.spi.push_back(parseSpi(value));
                 else if (key == "--i2c") config.i2c.push_back(parseI2c(value));
-                else config.gpio.push_back(parseGpio(value));
+                else if (key == "--gpio") config.gpio.push_back(parseGpio(value));
+                else if (key == "--adc") config.adc.push_back(parseAdc(value));
+                else config.pwm.push_back(parsePwm(value));
             } catch (const std::exception& e) { std::cerr << e.what() << '\n'; return 2; }
         }
         else if (key == "--uart" || key == "--uart-rs485" || key == "--rtu-rs485") {
@@ -261,7 +306,23 @@ int main(int argc, char** argv) {
         else if (key == "--rtu-poll-ms") config.rtu.pollMs = std::stoul(value);
         else if (key == "--rtu-response-ms") config.rtu.responseMs = std::stoul(value);
         else if (key == "--queue-capacity") config.queueCapacity = std::stoul(value);
+        else if (key == "--telemetry-queue-capacity" || key == "--command-queue-capacity" ||
+                 key == "--mqtt-outbound-capacity" ||
+                 key == "--command-workers") {
+            try {
+                const auto number = positiveCapacity(value, key.c_str());
+                if (key == "--telemetry-queue-capacity") config.queueCapacity = number;
+                else if (key == "--command-queue-capacity") config.commandQueueCapacity = number;
+                else if (key == "--mqtt-outbound-capacity") config.mqttOutboundCapacity = number;
+                else if (number <= 64) config.commandWorkers = number;
+                else throw std::invalid_argument("--command-workers must be in range 1..64");
+            } catch (const std::exception& error) { std::cerr << error.what() << '\n'; return 2; }
+        }
         else if (key == "--workers") config.workers = std::stoul(value);
+        else if (key == "--point-policy") {
+            try { config.pointPolicies.push_back(parsePointPolicy(value)); }
+            catch (const std::exception& error) { std::cerr << error.what() << '\n'; return 2; }
+        }
         else if (key == "--heartbeat-ms") config.heartbeatInterval = std::chrono::milliseconds(std::stoul(value));
         else if (key == "--health-stale-ms" || key == "--health-failures" ||
                  key == "--health-recoveries" || key == "--watchdog-queue-ms") {

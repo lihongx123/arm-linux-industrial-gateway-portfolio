@@ -1,0 +1,4287 @@
+[
+  [
+    "gateway/mqmgateway-iot/diagnostics",
+    {
+      "device_health": {
+        "devices": 0,
+        "unknown": 0,
+        "online": 0,
+        "degraded": 0,
+        "offline": 0,
+        "details": [],
+        "details_truncated": false
+      },
+      "alarms": {
+        "active": 0,
+        "events_total": 0,
+        "history_stored": 0,
+        "recent": []
+      }
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/diagnostics",
+    {
+      "device_health": {
+        "devices": 0,
+        "unknown": 0,
+        "online": 0,
+        "degraded": 0,
+        "offline": 0,
+        "details": [],
+        "details_truncated": false
+      },
+      "alarms": {
+        "active": 0,
+        "events_total": 0,
+        "history_stored": 0,
+        "recent": []
+      }
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/diagnostics",
+    {
+      "device_health": {
+        "devices": 0,
+        "unknown": 0,
+        "online": 0,
+        "degraded": 0,
+        "offline": 0,
+        "details": [],
+        "details_truncated": false
+      },
+      "alarms": {
+        "active": 0,
+        "events_total": 0,
+        "history_stored": 0,
+        "recent": []
+      }
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/diagnostics",
+    {
+      "device_health": {
+        "devices": 0,
+        "unknown": 0,
+        "online": 0,
+        "degraded": 0,
+        "offline": 0,
+        "details": [],
+        "details_truncated": false
+      },
+      "alarms": {
+        "active": 0,
+        "events_total": 0,
+        "history_stored": 0,
+        "recent": []
+      }
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/diagnostics",
+    {
+      "device_health": {
+        "devices": 0,
+        "unknown": 0,
+        "online": 0,
+        "degraded": 0,
+        "offline": 0,
+        "details": [],
+        "details_truncated": false
+      },
+      "alarms": {
+        "active": 0,
+        "events_total": 0,
+        "history_stored": 0,
+        "recent": []
+      }
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/diagnostics",
+    {
+      "device_health": {
+        "devices": 0,
+        "unknown": 0,
+        "online": 0,
+        "degraded": 0,
+        "offline": 0,
+        "details": [],
+        "details_truncated": false
+      },
+      "alarms": {
+        "active": 0,
+        "events_total": 0,
+        "history_stored": 0,
+        "recent": []
+      }
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/diagnostics",
+    {
+      "device_health": {
+        "devices": 1,
+        "unknown": 0,
+        "online": 1,
+        "degraded": 0,
+        "offline": 0,
+        "details": [
+          {
+            "device_id": "can-291",
+            "state": "online",
+            "good_messages": 4,
+            "failures": 0,
+            "consecutive_failures": 0,
+            "last_good_epoch_ms": 1791042255860,
+            "last_error_epoch_ms": 0,
+            "last_error": ""
+          }
+        ],
+        "details_truncated": false
+      },
+      "alarms": {
+        "active": 0,
+        "events_total": 0,
+        "history_stored": 0,
+        "recent": []
+      }
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/diagnostics",
+    {
+      "device_health": {
+        "devices": 1,
+        "unknown": 0,
+        "online": 1,
+        "degraded": 0,
+        "offline": 0,
+        "details": [
+          {
+            "device_id": "can-291",
+            "state": "online",
+            "good_messages": 4,
+            "failures": 0,
+            "consecutive_failures": 0,
+            "last_good_epoch_ms": 1791042255860,
+            "last_error_epoch_ms": 0,
+            "last_error": ""
+          }
+        ],
+        "details_truncated": false
+      },
+      "alarms": {
+        "active": 0,
+        "events_total": 0,
+        "history_stored": 0,
+        "recent": []
+      }
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/diagnostics",
+    {
+      "device_health": {
+        "devices": 1,
+        "unknown": 0,
+        "online": 1,
+        "degraded": 0,
+        "offline": 0,
+        "details": [
+          {
+            "device_id": "can-291",
+            "state": "online",
+            "good_messages": 4,
+            "failures": 0,
+            "consecutive_failures": 0,
+            "last_good_epoch_ms": 1791042255860,
+            "last_error_epoch_ms": 0,
+            "last_error": ""
+          }
+        ],
+        "details_truncated": false
+      },
+      "alarms": {
+        "active": 0,
+        "events_total": 0,
+        "history_stored": 0,
+        "recent": []
+      }
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/alarm",
+    {
+      "sequence": 1,
+      "key": "system/telemetry_queue_stalled",
+      "action": "raised",
+      "severity": "critical",
+      "epoch_ms": 1791042256028
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/alarm",
+    {
+      "sequence": 2,
+      "key": "system/queue_stalled",
+      "action": "raised",
+      "severity": "critical",
+      "epoch_ms": 1791042256028
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/diagnostics",
+    {
+      "device_health": {
+        "devices": 1,
+        "unknown": 0,
+        "online": 1,
+        "degraded": 0,
+        "offline": 0,
+        "details": [
+          {
+            "device_id": "can-291",
+            "state": "online",
+            "good_messages": 4,
+            "failures": 0,
+            "consecutive_failures": 0,
+            "last_good_epoch_ms": 1791042255860,
+            "last_error_epoch_ms": 0,
+            "last_error": ""
+          }
+        ],
+        "details_truncated": false
+      },
+      "alarms": {
+        "active": 2,
+        "events_total": 2,
+        "history_stored": 2,
+        "recent": [
+          {
+            "sequence": 1,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 2,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          }
+        ]
+      }
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/diagnostics/ack",
+    {
+      "key": "system/queue_stalled"
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/diagnostics/ack/result",
+    {
+      "status": "acknowledged",
+      "key": "system/queue_stalled"
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/alarm",
+    {
+      "sequence": 3,
+      "key": "system/queue_stalled",
+      "action": "acknowledged",
+      "severity": "critical",
+      "epoch_ms": 1791042256073
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/diagnostics",
+    {
+      "device_health": {
+        "devices": 1,
+        "unknown": 0,
+        "online": 1,
+        "degraded": 0,
+        "offline": 0,
+        "details": [
+          {
+            "device_id": "can-291",
+            "state": "online",
+            "good_messages": 4,
+            "failures": 0,
+            "consecutive_failures": 0,
+            "last_good_epoch_ms": 1791042255860,
+            "last_error_epoch_ms": 0,
+            "last_error": ""
+          }
+        ],
+        "details_truncated": false
+      },
+      "alarms": {
+        "active": 2,
+        "events_total": 3,
+        "history_stored": 3,
+        "recent": [
+          {
+            "sequence": 1,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 2,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 3,
+            "key": "system/queue_stalled",
+            "action": "acknowledged",
+            "severity": "critical",
+            "epoch_ms": 1791042256073
+          }
+        ]
+      }
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/diagnostics",
+    {
+      "device_health": {
+        "devices": 1,
+        "unknown": 0,
+        "online": 1,
+        "degraded": 0,
+        "offline": 0,
+        "details": [
+          {
+            "device_id": "can-291",
+            "state": "online",
+            "good_messages": 4,
+            "failures": 0,
+            "consecutive_failures": 0,
+            "last_good_epoch_ms": 1791042255860,
+            "last_error_epoch_ms": 0,
+            "last_error": ""
+          }
+        ],
+        "details_truncated": false
+      },
+      "alarms": {
+        "active": 2,
+        "events_total": 3,
+        "history_stored": 3,
+        "recent": [
+          {
+            "sequence": 1,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 2,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 3,
+            "key": "system/queue_stalled",
+            "action": "acknowledged",
+            "severity": "critical",
+            "epoch_ms": 1791042256073
+          }
+        ]
+      }
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/diagnostics",
+    {
+      "device_health": {
+        "devices": 1,
+        "unknown": 0,
+        "online": 1,
+        "degraded": 0,
+        "offline": 0,
+        "details": [
+          {
+            "device_id": "can-291",
+            "state": "online",
+            "good_messages": 4,
+            "failures": 0,
+            "consecutive_failures": 0,
+            "last_good_epoch_ms": 1791042255860,
+            "last_error_epoch_ms": 0,
+            "last_error": ""
+          }
+        ],
+        "details_truncated": false
+      },
+      "alarms": {
+        "active": 2,
+        "events_total": 3,
+        "history_stored": 3,
+        "recent": [
+          {
+            "sequence": 1,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 2,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 3,
+            "key": "system/queue_stalled",
+            "action": "acknowledged",
+            "severity": "critical",
+            "epoch_ms": 1791042256073
+          }
+        ]
+      }
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/diagnostics",
+    {
+      "device_health": {
+        "devices": 1,
+        "unknown": 0,
+        "online": 1,
+        "degraded": 0,
+        "offline": 0,
+        "details": [
+          {
+            "device_id": "can-291",
+            "state": "online",
+            "good_messages": 4,
+            "failures": 0,
+            "consecutive_failures": 0,
+            "last_good_epoch_ms": 1791042255860,
+            "last_error_epoch_ms": 0,
+            "last_error": ""
+          }
+        ],
+        "details_truncated": false
+      },
+      "alarms": {
+        "active": 2,
+        "events_total": 3,
+        "history_stored": 3,
+        "recent": [
+          {
+            "sequence": 1,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 2,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 3,
+            "key": "system/queue_stalled",
+            "action": "acknowledged",
+            "severity": "critical",
+            "epoch_ms": 1791042256073
+          }
+        ]
+      }
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/diagnostics",
+    {
+      "device_health": {
+        "devices": 1,
+        "unknown": 0,
+        "online": 1,
+        "degraded": 0,
+        "offline": 0,
+        "details": [
+          {
+            "device_id": "can-291",
+            "state": "online",
+            "good_messages": 4,
+            "failures": 0,
+            "consecutive_failures": 0,
+            "last_good_epoch_ms": 1791042255860,
+            "last_error_epoch_ms": 0,
+            "last_error": ""
+          }
+        ],
+        "details_truncated": false
+      },
+      "alarms": {
+        "active": 2,
+        "events_total": 3,
+        "history_stored": 3,
+        "recent": [
+          {
+            "sequence": 1,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 2,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 3,
+            "key": "system/queue_stalled",
+            "action": "acknowledged",
+            "severity": "critical",
+            "epoch_ms": 1791042256073
+          }
+        ]
+      }
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/diagnostics",
+    {
+      "device_health": {
+        "devices": 1,
+        "unknown": 0,
+        "online": 1,
+        "degraded": 0,
+        "offline": 0,
+        "details": [
+          {
+            "device_id": "can-291",
+            "state": "online",
+            "good_messages": 4,
+            "failures": 0,
+            "consecutive_failures": 0,
+            "last_good_epoch_ms": 1791042255860,
+            "last_error_epoch_ms": 0,
+            "last_error": ""
+          }
+        ],
+        "details_truncated": false
+      },
+      "alarms": {
+        "active": 2,
+        "events_total": 3,
+        "history_stored": 3,
+        "recent": [
+          {
+            "sequence": 1,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 2,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 3,
+            "key": "system/queue_stalled",
+            "action": "acknowledged",
+            "severity": "critical",
+            "epoch_ms": 1791042256073
+          }
+        ]
+      }
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/diagnostics",
+    {
+      "device_health": {
+        "devices": 1,
+        "unknown": 0,
+        "online": 1,
+        "degraded": 0,
+        "offline": 0,
+        "details": [
+          {
+            "device_id": "can-291",
+            "state": "online",
+            "good_messages": 4,
+            "failures": 0,
+            "consecutive_failures": 0,
+            "last_good_epoch_ms": 1791042255860,
+            "last_error_epoch_ms": 0,
+            "last_error": ""
+          }
+        ],
+        "details_truncated": false
+      },
+      "alarms": {
+        "active": 2,
+        "events_total": 3,
+        "history_stored": 3,
+        "recent": [
+          {
+            "sequence": 1,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 2,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 3,
+            "key": "system/queue_stalled",
+            "action": "acknowledged",
+            "severity": "critical",
+            "epoch_ms": 1791042256073
+          }
+        ]
+      }
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/diagnostics",
+    {
+      "device_health": {
+        "devices": 1,
+        "unknown": 0,
+        "online": 1,
+        "degraded": 0,
+        "offline": 0,
+        "details": [
+          {
+            "device_id": "can-291",
+            "state": "online",
+            "good_messages": 4,
+            "failures": 0,
+            "consecutive_failures": 0,
+            "last_good_epoch_ms": 1791042255860,
+            "last_error_epoch_ms": 0,
+            "last_error": ""
+          }
+        ],
+        "details_truncated": false
+      },
+      "alarms": {
+        "active": 2,
+        "events_total": 3,
+        "history_stored": 3,
+        "recent": [
+          {
+            "sequence": 1,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 2,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 3,
+            "key": "system/queue_stalled",
+            "action": "acknowledged",
+            "severity": "critical",
+            "epoch_ms": 1791042256073
+          }
+        ]
+      }
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/diagnostics",
+    {
+      "device_health": {
+        "devices": 1,
+        "unknown": 0,
+        "online": 1,
+        "degraded": 0,
+        "offline": 0,
+        "details": [
+          {
+            "device_id": "can-291",
+            "state": "online",
+            "good_messages": 4,
+            "failures": 0,
+            "consecutive_failures": 0,
+            "last_good_epoch_ms": 1791042255860,
+            "last_error_epoch_ms": 0,
+            "last_error": ""
+          }
+        ],
+        "details_truncated": false
+      },
+      "alarms": {
+        "active": 2,
+        "events_total": 3,
+        "history_stored": 3,
+        "recent": [
+          {
+            "sequence": 1,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 2,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 3,
+            "key": "system/queue_stalled",
+            "action": "acknowledged",
+            "severity": "critical",
+            "epoch_ms": 1791042256073
+          }
+        ]
+      }
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/diagnostics",
+    {
+      "device_health": {
+        "devices": 1,
+        "unknown": 0,
+        "online": 1,
+        "degraded": 0,
+        "offline": 0,
+        "details": [
+          {
+            "device_id": "can-291",
+            "state": "online",
+            "good_messages": 4,
+            "failures": 0,
+            "consecutive_failures": 0,
+            "last_good_epoch_ms": 1791042255860,
+            "last_error_epoch_ms": 0,
+            "last_error": ""
+          }
+        ],
+        "details_truncated": false
+      },
+      "alarms": {
+        "active": 2,
+        "events_total": 3,
+        "history_stored": 3,
+        "recent": [
+          {
+            "sequence": 1,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 2,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 3,
+            "key": "system/queue_stalled",
+            "action": "acknowledged",
+            "severity": "critical",
+            "epoch_ms": 1791042256073
+          }
+        ]
+      }
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/diagnostics",
+    {
+      "device_health": {
+        "devices": 1,
+        "unknown": 0,
+        "online": 1,
+        "degraded": 0,
+        "offline": 0,
+        "details": [
+          {
+            "device_id": "can-291",
+            "state": "online",
+            "good_messages": 4,
+            "failures": 0,
+            "consecutive_failures": 0,
+            "last_good_epoch_ms": 1791042255860,
+            "last_error_epoch_ms": 0,
+            "last_error": ""
+          }
+        ],
+        "details_truncated": false
+      },
+      "alarms": {
+        "active": 2,
+        "events_total": 3,
+        "history_stored": 3,
+        "recent": [
+          {
+            "sequence": 1,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 2,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 3,
+            "key": "system/queue_stalled",
+            "action": "acknowledged",
+            "severity": "critical",
+            "epoch_ms": 1791042256073
+          }
+        ]
+      }
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/diagnostics",
+    {
+      "device_health": {
+        "devices": 1,
+        "unknown": 0,
+        "online": 1,
+        "degraded": 0,
+        "offline": 0,
+        "details": [
+          {
+            "device_id": "can-291",
+            "state": "online",
+            "good_messages": 4,
+            "failures": 0,
+            "consecutive_failures": 0,
+            "last_good_epoch_ms": 1791042255860,
+            "last_error_epoch_ms": 0,
+            "last_error": ""
+          }
+        ],
+        "details_truncated": false
+      },
+      "alarms": {
+        "active": 2,
+        "events_total": 3,
+        "history_stored": 3,
+        "recent": [
+          {
+            "sequence": 1,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 2,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 3,
+            "key": "system/queue_stalled",
+            "action": "acknowledged",
+            "severity": "critical",
+            "epoch_ms": 1791042256073
+          }
+        ]
+      }
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/diagnostics",
+    {
+      "device_health": {
+        "devices": 1,
+        "unknown": 0,
+        "online": 1,
+        "degraded": 0,
+        "offline": 0,
+        "details": [
+          {
+            "device_id": "can-291",
+            "state": "online",
+            "good_messages": 4,
+            "failures": 0,
+            "consecutive_failures": 0,
+            "last_good_epoch_ms": 1791042255860,
+            "last_error_epoch_ms": 0,
+            "last_error": ""
+          }
+        ],
+        "details_truncated": false
+      },
+      "alarms": {
+        "active": 2,
+        "events_total": 3,
+        "history_stored": 3,
+        "recent": [
+          {
+            "sequence": 1,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 2,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 3,
+            "key": "system/queue_stalled",
+            "action": "acknowledged",
+            "severity": "critical",
+            "epoch_ms": 1791042256073
+          }
+        ]
+      }
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/diagnostics",
+    {
+      "device_health": {
+        "devices": 1,
+        "unknown": 0,
+        "online": 1,
+        "degraded": 0,
+        "offline": 0,
+        "details": [
+          {
+            "device_id": "can-291",
+            "state": "online",
+            "good_messages": 4,
+            "failures": 0,
+            "consecutive_failures": 0,
+            "last_good_epoch_ms": 1791042255860,
+            "last_error_epoch_ms": 0,
+            "last_error": ""
+          }
+        ],
+        "details_truncated": false
+      },
+      "alarms": {
+        "active": 2,
+        "events_total": 3,
+        "history_stored": 3,
+        "recent": [
+          {
+            "sequence": 1,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 2,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 3,
+            "key": "system/queue_stalled",
+            "action": "acknowledged",
+            "severity": "critical",
+            "epoch_ms": 1791042256073
+          }
+        ]
+      }
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/diagnostics",
+    {
+      "device_health": {
+        "devices": 1,
+        "unknown": 0,
+        "online": 1,
+        "degraded": 0,
+        "offline": 0,
+        "details": [
+          {
+            "device_id": "can-291",
+            "state": "online",
+            "good_messages": 4,
+            "failures": 0,
+            "consecutive_failures": 0,
+            "last_good_epoch_ms": 1791042255860,
+            "last_error_epoch_ms": 0,
+            "last_error": ""
+          }
+        ],
+        "details_truncated": false
+      },
+      "alarms": {
+        "active": 2,
+        "events_total": 3,
+        "history_stored": 3,
+        "recent": [
+          {
+            "sequence": 1,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 2,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 3,
+            "key": "system/queue_stalled",
+            "action": "acknowledged",
+            "severity": "critical",
+            "epoch_ms": 1791042256073
+          }
+        ]
+      }
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/alarm",
+    {
+      "sequence": 4,
+      "key": "system/telemetry_queue_stalled",
+      "action": "recovered",
+      "severity": "critical",
+      "epoch_ms": 1791042256910
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/alarm",
+    {
+      "sequence": 5,
+      "key": "system/queue_stalled",
+      "action": "recovered",
+      "severity": "critical",
+      "epoch_ms": 1791042256910
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/diagnostics",
+    {
+      "device_health": {
+        "devices": 1,
+        "unknown": 0,
+        "online": 1,
+        "degraded": 0,
+        "offline": 0,
+        "details": [
+          {
+            "device_id": "can-291",
+            "state": "online",
+            "good_messages": 4,
+            "failures": 0,
+            "consecutive_failures": 0,
+            "last_good_epoch_ms": 1791042255860,
+            "last_error_epoch_ms": 0,
+            "last_error": ""
+          }
+        ],
+        "details_truncated": false
+      },
+      "alarms": {
+        "active": 0,
+        "events_total": 5,
+        "history_stored": 5,
+        "recent": [
+          {
+            "sequence": 1,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 2,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 3,
+            "key": "system/queue_stalled",
+            "action": "acknowledged",
+            "severity": "critical",
+            "epoch_ms": 1791042256073
+          },
+          {
+            "sequence": 4,
+            "key": "system/telemetry_queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 5,
+            "key": "system/queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          }
+        ]
+      }
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/diagnostics",
+    {
+      "device_health": {
+        "devices": 1,
+        "unknown": 0,
+        "online": 1,
+        "degraded": 0,
+        "offline": 0,
+        "details": [
+          {
+            "device_id": "can-291",
+            "state": "online",
+            "good_messages": 4,
+            "failures": 0,
+            "consecutive_failures": 0,
+            "last_good_epoch_ms": 1791042255860,
+            "last_error_epoch_ms": 0,
+            "last_error": ""
+          }
+        ],
+        "details_truncated": false
+      },
+      "alarms": {
+        "active": 0,
+        "events_total": 5,
+        "history_stored": 5,
+        "recent": [
+          {
+            "sequence": 1,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 2,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 3,
+            "key": "system/queue_stalled",
+            "action": "acknowledged",
+            "severity": "critical",
+            "epoch_ms": 1791042256073
+          },
+          {
+            "sequence": 4,
+            "key": "system/telemetry_queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 5,
+            "key": "system/queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          }
+        ]
+      }
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/diagnostics",
+    {
+      "device_health": {
+        "devices": 1,
+        "unknown": 0,
+        "online": 1,
+        "degraded": 0,
+        "offline": 0,
+        "details": [
+          {
+            "device_id": "can-291",
+            "state": "online",
+            "good_messages": 4,
+            "failures": 0,
+            "consecutive_failures": 0,
+            "last_good_epoch_ms": 1791042255860,
+            "last_error_epoch_ms": 0,
+            "last_error": ""
+          }
+        ],
+        "details_truncated": false
+      },
+      "alarms": {
+        "active": 0,
+        "events_total": 5,
+        "history_stored": 5,
+        "recent": [
+          {
+            "sequence": 1,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 2,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 3,
+            "key": "system/queue_stalled",
+            "action": "acknowledged",
+            "severity": "critical",
+            "epoch_ms": 1791042256073
+          },
+          {
+            "sequence": 4,
+            "key": "system/telemetry_queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 5,
+            "key": "system/queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          }
+        ]
+      }
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/alarm",
+    {
+      "sequence": 6,
+      "key": "system/telemetry_queue_stalled",
+      "action": "raised",
+      "severity": "critical",
+      "epoch_ms": 1791042257075
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/alarm",
+    {
+      "sequence": 7,
+      "key": "system/queue_stalled",
+      "action": "raised",
+      "severity": "critical",
+      "epoch_ms": 1791042257075
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/diagnostics",
+    {
+      "device_health": {
+        "devices": 1,
+        "unknown": 0,
+        "online": 1,
+        "degraded": 0,
+        "offline": 0,
+        "details": [
+          {
+            "device_id": "can-291",
+            "state": "online",
+            "good_messages": 4,
+            "failures": 0,
+            "consecutive_failures": 0,
+            "last_good_epoch_ms": 1791042255860,
+            "last_error_epoch_ms": 0,
+            "last_error": ""
+          }
+        ],
+        "details_truncated": false
+      },
+      "alarms": {
+        "active": 2,
+        "events_total": 7,
+        "history_stored": 7,
+        "recent": [
+          {
+            "sequence": 1,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 2,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 3,
+            "key": "system/queue_stalled",
+            "action": "acknowledged",
+            "severity": "critical",
+            "epoch_ms": 1791042256073
+          },
+          {
+            "sequence": 4,
+            "key": "system/telemetry_queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 5,
+            "key": "system/queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 6,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          },
+          {
+            "sequence": 7,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          }
+        ]
+      }
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/diagnostics",
+    {
+      "device_health": {
+        "devices": 1,
+        "unknown": 0,
+        "online": 1,
+        "degraded": 0,
+        "offline": 0,
+        "details": [
+          {
+            "device_id": "can-291",
+            "state": "online",
+            "good_messages": 4,
+            "failures": 0,
+            "consecutive_failures": 0,
+            "last_good_epoch_ms": 1791042255860,
+            "last_error_epoch_ms": 0,
+            "last_error": ""
+          }
+        ],
+        "details_truncated": false
+      },
+      "alarms": {
+        "active": 2,
+        "events_total": 7,
+        "history_stored": 7,
+        "recent": [
+          {
+            "sequence": 1,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 2,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 3,
+            "key": "system/queue_stalled",
+            "action": "acknowledged",
+            "severity": "critical",
+            "epoch_ms": 1791042256073
+          },
+          {
+            "sequence": 4,
+            "key": "system/telemetry_queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 5,
+            "key": "system/queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 6,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          },
+          {
+            "sequence": 7,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          }
+        ]
+      }
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/diagnostics",
+    {
+      "device_health": {
+        "devices": 1,
+        "unknown": 0,
+        "online": 1,
+        "degraded": 0,
+        "offline": 0,
+        "details": [
+          {
+            "device_id": "can-291",
+            "state": "online",
+            "good_messages": 4,
+            "failures": 0,
+            "consecutive_failures": 0,
+            "last_good_epoch_ms": 1791042255860,
+            "last_error_epoch_ms": 0,
+            "last_error": ""
+          }
+        ],
+        "details_truncated": false
+      },
+      "alarms": {
+        "active": 2,
+        "events_total": 7,
+        "history_stored": 7,
+        "recent": [
+          {
+            "sequence": 1,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 2,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 3,
+            "key": "system/queue_stalled",
+            "action": "acknowledged",
+            "severity": "critical",
+            "epoch_ms": 1791042256073
+          },
+          {
+            "sequence": 4,
+            "key": "system/telemetry_queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 5,
+            "key": "system/queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 6,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          },
+          {
+            "sequence": 7,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          }
+        ]
+      }
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/diagnostics",
+    {
+      "device_health": {
+        "devices": 1,
+        "unknown": 0,
+        "online": 1,
+        "degraded": 0,
+        "offline": 0,
+        "details": [
+          {
+            "device_id": "can-291",
+            "state": "online",
+            "good_messages": 4,
+            "failures": 0,
+            "consecutive_failures": 0,
+            "last_good_epoch_ms": 1791042255860,
+            "last_error_epoch_ms": 0,
+            "last_error": ""
+          }
+        ],
+        "details_truncated": false
+      },
+      "alarms": {
+        "active": 2,
+        "events_total": 7,
+        "history_stored": 7,
+        "recent": [
+          {
+            "sequence": 1,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 2,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 3,
+            "key": "system/queue_stalled",
+            "action": "acknowledged",
+            "severity": "critical",
+            "epoch_ms": 1791042256073
+          },
+          {
+            "sequence": 4,
+            "key": "system/telemetry_queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 5,
+            "key": "system/queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 6,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          },
+          {
+            "sequence": 7,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          }
+        ]
+      }
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/diagnostics",
+    {
+      "device_health": {
+        "devices": 1,
+        "unknown": 0,
+        "online": 1,
+        "degraded": 0,
+        "offline": 0,
+        "details": [
+          {
+            "device_id": "can-291",
+            "state": "online",
+            "good_messages": 4,
+            "failures": 0,
+            "consecutive_failures": 0,
+            "last_good_epoch_ms": 1791042255860,
+            "last_error_epoch_ms": 0,
+            "last_error": ""
+          }
+        ],
+        "details_truncated": false
+      },
+      "alarms": {
+        "active": 2,
+        "events_total": 7,
+        "history_stored": 7,
+        "recent": [
+          {
+            "sequence": 1,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 2,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 3,
+            "key": "system/queue_stalled",
+            "action": "acknowledged",
+            "severity": "critical",
+            "epoch_ms": 1791042256073
+          },
+          {
+            "sequence": 4,
+            "key": "system/telemetry_queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 5,
+            "key": "system/queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 6,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          },
+          {
+            "sequence": 7,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          }
+        ]
+      }
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/diagnostics",
+    {
+      "device_health": {
+        "devices": 1,
+        "unknown": 0,
+        "online": 1,
+        "degraded": 0,
+        "offline": 0,
+        "details": [
+          {
+            "device_id": "can-291",
+            "state": "online",
+            "good_messages": 4,
+            "failures": 0,
+            "consecutive_failures": 0,
+            "last_good_epoch_ms": 1791042255860,
+            "last_error_epoch_ms": 0,
+            "last_error": ""
+          }
+        ],
+        "details_truncated": false
+      },
+      "alarms": {
+        "active": 2,
+        "events_total": 7,
+        "history_stored": 7,
+        "recent": [
+          {
+            "sequence": 1,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 2,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 3,
+            "key": "system/queue_stalled",
+            "action": "acknowledged",
+            "severity": "critical",
+            "epoch_ms": 1791042256073
+          },
+          {
+            "sequence": 4,
+            "key": "system/telemetry_queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 5,
+            "key": "system/queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 6,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          },
+          {
+            "sequence": 7,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          }
+        ]
+      }
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/diagnostics",
+    {
+      "device_health": {
+        "devices": 1,
+        "unknown": 0,
+        "online": 1,
+        "degraded": 0,
+        "offline": 0,
+        "details": [
+          {
+            "device_id": "can-291",
+            "state": "online",
+            "good_messages": 4,
+            "failures": 0,
+            "consecutive_failures": 0,
+            "last_good_epoch_ms": 1791042255860,
+            "last_error_epoch_ms": 0,
+            "last_error": ""
+          }
+        ],
+        "details_truncated": false
+      },
+      "alarms": {
+        "active": 2,
+        "events_total": 7,
+        "history_stored": 7,
+        "recent": [
+          {
+            "sequence": 1,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 2,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 3,
+            "key": "system/queue_stalled",
+            "action": "acknowledged",
+            "severity": "critical",
+            "epoch_ms": 1791042256073
+          },
+          {
+            "sequence": 4,
+            "key": "system/telemetry_queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 5,
+            "key": "system/queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 6,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          },
+          {
+            "sequence": 7,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          }
+        ]
+      }
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/diagnostics",
+    {
+      "device_health": {
+        "devices": 1,
+        "unknown": 0,
+        "online": 1,
+        "degraded": 0,
+        "offline": 0,
+        "details": [
+          {
+            "device_id": "can-291",
+            "state": "online",
+            "good_messages": 4,
+            "failures": 0,
+            "consecutive_failures": 0,
+            "last_good_epoch_ms": 1791042255860,
+            "last_error_epoch_ms": 0,
+            "last_error": ""
+          }
+        ],
+        "details_truncated": false
+      },
+      "alarms": {
+        "active": 2,
+        "events_total": 7,
+        "history_stored": 7,
+        "recent": [
+          {
+            "sequence": 1,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 2,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 3,
+            "key": "system/queue_stalled",
+            "action": "acknowledged",
+            "severity": "critical",
+            "epoch_ms": 1791042256073
+          },
+          {
+            "sequence": 4,
+            "key": "system/telemetry_queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 5,
+            "key": "system/queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 6,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          },
+          {
+            "sequence": 7,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          }
+        ]
+      }
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/diagnostics",
+    {
+      "device_health": {
+        "devices": 1,
+        "unknown": 0,
+        "online": 1,
+        "degraded": 0,
+        "offline": 0,
+        "details": [
+          {
+            "device_id": "can-291",
+            "state": "online",
+            "good_messages": 4,
+            "failures": 0,
+            "consecutive_failures": 0,
+            "last_good_epoch_ms": 1791042255860,
+            "last_error_epoch_ms": 0,
+            "last_error": ""
+          }
+        ],
+        "details_truncated": false
+      },
+      "alarms": {
+        "active": 2,
+        "events_total": 7,
+        "history_stored": 7,
+        "recent": [
+          {
+            "sequence": 1,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 2,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 3,
+            "key": "system/queue_stalled",
+            "action": "acknowledged",
+            "severity": "critical",
+            "epoch_ms": 1791042256073
+          },
+          {
+            "sequence": 4,
+            "key": "system/telemetry_queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 5,
+            "key": "system/queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 6,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          },
+          {
+            "sequence": 7,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          }
+        ]
+      }
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/diagnostics",
+    {
+      "device_health": {
+        "devices": 1,
+        "unknown": 0,
+        "online": 1,
+        "degraded": 0,
+        "offline": 0,
+        "details": [
+          {
+            "device_id": "can-291",
+            "state": "online",
+            "good_messages": 4,
+            "failures": 0,
+            "consecutive_failures": 0,
+            "last_good_epoch_ms": 1791042255860,
+            "last_error_epoch_ms": 0,
+            "last_error": ""
+          }
+        ],
+        "details_truncated": false
+      },
+      "alarms": {
+        "active": 2,
+        "events_total": 7,
+        "history_stored": 7,
+        "recent": [
+          {
+            "sequence": 1,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 2,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 3,
+            "key": "system/queue_stalled",
+            "action": "acknowledged",
+            "severity": "critical",
+            "epoch_ms": 1791042256073
+          },
+          {
+            "sequence": 4,
+            "key": "system/telemetry_queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 5,
+            "key": "system/queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 6,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          },
+          {
+            "sequence": 7,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          }
+        ]
+      }
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/diagnostics",
+    {
+      "device_health": {
+        "devices": 1,
+        "unknown": 0,
+        "online": 1,
+        "degraded": 0,
+        "offline": 0,
+        "details": [
+          {
+            "device_id": "can-291",
+            "state": "online",
+            "good_messages": 4,
+            "failures": 0,
+            "consecutive_failures": 0,
+            "last_good_epoch_ms": 1791042255860,
+            "last_error_epoch_ms": 0,
+            "last_error": ""
+          }
+        ],
+        "details_truncated": false
+      },
+      "alarms": {
+        "active": 2,
+        "events_total": 7,
+        "history_stored": 7,
+        "recent": [
+          {
+            "sequence": 1,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 2,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 3,
+            "key": "system/queue_stalled",
+            "action": "acknowledged",
+            "severity": "critical",
+            "epoch_ms": 1791042256073
+          },
+          {
+            "sequence": 4,
+            "key": "system/telemetry_queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 5,
+            "key": "system/queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 6,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          },
+          {
+            "sequence": 7,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          }
+        ]
+      }
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/diagnostics",
+    {
+      "device_health": {
+        "devices": 1,
+        "unknown": 0,
+        "online": 1,
+        "degraded": 0,
+        "offline": 0,
+        "details": [
+          {
+            "device_id": "can-291",
+            "state": "online",
+            "good_messages": 4,
+            "failures": 0,
+            "consecutive_failures": 0,
+            "last_good_epoch_ms": 1791042255860,
+            "last_error_epoch_ms": 0,
+            "last_error": ""
+          }
+        ],
+        "details_truncated": false
+      },
+      "alarms": {
+        "active": 2,
+        "events_total": 7,
+        "history_stored": 7,
+        "recent": [
+          {
+            "sequence": 1,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 2,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 3,
+            "key": "system/queue_stalled",
+            "action": "acknowledged",
+            "severity": "critical",
+            "epoch_ms": 1791042256073
+          },
+          {
+            "sequence": 4,
+            "key": "system/telemetry_queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 5,
+            "key": "system/queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 6,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          },
+          {
+            "sequence": 7,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          }
+        ]
+      }
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/diagnostics",
+    {
+      "device_health": {
+        "devices": 1,
+        "unknown": 0,
+        "online": 1,
+        "degraded": 0,
+        "offline": 0,
+        "details": [
+          {
+            "device_id": "can-291",
+            "state": "online",
+            "good_messages": 4,
+            "failures": 0,
+            "consecutive_failures": 0,
+            "last_good_epoch_ms": 1791042255860,
+            "last_error_epoch_ms": 0,
+            "last_error": ""
+          }
+        ],
+        "details_truncated": false
+      },
+      "alarms": {
+        "active": 2,
+        "events_total": 7,
+        "history_stored": 7,
+        "recent": [
+          {
+            "sequence": 1,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 2,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 3,
+            "key": "system/queue_stalled",
+            "action": "acknowledged",
+            "severity": "critical",
+            "epoch_ms": 1791042256073
+          },
+          {
+            "sequence": 4,
+            "key": "system/telemetry_queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 5,
+            "key": "system/queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 6,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          },
+          {
+            "sequence": 7,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          }
+        ]
+      }
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/diagnostics",
+    {
+      "device_health": {
+        "devices": 1,
+        "unknown": 0,
+        "online": 1,
+        "degraded": 0,
+        "offline": 0,
+        "details": [
+          {
+            "device_id": "can-291",
+            "state": "online",
+            "good_messages": 4,
+            "failures": 0,
+            "consecutive_failures": 0,
+            "last_good_epoch_ms": 1791042255860,
+            "last_error_epoch_ms": 0,
+            "last_error": ""
+          }
+        ],
+        "details_truncated": false
+      },
+      "alarms": {
+        "active": 2,
+        "events_total": 7,
+        "history_stored": 7,
+        "recent": [
+          {
+            "sequence": 1,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 2,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 3,
+            "key": "system/queue_stalled",
+            "action": "acknowledged",
+            "severity": "critical",
+            "epoch_ms": 1791042256073
+          },
+          {
+            "sequence": 4,
+            "key": "system/telemetry_queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 5,
+            "key": "system/queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 6,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          },
+          {
+            "sequence": 7,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          }
+        ]
+      }
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/diagnostics",
+    {
+      "device_health": {
+        "devices": 1,
+        "unknown": 0,
+        "online": 1,
+        "degraded": 0,
+        "offline": 0,
+        "details": [
+          {
+            "device_id": "can-291",
+            "state": "online",
+            "good_messages": 4,
+            "failures": 0,
+            "consecutive_failures": 0,
+            "last_good_epoch_ms": 1791042255860,
+            "last_error_epoch_ms": 0,
+            "last_error": ""
+          }
+        ],
+        "details_truncated": false
+      },
+      "alarms": {
+        "active": 2,
+        "events_total": 7,
+        "history_stored": 7,
+        "recent": [
+          {
+            "sequence": 1,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 2,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 3,
+            "key": "system/queue_stalled",
+            "action": "acknowledged",
+            "severity": "critical",
+            "epoch_ms": 1791042256073
+          },
+          {
+            "sequence": 4,
+            "key": "system/telemetry_queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 5,
+            "key": "system/queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 6,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          },
+          {
+            "sequence": 7,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          }
+        ]
+      }
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/alarm",
+    {
+      "sequence": 8,
+      "key": "system/telemetry_queue_stalled",
+      "action": "recovered",
+      "severity": "critical",
+      "epoch_ms": 1791042257906
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/alarm",
+    {
+      "sequence": 9,
+      "key": "system/queue_stalled",
+      "action": "recovered",
+      "severity": "critical",
+      "epoch_ms": 1791042257906
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/diagnostics",
+    {
+      "device_health": {
+        "devices": 1,
+        "unknown": 0,
+        "online": 1,
+        "degraded": 0,
+        "offline": 0,
+        "details": [
+          {
+            "device_id": "can-291",
+            "state": "online",
+            "good_messages": 4,
+            "failures": 0,
+            "consecutive_failures": 0,
+            "last_good_epoch_ms": 1791042255860,
+            "last_error_epoch_ms": 0,
+            "last_error": ""
+          }
+        ],
+        "details_truncated": false
+      },
+      "alarms": {
+        "active": 0,
+        "events_total": 9,
+        "history_stored": 9,
+        "recent": [
+          {
+            "sequence": 2,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 3,
+            "key": "system/queue_stalled",
+            "action": "acknowledged",
+            "severity": "critical",
+            "epoch_ms": 1791042256073
+          },
+          {
+            "sequence": 4,
+            "key": "system/telemetry_queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 5,
+            "key": "system/queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 6,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          },
+          {
+            "sequence": 7,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          },
+          {
+            "sequence": 8,
+            "key": "system/telemetry_queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042257906
+          },
+          {
+            "sequence": 9,
+            "key": "system/queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042257906
+          }
+        ]
+      }
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/diagnostics",
+    {
+      "device_health": {
+        "devices": 1,
+        "unknown": 0,
+        "online": 1,
+        "degraded": 0,
+        "offline": 0,
+        "details": [
+          {
+            "device_id": "can-291",
+            "state": "online",
+            "good_messages": 4,
+            "failures": 0,
+            "consecutive_failures": 0,
+            "last_good_epoch_ms": 1791042255860,
+            "last_error_epoch_ms": 0,
+            "last_error": ""
+          }
+        ],
+        "details_truncated": false
+      },
+      "alarms": {
+        "active": 0,
+        "events_total": 9,
+        "history_stored": 9,
+        "recent": [
+          {
+            "sequence": 2,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 3,
+            "key": "system/queue_stalled",
+            "action": "acknowledged",
+            "severity": "critical",
+            "epoch_ms": 1791042256073
+          },
+          {
+            "sequence": 4,
+            "key": "system/telemetry_queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 5,
+            "key": "system/queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 6,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          },
+          {
+            "sequence": 7,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          },
+          {
+            "sequence": 8,
+            "key": "system/telemetry_queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042257906
+          },
+          {
+            "sequence": 9,
+            "key": "system/queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042257906
+          }
+        ]
+      }
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/diagnostics",
+    {
+      "device_health": {
+        "devices": 1,
+        "unknown": 0,
+        "online": 1,
+        "degraded": 0,
+        "offline": 0,
+        "details": [
+          {
+            "device_id": "can-291",
+            "state": "online",
+            "good_messages": 4,
+            "failures": 0,
+            "consecutive_failures": 0,
+            "last_good_epoch_ms": 1791042255860,
+            "last_error_epoch_ms": 0,
+            "last_error": ""
+          }
+        ],
+        "details_truncated": false
+      },
+      "alarms": {
+        "active": 0,
+        "events_total": 9,
+        "history_stored": 9,
+        "recent": [
+          {
+            "sequence": 2,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042256028
+          },
+          {
+            "sequence": 3,
+            "key": "system/queue_stalled",
+            "action": "acknowledged",
+            "severity": "critical",
+            "epoch_ms": 1791042256073
+          },
+          {
+            "sequence": 4,
+            "key": "system/telemetry_queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 5,
+            "key": "system/queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 6,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          },
+          {
+            "sequence": 7,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          },
+          {
+            "sequence": 8,
+            "key": "system/telemetry_queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042257906
+          },
+          {
+            "sequence": 9,
+            "key": "system/queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042257906
+          }
+        ]
+      }
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/alarm",
+    {
+      "sequence": 10,
+      "key": "system/telemetry_queue_stalled",
+      "action": "raised",
+      "severity": "critical",
+      "epoch_ms": 1791042258077
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/alarm",
+    {
+      "sequence": 11,
+      "key": "system/queue_stalled",
+      "action": "raised",
+      "severity": "critical",
+      "epoch_ms": 1791042258077
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/diagnostics",
+    {
+      "device_health": {
+        "devices": 1,
+        "unknown": 0,
+        "online": 1,
+        "degraded": 0,
+        "offline": 0,
+        "details": [
+          {
+            "device_id": "can-291",
+            "state": "online",
+            "good_messages": 4,
+            "failures": 0,
+            "consecutive_failures": 0,
+            "last_good_epoch_ms": 1791042255860,
+            "last_error_epoch_ms": 0,
+            "last_error": ""
+          }
+        ],
+        "details_truncated": false
+      },
+      "alarms": {
+        "active": 2,
+        "events_total": 11,
+        "history_stored": 11,
+        "recent": [
+          {
+            "sequence": 4,
+            "key": "system/telemetry_queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 5,
+            "key": "system/queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 6,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          },
+          {
+            "sequence": 7,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          },
+          {
+            "sequence": 8,
+            "key": "system/telemetry_queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042257906
+          },
+          {
+            "sequence": 9,
+            "key": "system/queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042257906
+          },
+          {
+            "sequence": 10,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042258077
+          },
+          {
+            "sequence": 11,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042258077
+          }
+        ]
+      }
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/diagnostics",
+    {
+      "device_health": {
+        "devices": 1,
+        "unknown": 0,
+        "online": 1,
+        "degraded": 0,
+        "offline": 0,
+        "details": [
+          {
+            "device_id": "can-291",
+            "state": "online",
+            "good_messages": 4,
+            "failures": 0,
+            "consecutive_failures": 0,
+            "last_good_epoch_ms": 1791042255860,
+            "last_error_epoch_ms": 0,
+            "last_error": ""
+          }
+        ],
+        "details_truncated": false
+      },
+      "alarms": {
+        "active": 2,
+        "events_total": 11,
+        "history_stored": 11,
+        "recent": [
+          {
+            "sequence": 4,
+            "key": "system/telemetry_queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 5,
+            "key": "system/queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 6,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          },
+          {
+            "sequence": 7,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          },
+          {
+            "sequence": 8,
+            "key": "system/telemetry_queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042257906
+          },
+          {
+            "sequence": 9,
+            "key": "system/queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042257906
+          },
+          {
+            "sequence": 10,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042258077
+          },
+          {
+            "sequence": 11,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042258077
+          }
+        ]
+      }
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/diagnostics",
+    {
+      "device_health": {
+        "devices": 1,
+        "unknown": 0,
+        "online": 1,
+        "degraded": 0,
+        "offline": 0,
+        "details": [
+          {
+            "device_id": "can-291",
+            "state": "online",
+            "good_messages": 4,
+            "failures": 0,
+            "consecutive_failures": 0,
+            "last_good_epoch_ms": 1791042255860,
+            "last_error_epoch_ms": 0,
+            "last_error": ""
+          }
+        ],
+        "details_truncated": false
+      },
+      "alarms": {
+        "active": 2,
+        "events_total": 11,
+        "history_stored": 11,
+        "recent": [
+          {
+            "sequence": 4,
+            "key": "system/telemetry_queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 5,
+            "key": "system/queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 6,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          },
+          {
+            "sequence": 7,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          },
+          {
+            "sequence": 8,
+            "key": "system/telemetry_queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042257906
+          },
+          {
+            "sequence": 9,
+            "key": "system/queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042257906
+          },
+          {
+            "sequence": 10,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042258077
+          },
+          {
+            "sequence": 11,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042258077
+          }
+        ]
+      }
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/diagnostics",
+    {
+      "device_health": {
+        "devices": 1,
+        "unknown": 0,
+        "online": 1,
+        "degraded": 0,
+        "offline": 0,
+        "details": [
+          {
+            "device_id": "can-291",
+            "state": "online",
+            "good_messages": 4,
+            "failures": 0,
+            "consecutive_failures": 0,
+            "last_good_epoch_ms": 1791042255860,
+            "last_error_epoch_ms": 0,
+            "last_error": ""
+          }
+        ],
+        "details_truncated": false
+      },
+      "alarms": {
+        "active": 2,
+        "events_total": 11,
+        "history_stored": 11,
+        "recent": [
+          {
+            "sequence": 4,
+            "key": "system/telemetry_queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 5,
+            "key": "system/queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 6,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          },
+          {
+            "sequence": 7,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          },
+          {
+            "sequence": 8,
+            "key": "system/telemetry_queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042257906
+          },
+          {
+            "sequence": 9,
+            "key": "system/queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042257906
+          },
+          {
+            "sequence": 10,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042258077
+          },
+          {
+            "sequence": 11,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042258077
+          }
+        ]
+      }
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/diagnostics",
+    {
+      "device_health": {
+        "devices": 1,
+        "unknown": 0,
+        "online": 1,
+        "degraded": 0,
+        "offline": 0,
+        "details": [
+          {
+            "device_id": "can-291",
+            "state": "online",
+            "good_messages": 4,
+            "failures": 0,
+            "consecutive_failures": 0,
+            "last_good_epoch_ms": 1791042255860,
+            "last_error_epoch_ms": 0,
+            "last_error": ""
+          }
+        ],
+        "details_truncated": false
+      },
+      "alarms": {
+        "active": 2,
+        "events_total": 11,
+        "history_stored": 11,
+        "recent": [
+          {
+            "sequence": 4,
+            "key": "system/telemetry_queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 5,
+            "key": "system/queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 6,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          },
+          {
+            "sequence": 7,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          },
+          {
+            "sequence": 8,
+            "key": "system/telemetry_queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042257906
+          },
+          {
+            "sequence": 9,
+            "key": "system/queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042257906
+          },
+          {
+            "sequence": 10,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042258077
+          },
+          {
+            "sequence": 11,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042258077
+          }
+        ]
+      }
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/diagnostics",
+    {
+      "device_health": {
+        "devices": 1,
+        "unknown": 0,
+        "online": 1,
+        "degraded": 0,
+        "offline": 0,
+        "details": [
+          {
+            "device_id": "can-291",
+            "state": "online",
+            "good_messages": 4,
+            "failures": 0,
+            "consecutive_failures": 0,
+            "last_good_epoch_ms": 1791042255860,
+            "last_error_epoch_ms": 0,
+            "last_error": ""
+          }
+        ],
+        "details_truncated": false
+      },
+      "alarms": {
+        "active": 2,
+        "events_total": 11,
+        "history_stored": 11,
+        "recent": [
+          {
+            "sequence": 4,
+            "key": "system/telemetry_queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 5,
+            "key": "system/queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 6,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          },
+          {
+            "sequence": 7,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          },
+          {
+            "sequence": 8,
+            "key": "system/telemetry_queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042257906
+          },
+          {
+            "sequence": 9,
+            "key": "system/queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042257906
+          },
+          {
+            "sequence": 10,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042258077
+          },
+          {
+            "sequence": 11,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042258077
+          }
+        ]
+      }
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/diagnostics",
+    {
+      "device_health": {
+        "devices": 1,
+        "unknown": 0,
+        "online": 1,
+        "degraded": 0,
+        "offline": 0,
+        "details": [
+          {
+            "device_id": "can-291",
+            "state": "online",
+            "good_messages": 4,
+            "failures": 0,
+            "consecutive_failures": 0,
+            "last_good_epoch_ms": 1791042255860,
+            "last_error_epoch_ms": 0,
+            "last_error": ""
+          }
+        ],
+        "details_truncated": false
+      },
+      "alarms": {
+        "active": 2,
+        "events_total": 11,
+        "history_stored": 11,
+        "recent": [
+          {
+            "sequence": 4,
+            "key": "system/telemetry_queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 5,
+            "key": "system/queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 6,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          },
+          {
+            "sequence": 7,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          },
+          {
+            "sequence": 8,
+            "key": "system/telemetry_queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042257906
+          },
+          {
+            "sequence": 9,
+            "key": "system/queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042257906
+          },
+          {
+            "sequence": 10,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042258077
+          },
+          {
+            "sequence": 11,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042258077
+          }
+        ]
+      }
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/diagnostics",
+    {
+      "device_health": {
+        "devices": 1,
+        "unknown": 0,
+        "online": 1,
+        "degraded": 0,
+        "offline": 0,
+        "details": [
+          {
+            "device_id": "can-291",
+            "state": "online",
+            "good_messages": 4,
+            "failures": 0,
+            "consecutive_failures": 0,
+            "last_good_epoch_ms": 1791042255860,
+            "last_error_epoch_ms": 0,
+            "last_error": ""
+          }
+        ],
+        "details_truncated": false
+      },
+      "alarms": {
+        "active": 2,
+        "events_total": 11,
+        "history_stored": 11,
+        "recent": [
+          {
+            "sequence": 4,
+            "key": "system/telemetry_queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 5,
+            "key": "system/queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 6,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          },
+          {
+            "sequence": 7,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          },
+          {
+            "sequence": 8,
+            "key": "system/telemetry_queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042257906
+          },
+          {
+            "sequence": 9,
+            "key": "system/queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042257906
+          },
+          {
+            "sequence": 10,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042258077
+          },
+          {
+            "sequence": 11,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042258077
+          }
+        ]
+      }
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/diagnostics",
+    {
+      "device_health": {
+        "devices": 1,
+        "unknown": 0,
+        "online": 1,
+        "degraded": 0,
+        "offline": 0,
+        "details": [
+          {
+            "device_id": "can-291",
+            "state": "online",
+            "good_messages": 4,
+            "failures": 0,
+            "consecutive_failures": 0,
+            "last_good_epoch_ms": 1791042255860,
+            "last_error_epoch_ms": 0,
+            "last_error": ""
+          }
+        ],
+        "details_truncated": false
+      },
+      "alarms": {
+        "active": 2,
+        "events_total": 11,
+        "history_stored": 11,
+        "recent": [
+          {
+            "sequence": 4,
+            "key": "system/telemetry_queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 5,
+            "key": "system/queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 6,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          },
+          {
+            "sequence": 7,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          },
+          {
+            "sequence": 8,
+            "key": "system/telemetry_queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042257906
+          },
+          {
+            "sequence": 9,
+            "key": "system/queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042257906
+          },
+          {
+            "sequence": 10,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042258077
+          },
+          {
+            "sequence": 11,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042258077
+          }
+        ]
+      }
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/diagnostics",
+    {
+      "device_health": {
+        "devices": 1,
+        "unknown": 0,
+        "online": 1,
+        "degraded": 0,
+        "offline": 0,
+        "details": [
+          {
+            "device_id": "can-291",
+            "state": "online",
+            "good_messages": 4,
+            "failures": 0,
+            "consecutive_failures": 0,
+            "last_good_epoch_ms": 1791042255860,
+            "last_error_epoch_ms": 0,
+            "last_error": ""
+          }
+        ],
+        "details_truncated": false
+      },
+      "alarms": {
+        "active": 2,
+        "events_total": 11,
+        "history_stored": 11,
+        "recent": [
+          {
+            "sequence": 4,
+            "key": "system/telemetry_queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 5,
+            "key": "system/queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 6,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          },
+          {
+            "sequence": 7,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          },
+          {
+            "sequence": 8,
+            "key": "system/telemetry_queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042257906
+          },
+          {
+            "sequence": 9,
+            "key": "system/queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042257906
+          },
+          {
+            "sequence": 10,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042258077
+          },
+          {
+            "sequence": 11,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042258077
+          }
+        ]
+      }
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/diagnostics",
+    {
+      "device_health": {
+        "devices": 1,
+        "unknown": 0,
+        "online": 1,
+        "degraded": 0,
+        "offline": 0,
+        "details": [
+          {
+            "device_id": "can-291",
+            "state": "online",
+            "good_messages": 4,
+            "failures": 0,
+            "consecutive_failures": 0,
+            "last_good_epoch_ms": 1791042255860,
+            "last_error_epoch_ms": 0,
+            "last_error": ""
+          }
+        ],
+        "details_truncated": false
+      },
+      "alarms": {
+        "active": 2,
+        "events_total": 11,
+        "history_stored": 11,
+        "recent": [
+          {
+            "sequence": 4,
+            "key": "system/telemetry_queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 5,
+            "key": "system/queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 6,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          },
+          {
+            "sequence": 7,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          },
+          {
+            "sequence": 8,
+            "key": "system/telemetry_queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042257906
+          },
+          {
+            "sequence": 9,
+            "key": "system/queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042257906
+          },
+          {
+            "sequence": 10,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042258077
+          },
+          {
+            "sequence": 11,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042258077
+          }
+        ]
+      }
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/diagnostics",
+    {
+      "device_health": {
+        "devices": 1,
+        "unknown": 0,
+        "online": 1,
+        "degraded": 0,
+        "offline": 0,
+        "details": [
+          {
+            "device_id": "can-291",
+            "state": "online",
+            "good_messages": 4,
+            "failures": 0,
+            "consecutive_failures": 0,
+            "last_good_epoch_ms": 1791042255860,
+            "last_error_epoch_ms": 0,
+            "last_error": ""
+          }
+        ],
+        "details_truncated": false
+      },
+      "alarms": {
+        "active": 2,
+        "events_total": 11,
+        "history_stored": 11,
+        "recent": [
+          {
+            "sequence": 4,
+            "key": "system/telemetry_queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 5,
+            "key": "system/queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 6,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          },
+          {
+            "sequence": 7,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          },
+          {
+            "sequence": 8,
+            "key": "system/telemetry_queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042257906
+          },
+          {
+            "sequence": 9,
+            "key": "system/queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042257906
+          },
+          {
+            "sequence": 10,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042258077
+          },
+          {
+            "sequence": 11,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042258077
+          }
+        ]
+      }
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/diagnostics",
+    {
+      "device_health": {
+        "devices": 1,
+        "unknown": 0,
+        "online": 1,
+        "degraded": 0,
+        "offline": 0,
+        "details": [
+          {
+            "device_id": "can-291",
+            "state": "online",
+            "good_messages": 4,
+            "failures": 0,
+            "consecutive_failures": 0,
+            "last_good_epoch_ms": 1791042255860,
+            "last_error_epoch_ms": 0,
+            "last_error": ""
+          }
+        ],
+        "details_truncated": false
+      },
+      "alarms": {
+        "active": 2,
+        "events_total": 11,
+        "history_stored": 11,
+        "recent": [
+          {
+            "sequence": 4,
+            "key": "system/telemetry_queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 5,
+            "key": "system/queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 6,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          },
+          {
+            "sequence": 7,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          },
+          {
+            "sequence": 8,
+            "key": "system/telemetry_queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042257906
+          },
+          {
+            "sequence": 9,
+            "key": "system/queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042257906
+          },
+          {
+            "sequence": 10,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042258077
+          },
+          {
+            "sequence": 11,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042258077
+          }
+        ]
+      }
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/diagnostics",
+    {
+      "device_health": {
+        "devices": 1,
+        "unknown": 0,
+        "online": 1,
+        "degraded": 0,
+        "offline": 0,
+        "details": [
+          {
+            "device_id": "can-291",
+            "state": "online",
+            "good_messages": 4,
+            "failures": 0,
+            "consecutive_failures": 0,
+            "last_good_epoch_ms": 1791042255860,
+            "last_error_epoch_ms": 0,
+            "last_error": ""
+          }
+        ],
+        "details_truncated": false
+      },
+      "alarms": {
+        "active": 2,
+        "events_total": 11,
+        "history_stored": 11,
+        "recent": [
+          {
+            "sequence": 4,
+            "key": "system/telemetry_queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 5,
+            "key": "system/queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 6,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          },
+          {
+            "sequence": 7,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          },
+          {
+            "sequence": 8,
+            "key": "system/telemetry_queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042257906
+          },
+          {
+            "sequence": 9,
+            "key": "system/queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042257906
+          },
+          {
+            "sequence": 10,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042258077
+          },
+          {
+            "sequence": 11,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042258077
+          }
+        ]
+      }
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/diagnostics",
+    {
+      "device_health": {
+        "devices": 1,
+        "unknown": 0,
+        "online": 1,
+        "degraded": 0,
+        "offline": 0,
+        "details": [
+          {
+            "device_id": "can-291",
+            "state": "online",
+            "good_messages": 4,
+            "failures": 0,
+            "consecutive_failures": 0,
+            "last_good_epoch_ms": 1791042255860,
+            "last_error_epoch_ms": 0,
+            "last_error": ""
+          }
+        ],
+        "details_truncated": false
+      },
+      "alarms": {
+        "active": 2,
+        "events_total": 11,
+        "history_stored": 11,
+        "recent": [
+          {
+            "sequence": 4,
+            "key": "system/telemetry_queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 5,
+            "key": "system/queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042256910
+          },
+          {
+            "sequence": 6,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          },
+          {
+            "sequence": 7,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          },
+          {
+            "sequence": 8,
+            "key": "system/telemetry_queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042257906
+          },
+          {
+            "sequence": 9,
+            "key": "system/queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042257906
+          },
+          {
+            "sequence": 10,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042258077
+          },
+          {
+            "sequence": 11,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042258077
+          }
+        ]
+      }
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/alarm",
+    {
+      "sequence": 12,
+      "key": "system/telemetry_queue_stalled",
+      "action": "recovered",
+      "severity": "critical",
+      "epoch_ms": 1791042258914
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/alarm",
+    {
+      "sequence": 13,
+      "key": "system/queue_stalled",
+      "action": "recovered",
+      "severity": "critical",
+      "epoch_ms": 1791042258914
+    }
+  ],
+  [
+    "gateway/mqmgateway-iot/diagnostics",
+    {
+      "device_health": {
+        "devices": 1,
+        "unknown": 0,
+        "online": 1,
+        "degraded": 0,
+        "offline": 0,
+        "details": [
+          {
+            "device_id": "can-291",
+            "state": "online",
+            "good_messages": 4,
+            "failures": 0,
+            "consecutive_failures": 0,
+            "last_good_epoch_ms": 1791042255860,
+            "last_error_epoch_ms": 0,
+            "last_error": ""
+          }
+        ],
+        "details_truncated": false
+      },
+      "alarms": {
+        "active": 0,
+        "events_total": 13,
+        "history_stored": 13,
+        "recent": [
+          {
+            "sequence": 6,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          },
+          {
+            "sequence": 7,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042257075
+          },
+          {
+            "sequence": 8,
+            "key": "system/telemetry_queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042257906
+          },
+          {
+            "sequence": 9,
+            "key": "system/queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042257906
+          },
+          {
+            "sequence": 10,
+            "key": "system/telemetry_queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042258077
+          },
+          {
+            "sequence": 11,
+            "key": "system/queue_stalled",
+            "action": "raised",
+            "severity": "critical",
+            "epoch_ms": 1791042258077
+          },
+          {
+            "sequence": 12,
+            "key": "system/telemetry_queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042258914
+          },
+          {
+            "sequence": 13,
+            "key": "system/queue_stalled",
+            "action": "recovered",
+            "severity": "critical",
+            "epoch_ms": 1791042258914
+          }
+        ]
+      }
+    }
+  ]
+]

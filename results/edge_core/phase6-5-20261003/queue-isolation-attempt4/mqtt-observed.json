@@ -1,0 +1,528 @@
+[
+  {
+    "topic": "device/can-291/cmd/can_tx",
+    "body": {
+      "command_id": "phase65-control",
+      "can_id": 291,
+      "data": "0102",
+      "timeout_ms": 1500
+    },
+    "at": 1063055.396520453
+  },
+  {
+    "topic": "device/can-291/status",
+    "body": {
+      "status": "accepted",
+      "detail": "queued for driver dispatch",
+      "command_id": "phase65-control",
+      "state": "accepted"
+    },
+    "at": 1063055.444654131
+  },
+  {
+    "topic": "device/can-291/telemetry",
+    "body": {
+      "timestamp_ms": 1791041300034,
+      "device_id": "can-291",
+      "protocol": "can",
+      "direction": "northbound",
+      "data_type": "telemetry",
+      "address": 291,
+      "payload": "0000000000000000",
+      "quality": "good",
+      "point_id": "frame",
+      "raw_value": "0000000000000000",
+      "value": "0000000000000000",
+      "driver_id": "can"
+    },
+    "at": 1063055.541292185
+  },
+  {
+    "topic": "device/can-291/status",
+    "body": {
+      "status": "ok",
+      "detail": "CAN frame transmitted",
+      "command_id": "phase65-control",
+      "state": "succeeded"
+    },
+    "at": 1063055.597503653
+  },
+  {
+    "topic": "device/can-291/telemetry",
+    "body": {
+      "timestamp_ms": 1791041300034,
+      "device_id": "can-291",
+      "protocol": "can",
+      "direction": "northbound",
+      "data_type": "telemetry",
+      "address": 291,
+      "payload": "0000000000000001",
+      "quality": "good",
+      "point_id": "frame",
+      "raw_value": "0000000000000001",
+      "value": "0000000000000001",
+      "driver_id": "can"
+    },
+    "at": 1063055.741617638
+  },
+  {
+    "topic": "device/can-291/telemetry",
+    "body": {
+      "timestamp_ms": 1791041300034,
+      "device_id": "can-291",
+      "protocol": "can",
+      "direction": "northbound",
+      "data_type": "telemetry",
+      "address": 291,
+      "payload": "0000000000000002",
+      "quality": "good",
+      "point_id": "frame",
+      "raw_value": "0000000000000002",
+      "value": "0000000000000002",
+      "driver_id": "can"
+    },
+    "at": 1063055.941670149
+  },
+  {
+    "topic": "device/can-291/telemetry",
+    "body": {
+      "timestamp_ms": 1791041300034,
+      "device_id": "can-291",
+      "protocol": "can",
+      "direction": "northbound",
+      "data_type": "telemetry",
+      "address": 291,
+      "payload": "0000000000000003",
+      "quality": "good",
+      "point_id": "frame",
+      "raw_value": "0000000000000003",
+      "value": "0000000000000003",
+      "driver_id": "can"
+    },
+    "at": 1063056.141907215
+  },
+  {
+    "topic": "device/can-291/cmd/can_tx",
+    "body": {
+      "command_id": "phase65-inverse-0",
+      "can_id": 291,
+      "data": "0304",
+      "timeout_ms": 2500
+    },
+    "at": 1063056.223245563
+  },
+  {
+    "topic": "device/can-291/cmd/can_tx",
+    "body": {
+      "command_id": "phase65-inverse-1",
+      "can_id": 291,
+      "data": "0304",
+      "timeout_ms": 2500
+    },
+    "at": 1063056.22342459
+  },
+  {
+    "topic": "device/can-291/cmd/can_tx",
+    "body": {
+      "command_id": "phase65-inverse-2",
+      "can_id": 291,
+      "data": "0304",
+      "timeout_ms": 2500
+    },
+    "at": 1063056.223543397
+  },
+  {
+    "topic": "device/can-291/cmd/can_tx",
+    "body": {
+      "command_id": "phase65-inverse-3",
+      "can_id": 291,
+      "data": "0304",
+      "timeout_ms": 2500
+    },
+    "at": 1063056.22359364
+  },
+  {
+    "topic": "device/can-291/status",
+    "body": {
+      "status": "accepted",
+      "detail": "queued for driver dispatch",
+      "command_id": "phase65-inverse-0",
+      "state": "accepted"
+    },
+    "at": 1063056.264450837
+  },
+  {
+    "topic": "device/can-291/status",
+    "body": {
+      "status": "accepted",
+      "detail": "queued for driver dispatch",
+      "command_id": "phase65-inverse-1",
+      "state": "accepted"
+    },
+    "at": 1063056.264600079
+  },
+  {
+    "topic": "device/can-291/status",
+    "body": {
+      "status": "accepted",
+      "detail": "queued for driver dispatch",
+      "command_id": "phase65-inverse-2",
+      "state": "accepted"
+    },
+    "at": 1063056.264664987
+  },
+  {
+    "topic": "device/can-291/status",
+    "body": {
+      "status": "accepted",
+      "detail": "queued for driver dispatch",
+      "command_id": "phase65-inverse-3",
+      "state": "accepted"
+    },
+    "at": 1063056.264745044
+  },
+  {
+    "topic": "device/can-291/telemetry",
+    "body": {
+      "timestamp_ms": 1791041300034,
+      "device_id": "can-291",
+      "protocol": "can",
+      "direction": "northbound",
+      "data_type": "telemetry",
+      "address": 291,
+      "payload": "000000000000001a",
+      "quality": "good",
+      "point_id": "frame",
+      "raw_value": "000000000000001a",
+      "value": "000000000000001a",
+      "driver_id": "can"
+    },
+    "at": 1063056.341898953
+  },
+  {
+    "topic": "device/can-291/cmd/can_tx",
+    "body": {
+      "command_id": "phase65-burst-0",
+      "can_id": 291,
+      "data": "0506",
+      "timeout_ms": 5000
+    },
+    "at": 1063056.384165864
+  },
+  {
+    "topic": "device/can-291/cmd/can_tx",
+    "body": {
+      "command_id": "phase65-burst-1",
+      "can_id": 291,
+      "data": "0506",
+      "timeout_ms": 5000
+    },
+    "at": 1063056.384263848
+  },
+  {
+    "topic": "device/can-291/cmd/can_tx",
+    "body": {
+      "command_id": "phase65-burst-2",
+      "can_id": 291,
+      "data": "0506",
+      "timeout_ms": 5000
+    },
+    "at": 1063056.384286934
+  },
+  {
+    "topic": "device/can-291/cmd/can_tx",
+    "body": {
+      "command_id": "phase65-burst-3",
+      "can_id": 291,
+      "data": "0506",
+      "timeout_ms": 5000
+    },
+    "at": 1063056.384303867
+  },
+  {
+    "topic": "device/can-291/cmd/can_tx",
+    "body": {
+      "command_id": "phase65-burst-4",
+      "can_id": 291,
+      "data": "0506",
+      "timeout_ms": 5000
+    },
+    "at": 1063056.384325295
+  },
+  {
+    "topic": "device/can-291/cmd/can_tx",
+    "body": {
+      "command_id": "phase65-burst-5",
+      "can_id": 291,
+      "data": "0506",
+      "timeout_ms": 5000
+    },
+    "at": 1063056.384341091
+  },
+  {
+    "topic": "device/can-291/cmd/can_tx",
+    "body": {
+      "command_id": "phase65-burst-6",
+      "can_id": 291,
+      "data": "0506",
+      "timeout_ms": 5000
+    },
+    "at": 1063056.384355268
+  },
+  {
+    "topic": "device/can-291/cmd/can_tx",
+    "body": {
+      "command_id": "phase65-burst-7",
+      "can_id": 291,
+      "data": "0506",
+      "timeout_ms": 5000
+    },
+    "at": 1063056.384375194
+  },
+  {
+    "topic": "device/can-291/cmd/can_tx",
+    "body": {
+      "command_id": "phase65-burst-8",
+      "can_id": 291,
+      "data": "0506",
+      "timeout_ms": 5000
+    },
+    "at": 1063056.384388586
+  },
+  {
+    "topic": "device/can-291/cmd/can_tx",
+    "body": {
+      "command_id": "phase65-burst-9",
+      "can_id": 291,
+      "data": "0506",
+      "timeout_ms": 5000
+    },
+    "at": 1063056.384401589
+  },
+  {
+    "topic": "device/can-291/cmd/can_tx",
+    "body": {
+      "command_id": "phase65-burst-10",
+      "can_id": 291,
+      "data": "0506",
+      "timeout_ms": 5000
+    },
+    "at": 1063056.384453957
+  },
+  {
+    "topic": "device/can-291/cmd/can_tx",
+    "body": {
+      "command_id": "phase65-burst-11",
+      "can_id": 291,
+      "data": "0506",
+      "timeout_ms": 5000
+    },
+    "at": 1063056.384487823
+  },
+  {
+    "topic": "device/can-291/status",
+    "body": {
+      "status": "accepted",
+      "detail": "queued for driver dispatch",
+      "command_id": "phase65-burst-0",
+      "state": "accepted"
+    },
+    "at": 1063056.456270193
+  },
+  {
+    "topic": "device/can-291/status",
+    "body": {
+      "status": "rejected",
+      "detail": "command queue capacity exceeded",
+      "command_id": "phase65-burst-1",
+      "state": "rejected"
+    },
+    "at": 1063056.456347858
+  },
+  {
+    "topic": "device/can-291/status",
+    "body": {
+      "status": "rejected",
+      "detail": "command queue capacity exceeded",
+      "command_id": "phase65-burst-2",
+      "state": "rejected"
+    },
+    "at": 1063056.456367518
+  },
+  {
+    "topic": "device/can-291/status",
+    "body": {
+      "status": "rejected",
+      "detail": "command queue capacity exceeded",
+      "command_id": "phase65-burst-3",
+      "state": "rejected"
+    },
+    "at": 1063056.456404082
+  },
+  {
+    "topic": "device/can-291/status",
+    "body": {
+      "status": "rejected",
+      "detail": "command queue capacity exceeded",
+      "command_id": "phase65-burst-4",
+      "state": "rejected"
+    },
+    "at": 1063056.456469518
+  },
+  {
+    "topic": "device/can-291/status",
+    "body": {
+      "status": "rejected",
+      "detail": "command queue capacity exceeded",
+      "command_id": "phase65-burst-5",
+      "state": "rejected"
+    },
+    "at": 1063056.456492168
+  },
+  {
+    "topic": "device/can-291/status",
+    "body": {
+      "status": "rejected",
+      "detail": "command queue capacity exceeded",
+      "command_id": "phase65-burst-6",
+      "state": "rejected"
+    },
+    "at": 1063056.456510752
+  },
+  {
+    "topic": "device/can-291/status",
+    "body": {
+      "status": "rejected",
+      "detail": "command queue capacity exceeded",
+      "command_id": "phase65-burst-7",
+      "state": "rejected"
+    },
+    "at": 1063056.45652733
+  },
+  {
+    "topic": "device/can-291/status",
+    "body": {
+      "status": "rejected",
+      "detail": "command queue capacity exceeded",
+      "command_id": "phase65-burst-8",
+      "state": "rejected"
+    },
+    "at": 1063056.456544768
+  },
+  {
+    "topic": "device/can-291/status",
+    "body": {
+      "status": "rejected",
+      "detail": "command queue capacity exceeded",
+      "command_id": "phase65-burst-9",
+      "state": "rejected"
+    },
+    "at": 1063056.456560692
+  },
+  {
+    "topic": "device/can-291/status",
+    "body": {
+      "status": "rejected",
+      "detail": "command queue capacity exceeded",
+      "command_id": "phase65-burst-10",
+      "state": "rejected"
+    },
+    "at": 1063056.456577656
+  },
+  {
+    "topic": "device/can-291/status",
+    "body": {
+      "status": "rejected",
+      "detail": "command queue capacity exceeded",
+      "command_id": "phase65-burst-11",
+      "state": "rejected"
+    },
+    "at": 1063056.45659579
+  },
+  {
+    "topic": "device/can-291/status",
+    "body": {
+      "status": "ok",
+      "detail": "CAN frame transmitted",
+      "command_id": "phase65-inverse-0",
+      "state": "succeeded"
+    },
+    "at": 1063056.456612405
+  },
+  {
+    "topic": "device/can-291/telemetry",
+    "body": {
+      "timestamp_ms": 1791041300879,
+      "device_id": "can-291",
+      "protocol": "can",
+      "direction": "northbound",
+      "data_type": "telemetry",
+      "address": 291,
+      "payload": "0000000000002710",
+      "quality": "good",
+      "point_id": "frame",
+      "raw_value": "0000000000002710",
+      "value": "0000000000002710",
+      "driver_id": "can"
+    },
+    "at": 1063056.542026166
+  },
+  {
+    "topic": "device/can-291/status",
+    "body": {
+      "status": "ok",
+      "detail": "CAN frame transmitted",
+      "command_id": "phase65-inverse-1",
+      "state": "succeeded"
+    },
+    "at": 1063056.624302517
+  },
+  {
+    "topic": "device/can-291/telemetry",
+    "body": {
+      "timestamp_ms": 1791041300916,
+      "device_id": "can-291",
+      "protocol": "can",
+      "direction": "northbound",
+      "data_type": "telemetry",
+      "address": 291,
+      "payload": "0000000000002711",
+      "quality": "good",
+      "point_id": "frame",
+      "raw_value": "0000000000002711",
+      "value": "0000000000002711",
+      "driver_id": "can"
+    },
+    "at": 1063056.742733402
+  },
+  {
+    "topic": "device/can-291/status",
+    "body": {
+      "status": "ok",
+      "detail": "CAN frame transmitted",
+      "command_id": "phase65-inverse-2",
+      "state": "succeeded"
+    },
+    "at": 1063056.824239472
+  },
+  {
+    "topic": "device/can-291/status",
+    "body": {
+      "status": "ok",
+      "detail": "CAN frame transmitted",
+      "command_id": "phase65-inverse-3",
+      "state": "succeeded"
+    },
+    "at": 1063057.025209945
+  },
+  {
+    "topic": "device/can-291/status",
+    "body": {
+      "status": "ok",
+      "detail": "CAN frame transmitted",
+      "command_id": "phase65-burst-0",
+      "state": "succeeded"
+    },
+    "at": 1063057.224720532
+  }
+]

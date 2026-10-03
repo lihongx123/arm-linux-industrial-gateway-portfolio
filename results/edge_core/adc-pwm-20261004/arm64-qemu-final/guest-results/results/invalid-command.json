@@ -1,0 +1,1 @@
+{"status":"rejected","detail":"data must be an even-length hexadecimal string up to 16 characters","command_id":"mqtt-2","state":"rejected"}

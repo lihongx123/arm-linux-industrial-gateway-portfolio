@@ -1,0 +1,22 @@
+[
+  {
+    "topic": "device/can-291/cmd/can_tx",
+    "body": {
+      "command_id": "phase65-control",
+      "can_id": 291,
+      "data": "0102",
+      "timeout_ms": 1500
+    },
+    "at": 1063510.213178443
+  },
+  {
+    "topic": "device/can-291/status",
+    "body": {
+      "status": "rejected",
+      "detail": "queue capacity exceeded",
+      "command_id": "phase65-control",
+      "state": "rejected"
+    },
+    "at": 1063510.256349213
+  }
+]

@@ -29,6 +29,8 @@ def main() -> int:
                         help="Also inject and run the two-device TCP driver/GatewayCore integration test")
     parser.add_argument("--phase4-software-probe", action="store_true",
                         help="Inject and run the eight-device Phase 4 software composition after base guest tests")
+    parser.add_argument("--board-adc-pwm-probe", action="store_true",
+                        help="Run the deterministic ADC/PWM file-backed simulation in the ARM64 guest")
     parser.add_argument("--mc-driver-probe", action="store_true",
                         help="Inject and run the MC 3E binary/TCP GatewayCore runtime probe")
     parser.add_argument("--phase5-mixed-probe", action="store_true",
@@ -57,6 +59,8 @@ def main() -> int:
         parser.error("--tcp-driver-probe requires --binary-dir and --mode tests")
     if args.phase4_software_probe and (not args.binary_dir or args.mode != "tests"):
         parser.error("--phase4-software-probe requires --binary-dir and --mode tests")
+    if args.board_adc_pwm_probe and (not args.binary_dir or args.mode != "tests"):
+        parser.error("--board-adc-pwm-probe requires --binary-dir and --mode tests")
     if args.mc_driver_probe and (not args.binary_dir or args.mode != "tests"):
         parser.error("--mc-driver-probe requires --binary-dir and --mode tests")
     if args.phase5_mixed_probe and (not args.binary_dir or args.mode != "tests"):
@@ -98,6 +102,8 @@ def main() -> int:
             files.append(build / "src/iot_gateway/mqmgateway_tcp_driver_tests")
         if args.phase4_software_probe:
             files.append(build / "src/iot_gateway/mqmgateway_phase4_software_tests")
+        if args.board_adc_pwm_probe:
+            files.append(build / "src/iot_gateway/mqmgateway_board_adc_pwm_tests")
         if args.mc_driver_probe:
             files.append(build / "src/iot_gateway/mqmgateway_mc_driver_tests")
         if args.phase5_mixed_probe:
@@ -116,7 +122,7 @@ def main() -> int:
             subprocess.run(["debugfs", "-w", "-R", "rm "+destination, str(runtime_image)], check=True)
             subprocess.run(["debugfs", "-w", "-R", f"write {binary} {destination}", str(runtime_image)], check=True)
             manifest[str(binary)] = hashlib.sha256(binary.read_bytes()).hexdigest()
-        if args.s7_driver_probe or args.phase5_full_mixed_probe:
+        if args.s7_driver_probe or args.phase5_full_mixed_probe or (args.board_adc_pwm_probe and args.s7_library):
             library = pathlib.Path(args.s7_library).resolve()
             if not library.is_file():
                 raise RuntimeError(f"missing Snap7 library: {library}")
@@ -189,6 +195,11 @@ def main() -> int:
                         " && /usr/bin/mqmgateway_phase4_software_tests > /root/phase4-software-probe.json"
                         " && cp /root/phase4-software-probe.json /root/results/phase4-software-probe.json"
                     )
+                if args.board_adc_pwm_probe:
+                    guest_command += (
+                        " && LD_LIBRARY_PATH=/usr/lib /usr/bin/mqmgateway_board_adc_pwm_tests > /root/board-adc-pwm-probe.json"
+                        " && cp /root/board-adc-pwm-probe.json /root/results/board-adc-pwm-probe.json"
+                    )
                 if args.mc_driver_probe:
                     guest_command += (
                         " && /usr/bin/mqmgateway_mc_driver_tests > /root/mc-driver-probe.json"
@@ -258,6 +269,7 @@ def main() -> int:
     )
     (result_root / "debugfs-extract.log").write_text(debugfs.stdout, encoding="utf-8")
     for enabled, name in ((args.mc_driver_probe, "mc-driver-probe.json"),
+                          (args.board_adc_pwm_probe, "board-adc-pwm-probe.json"),
                           (args.phase5_mixed_probe, "phase5-mixed-probe.json"),
                           (args.phase5_full_mixed_probe, "phase5-full-mixed-probe.json"),
                           (args.opcua_driver_probe, "opcua-driver-probe.json"),

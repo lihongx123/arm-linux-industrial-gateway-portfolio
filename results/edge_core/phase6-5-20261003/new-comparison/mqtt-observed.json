@@ -1,0 +1,50 @@
+[
+  {
+    "topic": "device/can-291/cmd/can_tx",
+    "body": {
+      "command_id": "phase65-control",
+      "can_id": 291,
+      "data": "0102",
+      "timeout_ms": 1500
+    },
+    "at": 1063529.243882875
+  },
+  {
+    "topic": "device/can-291/status",
+    "body": {
+      "status": "accepted",
+      "detail": "queued for driver dispatch",
+      "command_id": "phase65-control",
+      "state": "accepted"
+    },
+    "at": 1063529.284282249
+  },
+  {
+    "topic": "device/can-291/telemetry",
+    "body": {
+      "timestamp_ms": 1791041790264,
+      "device_id": "can-291",
+      "protocol": "can",
+      "direction": "northbound",
+      "data_type": "telemetry",
+      "address": 291,
+      "payload": "0000000000000000",
+      "quality": "good",
+      "point_id": "frame",
+      "raw_value": "0000000000000000",
+      "value": "0000000000000000",
+      "driver_id": "can"
+    },
+    "at": 1063529.414798128
+  },
+  {
+    "topic": "device/can-291/status",
+    "body": {
+      "status": "ok",
+      "detail": "CAN frame transmitted",
+      "command_id": "phase65-control",
+      "state": "succeeded"
+    },
+    "at": 1063529.444741157
+  }
+]

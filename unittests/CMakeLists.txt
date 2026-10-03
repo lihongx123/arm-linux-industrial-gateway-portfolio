@@ -110,6 +110,7 @@ add_executable(tests
     driver_framework_tests.cpp
     pipeline_metrics_tests.cpp
     phase6_diagnostics_tests.cpp
+    phase65_policy_tests.cpp
     northbound_tests.cpp
 )
 

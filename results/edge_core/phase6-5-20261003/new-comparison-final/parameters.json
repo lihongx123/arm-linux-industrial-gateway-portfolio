@@ -1,0 +1,15 @@
+{
+  "command": [
+    "/tmp/mqmgateway-phase65-full/src/iot_gateway/mqmgateway_iot",
+    "--mqtt-port=45029",
+    "--can-interface=vcan0",
+    "--workers=1",
+    "--processing-delay-ms=200",
+    "--heartbeat-ms=50",
+    "--metrics-file=results/edge_core/phase6-5-20261003/new-comparison-final/metrics.json",
+    "--telemetry-queue-capacity=4",
+    "--command-queue-capacity=4",
+    "--command-workers=1",
+    "--mqtt-outbound-capacity=4"
+  ]
+}

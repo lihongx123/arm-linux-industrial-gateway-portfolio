@@ -294,10 +294,78 @@ TEST_CASE("MQTT adapter rejects overload instead of growing its outbound queue",
     edge::UnifiedMessageV2 telemetry;
     telemetry.deviceId = "d1";
     unsigned rejected = 0;
+    unsigned accepted = 0;
     if (started) {
         for (unsigned i = 0; i < 100; ++i)
             if (!adapter.publish(telemetry).accepted) ++rejected;
+            else ++accepted;
     }
+    edge::UnifiedMessageV2 control;
+    control.deviceId = "d1";
+    control.northboundType = edge::NorthboundType::command_result;
+    control.correlationId = "one-slot";
+    const bool controlAccepted = started && adapter.publish(control).accepted;
+    const auto snapshot = adapter.metrics();
+    adapter.stop();
+    done = true;
+    fakeBroker.join();
+    ::close(listener);
+    REQUIRE(started);
+    REQUIRE(accepted > 0);
+    REQUIRE(controlAccepted);
+    REQUIRE(rejected > 0);
+    REQUIRE(snapshot.queuePeak <= 1);
+    REQUIRE(snapshot.dropped >= rejected);
+}
+
+TEST_CASE("MQTT saturated telemetry cannot consume reserved command result capacity", "[phase65]") {
+    const int listener = ::socket(AF_INET, SOCK_STREAM, 0);
+    REQUIRE(listener >= 0);
+    sockaddr_in address{};
+    address.sin_family = AF_INET;
+    address.sin_addr.s_addr = htonl(INADDR_LOOPBACK);
+    address.sin_port = 0;
+    REQUIRE(::bind(listener, reinterpret_cast<sockaddr*>(&address), sizeof(address)) == 0);
+    REQUIRE(::listen(listener, 1) == 0);
+    socklen_t length = sizeof(address);
+    REQUIRE(::getsockname(listener, reinterpret_cast<sockaddr*>(&address), &length) == 0);
+    std::atomic<bool> done{false};
+    std::thread fakeBroker([&] {
+        int peer = -1;
+        while (!done) {
+            fd_set ready;
+            FD_ZERO(&ready);
+            FD_SET(listener, &ready);
+            timeval timeout{0, 100000};
+            if (::select(listener + 1, &ready, nullptr, nullptr, &timeout) > 0) {
+                peer = ::accept(listener, nullptr, nullptr);
+                break;
+            }
+        }
+        while (!done) std::this_thread::sleep_for(std::chrono::milliseconds(10));
+        if (peer >= 0) ::close(peer);
+    });
+    northbound::MqttAdapterConfig config;
+    config.id = "phase65-lanes";
+    config.clientId = "phase65-lanes";
+    config.port = ntohs(address.sin_port);
+    config.outboundCapacity = 4;
+    northbound::MqttNorthboundAdapter adapter(std::move(config));
+    bool started = false;
+    try { started = adapter.start(); } catch (...) {}
+    edge::UnifiedMessageV2 telemetry;
+    telemetry.deviceId = "d";
+    unsigned rejected = 0;
+    if (started) {
+        for (unsigned n = 0; n < 100; ++n)
+            if (!adapter.publish(telemetry).accepted) ++rejected;
+    }
+    edge::UnifiedMessageV2 result;
+    result.deviceId = "d";
+    result.northboundType = edge::NorthboundType::command_result;
+    result.status = "succeeded";
+    result.correlationId = "test";
+    const auto accepted = started && adapter.publish(result).accepted;
     const auto snapshot = adapter.metrics();
     adapter.stop();
     done = true;
@@ -305,6 +373,6 @@ TEST_CASE("MQTT adapter rejects overload instead of growing its outbound queue",
     ::close(listener);
     REQUIRE(started);
     REQUIRE(rejected > 0);
-    REQUIRE(snapshot.queuePeak <= 1);
-    REQUIRE(snapshot.dropped >= rejected);
+    REQUIRE(accepted);
+    REQUIRE(snapshot.queuePeak <= 4);
 }

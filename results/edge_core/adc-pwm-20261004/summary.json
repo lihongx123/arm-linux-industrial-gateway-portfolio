@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-04",
+  "native_release_ctest": {
+    "total": 12,
+    "passed": 12,
+    "failed": 0,
+    "elapsed_seconds": 185.20,
+    "final_log": "native-ctest-final.log"
+  },
+  "arm64_buildroot_qemu": {
+    "result": "PASS",
+    "qemu_version": "8.2.2",
+    "host_elapsed_seconds": 34.647,
+    "guest_result": "arm64-qemu-final/guest-results/results/board-adc-pwm-probe.json",
+    "adc_scaled": 1014,
+    "pwm_period_ns": 1000000,
+    "pwm_duty_ns": 250000,
+    "invalid_duty_rejected": true,
+    "negative_adc_rejected": true,
+    "pwm_safe_off": true
+  },
+  "physical_adc_pwm_validation": "NOT_RUN"
+}

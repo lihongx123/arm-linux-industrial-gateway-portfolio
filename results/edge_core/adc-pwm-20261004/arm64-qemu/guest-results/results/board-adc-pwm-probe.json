@@ -1,0 +1,1 @@
+{"result":"PASS","adc_scaled":1014,"pwm_period_ns":1000000,"pwm_duty_ns":250000,"invalid_duty_rejected":true,"negative_adc_rejected":true,"pwm_safe_off":true}

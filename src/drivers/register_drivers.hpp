@@ -19,7 +19,9 @@ void registerOpcUaDrivers(edge::GatewayCore& core, const std::vector<OpcUaConfig
 void registerS7Drivers(edge::GatewayCore& core, const std::vector<S7Config>& s7);
 void registerBoardDrivers(edge::GatewayCore& core, const std::vector<board::SpiConfig>& spi,
                           const std::vector<board::I2cConfig>& i2c,
-                          const std::vector<board::GpioConfig>& gpio);
+                          const std::vector<board::GpioConfig>& gpio,
+                          const std::vector<board::AdcConfig>& adc,
+                          const std::vector<board::PwmConfig>& pwm);
 void registerUartDrivers(edge::GatewayCore& core, const std::vector<RawUartConfig>& uart,
                          std::size_t capacity);
 }

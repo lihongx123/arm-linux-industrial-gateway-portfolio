@@ -8,6 +8,7 @@ add_library(mqmgateway_edge_core
     gateway_core.cpp
     point_registry.cpp
     point_mapper.cpp
+    telemetry_policy.cpp
     unified_message_v2.cpp
     watchdog.cpp
 )

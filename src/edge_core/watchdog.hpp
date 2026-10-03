@@ -18,7 +18,7 @@ public:
     explicit QueueWatchdog(std::chrono::milliseconds threshold);
     std::optional<Transition> observe(std::size_t depth, std::uint64_t dequeued,
                                       TimeService::Monotonic::time_point now);
-    void appendMetrics(std::ostream& out) const;
+    void appendMetrics(std::ostream& out, const char* name = "queue_watchdog") const;
 private:
     std::chrono::milliseconds threshold_;
     mutable std::mutex mutex_;

@@ -28,9 +28,9 @@ std::optional<QueueWatchdog::Transition> QueueWatchdog::observe(
     }
     return std::nullopt;
 }
-void QueueWatchdog::appendMetrics(std::ostream& out) const {
+void QueueWatchdog::appendMetrics(std::ostream& out, const char* name) const {
     std::lock_guard<std::mutex> lock(mutex_);
-    out << ",\"queue_watchdog\":{\"stalled\":" << (stalled_ ? "true" : "false")
+    out << ",\"" << name << "\":{\"stalled\":" << (stalled_ ? "true" : "false")
         << ",\"stall_events\":" << stallEvents_ << ",\"recoveries\":" << recoveries_
         << ",\"last_depth\":" << lastDepth_ << ",\"threshold_ms\":"
         << threshold_.count() << '}';

@@ -14,7 +14,7 @@ public:
     bool registerDevice(const std::string& deviceId);
     void observe(const UnifiedMessageV2& message);
     void evaluate();
-    void reportQueueStall(bool stalled);
+    void reportQueueStall(bool stalled, const std::string& key = "queue_stalled");
     bool acknowledgeAlarm(const std::string& key);
     std::vector<AlarmEvent> alarmEventsSince(std::uint64_t sequence) const;
     std::optional<HealthSnapshot> health(const std::string& deviceId) const;

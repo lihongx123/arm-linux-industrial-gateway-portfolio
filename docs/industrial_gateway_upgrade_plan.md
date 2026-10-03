@@ -142,3 +142,7 @@ Modbus TCP 和 Generic TCP 已作为独立设备驱动接入 GatewayCore、动�
 ## 11. Phase 6 实施状态（2026-10-03）
 
 上一节是 Phase 5 结束时的历史状态。当前未提交工作区已加入设备健康、有限告警历史与确认、诊断快照、单调时钟 stale 判定和只报告不重启的工作队列看门狗；独立告警 MQTT 主题已用本地 Mosquitto/vcan 验证。完成范围、参数、当前本地证据和未验证边界见 [Phase 6 实施与证据](industrial_gateway_phase6.md)。ADC/PWM 仍未实现；本轮没有用历史 ARM64/云端结果冒充当前源码的复验。
+
+## 12. Phase 6.5 上报策略与队列隔离
+
+Phase 6 之后增加协议中立的 COV/数字死区/最长上报间隔，并将 Gateway 共享工作队列拆为有界遥测与命令队列、独立 worker 和看门狗。MQTT 适配器也在原总容量内保留控制消息槽位。实现、配置、测试和限制见 [Phase 6.5 记录](industrial_gateway_phase6_5.md)。本轮仅做本地软件验证，不把历史 ARM64/QEMU 或云端结论移植到新二进制。

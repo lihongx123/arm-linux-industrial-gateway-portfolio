@@ -16,7 +16,9 @@ void registerUartDrivers(edge::GatewayCore& core, const std::vector<RawUartConfi
 }
 void registerBoardDrivers(edge::GatewayCore& core, const std::vector<board::SpiConfig>& spi,
                           const std::vector<board::I2cConfig>& i2c,
-                          const std::vector<board::GpioConfig>& gpio) {
+                          const std::vector<board::GpioConfig>& gpio,
+                          const std::vector<board::AdcConfig>& adc,
+                          const std::vector<board::PwmConfig>& pwm) {
     const auto add = [&](const std::string& kind, const board::BoardConfig& config,
                          std::shared_ptr<board::IBoardBackend> backend) {
         auto driver = std::make_shared<board::BoardDriver>(kind, config, std::move(backend));
@@ -27,6 +29,8 @@ void registerBoardDrivers(edge::GatewayCore& core, const std::vector<board::SpiC
     for (const auto& c : spi) add("spi", c.point, std::make_shared<board::SpiBackend>(c));
     for (const auto& c : i2c) add("i2c", c.point, std::make_shared<board::I2cBackend>(c));
     for (const auto& c : gpio) add("gpio", c.point, std::make_shared<board::GpioBackend>(c));
+    for (const auto& c : adc) add("adc", c.point, std::make_shared<board::AdcBackend>(c));
+    for (const auto& c : pwm) add("pwm", c.point, std::make_shared<board::PwmBackend>(c));
 }
 void registerTcpDrivers(edge::GatewayCore& core, const std::vector<ModbusTcpConfig>& modbus,
                         const std::vector<TcpConfig>& generic, std::size_t capacity) {

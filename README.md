@@ -6,13 +6,13 @@
 
 ```text
 CAN / RTU / TCP / UART / MC ──→ epoll Reactor ─┐
-SPI / I2C / GPIO / OPC UA / S7 → 采集调度器 ──┼→ GatewayCore → PointMapper
+SPI / I2C / GPIO / ADC / PWM / OPC UA / S7 → 采集调度器 ──┼→ GatewayCore → PointMapper
                                               └→ UnifiedMessageV2 → 有界队列 → MQTT
 MQTT 命令 → CommandRouter → GatewayCore → DriverManager → 设备驱动 → 状态回执
                                       └→ 健康 / 告警 / 诊断 → MQTT
 ```
 
-- `DriverManager` 管理 CAN、Modbus RTU/TCP、Generic TCP、Raw UART、MC、OPC UA、S7 和板级 SPI/I2C/GPIO 驱动；RS485 是串口传输模式。OPC UA 与 S7 是可选构建项。
+- `DriverManager` 管理 CAN、Modbus RTU/TCP、Generic TCP、Raw UART、MC、OPC UA、S7 和板级 SPI/I2C/GPIO/ADC/PWM 驱动；RS485 是串口传输模式。OPC UA 与 S7 是可选构建项。
 - 事件驱动设备由共享 epoll Reactor 分发；板级采集及同步库调用由有界共享调度器执行。
 - `GatewayCore` 统一设备与点位校验、映射和驱动命令派发，业务核心不按协议名分支。
 - 北向 MQTT 提供遥测、命令状态、诊断快照与告警事件；健康状态、告警确认和工作队列停滞检测由 Phase 6 实现。
@@ -37,22 +37,25 @@ cmake --build build-local -j4
 | 上述 MQTT 端到端延迟 P50 / P95 / P99 | 0.564 / 0.942 / 1.139 ms |
 | 混合故障注入回归，30 秒 | CAN 3000/3000、RTU 273/273，双向命令通过 |
 | Phase 6 本地完整 CTest | 11/11 测试通过；相关单元测试 12 用例、155 断言通过 |
+| 当前源码本机 Release 全套 CTest | 12/12 通过，185.20 秒；包含 ADC/PWM 仿真探针 |
 | Phase 6 本地 CAN + RTU 回归 | 5 秒 CAN 250/250、RTU 55/55，无观察缺失/重复；双向命令确认 |
 | Phase 6 健康/告警 | 本地 vcan 与 Mosquitto 验证 stale/offline、队列停滞、确认与恢复 |
 | ARM64 Buildroot/QEMU 历史回归 | Phase 5 的 11 设备软件组成测试通过；不是 Phase 6 二进制的 ARM64 验收 |
+| ADC/PWM 软件仿真 | 本机和 ARM64 Buildroot/QEMU 同一探针通过；ADC 映射、PWM 25% 占空比写入/回读、越界拒绝和停机关闭 |
 
-[Phase 6 本地证据](results/edge_core/phase6-closure-20261003/README.md) · [Phase 5 ARM64 证据](docs/industrial_gateway_phase5.md)
+[当前 ADC/PWM 与全套回归证据](results/edge_core/adc-pwm-20261004/README.md) · [Phase 6 本地证据](results/edge_core/phase6-closure-20261003/README.md) · [Phase 5 ARM64 证据](docs/industrial_gateway_phase5.md)
 
 ## 阅读导航
 
 - [参数与技术学习手册](docs/TECHNICAL_GUIDE.md)
 - [当前源码学习手册](docs/GATEWAY_SOURCE_STUDY_GUIDE.md)
+- [完整架构与 ADC/PWM 技术文档](docs/ADC_PWM_TECHNICAL_GUIDE.md)
 - [Phase 6 健康、告警与诊断](docs/industrial_gateway_phase6.md)
 - [历史性能及稳定性证据](docs/EVIDENCE_INDEX.md)
 - [ARM64 验证](docs/arm64_buildroot_validation.md)
 - [贡献与来源](docs/PROVENANCE.md)
 
-`src/edge_core/` 为注册、映射与诊断核心，`src/drivers/`、`src/board/`、`src/serial/`、`src/transport/` 为南向驱动及传输，`src/northbound/` 为 MQTT 适配，`src/iot_gateway/` 为进程组装；`tests/` 与 `unittests/` 为验证代码。ADC/PWM 尚未实现。
+`src/edge_core/` 为注册、映射与诊断核心，`src/drivers/`、`src/board/`、`src/serial/`、`src/transport/` 为南向驱动及传输，`src/northbound/` 为 MQTT 适配，`src/iot_gateway/` 为进程组装；`tests/` 与 `unittests/` 为验证代码。
 
 ## 许可
 

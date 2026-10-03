@@ -20,6 +20,8 @@
 | EMQX Cloud TLS扩展 | [配置与验证边界](cloud_mqtt.md)、[实时汇总](../results/cloud-live-summary.txt) | 本地/ARM64回归通过；真实EMQX Cloud 100 msg/s × 30 min与250 msg/s × 10 min均完成，详见链接证据 |
 | Phase 4.5 北向架构 | [设计与验证边界](northbound_architecture.md)、[本地结果与失败记录](../results/edge_core/phase4_5-20261003/README.md) | 新源码的单元、CAN/RTU、TCP、命令生命周期与诊断本地回归；不代表本轮 ARM64/云端通过 |
 | Phase 6 健康与告警 | [设计](industrial_gateway_phase6.md)、[本地闭环](../results/edge_core/phase6-closure-20261003/README.md) | 本地 vcan/Mosquitto 的队列停滞、设备 stale/offline、告警确认/恢复；不代表实体硬件或云端通过 |
+| Phase 6.5 上报策略与队列隔离 | [设计与状态](industrial_gateway_phase6_5.md)、[新证据目录](../results/edge_core/phase6-5-20261003/) | 本地构建、策略/适配器测试、vcan/Mosquitto 拥塞试验；完整回归结论以该目录日志为准，不代表 ARM64/云端或硬件复验 |
+| ADC/PWM 软件与 ARM64 仿真 | [技术文档](ADC_PWM_TECHNICAL_GUIDE.md)、[新证据目录](../results/edge_core/adc-pwm-20261004/) | 本机及 ARM64 客体上的文件属性仿真；验证 ADC 映射、PWM 写入/回读、越界拒绝和停机关闭，不代表真实电压/波形 |
 
 原始日志可能包含本机目录、工具版本和上游测试中的示例用户名/口令。发布包不包含
 私钥、账户凭据、虚拟机磁盘、工具链、编辑器状态或`.git`。打包清单记录每个包含文件

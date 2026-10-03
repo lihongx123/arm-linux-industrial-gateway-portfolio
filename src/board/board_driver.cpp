@@ -4,7 +4,8 @@
 namespace mqmgateway::board {
 BoardDriver::BoardDriver(std::string kind, BoardConfig config, std::shared_ptr<IBoardBackend> backend)
     : mKind(std::move(kind)), mConfig(std::move(config)), mBackend(std::move(backend)) {
-    if (!mBackend || (mKind != "spi" && mKind != "i2c" && mKind != "gpio") ||
+    if (!mBackend || (mKind != "spi" && mKind != "i2c" && mKind != "gpio" &&
+                      mKind != "adc" && mKind != "pwm") ||
         mConfig.deviceId.empty() || mConfig.pointId.empty() || !mConfig.intervalMs ||
         !mConfig.readLength || mConfig.readLength > 4096 || !std::isfinite(mConfig.scale) || !std::isfinite(mConfig.offset))
         throw std::invalid_argument("invalid board driver config");
@@ -52,7 +53,9 @@ void BoardDriver::acquire(std::chrono::steady_clock::time_point now) {
     m.rawPayload = std::move(bytes); m.sourceTime = std::chrono::system_clock::now(); m.enqueuedAt = now;
     if (mKind == "spi") m.legacyProtocol = iot::Protocol::spi;
     else if (mKind == "i2c") m.legacyProtocol = iot::Protocol::i2c;
-    else m.legacyProtocol = iot::Protocol::gpio;
+    else if (mKind == "gpio") m.legacyProtocol = iot::Protocol::gpio;
+    else if (mKind == "adc") m.legacyProtocol = iot::Protocol::adc;
+    else m.legacyProtocol = iot::Protocol::pwm;
     if (mEmit) mEmit(std::move(m));
     ++mSamples;
 }

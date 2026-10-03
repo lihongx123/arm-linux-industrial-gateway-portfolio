@@ -1,0 +1,12 @@
+{
+  "mode": "phase65-split",
+  "telemetry_queue_capacity": 4,
+  "telemetry_workers": 1,
+  "processing_delay_ms": 200,
+  "flood_frames": 200,
+  "telemetry_rejected": 195,
+  "command_first_state": "accepted",
+  "command_first_ms": 40.858,
+  "command_terminal_state": "succeeded",
+  "command_terminal_ms": 201.317
+}

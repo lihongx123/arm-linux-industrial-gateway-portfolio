@@ -7,7 +7,7 @@
 
 namespace mqmgateway::iot {
 
-enum class Protocol { modbus_rtu, modbus_tcp, can, mqtt, generic_tcp, spi, i2c, gpio, uart, mitsubishi_mc, opcua, siemens_s7 };
+enum class Protocol { modbus_rtu, modbus_tcp, can, mqtt, generic_tcp, spi, i2c, gpio, adc, pwm, uart, mitsubishi_mc, opcua, siemens_s7 };
 enum class Direction { southbound, northbound };
 enum class DataType { telemetry, command, status, heartbeat };
 enum class Quality { good, timeout, crc_error, invalid, unavailable };
