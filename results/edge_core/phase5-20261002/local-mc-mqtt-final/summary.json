@@ -1,0 +1,14 @@
+{
+  "result": "PASS",
+  "protocol": "MC 3E binary TCP D-word",
+  "point_id": "speed",
+  "mapped_value": "4660",
+  "wire_write_le": [
+    "3412"
+  ],
+  "command_status": [
+    "accepted",
+    "success"
+  ],
+  "invalid_address": "rejected"
+}

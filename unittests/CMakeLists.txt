@@ -106,7 +106,11 @@ add_executable(tests
     two_slaves_tests.cpp
     yaml_converters_tests.cpp
     iot_gateway_tests.cpp
+    edge_core_tests.cpp
+    driver_framework_tests.cpp
     pipeline_metrics_tests.cpp
+    phase6_diagnostics_tests.cpp
+    northbound_tests.cpp
 )
 
 add_dependencies(tests badabiconv noabiconv)

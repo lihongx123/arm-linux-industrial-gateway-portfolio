@@ -1,0 +1,9 @@
+{
+  "result": "PASS",
+  "gateway_exit": 0,
+  "stalled_observed": true,
+  "recovered_observed": true,
+  "alarm_events": 6,
+  "stall_events": 3,
+  "recoveries": 3
+}

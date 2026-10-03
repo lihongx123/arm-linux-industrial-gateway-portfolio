@@ -157,56 +157,14 @@ void RtuFrameParser::discardBuffered() noexcept {
     metrics_.bufferedBytes = 0;
 }
 
-TermiosRtuTransport::TermiosRtuTransport(std::string device, const unsigned int baudRate)
-    : device_(std::move(device)), baudRate_(baudRate) {}
+TermiosRtuTransport::TermiosRtuTransport(std::string device, const unsigned int baudRate, Rs485Config rs485)
+    : port_(SerialConfig{std::move(device), baudRate, 8, 1, 'N', rs485}) {}
 
 TermiosRtuTransport::~TermiosRtuTransport() { close(); }
 
-unsigned int TermiosRtuTransport::baudConstant(const unsigned int baudRate) {
-    switch (baudRate) {
-        case 9600: return B9600;
-        case 19200: return B19200;
-        case 38400: return B38400;
-        case 57600: return B57600;
-        case 115200: return B115200;
-        default: throw std::invalid_argument("unsupported serial baud rate: " + std::to_string(baudRate));
-    }
-}
-
-void TermiosRtuTransport::open() {
-    if (isOpen()) return;
-    descriptor_ = ::open(device_.c_str(), O_RDWR | O_NOCTTY | O_NONBLOCK | O_CLOEXEC);
-    if (descriptor_ < 0) throw systemError("open " + device_);
-
-    termios attributes{};
-    if (tcgetattr(descriptor_, &attributes) != 0) {
-        close();
-        throw systemError("tcgetattr " + device_);
-    }
-    cfmakeraw(&attributes);
-    const auto speed = static_cast<speed_t>(baudConstant(baudRate_));
-    cfsetispeed(&attributes, speed);
-    cfsetospeed(&attributes, speed);
-    attributes.c_cflag |= CLOCAL | CREAD;
-    attributes.c_cflag &= static_cast<tcflag_t>(~(PARENB | CSTOPB | CSIZE));
-    attributes.c_cflag |= CS8;
-    attributes.c_cc[VMIN] = 0;
-    attributes.c_cc[VTIME] = 0;
-    if (tcsetattr(descriptor_, TCSANOW, &attributes) != 0) {
-        close();
-        throw systemError("tcsetattr " + device_);
-    }
-    tcflush(descriptor_, TCIOFLUSH);
-}
-
-void TermiosRtuTransport::close() noexcept {
-    if (descriptor_ >= 0) {
-        ::close(descriptor_);
-        descriptor_ = -1;
-    }
-}
-
-bool TermiosRtuTransport::isOpen() const noexcept { return descriptor_ >= 0; }
+void TermiosRtuTransport::open() { port_.open(); }
+void TermiosRtuTransport::close() noexcept { port_.close(); }
+bool TermiosRtuTransport::isOpen() const noexcept { return port_.fd() >= 0; }
 
 void TermiosRtuTransport::writeFrame(const ByteBuffer& frame, const std::chrono::milliseconds timeout) {
     if (!isOpen()) throw std::logic_error("serial transport is not open");
@@ -216,21 +174,21 @@ void TermiosRtuTransport::writeFrame(const ByteBuffer& frame, const std::chrono:
         const auto remaining = std::chrono::duration_cast<std::chrono::milliseconds>(
             deadline - std::chrono::steady_clock::now());
         if (remaining.count() <= 0) throw std::runtime_error("serial write timeout");
-        pollfd descriptor{descriptor_, POLLOUT, 0};
+        pollfd descriptor{port_.fd(), POLLOUT, 0};
         const auto result = ::poll(&descriptor, 1, static_cast<int>(remaining.count()));
         if (result < 0 && errno == EINTR) continue;
         if (result <= 0) throw result == 0 ? std::runtime_error("serial write timeout") : systemError("poll write");
-        const auto count = ::write(descriptor_, frame.data() + written, frame.size() - written);
+        const auto count = ::write(port_.fd(), frame.data() + written, frame.size() - written);
         if (count < 0 && (errno == EAGAIN || errno == EINTR)) continue;
         if (count < 0) throw systemError("serial write");
         written += static_cast<std::size_t>(count);
     }
-    if (tcdrain(descriptor_) != 0) throw systemError("tcdrain");
+    if (tcdrain(port_.fd()) != 0) throw systemError("tcdrain");
 }
 
 std::vector<ByteBuffer> TermiosRtuTransport::readFrames(const std::chrono::milliseconds timeout) {
     if (!isOpen()) throw std::logic_error("serial transport is not open");
-    pollfd descriptor{descriptor_, POLLIN, 0};
+    pollfd descriptor{port_.fd(), POLLIN, 0};
     int result;
     do {
         result = ::poll(&descriptor, 1, static_cast<int>(timeout.count()));
@@ -243,14 +201,14 @@ std::vector<ByteBuffer> TermiosRtuTransport::readFrames(const std::chrono::milli
 
 std::vector<ByteBuffer> TermiosRtuTransport::readAvailable() {
     ByteBuffer bytes(512);
-    const auto count = ::read(descriptor_, bytes.data(), bytes.size());
+    const auto count = ::read(port_.fd(), bytes.data(), bytes.size());
     if (count < 0 && (errno == EAGAIN || errno == EINTR)) return {};
     if (count < 0) throw systemError("serial read");
     return parser_.feed(bytes.data(), static_cast<std::size_t>(count));
 }
 
 void TermiosRtuTransport::discardInput() {
-    tcflush(descriptor_, TCIFLUSH);
+    tcflush(port_.fd(), TCIFLUSH);
     parser_.discardBuffered();
 }
 

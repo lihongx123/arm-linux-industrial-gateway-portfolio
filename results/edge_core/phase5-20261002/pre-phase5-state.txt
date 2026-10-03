@@ -1,0 +1,343 @@
+# Pre-Phase 5 worktree state — 2026-10-02
+
+Baseline HEAD: `644187153744cf7ecb66ccdca9f9be44ba87e8f5`.
+Existing Phase 1–4 work is uncommitted. No reset, discard, commit or push was performed.
+
+Commands: `git status --short`; `git ls-files --others --exclude-standard`; `git diff --stat`; `git diff --check`.
+`git diff --check`: PASS (Git reports LF→CRLF normalization warnings; no whitespace errors).
+
+Build directories: native `/tmp/mqmgateway-stagea-final`; ARM64 cross `/tmp/mqmgateway-arm64-build`; Buildroot output `/tmp/mqmgateway-br-output`.
+Existing evidence: Phase 3 closure `results/edge_core/phase3-closure-20261002.md` PASS; Phase 4 `results/edge_core/phase4-20261002/phase4-summary.json` records CTest 6/6 PASS, eight-device software integration PASS, ARM64/QEMU PASS. Earlier Phase 1–3 evidence is under `results/edge_core/`.
+
+## git status --short (before Phase 5)
+```text
+ M CMakeLists.txt
+ M buildroot/overlay/root/run-arm-tests.sh
+ M scripts/run_buildroot_qemu.py
+ M src/iot_gateway/CMakeLists.txt
+ M src/iot_gateway/can_socket.cpp
+ M src/iot_gateway/can_socket.hpp
+ M src/iot_gateway/command_router.cpp
+ M src/iot_gateway/command_router.hpp
+ M src/iot_gateway/gateway.cpp
+ M src/iot_gateway/gateway.hpp
+ M src/iot_gateway/main.cpp
+ M src/iot_gateway/southbound_reactor.cpp
+ M src/iot_gateway/southbound_reactor.hpp
+ M src/iot_gateway/unified_message.cpp
+ M src/iot_gateway/unified_message.hpp
+ M src/serial/CMakeLists.txt
+ M src/serial/termios_rtu_transport.cpp
+ M src/serial/termios_rtu_transport.hpp
+ M tests/integration/mixed_protocol_test.py
+ M unittests/CMakeLists.txt
+?? docs/industrial_gateway_phase2.md
+?? docs/industrial_gateway_phase3.md
+?? docs/industrial_gateway_phase4.md
+?? docs/industrial_gateway_upgrade_plan.md
+?? results/edge_core/
+?? src/board/
+?? src/drivers/
+?? src/edge_core/
+?? src/serial/serial_port.cpp
+?? src/serial/serial_port.hpp
+?? src/transport/
+?? tests/integration/phase4_software_tests.cpp
+?? tests/integration/probe_timing.hpp
+?? tests/integration/rtu_driver_runtime_tests.cpp
+?? tests/integration/tcp_driver_runtime_tests.cpp
+?? tests/integration/tcp_mqtt_integration_test.py
+?? unittests/driver_framework_tests.cpp
+?? unittests/edge_core_tests.cpp
+```
+
+## git diff --stat (tracked files only)
+```text
+warning: in the working copy of 'CMakeLists.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'buildroot/overlay/root/run-arm-tests.sh', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'scripts/run_buildroot_qemu.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/iot_gateway/CMakeLists.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/iot_gateway/can_socket.cpp', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/iot_gateway/can_socket.hpp', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/iot_gateway/command_router.cpp', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/iot_gateway/command_router.hpp', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/iot_gateway/gateway.cpp', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/iot_gateway/gateway.hpp', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/iot_gateway/main.cpp', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/iot_gateway/southbound_reactor.cpp', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/iot_gateway/southbound_reactor.hpp', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/iot_gateway/unified_message.cpp', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/iot_gateway/unified_message.hpp', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/serial/CMakeLists.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/serial/termios_rtu_transport.cpp', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/serial/termios_rtu_transport.hpp', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tests/integration/mixed_protocol_test.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'unittests/CMakeLists.txt', LF will be replaced by CRLF the next time Git touches it
+ CMakeLists.txt                           |   1 +
+ buildroot/overlay/root/run-arm-tests.sh  |   4 +-
+ scripts/run_buildroot_qemu.py            |  42 +++++++
+ src/iot_gateway/CMakeLists.txt           |  22 +++-
+ src/iot_gateway/can_socket.cpp           |  31 -----
+ src/iot_gateway/can_socket.hpp           |   2 -
+ src/iot_gateway/command_router.cpp       |  50 +++++++-
+ src/iot_gateway/command_router.hpp       |   4 +
+ src/iot_gateway/gateway.cpp              | 102 +++++++++-------
+ src/iot_gateway/gateway.hpp              |  19 ++-
+ src/iot_gateway/main.cpp                 | 141 ++++++++++++++++++++++-
+ src/iot_gateway/southbound_reactor.cpp   | 192 +++++++++++++------------------
+ src/iot_gateway/southbound_reactor.hpp   |  48 +++-----
+ src/iot_gateway/unified_message.cpp      |   5 +
+ src/iot_gateway/unified_message.hpp      |   2 +-
+ src/serial/CMakeLists.txt                |   2 +-
+ src/serial/termios_rtu_transport.cpp     |  64 ++---------
+ src/serial/termios_rtu_transport.hpp     |  11 +-
+ tests/integration/mixed_protocol_test.py |   2 +
+ unittests/CMakeLists.txt                 |   2 +
+ 20 files changed, 449 insertions(+), 297 deletions(-)
+```
+
+## All untracked files before Phase 5 (241)
+```text
+docs/industrial_gateway_phase2.md
+docs/industrial_gateway_phase3.md
+docs/industrial_gateway_phase4.md
+docs/industrial_gateway_upgrade_plan.md
+results/edge_core/phase1-20261002.md
+results/edge_core/phase2-20261002/can/broker.pid
+results/edge_core/phase2-20261002/can/metrics.json
+results/edge_core/phase2-20261002/can/online-status.json
+results/edge_core/phase2-20261002/can/summary.txt
+results/edge_core/phase2-20261002/lifecycle/metrics.json
+results/edge_core/phase2-20261002/lifecycle/summary.json
+results/edge_core/phase2-20261002/local-tls/command-result.json
+results/edge_core/phase2-20261002/local-tls/downlink-can.txt
+results/edge_core/phase2-20261002/local-tls/online.json
+results/edge_core/phase2-20261002/local-tls/reconnected.json
+results/edge_core/phase2-20261002/local-tls/summary.txt
+results/edge_core/phase2-20261002/local-tls/uplink-after-reconnect.json
+results/edge_core/phase2-20261002/local-tls/uplink.json
+results/edge_core/phase2-20261002/mixed-faults/broker.conf
+results/edge_core/phase2-20261002/mixed-faults/gateway-metrics.json
+results/edge_core/phase2-20261002/mixed-faults/pid.txt
+results/edge_core/phase2-20261002/mixed-faults/resource-samples.json
+results/edge_core/phase2-20261002/mixed-faults/run-parameters.json
+results/edge_core/phase2-20261002/mixed-faults/summary.json
+results/edge_core/phase2-20261002/mixed/broker.conf
+results/edge_core/phase2-20261002/mixed/gateway-metrics.json
+results/edge_core/phase2-20261002/mixed/pid.txt
+results/edge_core/phase2-20261002/mixed/resource-samples.json
+results/edge_core/phase2-20261002/mixed/run-parameters.json
+results/edge_core/phase2-20261002/mixed/summary.json
+results/edge_core/phase2-20261002/qemu-driver/guest-results/results/can-to-mqtt.json
+results/edge_core/phase2-20261002/qemu-driver/guest-results/results/environment.txt
+results/edge_core/phase2-20261002/qemu-driver/guest-results/results/gateway-metrics.json
+results/edge_core/phase2-20261002/qemu-driver/guest-results/results/invalid-command.json
+results/edge_core/phase2-20261002/qemu-driver/guest-results/results/mqtt-to-can.txt
+results/edge_core/phase2-20261002/qemu-driver/guest-results/results/online.json
+results/edge_core/phase2-20261002/qemu-driver/guest-results/results/performance-messages.jsonl
+results/edge_core/phase2-20261002/qemu-driver/guest-results/results/reconnected.json
+results/edge_core/phase2-20261002/qemu-driver/guest-results/results/rtu-driver-probe.json
+results/edge_core/phase2-20261002/qemu-driver/guest-results/results/rtu-stream.json
+results/edge_core/phase2-20261002/qemu-driver/guest-results/results/summary.json
+results/edge_core/phase2-20261002/qemu-driver/host-run.txt
+results/edge_core/phase2-20261002/qemu-driver/injected-binaries.json
+results/edge_core/phase2-20261002/qemu-final/guest-results/results/can-to-mqtt.json
+results/edge_core/phase2-20261002/qemu-final/guest-results/results/environment.txt
+results/edge_core/phase2-20261002/qemu-final/guest-results/results/gateway-metrics.json
+results/edge_core/phase2-20261002/qemu-final/guest-results/results/invalid-command.json
+results/edge_core/phase2-20261002/qemu-final/guest-results/results/mqtt-to-can.txt
+results/edge_core/phase2-20261002/qemu-final/guest-results/results/online.json
+results/edge_core/phase2-20261002/qemu-final/guest-results/results/performance-messages.jsonl
+results/edge_core/phase2-20261002/qemu-final/guest-results/results/reconnected.json
+results/edge_core/phase2-20261002/qemu-final/guest-results/results/rtu-driver-probe.json
+results/edge_core/phase2-20261002/qemu-final/guest-results/results/rtu-stream.json
+results/edge_core/phase2-20261002/qemu-final/guest-results/results/summary.json
+results/edge_core/phase2-20261002/qemu-final/host-run.txt
+results/edge_core/phase2-20261002/qemu-final/injected-binaries.json
+results/edge_core/phase2-20261002/qemu/guest-results/results/can-to-mqtt.json
+results/edge_core/phase2-20261002/qemu/guest-results/results/environment.txt
+results/edge_core/phase2-20261002/qemu/guest-results/results/gateway-metrics.json
+results/edge_core/phase2-20261002/qemu/guest-results/results/invalid-command.json
+results/edge_core/phase2-20261002/qemu/guest-results/results/mqtt-to-can.txt
+results/edge_core/phase2-20261002/qemu/guest-results/results/online.json
+results/edge_core/phase2-20261002/qemu/guest-results/results/performance-messages.jsonl
+results/edge_core/phase2-20261002/qemu/guest-results/results/reconnected.json
+results/edge_core/phase2-20261002/qemu/guest-results/results/rtu-stream.json
+results/edge_core/phase2-20261002/qemu/guest-results/results/summary.json
+results/edge_core/phase2-20261002/qemu/host-run.txt
+results/edge_core/phase2-20261002/qemu/injected-binaries.json
+results/edge_core/phase2-20261002/reliability/broker.pid
+results/edge_core/phase2-20261002/reliability/metrics.json
+results/edge_core/phase2-20261002/reliability/online-before.json
+results/edge_core/phase2-20261002/reliability/summary.txt
+results/edge_core/phase2-20261002/rtu-driver-native.json
+results/edge_core/phase3-20261002/mixed/broker.conf
+results/edge_core/phase3-20261002/mixed/gateway-metrics.json
+results/edge_core/phase3-20261002/mixed/pid.txt
+results/edge_core/phase3-20261002/mixed/resource-samples.json
+results/edge_core/phase3-20261002/mixed/run-parameters.json
+results/edge_core/phase3-20261002/mixed/summary.json
+results/edge_core/phase3-20261002/mqtt-e2e/broker.conf
+results/edge_core/phase3-20261002/mqtt-e2e/metrics.json
+results/edge_core/phase3-20261002/mqtt-e2e/summary.json
+results/edge_core/phase3-20261002/qemu-final/guest-results/results/can-to-mqtt.json
+results/edge_core/phase3-20261002/qemu-final/guest-results/results/environment.txt
+results/edge_core/phase3-20261002/qemu-final/guest-results/results/gateway-metrics.json
+results/edge_core/phase3-20261002/qemu-final/guest-results/results/invalid-command.json
+results/edge_core/phase3-20261002/qemu-final/guest-results/results/mqtt-to-can.txt
+results/edge_core/phase3-20261002/qemu-final/guest-results/results/online.json
+results/edge_core/phase3-20261002/qemu-final/guest-results/results/performance-messages.jsonl
+results/edge_core/phase3-20261002/qemu-final/guest-results/results/reconnected.json
+results/edge_core/phase3-20261002/qemu-final/guest-results/results/rtu-driver-probe.json
+results/edge_core/phase3-20261002/qemu-final/guest-results/results/rtu-stream.json
+results/edge_core/phase3-20261002/qemu-final/guest-results/results/summary.json
+results/edge_core/phase3-20261002/qemu-final/guest-results/results/tcp-driver-probe.json
+results/edge_core/phase3-20261002/qemu-final/host-run.txt
+results/edge_core/phase3-20261002/qemu-final/injected-binaries.json
+results/edge_core/phase3-20261002/qemu/guest-results/results/can-to-mqtt.json
+results/edge_core/phase3-20261002/qemu/guest-results/results/environment.txt
+results/edge_core/phase3-20261002/qemu/guest-results/results/gateway-metrics.json
+results/edge_core/phase3-20261002/qemu/guest-results/results/invalid-command.json
+results/edge_core/phase3-20261002/qemu/guest-results/results/mqtt-to-can.txt
+results/edge_core/phase3-20261002/qemu/guest-results/results/online.json
+results/edge_core/phase3-20261002/qemu/guest-results/results/performance-messages.jsonl
+results/edge_core/phase3-20261002/qemu/guest-results/results/reconnected.json
+results/edge_core/phase3-20261002/qemu/guest-results/results/rtu-driver-probe.json
+results/edge_core/phase3-20261002/qemu/guest-results/results/rtu-stream.json
+results/edge_core/phase3-20261002/qemu/guest-results/results/summary.json
+results/edge_core/phase3-20261002/qemu/guest-results/results/tcp-driver-probe.json
+results/edge_core/phase3-20261002/qemu/host-run.txt
+results/edge_core/phase3-20261002/qemu/injected-binaries.json
+results/edge_core/phase3-20261002/summary.json
+results/edge_core/phase3-closure-20261002.md
+results/edge_core/phase3-closure-20261002/can-final/broker.pid
+results/edge_core/phase3-closure-20261002/can-final/metrics.json
+results/edge_core/phase3-closure-20261002/can-final/online-status.json
+results/edge_core/phase3-closure-20261002/can-final/summary.txt
+results/edge_core/phase3-closure-20261002/can/broker.pid
+results/edge_core/phase3-closure-20261002/can/metrics.json
+results/edge_core/phase3-closure-20261002/can/online-status.json
+results/edge_core/phase3-closure-20261002/can/summary.txt
+results/edge_core/phase3-closure-20261002/mixed-final/broker.conf
+results/edge_core/phase3-closure-20261002/mixed-final/gateway-metrics.json
+results/edge_core/phase3-closure-20261002/mixed-final/pid.txt
+results/edge_core/phase3-closure-20261002/mixed-final/resource-samples.json
+results/edge_core/phase3-closure-20261002/mixed-final/run-parameters.json
+results/edge_core/phase3-closure-20261002/mixed-final/summary.json
+results/edge_core/phase3-closure-20261002/mixed-point/broker.conf
+results/edge_core/phase3-closure-20261002/mixed-point/gateway-metrics.json
+results/edge_core/phase3-closure-20261002/mixed-point/pid.txt
+results/edge_core/phase3-closure-20261002/mixed-point/resource-samples.json
+results/edge_core/phase3-closure-20261002/mixed-point/run-parameters.json
+results/edge_core/phase3-closure-20261002/mixed-point/summary.json
+results/edge_core/phase3-closure-20261002/mixed-routing/broker.conf
+results/edge_core/phase3-closure-20261002/mixed-routing/gateway-metrics.json
+results/edge_core/phase3-closure-20261002/mixed-routing/pid.txt
+results/edge_core/phase3-closure-20261002/mixed-routing/resource-samples.json
+results/edge_core/phase3-closure-20261002/mixed-routing/run-parameters.json
+results/edge_core/phase3-closure-20261002/mixed-routing/summary.json
+results/edge_core/phase3-closure-20261002/mqtt-e2e/broker.conf
+results/edge_core/phase3-closure-20261002/mqtt-e2e/metrics.json
+results/edge_core/phase3-closure-20261002/mqtt-e2e/summary.json
+results/edge_core/phase3-closure-20261002/mqtt-final/broker.conf
+results/edge_core/phase3-closure-20261002/mqtt-final/metrics.json
+results/edge_core/phase3-closure-20261002/mqtt-final/summary.json
+results/edge_core/phase3-closure-20261002/mqtt-point/broker.conf
+results/edge_core/phase3-closure-20261002/mqtt-point/metrics.json
+results/edge_core/phase3-closure-20261002/mqtt-point/summary.json
+results/edge_core/phase4-20261002/mixed-can-rtu/broker.conf
+results/edge_core/phase4-20261002/mixed-can-rtu/gateway-metrics.json
+results/edge_core/phase4-20261002/mixed-can-rtu/pid.txt
+results/edge_core/phase4-20261002/mixed-can-rtu/resource-samples.json
+results/edge_core/phase4-20261002/mixed-can-rtu/run-parameters.json
+results/edge_core/phase4-20261002/mixed-can-rtu/summary.json
+results/edge_core/phase4-20261002/mixed-native-final.json
+results/edge_core/phase4-20261002/mixed-native.json
+results/edge_core/phase4-20261002/mqtt-e2e/broker.conf
+results/edge_core/phase4-20261002/mqtt-e2e/metrics.json
+results/edge_core/phase4-20261002/mqtt-e2e/summary.json
+results/edge_core/phase4-20261002/phase4-summary.json
+results/edge_core/phase4-20261002/qemu-final-v2/guest-results/results/can-to-mqtt.json
+results/edge_core/phase4-20261002/qemu-final-v2/guest-results/results/environment.txt
+results/edge_core/phase4-20261002/qemu-final-v2/guest-results/results/gateway-metrics.json
+results/edge_core/phase4-20261002/qemu-final-v2/guest-results/results/invalid-command.json
+results/edge_core/phase4-20261002/qemu-final-v2/guest-results/results/mqtt-to-can.txt
+results/edge_core/phase4-20261002/qemu-final-v2/guest-results/results/online.json
+results/edge_core/phase4-20261002/qemu-final-v2/guest-results/results/performance-messages.jsonl
+results/edge_core/phase4-20261002/qemu-final-v2/guest-results/results/phase4-software-probe.json
+results/edge_core/phase4-20261002/qemu-final-v2/guest-results/results/reconnected.json
+results/edge_core/phase4-20261002/qemu-final-v2/guest-results/results/rtu-driver-probe.json
+results/edge_core/phase4-20261002/qemu-final-v2/guest-results/results/rtu-stream.json
+results/edge_core/phase4-20261002/qemu-final-v2/guest-results/results/summary.json
+results/edge_core/phase4-20261002/qemu-final-v2/guest-results/results/tcp-driver-probe.json
+results/edge_core/phase4-20261002/qemu-final-v2/host-run.txt
+results/edge_core/phase4-20261002/qemu-final-v2/injected-binaries.json
+results/edge_core/phase4-20261002/qemu-final/guest-results/results/can-to-mqtt.json
+results/edge_core/phase4-20261002/qemu-final/guest-results/results/environment.txt
+results/edge_core/phase4-20261002/qemu-final/guest-results/results/invalid-command.json
+results/edge_core/phase4-20261002/qemu-final/guest-results/results/mqtt-to-can.txt
+results/edge_core/phase4-20261002/qemu-final/guest-results/results/online.json
+results/edge_core/phase4-20261002/qemu-final/guest-results/results/rtu-stream.json
+results/edge_core/phase4-20261002/qemu-final/host-run.txt
+results/edge_core/phase4-20261002/qemu-final/injected-binaries.json
+results/edge_core/phase4-20261002/qemu-probe/guest-results/results/can-to-mqtt.json
+results/edge_core/phase4-20261002/qemu-probe/guest-results/results/environment.txt
+results/edge_core/phase4-20261002/qemu-probe/guest-results/results/gateway-metrics.json
+results/edge_core/phase4-20261002/qemu-probe/guest-results/results/invalid-command.json
+results/edge_core/phase4-20261002/qemu-probe/guest-results/results/mqtt-to-can.txt
+results/edge_core/phase4-20261002/qemu-probe/guest-results/results/online.json
+results/edge_core/phase4-20261002/qemu-probe/guest-results/results/performance-messages.jsonl
+results/edge_core/phase4-20261002/qemu-probe/guest-results/results/phase4-software-probe.json
+results/edge_core/phase4-20261002/qemu-probe/guest-results/results/reconnected.json
+results/edge_core/phase4-20261002/qemu-probe/guest-results/results/rtu-driver-probe.json
+results/edge_core/phase4-20261002/qemu-probe/guest-results/results/rtu-stream.json
+results/edge_core/phase4-20261002/qemu-probe/guest-results/results/summary.json
+results/edge_core/phase4-20261002/qemu-probe/guest-results/results/tcp-driver-probe.json
+results/edge_core/phase4-20261002/qemu-probe/host-run.txt
+results/edge_core/phase4-20261002/qemu-probe/injected-binaries.json
+src/board/board_driver.cpp
+src/board/board_driver.hpp
+src/board/linux_backends.cpp
+src/board/linux_backends.hpp
+src/drivers/can_driver.cpp
+src/drivers/can_driver.hpp
+src/drivers/generic_tcp_driver.hpp
+src/drivers/modbus_rtu_driver.cpp
+src/drivers/modbus_rtu_driver.hpp
+src/drivers/modbus_tcp_driver.cpp
+src/drivers/modbus_tcp_driver.hpp
+src/drivers/raw_uart_driver.cpp
+src/drivers/raw_uart_driver.hpp
+src/drivers/register_drivers.cpp
+src/drivers/register_drivers.hpp
+src/drivers/tcp_driver.cpp
+src/drivers/tcp_driver.hpp
+src/edge_core/CMakeLists.txt
+src/edge_core/acquisition_scheduler.cpp
+src/edge_core/acquisition_scheduler.hpp
+src/edge_core/device_driver.hpp
+src/edge_core/device_registry.cpp
+src/edge_core/device_registry.hpp
+src/edge_core/driver_manager.cpp
+src/edge_core/driver_manager.hpp
+src/edge_core/gateway_core.cpp
+src/edge_core/gateway_core.hpp
+src/edge_core/point_mapper.cpp
+src/edge_core/point_mapper.hpp
+src/edge_core/point_registry.cpp
+src/edge_core/point_registry.hpp
+src/edge_core/unified_message_v2.cpp
+src/edge_core/unified_message_v2.hpp
+src/serial/serial_port.cpp
+src/serial/serial_port.hpp
+src/transport/tcp_transport.cpp
+src/transport/tcp_transport.hpp
+tests/integration/phase4_software_tests.cpp
+tests/integration/probe_timing.hpp
+tests/integration/rtu_driver_runtime_tests.cpp
+tests/integration/tcp_driver_runtime_tests.cpp
+tests/integration/tcp_mqtt_integration_test.py
+unittests/driver_framework_tests.cpp
+unittests/edge_core_tests.cpp
+```
+

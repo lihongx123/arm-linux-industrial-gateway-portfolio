@@ -1,0 +1,12 @@
+{
+  "command": [
+    "/tmp/mqmgateway-phase5-full/src/iot_gateway/mqmgateway_iot",
+    "--mqtt-port=58445",
+    "--can-interface=vcan0",
+    "--health-stale-ms=300",
+    "--health-recoveries=1",
+    "--heartbeat-ms=50",
+    "--diagnostics-mqtt=1",
+    "--metrics-file=results/edge_core/phase6-closure-20261003/device-health-local/gateway-metrics.json"
+  ]
+}

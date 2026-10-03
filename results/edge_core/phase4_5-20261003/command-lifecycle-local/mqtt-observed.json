@@ -1,0 +1,93 @@
+[
+  {
+    "topic": "device/sensor/telemetry",
+    "body": {
+      "timestamp_ms": 1791003130497,
+      "device_id": "sensor",
+      "protocol": "generic_tcp",
+      "direction": "northbound",
+      "data_type": "telemetry",
+      "address": 0,
+      "payload": "aabb",
+      "quality": "good",
+      "point_id": "payload",
+      "raw_value": "aabb",
+      "value": "aabb",
+      "driver_id": "generic_tcp:sensor"
+    }
+  },
+  {
+    "topic": "device/sensor/cmd/tcp_send",
+    "body": {
+      "command_id": "nb-success",
+      "data": "0405"
+    }
+  },
+  {
+    "topic": "device/sensor/status",
+    "body": {
+      "status": "accepted",
+      "detail": "queued for driver dispatch",
+      "command_id": "nb-success",
+      "state": "accepted"
+    }
+  },
+  {
+    "topic": "device/sensor/status",
+    "body": {
+      "status": "ok",
+      "detail": "TCP frame sent; not an application acknowledgement",
+      "command_id": "nb-success",
+      "state": "succeeded"
+    }
+  },
+  {
+    "topic": "device/sensor/cmd/tcp_send",
+    "body": {
+      "command_id": "nb-success",
+      "data": "0405"
+    }
+  },
+  {
+    "topic": "device/sensor/status",
+    "body": {
+      "status": "rejected",
+      "detail": "duplicate command_id",
+      "command_id": "nb-success",
+      "state": "rejected"
+    }
+  },
+  {
+    "topic": "device/sensor/cmd/tcp_send",
+    "body": {
+      "command_id": "nb-expired",
+      "data": "0607",
+      "deadline_ms": 1
+    }
+  },
+  {
+    "topic": "device/sensor/status",
+    "body": {
+      "status": "timeout",
+      "detail": "deadline already expired",
+      "command_id": "nb-expired",
+      "state": "timeout"
+    }
+  },
+  {
+    "topic": "device/sensor/cmd/tcp_send",
+    "body": {
+      "command_id": "nb-invalid",
+      "data": ""
+    }
+  },
+  {
+    "topic": "device/sensor/status",
+    "body": {
+      "status": "rejected",
+      "detail": "TCP data requires 1..4096 hexadecimal bytes",
+      "command_id": "nb-invalid",
+      "state": "rejected"
+    }
+  }
+]

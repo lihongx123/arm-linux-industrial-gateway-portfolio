@@ -1,0 +1,78 @@
+{
+  "phase": "3",
+  "date": "2026-10-02",
+  "baseline_head": "644187153744cf7ecb66ccdca9f9be44ba87e8f5",
+  "worktree": "uncommitted Phase 1-3 changes",
+  "environment": {
+    "native": "Ubuntu-24.04 WSL2",
+    "arm": "Buildroot aarch64 QEMU, 2 vCPU, 1 GiB"
+  },
+  "tests": {
+    "native_ctest": {
+      "result": "PASS",
+      "passed": 5,
+      "total": 5,
+      "duration_seconds": 170.15,
+      "log": "ctest.log"
+    },
+    "tcp_probe_final": {
+      "result": "PASS",
+      "log": "tcp-test-final.log",
+      "checks": [
+        "fragmentation",
+        "coalescing",
+        "read",
+        "write",
+        "transaction mismatch",
+        "invalid length",
+        "timeout",
+        "reconnect",
+        "no write replay"
+      ]
+    },
+    "mqtt_e2e": {
+      "result": "PASS",
+      "path": "mqtt-e2e/summary.json",
+      "devices": [
+        "plc",
+        "sensor"
+      ],
+      "writes": {
+        "plc": "06000704d2",
+        "sensor": "0405"
+      },
+      "invalid_command": "rejected"
+    },
+    "legacy_mixed": {
+      "result": "PASS",
+      "path": "mixed/summary.json",
+      "can_sent": 1000,
+      "can_received": 1000,
+      "rtu_sent": 102,
+      "rtu_received": 102,
+      "duplicates": 0
+    },
+    "arm_qemu": {
+      "result": "PASS",
+      "path": "qemu-final/guest-results/results/tcp-driver-probe.json",
+      "core_driver_messages": 9,
+      "core_commands_submitted": 3,
+      "core_dropped_messages": 0,
+      "plc_connections": 4,
+      "sensor_connections": 2,
+      "smoke_performance_sent": 500,
+      "smoke_performance_received": 500
+    }
+  },
+  "lint": {
+    "result": "UNAVAILABLE",
+    "log": "lint.log",
+    "reason": "No format-check/tidy-naming CMake targets generated on host"
+  },
+  "limits": [
+    "Numeric IPv4 only",
+    "Generic TCP send status means local socket accepted, not device application ACK",
+    "No real PLC/hardware validation",
+    "No long-duration performance claim"
+  ]
+}

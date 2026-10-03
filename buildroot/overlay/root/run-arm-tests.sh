@@ -54,7 +54,9 @@ wait "$candump_pid"
 candump_pid=
 grep -qi '456.*DE AD BE EF\|456#DEADBEEF' "$result_dir/mqtt-to-can.txt"
 
-mosquitto_sub -h 127.0.0.1 -W 15 -C 1 -t device/can0/status > "$result_dir/invalid-command.json" &
+# An earlier successful CAN command may have a delayed status on this topic.
+# Wait for the specific rejection, not merely the first status publication.
+mosquitto_sub -h 127.0.0.1 -W 15 -t device/can0/status | grep -m 1 '"status":"rejected"' > "$result_dir/invalid-command.json" &
 subscriber_pid=$!
 sleep 1
 mosquitto_pub -h 127.0.0.1 -q 1 -t device/can0/cmd/can_tx -m '{"can_id":1,"data":"not-hex"}'

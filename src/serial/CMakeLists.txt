@@ -1,4 +1,4 @@
-add_library(mqmgateway_serial termios_rtu_transport.cpp)
+add_library(mqmgateway_serial termios_rtu_transport.cpp serial_port.cpp)
 target_include_directories(mqmgateway_serial PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 target_link_libraries(mqmgateway_serial PUBLIC Threads::Threads)
 

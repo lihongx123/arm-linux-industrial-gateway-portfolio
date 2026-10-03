@@ -1,0 +1,1 @@
+{"result":"PASS","scope":"real local open62541 server -> OPC UA client -> GatewayCore","checks":["connect","read","write","bad_nodeid","bad_statuscode","disconnect","reconnect","two_devices","point_mapping","nodeid_metadata","timestamps","command_route"]}

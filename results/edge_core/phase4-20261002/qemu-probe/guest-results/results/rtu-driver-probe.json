@@ -1,0 +1,1 @@
+{"result":"PASS","scope":"real PTY -> RTU driver -> shared reactor -> GatewayCore","gateway_core":{"driver_messages":4,"dropped_messages":0,"commands_submitted":2,"commands_rejected":0,"mapping_failures":0},"rtu":{"responses":3,"timeouts":1,"unexpected":0,"rejected":0,"writes_confirmed":1,"crc_candidates_rejected":6,"bytes_discarded":7,"buffered_bytes":0}}

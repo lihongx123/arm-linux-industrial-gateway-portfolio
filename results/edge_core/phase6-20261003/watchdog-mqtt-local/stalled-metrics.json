@@ -1,0 +1,80 @@
+{
+  "enqueued": 4,
+  "dequeued": 1,
+  "current_depth": 3,
+  "peak_depth": 4,
+  "rejected": 0,
+  "processing_latency_ms": 0.143729,
+  "published": 20,
+  "publish_failures": 0,
+  "command_timeouts": 0,
+  "telemetry_qos": 1,
+  "mqtt_max_inflight": 20,
+  "pipeline_metrics_enabled": false,
+  "gateway_core": {
+    "driver_messages": 4,
+    "dropped_messages": 0,
+    "commands_submitted": 0,
+    "commands_rejected": 0,
+    "mapping_failures": 0
+  },
+  "rtu": {
+    "responses": 0,
+    "timeouts": 0,
+    "unexpected": 0,
+    "rejected": 0,
+    "writes_confirmed": 0,
+    "crc_candidates_rejected": 0,
+    "bytes_discarded": 0,
+    "buffered_bytes": 0
+  },
+  "can_errors": 0,
+  "diagnostics": {
+    "device_health": {
+      "devices": 1,
+      "unknown": 0,
+      "online": 1,
+      "degraded": 0,
+      "offline": 0,
+      "details": [
+        {
+          "device_id": "can-291",
+          "state": "online",
+          "good_messages": 4,
+          "failures": 0,
+          "consecutive_failures": 0,
+          "last_good_epoch_ms": 1791001663855,
+          "last_error_epoch_ms": 0,
+          "last_error": ""
+        }
+      ],
+      "details_truncated": false
+    },
+    "alarms": {
+      "active": 1,
+      "events_total": 1,
+      "history_stored": 1,
+      "recent": [
+        {
+          "sequence": 1,
+          "key": "system/queue_stalled",
+          "action": "raised",
+          "severity": "critical",
+          "epoch_ms": 1791001664057
+        }
+      ]
+    }
+  },
+  "queue_watchdog": {
+    "stalled": true,
+    "stall_events": 1,
+    "recoveries": 0,
+    "last_depth": 3,
+    "threshold_ms": 150
+  },
+  "acquisition_scheduler": {
+    "runs": 0,
+    "late": 0,
+    "errors": 0
+  }
+}

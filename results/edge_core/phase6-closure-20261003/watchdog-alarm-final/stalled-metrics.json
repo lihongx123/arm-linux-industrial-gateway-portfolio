@@ -1,0 +1,105 @@
+{
+  "enqueued": 4,
+  "dequeued": 1,
+  "current_depth": 3,
+  "peak_depth": 4,
+  "rejected": 0,
+  "processing_latency_ms": 0.359423,
+  "published": 23,
+  "publish_failures": 0,
+  "command_timeouts": 0,
+  "telemetry_qos": 1,
+  "mqtt_max_inflight": 20,
+  "alarm_history_missed": 0,
+  "pipeline_metrics_enabled": false,
+  "northbound": {
+    "duplicate_commands": 0,
+    "timed_out_commands": 0,
+    "command_results": 0,
+    "command_result_publish_failed": 0,
+    "rejected_commands": 0,
+    "adapters": [
+      {
+        "id": "mqtt",
+        "published": 23,
+        "publish_failed": 0,
+        "dropped": 0,
+        "inbound_commands": 0,
+        "queue_depth": 0,
+        "queue_peak": 3,
+        "pending_publishes": 1,
+        "duplicate_commands": 0,
+        "timed_out_commands": 0,
+        "command_results": 0,
+        "rejected_commands": 0,
+        "healthy": true
+      }
+    ]
+  },
+  "gateway_core": {
+    "driver_messages": 4,
+    "dropped_messages": 0,
+    "commands_submitted": 0,
+    "commands_rejected": 0,
+    "mapping_failures": 0
+  },
+  "rtu": {
+    "responses": 0,
+    "timeouts": 0,
+    "unexpected": 0,
+    "rejected": 0,
+    "writes_confirmed": 0,
+    "crc_candidates_rejected": 0,
+    "bytes_discarded": 0,
+    "buffered_bytes": 0
+  },
+  "can_errors": 0,
+  "diagnostics": {
+    "device_health": {
+      "devices": 1,
+      "unknown": 0,
+      "online": 1,
+      "degraded": 0,
+      "offline": 0,
+      "details": [
+        {
+          "device_id": "can-291",
+          "state": "online",
+          "good_messages": 4,
+          "failures": 0,
+          "consecutive_failures": 0,
+          "last_good_epoch_ms": 1791017746721,
+          "last_error_epoch_ms": 0,
+          "last_error": ""
+        }
+      ],
+      "details_truncated": false
+    },
+    "alarms": {
+      "active": 1,
+      "events_total": 1,
+      "history_stored": 1,
+      "recent": [
+        {
+          "sequence": 1,
+          "key": "system/queue_stalled",
+          "action": "raised",
+          "severity": "critical",
+          "epoch_ms": 1791017746894
+        }
+      ]
+    }
+  },
+  "queue_watchdog": {
+    "stalled": true,
+    "stall_events": 1,
+    "recoveries": 0,
+    "last_depth": 3,
+    "threshold_ms": 150
+  },
+  "acquisition_scheduler": {
+    "runs": 0,
+    "late": 0,
+    "errors": 0
+  }
+}

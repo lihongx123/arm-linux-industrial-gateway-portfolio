@@ -1,0 +1,19 @@
+{
+  "result": "PASS",
+  "protocols": [
+    "modbus_tcp",
+    "generic_tcp"
+  ],
+  "plc_writes": [
+    "06000704d2"
+  ],
+  "generic_writes": [
+    "0405"
+  ],
+  "telemetry_seen": [
+    "plc",
+    "sensor"
+  ],
+  "command_status": "ok",
+  "invalid_command": "rejected"
+}

@@ -1,0 +1,7 @@
+{
+  "/tmp/mqmgateway-s7-arm64/src/iot_gateway/mqmgateway_iot": "384fe5599d1e1c564f1e3c5337fab81def2448197e4bf5e5d2f3745892902a7a",
+  "/tmp/mqmgateway-s7-arm64/src/serial/mqmgateway_rtu_transport_tests": "1b74a6958a84b7edabcee1b6ea3b62e5eefa0a97a4ec7cd256d4e602e03b0921",
+  "/tmp/mqmgateway-s7-arm64/src/iot_gateway/mqmgateway_s7_driver_tests": "aa887f40ffaf9d0df9102d90e226002508670f01ddb7e8e7a7cdf33db13cd31d",
+  "/mnt/c/Users/hello/AppData/Local/Temp/mqmgateway-phase5-deps-20261002/snap7-main/build/bin/linux/libsnap7-aarch64.so": "f23c67e5d2ee62966b934ad20b4188cb4bfffb12fee7229d150a75927fcbfc12",
+  "/mnt/c/Users/hello/Documents/Codex/2026-09-21/files-pasted-by-the-user-br-2/outputs/mqmgateway/buildroot/overlay/root/run-arm-tests.sh": "2228f477acacd0e002f1d2e19dd1094a4ee0257914e57ff62f84fb56e6f82188"
+}

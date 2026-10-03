@@ -1,0 +1,222 @@
+[2026-10-02 18:27:37.729 (UTC+0000)] [33mwarn/server[0m	AccessControl: Unconfigured AccessControl. Users have all permissions.
+[2026-10-02 18:27:37.731 (UTC+0000)] [32minfo/server[0m	AccessControl: Anonymous login is enabled
+[2026-10-02 18:27:37.731 (UTC+0000)] [32minfo/server[0m	AccessControl: x509 certificate user authentication is enabled
+[2026-10-02 18:27:37.731 (UTC+0000)] [33mwarn/server[0m	Username/Password Authentication configured, but no encrypting SecurityPolicy. This can leak credentials on the network.
+[2026-10-02 18:27:37.731 (UTC+0000)] [33mwarn/userland[0m	AcceptAll Certificate Verification. Any remote certificate will be accepted.
+[2026-10-02 18:27:37.737 (UTC+0000)] [32minfo/network[0m	TCP network layer listening on opc.tcp://buildroot:4840/
+[2026-10-02 18:27:37.742 (UTC+0000)] [33mwarn/userland[0m	AcceptAll Certificate Verification. Any remote certificate will be accepted.
+[2026-10-02 18:27:37.742 (UTC+0000)] [33mwarn/userland[0m	AcceptAll Certificate Verification. Any remote certificate will be accepted.
+[2026-10-02 18:27:37.742 (UTC+0000)] [33mwarn/userland[0m	AcceptAll Certificate Verification. Any remote certificate will be accepted.
+[2026-10-02 18:27:37.798 (UTC+0000)] [32minfo/network[0m	Connection 7 | New connection over TCP from 127.0.0.1
+[2026-10-02 18:27:37.798 (UTC+0000)] [32minfo/network[0m	Connection 8 | New connection over TCP from 127.0.0.1
+[2026-10-02 18:27:37.802 (UTC+0000)] [32minfo/channel[0m	Connection 8 | SecureChannel 1 | SecureChannel opened with SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.00s
+[2026-10-02 18:27:37.804 (UTC+0000)] [32minfo/channel[0m	Connection 7 | SecureChannel 2 | SecureChannel opened with SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.00s
+[2026-10-02 18:27:37.804 (UTC+0000)] [32minfo/channel[0m	Connection 5 | SecureChannel 1 | SecureChannel opened with SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.00s
+[2026-10-02 18:27:37.804 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Closed, ConnectStatus: Good
+[2026-10-02 18:27:37.804 (UTC+0000)] [32minfo/channel[0m	Connection 6 | SecureChannel 2 | SecureChannel opened with SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.00s
+[2026-10-02 18:27:37.805 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Closed, ConnectStatus: Good
+[2026-10-02 18:27:37.806 (UTC+0000)] [32minfo/client[0m	Use the EndpointURL opc.tcp://buildroot:4840/ returned from FindServers
+[2026-10-02 18:27:37.806 (UTC+0000)] [32minfo/client[0m	Use the EndpointURL opc.tcp://buildroot:4840/ returned from FindServers
+[2026-10-02 18:27:37.807 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Closed, SessionState: Closed, ConnectStatus: Good
+[2026-10-02 18:27:37.807 (UTC+0000)] [32minfo/channel[0m	Connection 8 | SecureChannel 1 | CloseSecureChannel
+[2026-10-02 18:27:37.808 (UTC+0000)] [32minfo/channel[0m	Connection 7 | SecureChannel 2 | CloseSecureChannel
+[2026-10-02 18:27:37.808 (UTC+0000)] [32minfo/network[0m	Connection 6 | New connection over TCP from 127.0.0.1
+[2026-10-02 18:27:37.808 (UTC+0000)] [32minfo/network[0m	Connection 8 | Closed
+[2026-10-02 18:27:37.808 (UTC+0000)] [32minfo/network[0m	Connection 7 | Closed
+[2026-10-02 18:27:37.808 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Closed, SessionState: Closed, ConnectStatus: Good
+[2026-10-02 18:27:37.809 (UTC+0000)] [32minfo/network[0m	Connection 8 | New connection over TCP from 127.0.0.1
+[2026-10-02 18:27:37.809 (UTC+0000)] [32minfo/channel[0m	Connection 6 | SecureChannel 3 | SecureChannel opened with SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.00s
+[2026-10-02 18:27:37.809 (UTC+0000)] [32minfo/channel[0m	Connection 5 | SecureChannel 3 | SecureChannel opened with SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.00s
+[2026-10-02 18:27:37.809 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Closed, ConnectStatus: Good
+[2026-10-02 18:27:37.809 (UTC+0000)] [32minfo/channel[0m	Connection 8 | SecureChannel 4 | SecureChannel opened with SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.00s
+[2026-10-02 18:27:37.809 (UTC+0000)] [32minfo/channel[0m	Connection 7 | SecureChannel 4 | SecureChannel opened with SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.00s
+[2026-10-02 18:27:37.809 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Closed, ConnectStatus: Good
+[2026-10-02 18:27:37.810 (UTC+0000)] [32minfo/client[0m	Selected endpoint 0 in URL opc.tcp://buildroot:4840/ with SecurityMode None and SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None
+[2026-10-02 18:27:37.810 (UTC+0000)] [32minfo/client[0m	Selected UserTokenPolicy open62541-anonymous-policy with UserTokenType Anonymous and SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None
+[2026-10-02 18:27:37.810 (UTC+0000)] [32minfo/client[0m	Selected endpoint 0 in URL opc.tcp://buildroot:4840/ with SecurityMode None and SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None
+[2026-10-02 18:27:37.811 (UTC+0000)] [32minfo/client[0m	Selected UserTokenPolicy open62541-anonymous-policy with UserTokenType Anonymous and SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None
+[2026-10-02 18:27:37.811 (UTC+0000)] [32minfo/session[0m	SecureChannel 4 | Session "" | Session created
+[2026-10-02 18:27:37.811 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Created, ConnectStatus: Good
+[2026-10-02 18:27:37.812 (UTC+0000)] [32minfo/session[0m	SecureChannel 4 | Session "" | ActivateSession: Session activated
+[2026-10-02 18:27:37.813 (UTC+0000)] [32minfo/session[0m	SecureChannel 3 | Session "" | Session created
+[2026-10-02 18:27:37.813 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Created, ConnectStatus: Good
+[2026-10-02 18:27:37.813 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Activated, ConnectStatus: Good
+[2026-10-02 18:27:37.813 (UTC+0000)] [32minfo/session[0m	SecureChannel 3 | Session "" | ActivateSession: Session activated
+[2026-10-02 18:27:37.814 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Activated, ConnectStatus: Good
+[2026-10-02 18:27:37.814 (UTC+0000)] [32minfo/session[0m	SecureChannel 4 | Session "" | Closing the Session
+[2026-10-02 18:27:37.814 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Closed, SessionState: Closed, ConnectStatus: Good
+[2026-10-02 18:27:37.816 (UTC+0000)] [32minfo/network[0m	Connection 9 | New connection over TCP from 127.0.0.1
+[2026-10-02 18:27:37.816 (UTC+0000)] [32minfo/channel[0m	Connection 8 | SecureChannel 4 | CloseSecureChannel
+[2026-10-02 18:27:37.816 (UTC+0000)] [32minfo/network[0m	Connection 8 | Closed
+[2026-10-02 18:27:37.816 (UTC+0000)] [32minfo/channel[0m	Connection 9 | SecureChannel 5 | SecureChannel opened with SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.00s
+[2026-10-02 18:27:37.816 (UTC+0000)] [32minfo/channel[0m	Connection 7 | SecureChannel 5 | SecureChannel opened with SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.00s
+[2026-10-02 18:27:37.816 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Closed, ConnectStatus: Good
+[2026-10-02 18:27:37.817 (UTC+0000)] [32minfo/client[0m	Use the EndpointURL opc.tcp://buildroot:4840/ returned from FindServers
+[2026-10-02 18:27:37.817 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Closed, SessionState: Closed, ConnectStatus: Good
+[2026-10-02 18:27:37.817 (UTC+0000)] [32minfo/network[0m	Connection 8 | New connection over TCP from 127.0.0.1
+[2026-10-02 18:27:37.817 (UTC+0000)] [32minfo/channel[0m	Connection 9 | SecureChannel 5 | CloseSecureChannel
+[2026-10-02 18:27:37.817 (UTC+0000)] [32minfo/network[0m	Connection 9 | Closed
+[2026-10-02 18:27:37.817 (UTC+0000)] [32minfo/channel[0m	Connection 8 | SecureChannel 6 | SecureChannel opened with SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.00s
+[2026-10-02 18:27:37.818 (UTC+0000)] [32minfo/channel[0m	Connection 7 | SecureChannel 6 | SecureChannel opened with SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.00s
+[2026-10-02 18:27:37.818 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Closed, ConnectStatus: Good
+[2026-10-02 18:27:37.818 (UTC+0000)] [32minfo/client[0m	Selected endpoint 0 in URL opc.tcp://buildroot:4840/ with SecurityMode None and SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None
+[2026-10-02 18:27:37.818 (UTC+0000)] [32minfo/client[0m	Selected UserTokenPolicy open62541-anonymous-policy with UserTokenType Anonymous and SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None
+[2026-10-02 18:27:37.818 (UTC+0000)] [32minfo/session[0m	SecureChannel 6 | Session "" | Session created
+[2026-10-02 18:27:37.818 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Created, ConnectStatus: Good
+[2026-10-02 18:27:37.818 (UTC+0000)] [32minfo/session[0m	SecureChannel 6 | Session "" | ActivateSession: Session activated
+[2026-10-02 18:27:37.818 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Activated, ConnectStatus: Good
+[2026-10-02 18:27:37.867 (UTC+0000)] [32minfo/network[0m	Connection 10 | New connection over TCP from 127.0.0.1
+[2026-10-02 18:27:37.868 (UTC+0000)] [32minfo/channel[0m	Connection 10 | SecureChannel 7 | SecureChannel opened with SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.00s
+[2026-10-02 18:27:37.868 (UTC+0000)] [32minfo/channel[0m	Connection 9 | SecureChannel 7 | SecureChannel opened with SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.00s
+[2026-10-02 18:27:37.868 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Closed, ConnectStatus: Good
+[2026-10-02 18:27:37.869 (UTC+0000)] [32minfo/client[0m	Use the EndpointURL opc.tcp://buildroot:4840/ returned from FindServers
+[2026-10-02 18:27:37.869 (UTC+0000)] [32minfo/channel[0m	Connection 10 | SecureChannel 7 | CloseSecureChannel
+[2026-10-02 18:27:37.869 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Closed, SessionState: Closed, ConnectStatus: Good
+[2026-10-02 18:27:37.870 (UTC+0000)] [32minfo/network[0m	Connection 10 | Closed
+[2026-10-02 18:27:37.870 (UTC+0000)] [32minfo/network[0m	Connection 10 | New connection over TCP from 127.0.0.1
+[2026-10-02 18:27:37.871 (UTC+0000)] [32minfo/channel[0m	Connection 10 | SecureChannel 8 | SecureChannel opened with SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.00s
+[2026-10-02 18:27:37.871 (UTC+0000)] [32minfo/channel[0m	Connection 9 | SecureChannel 8 | SecureChannel opened with SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.00s
+[2026-10-02 18:27:37.871 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Closed, ConnectStatus: Good
+[2026-10-02 18:27:37.872 (UTC+0000)] [32minfo/session[0m	SecureChannel 8 | Session "" | Session created
+[2026-10-02 18:27:37.872 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Created, ConnectStatus: Good
+[2026-10-02 18:27:37.873 (UTC+0000)] [32minfo/session[0m	SecureChannel 8 | Session "" | ActivateSession: Session activated
+[2026-10-02 18:27:37.873 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Activated, ConnectStatus: Good
+[2026-10-02 18:27:37.873 (UTC+0000)] [32minfo/session[0m	SecureChannel 8 | Session "" | Closing the Session
+[2026-10-02 18:27:37.873 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Closed, SessionState: Closed, ConnectStatus: Good
+[2026-10-02 18:27:37.873 (UTC+0000)] [32minfo/channel[0m	Connection 10 | SecureChannel 8 | CloseSecureChannel
+[2026-10-02 18:27:37.874 (UTC+0000)] [32minfo/network[0m	Connection 10 | Closed
+[2026-10-02 18:27:37.926 (UTC+0000)] [32minfo/network[0m	Connection 10 | New connection over TCP from 127.0.0.1
+[2026-10-02 18:27:37.927 (UTC+0000)] [32minfo/channel[0m	Connection 10 | SecureChannel 9 | SecureChannel opened with SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.00s
+[2026-10-02 18:27:37.927 (UTC+0000)] [32minfo/channel[0m	Connection 9 | SecureChannel 9 | SecureChannel opened with SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.00s
+[2026-10-02 18:27:37.927 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Closed, ConnectStatus: Good
+[2026-10-02 18:27:37.928 (UTC+0000)] [32minfo/client[0m	Use the EndpointURL opc.tcp://buildroot:4840/ returned from FindServers
+[2026-10-02 18:27:37.928 (UTC+0000)] [32minfo/channel[0m	Connection 10 | SecureChannel 9 | CloseSecureChannel
+[2026-10-02 18:27:37.928 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Closed, SessionState: Closed, ConnectStatus: Good
+[2026-10-02 18:27:37.929 (UTC+0000)] [32minfo/network[0m	Connection 10 | Closed
+[2026-10-02 18:27:37.929 (UTC+0000)] [32minfo/network[0m	Connection 10 | New connection over TCP from 127.0.0.1
+[2026-10-02 18:27:37.929 (UTC+0000)] [32minfo/channel[0m	Connection 10 | SecureChannel 10 | SecureChannel opened with SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.00s
+[2026-10-02 18:27:37.930 (UTC+0000)] [32minfo/channel[0m	Connection 9 | SecureChannel 10 | SecureChannel opened with SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.00s
+[2026-10-02 18:27:37.930 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Closed, ConnectStatus: Good
+[2026-10-02 18:27:37.930 (UTC+0000)] [32minfo/session[0m	SecureChannel 10 | Session "" | Session created
+[2026-10-02 18:27:37.930 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Created, ConnectStatus: Good
+[2026-10-02 18:27:37.930 (UTC+0000)] [32minfo/session[0m	SecureChannel 10 | Session "" | ActivateSession: Session activated
+[2026-10-02 18:27:37.931 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Activated, ConnectStatus: Good
+[2026-10-02 18:27:37.932 (UTC+0000)] [32minfo/session[0m	SecureChannel 10 | Session "" | Closing the Session
+[2026-10-02 18:27:37.932 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Closed, SessionState: Closed, ConnectStatus: Good
+[2026-10-02 18:27:37.932 (UTC+0000)] [32minfo/channel[0m	Connection 10 | SecureChannel 10 | CloseSecureChannel
+[2026-10-02 18:27:37.932 (UTC+0000)] [32minfo/network[0m	Connection 10 | Closed
+[2026-10-02 18:27:37.978 (UTC+0000)] [32minfo/session[0m	SecureChannel 6 | Session "" | Closing the Session
+[2026-10-02 18:27:37.979 (UTC+0000)] [32minfo/channel[0m	Connection 8 | SecureChannel 6 | CloseSecureChannel
+[2026-10-02 18:27:37.979 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Closed, SessionState: Closed, ConnectStatus: Good
+[2026-10-02 18:27:37.979 (UTC+0000)] [32minfo/network[0m	Connection 8 | Closed
+[2026-10-02 18:27:37.983 (UTC+0000)] [32minfo/network[0m	Connection 8 | New connection over TCP from 127.0.0.1
+[2026-10-02 18:27:37.984 (UTC+0000)] [32minfo/channel[0m	Connection 8 | SecureChannel 11 | SecureChannel opened with SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.00s
+[2026-10-02 18:27:37.984 (UTC+0000)] [32minfo/channel[0m	Connection 7 | SecureChannel 11 | SecureChannel opened with SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.00s
+[2026-10-02 18:27:37.984 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Closed, ConnectStatus: Good
+[2026-10-02 18:27:37.985 (UTC+0000)] [32minfo/client[0m	Use the EndpointURL opc.tcp://buildroot:4840/ returned from FindServers
+[2026-10-02 18:27:37.985 (UTC+0000)] [32minfo/channel[0m	Connection 8 | SecureChannel 11 | CloseSecureChannel
+[2026-10-02 18:27:37.985 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Closed, SessionState: Closed, ConnectStatus: Good
+[2026-10-02 18:27:37.985 (UTC+0000)] [32minfo/network[0m	Connection 8 | Closed
+[2026-10-02 18:27:37.986 (UTC+0000)] [32minfo/network[0m	Connection 8 | New connection over TCP from 127.0.0.1
+[2026-10-02 18:27:37.986 (UTC+0000)] [32minfo/channel[0m	Connection 8 | SecureChannel 12 | SecureChannel opened with SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.00s
+[2026-10-02 18:27:37.986 (UTC+0000)] [32minfo/channel[0m	Connection 7 | SecureChannel 12 | SecureChannel opened with SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.00s
+[2026-10-02 18:27:37.986 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Closed, ConnectStatus: Good
+[2026-10-02 18:27:37.987 (UTC+0000)] [32minfo/session[0m	SecureChannel 12 | Session "" | Session created
+[2026-10-02 18:27:37.987 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Created, ConnectStatus: Good
+[2026-10-02 18:27:37.987 (UTC+0000)] [32minfo/session[0m	SecureChannel 12 | Session "" | ActivateSession: Session activated
+[2026-10-02 18:27:37.987 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Activated, ConnectStatus: Good
+[2026-10-02 18:27:37.988 (UTC+0000)] [32minfo/session[0m	SecureChannel 12 | Session "" | Closing the Session
+[2026-10-02 18:27:37.988 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Closed, SessionState: Closed, ConnectStatus: Good
+[2026-10-02 18:27:37.988 (UTC+0000)] [32minfo/channel[0m	Connection 8 | SecureChannel 12 | CloseSecureChannel
+[2026-10-02 18:27:37.988 (UTC+0000)] [32minfo/network[0m	Connection 8 | Closed
+[2026-10-02 18:27:38.030 (UTC+0000)] [32minfo/network[0m	Connection 8 | New connection over TCP from 127.0.0.1
+[2026-10-02 18:27:38.031 (UTC+0000)] [32minfo/channel[0m	Connection 8 | SecureChannel 13 | SecureChannel opened with SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.00s
+[2026-10-02 18:27:38.032 (UTC+0000)] [32minfo/channel[0m	Connection 7 | SecureChannel 13 | SecureChannel opened with SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.00s
+[2026-10-02 18:27:38.032 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Closed, ConnectStatus: Good
+[2026-10-02 18:27:38.033 (UTC+0000)] [32minfo/client[0m	Use the EndpointURL opc.tcp://buildroot:4840/ returned from FindServers
+[2026-10-02 18:27:38.033 (UTC+0000)] [32minfo/channel[0m	Connection 8 | SecureChannel 13 | CloseSecureChannel
+[2026-10-02 18:27:38.034 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Closed, SessionState: Closed, ConnectStatus: Good
+[2026-10-02 18:27:38.034 (UTC+0000)] [32minfo/network[0m	Connection 8 | Closed
+[2026-10-02 18:27:38.034 (UTC+0000)] [32minfo/network[0m	Connection 8 | New connection over TCP from 127.0.0.1
+[2026-10-02 18:27:38.035 (UTC+0000)] [32minfo/channel[0m	Connection 8 | SecureChannel 14 | SecureChannel opened with SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.00s
+[2026-10-02 18:27:38.035 (UTC+0000)] [32minfo/channel[0m	Connection 7 | SecureChannel 14 | SecureChannel opened with SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.00s
+[2026-10-02 18:27:38.035 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Closed, ConnectStatus: Good
+[2026-10-02 18:27:38.036 (UTC+0000)] [32minfo/session[0m	SecureChannel 14 | Session "" | Session created
+[2026-10-02 18:27:38.036 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Created, ConnectStatus: Good
+[2026-10-02 18:27:38.036 (UTC+0000)] [32minfo/session[0m	SecureChannel 14 | Session "" | ActivateSession: Session activated
+[2026-10-02 18:27:38.036 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Activated, ConnectStatus: Good
+[2026-10-02 18:27:38.039 (UTC+0000)] [32minfo/network[0m	Connection 10 | New connection over TCP from 127.0.0.1
+[2026-10-02 18:27:38.039 (UTC+0000)] [32minfo/channel[0m	Connection 10 | SecureChannel 15 | SecureChannel opened with SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.00s
+[2026-10-02 18:27:38.039 (UTC+0000)] [32minfo/channel[0m	Connection 9 | SecureChannel 15 | SecureChannel opened with SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.00s
+[2026-10-02 18:27:38.040 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Closed, ConnectStatus: Good
+[2026-10-02 18:27:38.040 (UTC+0000)] [32minfo/client[0m	Use the EndpointURL opc.tcp://buildroot:4840/ returned from FindServers
+[2026-10-02 18:27:38.040 (UTC+0000)] [32minfo/channel[0m	Connection 10 | SecureChannel 15 | CloseSecureChannel
+[2026-10-02 18:27:38.040 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Closed, SessionState: Closed, ConnectStatus: Good
+[2026-10-02 18:27:38.040 (UTC+0000)] [32minfo/network[0m	Connection 10 | Closed
+[2026-10-02 18:27:38.040 (UTC+0000)] [32minfo/network[0m	Connection 10 | New connection over TCP from 127.0.0.1
+[2026-10-02 18:27:38.041 (UTC+0000)] [32minfo/channel[0m	Connection 10 | SecureChannel 16 | SecureChannel opened with SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.00s
+[2026-10-02 18:27:38.041 (UTC+0000)] [32minfo/channel[0m	Connection 9 | SecureChannel 16 | SecureChannel opened with SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.00s
+[2026-10-02 18:27:38.041 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Closed, ConnectStatus: Good
+[2026-10-02 18:27:38.041 (UTC+0000)] [32minfo/session[0m	SecureChannel 16 | Session "" | Session created
+[2026-10-02 18:27:38.041 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Created, ConnectStatus: Good
+[2026-10-02 18:27:38.041 (UTC+0000)] [32minfo/session[0m	SecureChannel 16 | Session "" | ActivateSession: Session activated
+[2026-10-02 18:27:38.042 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Activated, ConnectStatus: Good
+[2026-10-02 18:27:38.042 (UTC+0000)] [32minfo/session[0m	SecureChannel 16 | Session "" | Closing the Session
+[2026-10-02 18:27:38.042 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Closed, SessionState: Closed, ConnectStatus: Good
+[2026-10-02 18:27:38.042 (UTC+0000)] [32minfo/channel[0m	Connection 10 | SecureChannel 16 | CloseSecureChannel
+[2026-10-02 18:27:38.042 (UTC+0000)] [32minfo/network[0m	Connection 10 | Closed
+[2026-10-02 18:27:38.084 (UTC+0000)] [32minfo/network[0m	Shutting down the TCP network layer
+[2026-10-02 18:27:38.088 (UTC+0000)] [33mwarn/channel[0m	Connection 7 | SecureChannel 14 | Receiving the response failed with StatusCode BadConnectionClosed
+[2026-10-02 18:27:38.088 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Closed, SessionState: Created, ConnectStatus: Good
+[2026-10-02 18:27:38.088 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Closed, SessionState: Closed, ConnectStatus: Good
+[2026-10-02 18:27:38.093 (UTC+0000)] [33mwarn/network[0m	Connection to opc.tcp://127.0.0.1:4840 failed with error: Connection refused
+[2026-10-02 18:27:38.093 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Fresh, SessionState: Closed, ConnectStatus: BadDisconnect
+[2026-10-02 18:27:38.093 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Closed, SessionState: Closed, ConnectStatus: BadDisconnect
+[2026-10-02 18:27:38.119 (UTC+0000)] [32minfo/network[0m	TCP network layer listening on opc.tcp://buildroot:4840/
+[2026-10-02 18:27:38.120 (UTC+0000)] [32minfo/network[0m	Connection 8 | Closed
+[2026-10-02 18:27:38.121 (UTC+0000)] [32minfo/network[0m	Connection 6 | Closed
+[2026-10-02 18:27:38.134 (UTC+0000)] [33mwarn/channel[0m	Connection 5 | SecureChannel 3 | Receiving the response failed with StatusCode BadConnectionClosed
+[2026-10-02 18:27:38.134 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Closed, SessionState: Created, ConnectStatus: Good
+[2026-10-02 18:27:38.134 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Closed, SessionState: Closed, ConnectStatus: Good
+[2026-10-02 18:27:38.139 (UTC+0000)] [32minfo/network[0m	Connection 6 | New connection over TCP from 127.0.0.1
+[2026-10-02 18:27:38.140 (UTC+0000)] [32minfo/channel[0m	Connection 6 | SecureChannel 17 | SecureChannel opened with SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.00s
+[2026-10-02 18:27:38.140 (UTC+0000)] [32minfo/channel[0m	Connection 5 | SecureChannel 17 | SecureChannel opened with SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.00s
+[2026-10-02 18:27:38.140 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Closed, ConnectStatus: Good
+[2026-10-02 18:27:38.140 (UTC+0000)] [32minfo/client[0m	Use the EndpointURL opc.tcp://buildroot:4840/ returned from FindServers
+[2026-10-02 18:27:38.141 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Closed, SessionState: Closed, ConnectStatus: Good
+[2026-10-02 18:27:38.141 (UTC+0000)] [32minfo/network[0m	Connection 7 | New connection over TCP from 127.0.0.1
+[2026-10-02 18:27:38.141 (UTC+0000)] [32minfo/channel[0m	Connection 6 | SecureChannel 17 | CloseSecureChannel
+[2026-10-02 18:27:38.141 (UTC+0000)] [32minfo/network[0m	Connection 6 | Closed
+[2026-10-02 18:27:38.142 (UTC+0000)] [32minfo/channel[0m	Connection 7 | SecureChannel 18 | SecureChannel opened with SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.00s
+[2026-10-02 18:27:38.142 (UTC+0000)] [32minfo/channel[0m	Connection 5 | SecureChannel 18 | SecureChannel opened with SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.00s
+[2026-10-02 18:27:38.142 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Closed, ConnectStatus: Good
+[2026-10-02 18:27:38.142 (UTC+0000)] [32minfo/session[0m	SecureChannel 18 | Session "" | Session created
+[2026-10-02 18:27:38.142 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Created, ConnectStatus: Good
+[2026-10-02 18:27:38.142 (UTC+0000)] [32minfo/session[0m	SecureChannel 18 | Session "" | ActivateSession: Session activated
+[2026-10-02 18:27:38.142 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Activated, ConnectStatus: Good
+[2026-10-02 18:27:38.144 (UTC+0000)] [32minfo/network[0m	Connection 8 | New connection over TCP from 127.0.0.1
+[2026-10-02 18:27:38.144 (UTC+0000)] [32minfo/channel[0m	Connection 8 | SecureChannel 19 | SecureChannel opened with SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.00s
+[2026-10-02 18:27:38.144 (UTC+0000)] [32minfo/channel[0m	Connection 6 | SecureChannel 19 | SecureChannel opened with SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.00s
+[2026-10-02 18:27:38.144 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Closed, ConnectStatus: Good
+[2026-10-02 18:27:38.145 (UTC+0000)] [32minfo/client[0m	Use the EndpointURL opc.tcp://buildroot:4840/ returned from FindServers
+[2026-10-02 18:27:38.145 (UTC+0000)] [32minfo/channel[0m	Connection 8 | SecureChannel 19 | CloseSecureChannel
+[2026-10-02 18:27:38.145 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Closed, SessionState: Closed, ConnectStatus: Good
+[2026-10-02 18:27:38.145 (UTC+0000)] [32minfo/network[0m	Connection 8 | Closed
+[2026-10-02 18:27:38.145 (UTC+0000)] [32minfo/network[0m	Connection 6 | New connection over TCP from 127.0.0.1
+[2026-10-02 18:27:38.146 (UTC+0000)] [32minfo/channel[0m	Connection 6 | SecureChannel 20 | SecureChannel opened with SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.00s
+[2026-10-02 18:27:38.146 (UTC+0000)] [32minfo/channel[0m	Connection 9 | SecureChannel 20 | SecureChannel opened with SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.00s
+[2026-10-02 18:27:38.146 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Closed, ConnectStatus: Good
+[2026-10-02 18:27:38.146 (UTC+0000)] [32minfo/session[0m	SecureChannel 20 | Session "" | Session created
+[2026-10-02 18:27:38.146 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Created, ConnectStatus: Good
+[2026-10-02 18:27:38.146 (UTC+0000)] [32minfo/session[0m	SecureChannel 20 | Session "" | ActivateSession: Session activated
+[2026-10-02 18:27:38.146 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Activated, ConnectStatus: Good
+[2026-10-02 18:27:38.147 (UTC+0000)] [32minfo/session[0m	SecureChannel 20 | Session "" | Closing the Session
+[2026-10-02 18:27:38.147 (UTC+0000)] [32minfo/channel[0m	Connection 6 | SecureChannel 20 | CloseSecureChannel
+[2026-10-02 18:27:38.147 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Closed, SessionState: Closed, ConnectStatus: Good
+[2026-10-02 18:27:38.147 (UTC+0000)] [32minfo/network[0m	Connection 6 | Closed
+[2026-10-02 18:27:38.153 (UTC+0000)] [32minfo/session[0m	SecureChannel 18 | Session "" | Closing the Session
+[2026-10-02 18:27:38.154 (UTC+0000)] [32minfo/channel[0m	Connection 7 | SecureChannel 18 | CloseSecureChannel
+[2026-10-02 18:27:38.154 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Closed, SessionState: Closed, ConnectStatus: Good
+[2026-10-02 18:27:38.154 (UTC+0000)] [32minfo/network[0m	Connection 7 | Closed
+{"result":"PASS","scope":"real local open62541 server -> OPC UA client -> GatewayCore","checks":["connect","read","write","bad_nodeid","bad_statuscode","disconnect","reconnect","two_devices","point_mapping","nodeid_metadata","timestamps","command_route"]}
+[2026-10-02 18:27:38.205 (UTC+0000)] [32minfo/network[0m	Shutting down the TCP network layer

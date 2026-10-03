@@ -23,6 +23,23 @@ def main() -> int:
     parser.add_argument("--repo", default=str(pathlib.Path(__file__).resolve().parents[1]))
     parser.add_argument("--results", help="Use a new, empty evidence directory instead of the legacy results/arm64 path")
     parser.add_argument("--binary-dir", help="Inject freshly compiled binaries from this CMake build into a private image")
+    parser.add_argument("--rtu-driver-probe", action="store_true",
+                        help="Also inject and run the PTY RTU driver/GatewayCore integration test")
+    parser.add_argument("--tcp-driver-probe", action="store_true",
+                        help="Also inject and run the two-device TCP driver/GatewayCore integration test")
+    parser.add_argument("--phase4-software-probe", action="store_true",
+                        help="Inject and run the eight-device Phase 4 software composition after base guest tests")
+    parser.add_argument("--mc-driver-probe", action="store_true",
+                        help="Inject and run the MC 3E binary/TCP GatewayCore runtime probe")
+    parser.add_argument("--phase5-mixed-probe", action="store_true",
+                        help="Inject and run the nine-device Phase 5 software composition")
+    parser.add_argument("--phase5-full-mixed-probe", action="store_true",
+                        help="Inject and run the eleven-device CAN/RTU/TCP/board/MC/OPC UA/S7 composition")
+    parser.add_argument("--opcua-driver-probe", action="store_true",
+                        help="Inject and run the real local open62541 OPC UA server/client probe")
+    parser.add_argument("--s7-driver-probe", action="store_true",
+                        help="Inject and run the real local Snap7 Siemens S7 server/client probe")
+    parser.add_argument("--s7-library", help="ARM64 libsnap7 shared library for S7 or full-mixed probe")
     parser.add_argument("--mode", choices=("tests", "soak", "stress"), default="tests")
     parser.add_argument("--soak-seconds", type=int, default=28800)
     parser.add_argument("--soak-rate", type=int, default=500)
@@ -34,6 +51,22 @@ def main() -> int:
     parser.add_argument("--stress-queue", type=int, default=1024)
     parser.add_argument("--stress-workers", type=int, default=2)
     args = parser.parse_args()
+    if args.rtu_driver_probe and (not args.binary_dir or args.mode != "tests"):
+        parser.error("--rtu-driver-probe requires --binary-dir and --mode tests")
+    if args.tcp_driver_probe and (not args.binary_dir or args.mode != "tests"):
+        parser.error("--tcp-driver-probe requires --binary-dir and --mode tests")
+    if args.phase4_software_probe and (not args.binary_dir or args.mode != "tests"):
+        parser.error("--phase4-software-probe requires --binary-dir and --mode tests")
+    if args.mc_driver_probe and (not args.binary_dir or args.mode != "tests"):
+        parser.error("--mc-driver-probe requires --binary-dir and --mode tests")
+    if args.phase5_mixed_probe and (not args.binary_dir or args.mode != "tests"):
+        parser.error("--phase5-mixed-probe requires --binary-dir and --mode tests")
+    if args.phase5_full_mixed_probe and (not args.binary_dir or args.mode != "tests" or not args.s7_library):
+        parser.error("--phase5-full-mixed-probe requires --binary-dir, --s7-library and --mode tests")
+    if args.opcua_driver_probe and (not args.binary_dir or args.mode != "tests"):
+        parser.error("--opcua-driver-probe requires --binary-dir and --mode tests")
+    if args.s7_driver_probe and (not args.binary_dir or args.mode != "tests" or not args.s7_library):
+        parser.error("--s7-driver-probe requires --binary-dir, --s7-library and --mode tests")
 
     output = pathlib.Path(args.output).resolve()
     repo = pathlib.Path(args.repo).resolve()
@@ -59,6 +92,22 @@ def main() -> int:
         build = pathlib.Path(args.binary_dir).resolve()
         files = [build / "src/iot_gateway/mqmgateway_iot",
                  build / "src/serial/mqmgateway_rtu_transport_tests"]
+        if args.rtu_driver_probe:
+            files.append(build / "src/iot_gateway/mqmgateway_rtu_driver_tests")
+        if args.tcp_driver_probe:
+            files.append(build / "src/iot_gateway/mqmgateway_tcp_driver_tests")
+        if args.phase4_software_probe:
+            files.append(build / "src/iot_gateway/mqmgateway_phase4_software_tests")
+        if args.mc_driver_probe:
+            files.append(build / "src/iot_gateway/mqmgateway_mc_driver_tests")
+        if args.phase5_mixed_probe:
+            files.append(build / "src/iot_gateway/mqmgateway_phase5_mixed_tests")
+        if args.phase5_full_mixed_probe:
+            files.append(build / "src/iot_gateway/mqmgateway_phase5_full_mixed_tests")
+        if args.opcua_driver_probe:
+            files.append(build / "src/iot_gateway/mqmgateway_opcua_driver_tests")
+        if args.s7_driver_probe:
+            files.append(build / "src/iot_gateway/mqmgateway_s7_driver_tests")
         manifest = {}
         for binary in files:
             if not binary.is_file():
@@ -67,6 +116,22 @@ def main() -> int:
             subprocess.run(["debugfs", "-w", "-R", "rm "+destination, str(runtime_image)], check=True)
             subprocess.run(["debugfs", "-w", "-R", f"write {binary} {destination}", str(runtime_image)], check=True)
             manifest[str(binary)] = hashlib.sha256(binary.read_bytes()).hexdigest()
+        if args.s7_driver_probe or args.phase5_full_mixed_probe:
+            library = pathlib.Path(args.s7_library).resolve()
+            if not library.is_file():
+                raise RuntimeError(f"missing Snap7 library: {library}")
+            # Preserve the linked ELF name (for example libsnap7-aarch64.so).
+            destination = "/usr/lib/" + library.name
+            subprocess.run(["debugfs", "-w", "-R", "rm " + destination, str(runtime_image)], check=True)
+            subprocess.run(["debugfs", "-w", "-R", f"write {library} {destination}", str(runtime_image)], check=True)
+            manifest[str(library)] = hashlib.sha256(library.read_bytes()).hexdigest()
+        if args.mode == "tests":
+            test_script = repo / "buildroot/overlay/root/run-arm-tests.sh"
+            destination = "/root/run-arm-tests.sh"
+            subprocess.run(["debugfs", "-w", "-R", "rm " + destination, str(runtime_image)], check=True)
+            subprocess.run(["debugfs", "-w", "-R", f"write {test_script} {destination}", str(runtime_image)], check=True)
+            subprocess.run(["debugfs", "-w", "-R", f"sif {destination} mode 0100755", str(runtime_image)], check=True)
+            manifest[str(test_script)] = hashlib.sha256(test_script.read_bytes()).hexdigest()
         (result_root/"injected-binaries.json").write_text(json.dumps(manifest, indent=2))
     qemu = shutil.which("qemu-system-aarch64")
     if not qemu:
@@ -107,6 +172,54 @@ def main() -> int:
             child.expect(r"# ")
             if args.mode == "tests":
                 guest_command = "/root/run-arm-tests.sh"
+                if args.rtu_driver_probe:
+                    guest_command = (
+                        "/usr/bin/mqmgateway_rtu_driver_tests > /root/rtu-driver-probe.json && "
+                        + guest_command
+                        + " && cp /root/rtu-driver-probe.json /root/results/rtu-driver-probe.json"
+                    )
+                if args.tcp_driver_probe:
+                    guest_command = (
+                        "/usr/bin/mqmgateway_tcp_driver_tests > /root/tcp-driver-probe.json && "
+                        + guest_command
+                        + " && cp /root/tcp-driver-probe.json /root/results/tcp-driver-probe.json"
+                    )
+                if args.phase4_software_probe:
+                    guest_command += (
+                        " && /usr/bin/mqmgateway_phase4_software_tests > /root/phase4-software-probe.json"
+                        " && cp /root/phase4-software-probe.json /root/results/phase4-software-probe.json"
+                    )
+                if args.mc_driver_probe:
+                    guest_command += (
+                        " && /usr/bin/mqmgateway_mc_driver_tests > /root/mc-driver-probe.json"
+                        " && cp /root/mc-driver-probe.json /root/results/mc-driver-probe.json"
+                    )
+                if args.phase5_mixed_probe:
+                    guest_command += (
+                        " && /usr/bin/mqmgateway_phase5_mixed_tests > /root/phase5-mixed-probe.json"
+                        " && cp /root/phase5-mixed-probe.json /root/results/phase5-mixed-probe.json"
+                    )
+                if args.phase5_full_mixed_probe:
+                    guest_command += (
+                        " && LD_LIBRARY_PATH=/usr/lib /usr/bin/mqmgateway_phase5_full_mixed_tests"
+                        " > /root/phase5-full-mixed-probe.raw"
+                        " && grep '\"result\":\"PASS\"' /root/phase5-full-mixed-probe.raw"
+                        " | tail -n 1 > /root/phase5-full-mixed-probe.json"
+                        " && cp /root/phase5-full-mixed-probe.raw /root/results/phase5-full-mixed-probe.raw"
+                        " && cp /root/phase5-full-mixed-probe.json /root/results/phase5-full-mixed-probe.json"
+                    )
+                if args.opcua_driver_probe:
+                    guest_command += (
+                        " && /usr/bin/mqmgateway_opcua_driver_tests > /root/opcua-driver-probe.raw"
+                        " && grep '\"result\":\"PASS\"' /root/opcua-driver-probe.raw | tail -n 1 > /root/opcua-driver-probe.json"
+                        " && cp /root/opcua-driver-probe.raw /root/results/opcua-driver-probe.raw"
+                        " && cp /root/opcua-driver-probe.json /root/results/opcua-driver-probe.json"
+                    )
+                if args.s7_driver_probe:
+                    guest_command += (
+                        " && LD_LIBRARY_PATH=/usr/lib /usr/bin/mqmgateway_s7_driver_tests > /root/s7-driver-probe.json"
+                        " && cp /root/s7-driver-probe.json /root/results/s7-driver-probe.json"
+                    )
             elif args.mode == "soak":
                 guest_command = (
                     f"/root/run-arm-soak.sh {args.soak_seconds} {args.soak_rate} "
@@ -144,6 +257,20 @@ def main() -> int:
         check=False,
     )
     (result_root / "debugfs-extract.log").write_text(debugfs.stdout, encoding="utf-8")
+    for enabled, name in ((args.mc_driver_probe, "mc-driver-probe.json"),
+                          (args.phase5_mixed_probe, "phase5-mixed-probe.json"),
+                          (args.phase5_full_mixed_probe, "phase5-full-mixed-probe.json"),
+                          (args.opcua_driver_probe, "opcua-driver-probe.json"),
+                          (args.s7_driver_probe, "s7-driver-probe.json")):
+        if not enabled or debugfs.returncode != 0:
+            continue
+        try:
+            payload = json.loads((extracted / "results" / name).read_text(encoding="utf-8"))
+            if payload.get("result") != "PASS":
+                raise ValueError("probe result is not PASS")
+        except (OSError, ValueError, json.JSONDecodeError) as error:
+            test_ok = False
+            failure_reason = f"invalid {name}: {error}"
     elapsed = time.monotonic() - started
     (result_root / "host-run.txt").write_text(
         f"mode={args.mode}\nqemu={qemu}\nqemu_version={subprocess.check_output([qemu, '--version'], text=True).splitlines()[0]}\n"

@@ -6,7 +6,6 @@
 #include <linux/can/raw.h>
 #include <net/if.h>
 #include <stdexcept>
-#include <sys/epoll.h>
 #include <sys/ioctl.h>
 #include <sys/socket.h>
 #include <unistd.h>
@@ -41,27 +40,9 @@ void CanSocket::open() {
         close();
         throw std::runtime_error("bind(" + interfaceName_ + "): " + error);
     }
-    epoll_ = ::epoll_create1(EPOLL_CLOEXEC);
-    if (epoll_ < 0) {
-        const auto error = std::string(std::strerror(errno));
-        close();
-        throw std::runtime_error("epoll_create1: " + error);
-    }
-    epoll_event event{};
-    event.events = EPOLLIN;
-    event.data.fd = socket_;
-    if (::epoll_ctl(epoll_, EPOLL_CTL_ADD, socket_, &event) < 0) {
-        const auto error = std::string(std::strerror(errno));
-        close();
-        throw std::runtime_error("epoll_ctl: " + error);
-    }
 }
 
 void CanSocket::close() {
-    if (epoll_ >= 0) {
-        ::close(epoll_);
-        epoll_ = -1;
-    }
     if (socket_ >= 0) {
         ::close(socket_);
         socket_ = -1;
@@ -82,18 +63,6 @@ bool CanSocket::send(const UnifiedMessage& message) {
     frame.can_dlc = static_cast<__u8>(message.payload.size());
     std::copy(message.payload.begin(), message.payload.end(), frame.data);
     return ::write(socket_, &frame, sizeof(frame)) == sizeof(frame);
-}
-
-bool CanSocket::receive(UnifiedMessage& message, const std::chrono::milliseconds timeout) {
-    if (socket_ < 0) {
-        return false;
-    }
-    epoll_event event{};
-    const auto ready = ::epoll_wait(epoll_, &event, 1, static_cast<int>(timeout.count()));
-    if (ready <= 0) {
-        return false;
-    }
-    return receiveReady(message);
 }
 
 bool CanSocket::receiveReady(UnifiedMessage& message) {

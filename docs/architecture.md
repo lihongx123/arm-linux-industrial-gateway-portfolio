@@ -1,5 +1,9 @@
 # 扩展后架构
 
+> 当前 Phase 4.5 北向架构见 [northbound_architecture.md](northbound_architecture.md)。下文记录早期 CAN/Modbus 扩展阶段的设计，不代表当前 `mqmgateway_iot` 的完整组件清单。
+
+当前 `mqmgateway_iot` 的实际路径为南向 `IDeviceDriver`/`DriverManager` → `GatewayCore`/`UnifiedMessageV2` → 有界工作队列 → `NorthboundManager` → `INorthboundAdapter` → `MqttNorthboundAdapter`。CAN、RTU、Modbus TCP、Generic TCP 及后续板级/PLC 驱动共用南向框架。上游 `modmqttd` 仍为独立进程及历史实现。MQTT 主题、连接和序列化已从新网关的 `Gateway` 移至 MQTT 适配器；Gateway 保留线程编排、队列和配置接线。当前只有 MQTT 北向适配器有真实实现。
+
 ## 定位
 
 本工程保留上游 `modmqttd` 的 Modbus RTU/TCP、YAML、converter、双向队列、`ModbusThread` 与 Mosquitto 实现，并新增一个独立的 `mqmgateway_iot` 进程承载 SocketCAN、统一消息、路由、有界队列和 worker pool。这样避免重写稳定的 Modbus 核心，同时可让两个进程连接同一 MQTT broker。

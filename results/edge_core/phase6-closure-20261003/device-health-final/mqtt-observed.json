@@ -1,0 +1,16 @@
+[
+  {
+    "sequence": 1,
+    "key": "health/can-291",
+    "action": "raised",
+    "severity": "critical",
+    "epoch_ms": 1791017761193
+  },
+  {
+    "sequence": 2,
+    "key": "health/can-291",
+    "action": "recovered",
+    "severity": "critical",
+    "epoch_ms": 1791017761199
+  }
+]

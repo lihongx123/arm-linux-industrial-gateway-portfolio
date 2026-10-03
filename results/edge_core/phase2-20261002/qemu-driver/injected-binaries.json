@@ -1,0 +1,5 @@
+{
+  "/tmp/mqmgateway-edge-phase2-arm64/src/iot_gateway/mqmgateway_iot": "239fa0a0d4216f9a5174f666955dc60a9c151287b40b48d2ebac7b171b13cfce",
+  "/tmp/mqmgateway-edge-phase2-arm64/src/serial/mqmgateway_rtu_transport_tests": "c22d17507ace6d888cea9c93a37f928c6f63a8e80e2d920dd8fff475028f21cb",
+  "/tmp/mqmgateway-edge-phase2-arm64/src/iot_gateway/mqmgateway_rtu_driver_tests": "e2ed02acd3935435009674240923ae03397e4a3344681ce4cff161a8878c387f"
+}

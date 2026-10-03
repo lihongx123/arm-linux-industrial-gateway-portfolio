@@ -1,0 +1,19 @@
+{
+  "command": [
+    "/tmp/mqmgateway-stagea-final/src/iot_gateway/mqmgateway_iot",
+    "--mqtt-port=39797",
+    "--can-interface=vcan0",
+    "--rtu-device=/dev/pts/7",
+    "--rtu-baud=115200",
+    "--rtu-poll-ms=100",
+    "--rtu-slave=1",
+    "--workers=2",
+    "--queue-capacity=1024",
+    "--pipeline-metrics=1",
+    "--metrics-file=results/edge_core/phase3-closure-20261002/mixed-routing/gateway-metrics.json"
+  ],
+  "duration": 10,
+  "can_rate": 100,
+  "rtu_poll_ms": 100,
+  "fault_injection": false
+}

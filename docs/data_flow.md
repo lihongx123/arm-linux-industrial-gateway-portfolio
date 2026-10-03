@@ -1,5 +1,13 @@
 # 数据流
 
+## Phase 4.5 当前新网关链路
+
+上行：`IDeviceDriver` → 设备/点位与 `PointMapper` → `UnifiedMessageV2` → `GatewayCore` → 有界工作队列 → `NorthboundManager` → `INorthboundAdapter` → `MqttNorthboundAdapter` → broker。两个适配器时管理器将同一不可变逻辑消息分别入两个有界发送队列；某一个拒绝不会取消另一个。
+
+下行：broker → `MqttNorthboundAdapter`（旧 MQTT topic/JSON 解析）→ `CommandRouter` → `NorthboundManager`（ID、去重、deadline）→ `GatewayCore.prepare()` → 有界命令工作队列 → `GatewayCore.submit()` → `DriverManager` → `IDeviceDriver` → 模拟/实际设备。驱动回执带原 ID 经 `GatewayCore` → `NorthboundManager` → 原入站 MQTT 适配器 → broker；队列拒绝、超时、驱动拒绝也走 `CommandResult`。详细状态与兼容字段见 [北向架构](northbound_architecture.md)。
+
+以下早期流程保留作历史说明；其中“worker 直接生成 MQTT JSON”和“Gateway 直接持有 Mosquitto 回调”已由北向适配器替代。
+
 ## Modbus 上行与下行
 
 上行保持原项目链路：Modbus RTU/TCP → `ModbusThread` → `mFromModbusQueue` → `ModMqtt`/converter → MQTT state/availability。下行保持 MQTT command → `MqttObjectCommand` → `mToModbusQueue` → Modbus write。

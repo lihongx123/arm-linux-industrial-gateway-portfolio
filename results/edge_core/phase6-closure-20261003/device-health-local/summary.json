@@ -1,0 +1,19 @@
+{
+  "result": "PASS",
+  "device_id": "can-291",
+  "raised": {
+    "sequence": 1,
+    "key": "health/can-291",
+    "action": "raised",
+    "severity": "critical",
+    "epoch_ms": 1791017422536
+  },
+  "recovered": {
+    "sequence": 2,
+    "key": "health/can-291",
+    "action": "recovered",
+    "severity": "critical",
+    "epoch_ms": 1791017422547
+  },
+  "gateway_exit": 0
+}

@@ -5,6 +5,7 @@
 #include <cstdint>
 #include <string>
 #include <vector>
+#include "serial_port.hpp"
 
 namespace mqmgateway::serial {
 
@@ -45,7 +46,7 @@ private:
 
 class TermiosRtuTransport {
 public:
-    TermiosRtuTransport(std::string device, unsigned int baudRate = 115200);
+    TermiosRtuTransport(std::string device, unsigned int baudRate = 115200, Rs485Config rs485 = {});
     ~TermiosRtuTransport();
 
     TermiosRtuTransport(const TermiosRtuTransport&) = delete;
@@ -54,7 +55,7 @@ public:
     void open();
     void close() noexcept;
     bool isOpen() const noexcept;
-    int nativeHandle() const noexcept { return descriptor_; }
+    int nativeHandle() const noexcept { return port_.fd(); }
     std::vector<ByteBuffer> readAvailable();
     void discardInput();
     void writeFrame(const ByteBuffer& frame, std::chrono::milliseconds timeout);
@@ -62,11 +63,7 @@ public:
     const RtuParserMetrics& parserMetrics() const noexcept;
 
 private:
-    static unsigned int baudConstant(unsigned int baudRate);
-
-    std::string device_;
-    unsigned int baudRate_;
-    int descriptor_ = -1;
+    SerialPort port_;
     RtuFrameParser parser_;
 };
 

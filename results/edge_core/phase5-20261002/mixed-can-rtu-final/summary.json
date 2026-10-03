@@ -1,0 +1,141 @@
+{
+  "gateway_pid": 969223,
+  "single_process": true,
+  "duration_seconds": 10,
+  "expected_modbus": 103,
+  "received_modbus_unique": 103,
+  "missing_modbus": 0,
+  "expected_can": 1000,
+  "received_can_unique": 1000,
+  "missing_can": 0,
+  "duplicates": 0,
+  "rtu_command_confirmed": true,
+  "can_command_confirmed": true,
+  "progress_5s": {
+    "0": [
+      50,
+      500
+    ],
+    "1": [
+      48,
+      500
+    ],
+    "2": [
+      5,
+      0
+    ]
+  },
+  "no_protocol_starvation": true,
+  "p50_ms": 0.5950790364295244,
+  "p95_ms": 1.0387110523879528,
+  "p99_ms": 1.2608460383489728,
+  "latency_definition": "PTY response write / CAN send initiation -> independent MQTT callback; combined samples",
+  "cpu_avg_percent_one_core": 3.1387477765013845,
+  "peak_rss_kib": 6688,
+  "metrics": {
+    "enqueued": 1107,
+    "dequeued": 1107,
+    "current_depth": 0,
+    "peak_depth": 1,
+    "rejected": 0,
+    "processing_latency_ms": 0.0912261,
+    "published": 1120,
+    "publish_failures": 0,
+    "command_timeouts": 0,
+    "telemetry_qos": 1,
+    "mqtt_max_inflight": 20,
+    "pipeline_metrics_enabled": true,
+    "telemetry_enqueued": 1105,
+    "telemetry_dequeued": 1105,
+    "telemetry_queue_wait": {
+      "count": 1105,
+      "mean_us": 90.9261,
+      "max_us": 598.257,
+      "p50_upper_us": 128,
+      "p95_upper_us": 256,
+      "p99_upper_us": 512
+    },
+    "command_queue_wait": {
+      "count": 2,
+      "mean_us": 30.435,
+      "max_us": 45.769,
+      "p50_upper_us": 16,
+      "p95_upper_us": 45.769,
+      "p99_upper_us": 45.769
+    },
+    "telemetry_worker_before_publish": {
+      "count": 1103,
+      "mean_us": 17.755,
+      "max_us": 210.332,
+      "p50_upper_us": 16,
+      "p95_upper_us": 32,
+      "p99_upper_us": 128
+    },
+    "mqtt_pipeline": {
+      "publish_calls": 1120,
+      "publish_accepted": 1120,
+      "publish_api_errors": 0,
+      "puback_received": 1119,
+      "qos0_local_completed": 0,
+      "telemetry_accepted": 1103,
+      "telemetry_puback_received": 1103,
+      "pending_tracked": 1,
+      "pending_peak": 3,
+      "oldest_pending_us": 10365.5,
+      "tracking_dropped": 0,
+      "unmatched_callbacks": 0,
+      "tracking_complete": true,
+      "publish_api": {
+        "count": 1120,
+        "mean_us": 44.4609,
+        "max_us": 602.994,
+        "p50_upper_us": 64,
+        "p95_upper_us": 128,
+        "p99_upper_us": 256
+      },
+      "telemetry_puback": {
+        "count": 1103,
+        "mean_us": 299.29,
+        "max_us": 950.492,
+        "p50_upper_us": 512,
+        "p95_upper_us": 950.492,
+        "p99_upper_us": 950.492
+      }
+    },
+    "gateway_core": {
+      "driver_messages": 1105,
+      "dropped_messages": 0,
+      "commands_submitted": 2,
+      "commands_rejected": 0,
+      "mapping_failures": 0
+    },
+    "rtu": {
+      "responses": 104,
+      "timeouts": 0,
+      "unexpected": 0,
+      "rejected": 0,
+      "writes_confirmed": 1,
+      "crc_candidates_rejected": 0,
+      "bytes_discarded": 0,
+      "buffered_bytes": 0
+    },
+    "can_errors": 0,
+    "can_pipeline": {
+      "frames_read": 1000,
+      "parsed": 1000,
+      "rejected_frames": 0,
+      "read_errors": 0,
+      "parse": {
+        "count": 1000,
+        "mean_us": 3.0888,
+        "max_us": 33.948,
+        "p50_upper_us": 4,
+        "p95_upper_us": 8,
+        "p99_upper_us": 8
+      }
+    }
+  },
+  "errors": [],
+  "gateway_exit": 0,
+  "result": "PASS"
+}

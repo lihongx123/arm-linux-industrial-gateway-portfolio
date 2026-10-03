@@ -1,0 +1,1 @@
+{"result":"PASS","scope":"real local Snap7 server -> S7 client -> GatewayCore","checks":["connect","read","write","two_devices","point_mapping","db_metadata","command_route"]}

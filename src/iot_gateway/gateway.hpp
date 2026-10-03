@@ -1,9 +1,14 @@
 #pragma once
 
 #include "bounded_queue.hpp"
-#include "can_socket.hpp"
-#include "command_router.hpp"
+#include "pipeline_metrics.hpp"
+#include "register_drivers.hpp"
+#include "gateway_core.hpp"
+#include "acquisition_scheduler.hpp"
+#include "watchdog.hpp"
 #include "southbound_reactor.hpp"
+#include "mqtt_northbound_adapter.hpp"
+#include "northbound_manager.hpp"
 
 #include <atomic>
 #include <chrono>
@@ -13,9 +18,6 @@
 #include <string>
 #include <thread>
 #include <vector>
-
-struct mosquitto;
-struct mosquitto_message;
 
 namespace mqmgateway::iot {
 
@@ -36,9 +38,21 @@ struct GatewayConfig {
     std::chrono::milliseconds processingDelay{0};
     std::string metricsFile;
     bool pipelineMetrics{false};
+    bool diagnosticsMqtt{false};
     int telemetryQos{1};
     unsigned int mqttMaxInflight{20};
-    RtuConfig rtu;
+    edge::HealthConfig health;
+    std::chrono::milliseconds queueWatchdogThreshold{5000};
+    drivers::RtuConfig rtu;
+    std::vector<drivers::ModbusTcpConfig> modbusTcp;
+    std::vector<drivers::TcpConfig> genericTcp;
+    std::vector<drivers::McConfig> mc;
+    std::vector<drivers::OpcUaConfig> opcua;
+    std::vector<drivers::S7Config> s7;
+    std::vector<board::SpiConfig> spi;
+    std::vector<board::I2cConfig> i2c;
+    std::vector<board::GpioConfig> gpio;
+    std::vector<drivers::RawUartConfig> uart;
 };
 
 class Gateway {
@@ -54,39 +68,25 @@ public:
     bool isRunning() const { return running_.load(); }
 
 private:
-    static void connectedCallback(mosquitto* client, void* context, int result);
-    static void disconnectedCallback(mosquitto* client, void* context, int result);
-    static void messageCallback(mosquitto* client, void* context, const mosquitto_message* message);
-    static void publishedCallback(mosquitto* client, void* context, int mid);
-
-    void onConnected(int result);
-    void onDisconnected(int result);
-    void onMessage(const std::string& topic, const std::string& payload);
     void receiveLoop();
     void workerLoop();
     void heartbeatLoop();
-    bool publish(const std::string& topic, const std::string& payload, bool retain = false, bool telemetry = false);
-    void publishStatus(const std::string& deviceId, const std::string& status, const std::string& detail);
-    std::string telemetryTopic(const std::string& deviceId) const;
-    std::string deviceStatusTopic(const std::string& deviceId) const;
     void writeMetrics() const;
 
     GatewayConfig config_;
-    CanSocket can_;
-    CommandRouter router_;
-    BoundedQueue<UnifiedMessage> queue_;
+    BoundedQueue<edge::UnifiedMessageV2> queue_;
+    edge::GatewayCore core_;
+    northbound::NorthboundManager northbound_;
+    northbound::MqttNorthboundAdapter* mqttAdapter_{nullptr}; // owned by northbound_
     std::unique_ptr<SouthboundReactor> southbound_;
-    mosquitto* mqtt_{nullptr};
-    bool mqttLibraryInitialized_{false}, mqttLoopStarted_{false};
+    std::unique_ptr<edge::AcquisitionScheduler> acquisition_;
     std::atomic<bool> running_{false};
-    std::atomic<bool> connected_{false};
-    std::atomic<std::uint64_t> published_{0};
-    std::atomic<std::uint64_t> publishFailures_{0};
     std::atomic<std::uint64_t> commandTimeouts_{0};
-    std::atomic<std::uint64_t> canErrors_{0};
     std::atomic<std::uint64_t> telemetryEnqueued_{0}, telemetryDequeued_{0};
-    PublishTracker publishTracker_;
+    std::uint64_t lastAlarmSequence_{0}; // heartbeat thread only
+    std::atomic<std::uint64_t> alarmHistoryMissed_{0};
     StageLatency telemetryQueueWait_, commandQueueWait_, telemetryWork_;
+    edge::QueueWatchdog queueWatchdog_;
     std::thread receiver_;
     std::thread heartbeat_;
     std::vector<std::thread> workers_;

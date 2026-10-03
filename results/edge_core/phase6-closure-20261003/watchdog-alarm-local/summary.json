@@ -1,0 +1,25 @@
+{
+  "result": "PASS",
+  "gateway_exit": 0,
+  "stalled_observed": true,
+  "recovered_observed": true,
+  "mqtt_acknowledged": true,
+  "mqtt_diagnostics_messages": 62,
+  "alarm_events": 7,
+  "mqtt_alarm_actions": [
+    "acknowledged",
+    "raised",
+    "recovered"
+  ],
+  "mqtt_alarm_sequences": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "stall_events": 3,
+  "recoveries": 3
+}

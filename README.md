@@ -1,21 +1,22 @@
 # MQMGateway 工业协议网关
 
-基于 [BlackZork/mqmgateway](https://github.com/BlackZork/mqmgateway) 扩展的 C++17/Linux 工业网关，整合 SocketCAN、Modbus RTU、MQTT、消息队列及 ARM64 系统验证。
+基于 [BlackZork/mqmgateway](https://github.com/BlackZork/mqmgateway) 扩展的 C++17/Linux 工业边缘网关。新网关进程 `mqmgateway_iot` 使用设备/点位注册、统一驱动接口、南向 Reactor 与采集调度器、北向 MQTT 适配器和有界工作队列；原有 `modmqttd` 保留为独立程序。
 
 ## 扩展架构
 
 ```text
-SocketCAN ─┐
-           ├→ 共享 epoll 南向 Reactor → UnifiedMessage → 有界队列 → workers → MQTT
-RTU 串口 ──┘                                 ↑
-MQTT 命令 → 路由 → worker → CAN 发送 / RTU Reactor 事务 → 状态回执
+CAN / RTU / TCP / UART / MC ──→ epoll Reactor ─┐
+SPI / I2C / GPIO / OPC UA / S7 → 采集调度器 ──┼→ GatewayCore → PointMapper
+                                              └→ UnifiedMessageV2 → 有界队列 → MQTT
+MQTT 命令 → CommandRouter → GatewayCore → DriverManager → 设备驱动 → 状态回执
+                                      └→ 健康 / 告警 / 诊断 → MQTT
 ```
 
-- CAN 与非阻塞 RTU 共享接收线程，按处理预算公平读取。
-- RTU 增量组帧与 CRC16 校验，支持周期读寄存器、写寄存器回执及超时处理。
-- 有界队列、固定工作线程、命令路由和分段耗时观测。
-- MQTT/TLS 上下行、心跳、重连与发布指标。
-- Buildroot 交叉构建 ARM64 系统，QEMU 运行目标程序。
+- `DriverManager` 管理 CAN、Modbus RTU/TCP、Generic TCP、Raw UART、MC、OPC UA、S7 和板级 SPI/I2C/GPIO 驱动；RS485 是串口传输模式。OPC UA 与 S7 是可选构建项。
+- 事件驱动设备由共享 epoll Reactor 分发；板级采集及同步库调用由有界共享调度器执行。
+- `GatewayCore` 统一设备与点位校验、映射和驱动命令派发，业务核心不按协议名分支。
+- 北向 MQTT 提供遥测、命令状态、诊断快照与告警事件；健康状态、告警确认和工作队列停滞检测由 Phase 6 实现。
+- 历史 Buildroot/QEMU ARM64 结果和本轮本地 Phase 6 结果分别保存，不混用验证范围。
 
 ## 构建
 
@@ -35,19 +36,23 @@ cmake --build build-local -j4
 | 原生 CAN + RTU 混合正常流量，30 秒 | CAN 3000/3000、RTU 293/293 |
 | 上述 MQTT 端到端延迟 P50 / P95 / P99 | 0.564 / 0.942 / 1.139 ms |
 | 混合故障注入回归，30 秒 | CAN 3000/3000、RTU 273/273，双向命令通过 |
-| 本地完整 CTest | 3/3 测试程序通过 |
-| ARM64 Buildroot/QEMU 本地回归 | RTU、CAN/MQTT、非法命令及重连场景通过 |
+| Phase 6 本地完整 CTest | 11/11 测试通过；相关单元测试 12 用例、155 断言通过 |
+| Phase 6 本地 CAN + RTU 回归 | 5 秒 CAN 250/250、RTU 55/55，无观察缺失/重复；双向命令确认 |
+| Phase 6 健康/告警 | 本地 vcan 与 Mosquitto 验证 stale/offline、队列停滞、确认与恢复 |
+| ARM64 Buildroot/QEMU 历史回归 | Phase 5 的 11 设备软件组成测试通过；不是 Phase 6 二进制的 ARM64 验收 |
 
-[本轮原始证据](results/resume_alignment/20260930T143425Z/) · [架构与验收](docs/resume_architecture.md)
+[Phase 6 本地证据](results/edge_core/phase6-closure-20261003/README.md) · [Phase 5 ARM64 证据](docs/industrial_gateway_phase5.md)
 
 ## 阅读导航
 
 - [参数与技术学习手册](docs/TECHNICAL_GUIDE.md)
+- [当前源码学习手册](docs/GATEWAY_SOURCE_STUDY_GUIDE.md)
+- [Phase 6 健康、告警与诊断](docs/industrial_gateway_phase6.md)
 - [历史性能及稳定性证据](docs/EVIDENCE_INDEX.md)
 - [ARM64 验证](docs/arm64_buildroot_validation.md)
 - [贡献与来源](docs/PROVENANCE.md)
 
-`src/iot_gateway/` 为网关扩展，`src/serial/` 为串口处理，`tests/` 为集成测试，`buildroot/` 与 `cmake/toolchains/` 为目标系统构建配置。
+`src/edge_core/` 为注册、映射与诊断核心，`src/drivers/`、`src/board/`、`src/serial/`、`src/transport/` 为南向驱动及传输，`src/northbound/` 为 MQTT 适配，`src/iot_gateway/` 为进程组装；`tests/` 与 `unittests/` 为验证代码。ADC/PWM 尚未实现。
 
 ## 许可
 

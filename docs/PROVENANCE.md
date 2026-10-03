@@ -8,6 +8,8 @@
 | --- | --- |
 | Modbus RTU/TCP、YAML配置、converter、原有线程/队列、MQTT双向通信 | 上游已有能力，保留原作者署名与许可 |
 | `src/iot_gateway/` | 本项目新增SocketCAN/epoll、统一消息、命令路由、bounded queue、worker pool及流水线观测 |
+| `src/edge_core/`、`src/drivers/` | 本项目新增设备/点位注册、驱动接口与管理、映射、健康、告警、诊断及协议驱动 |
+| `src/northbound/`、`src/transport/`、`src/board/` | 本项目新增北向适配、通用传输及板级采集层 |
 | `src/serial/` | 本项目新增直接Termios RTU解析和通信验证 |
 | `tests/`、新增单元测试 | 本项目新增设备模拟、功能、故障、负载、分段观测测试 |
 | Buildroot、toolchain、QEMU运行器 | 本项目新增目标环境构建和实验基础设施 |

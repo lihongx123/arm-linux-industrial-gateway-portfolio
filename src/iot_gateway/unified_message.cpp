@@ -26,6 +26,14 @@ std::string toString(const Protocol value) {
         case Protocol::modbus_tcp: return "modbus_tcp";
         case Protocol::can: return "can";
         case Protocol::mqtt: return "mqtt";
+        case Protocol::generic_tcp: return "generic_tcp";
+        case Protocol::spi: return "spi";
+        case Protocol::i2c: return "i2c";
+        case Protocol::gpio: return "gpio";
+        case Protocol::uart: return "uart";
+        case Protocol::mitsubishi_mc: return "mitsubishi_mc";
+        case Protocol::opcua: return "opcua";
+        case Protocol::siemens_s7: return "siemens_s7";
     }
     return "unknown";
 }

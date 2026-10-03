@@ -1,0 +1,7 @@
+mode=tests
+qemu=/usr/bin/qemu-system-aarch64
+qemu_version=QEMU emulator version 8.2.2 (Debian 1:8.2.2+ds-0ubuntu1.18)
+elapsed_seconds=24.800
+guest_exit=FAIL
+debugfs_exit=0
+failure_reason=invalid s7-driver-probe.json: [Errno 2] No such file or directory: '/mnt/c/Users/hello/Documents/Codex/2026-09-21/files-pasted-by-the-user-br-2/outputs/mqmgateway/results/edge_core/phase5-20261002/arm64-s7-qemu-rerun/guest-results/results/s7-driver-probe.json'

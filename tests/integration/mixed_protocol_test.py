@@ -33,6 +33,8 @@ def main():
             now=time.monotonic()
             if m.topic.endswith("/telemetry"):
                 raw=bytes.fromhex(data["payload"])
+                if not data.get("point_id") or "raw_value" not in data or "value" not in data or not data.get("driver_id"):
+                    raise RuntimeError("production telemetry missing mapped point fields")
                 with lock:
                     if data["protocol"]=="modbus_rtu":
                         seq=int.from_bytes(raw[3:5],"big");rt_seen[seq]+=1;progress[int((now-start)//5)][0]+=1

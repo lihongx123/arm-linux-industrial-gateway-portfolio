@@ -1,0 +1,1 @@
+{"timestamp_ms":1790999060729,"device_id":"can-291","protocol":"can","direction":"northbound","data_type":"telemetry","address":291,"payload":"01020304","quality":"good","point_id":"frame","raw_value":"01020304","value":"01020304","driver_id":"can"}

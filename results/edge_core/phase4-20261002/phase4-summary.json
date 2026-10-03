@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-02",
+  "baseline_head": "644187153744cf7ecb66ccdca9f9be44ba87e8f5",
+  "stage_a": "PASS",
+  "phase4": "PASS_SOFTWARE",
+  "ctest": {"passed": 6, "total": 6, "log": "ctest-final.log"},
+  "edge_unit": {"passed_cases": 9, "assertions": 104, "log": "edge-test.log"},
+  "mixed_software": {
+    "devices": 8,
+    "native": "mixed-native-final.json",
+    "arm64_qemu": "qemu-final-v2/guest-results/results/phase4-software-probe.json",
+    "hardware_validation": false
+  },
+  "mqtt_tcp_e2e": "mqtt-e2e/summary.json",
+  "can_rtu_10s": "mixed-can-rtu/summary.json",
+  "arm64_qemu": {
+    "guest_exit": "PASS",
+    "host_run": "qemu-final-v2/host-run.txt",
+    "guest_summary": "qemu-final-v2/guest-results/results/summary.json"
+  },
+  "capabilities": {
+    "spi": "IMPLEMENTED_NOT_HARDWARE_VALIDATED",
+    "i2c": "IMPLEMENTED_NOT_HARDWARE_VALIDATED",
+    "gpio": "IMPLEMENTED_NOT_HARDWARE_VALIDATED",
+    "raw_uart": "VERIFIED_SOFTWARE",
+    "rs485": "VERIFIED_SOFTWARE",
+    "adc": "NOT_IMPLEMENTED_DEFERRED",
+    "pwm": "NOT_IMPLEMENTED_DEFERRED"
+  },
+  "failure_evidence": ["ctest-all.log", "build-arm64.log", "qemu-final/host-run.txt"],
+  "documentation": "../../../docs/industrial_gateway_phase4.md"
+}

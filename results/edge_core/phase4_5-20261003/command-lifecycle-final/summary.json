@@ -1,0 +1,35 @@
+{
+  "result": "PASS",
+  "broker": "local Mosquitto",
+  "device": "generic TCP simulator",
+  "executed_commands": [
+    "0405"
+  ],
+  "success_command_id": "nb-success",
+  "duplicate_rejected": true,
+  "expired_timed_out": true,
+  "invalid_rejected": true,
+  "northbound_metrics": {
+    "duplicate_commands": 1,
+    "timed_out_commands": 1,
+    "command_results": 5,
+    "command_result_publish_failed": 0,
+    "rejected_commands": 2,
+    "adapters": [
+      {
+        "id": "mqtt",
+        "published": 9,
+        "publish_failed": 0,
+        "dropped": 0,
+        "inbound_commands": 4,
+        "queue_depth": 0,
+        "queue_peak": 2,
+        "duplicate_commands": 1,
+        "timed_out_commands": 1,
+        "command_results": 5,
+        "rejected_commands": 2,
+        "healthy": true
+      }
+    ]
+  }
+}

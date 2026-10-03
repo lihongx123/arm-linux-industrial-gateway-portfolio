@@ -1,0 +1,31 @@
+[2026-10-02 16:29:06.710 (UTC+0000)] [33mwarn/server[0m	AccessControl: Unconfigured AccessControl. Users have all permissions.
+[2026-10-02 16:29:06.712 (UTC+0000)] [32minfo/server[0m	AccessControl: Anonymous login is enabled
+[2026-10-02 16:29:06.712 (UTC+0000)] [32minfo/server[0m	AccessControl: x509 certificate user authentication is enabled
+[2026-10-02 16:29:06.712 (UTC+0000)] [33mwarn/server[0m	Username/Password Authentication configured, but no encrypting SecurityPolicy. This can leak credentials on the network.
+[2026-10-02 16:29:06.713 (UTC+0000)] [33mwarn/userland[0m	AcceptAll Certificate Verification. Any remote certificate will be accepted.
+[2026-10-02 16:29:06.719 (UTC+0000)] [32minfo/network[0m	TCP network layer listening on opc.tcp://buildroot:4840/
+[2026-10-02 16:29:06.723 (UTC+0000)] [33mwarn/userland[0m	AcceptAll Certificate Verification. Any remote certificate will be accepted.
+[2026-10-02 16:29:06.780 (UTC+0000)] [32minfo/network[0m	Connection 6 | New connection over TCP from 127.0.0.1
+[2026-10-02 16:29:06.784 (UTC+0000)] [32minfo/channel[0m	Connection 6 | SecureChannel 1 | SecureChannel opened with SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.00s
+[2026-10-02 16:29:06.785 (UTC+0000)] [32minfo/channel[0m	Connection 5 | SecureChannel 1 | SecureChannel opened with SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.00s
+[2026-10-02 16:29:06.785 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Closed, ConnectStatus: Good
+[2026-10-02 16:29:06.787 (UTC+0000)] [32minfo/client[0m	Use the EndpointURL opc.tcp://buildroot:4840/ returned from FindServers
+[2026-10-02 16:29:06.787 (UTC+0000)] [32minfo/channel[0m	Connection 6 | SecureChannel 1 | CloseSecureChannel
+[2026-10-02 16:29:06.787 (UTC+0000)] [32minfo/network[0m	Connection 6 | Closed
+[2026-10-02 16:29:06.788 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Closed, SessionState: Closed, ConnectStatus: Good
+[2026-10-02 16:29:06.789 (UTC+0000)] [32minfo/network[0m	Connection 6 | New connection over TCP from 127.0.0.1
+[2026-10-02 16:29:06.789 (UTC+0000)] [32minfo/channel[0m	Connection 6 | SecureChannel 2 | SecureChannel opened with SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.00s
+[2026-10-02 16:29:06.789 (UTC+0000)] [32minfo/channel[0m	Connection 5 | SecureChannel 2 | SecureChannel opened with SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.00s
+[2026-10-02 16:29:06.789 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Closed, ConnectStatus: Good
+[2026-10-02 16:29:06.790 (UTC+0000)] [32minfo/client[0m	Selected endpoint 0 in URL opc.tcp://buildroot:4840/ with SecurityMode None and SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None
+[2026-10-02 16:29:06.790 (UTC+0000)] [32minfo/client[0m	Selected UserTokenPolicy open62541-anonymous-policy with UserTokenType Anonymous and SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None
+[2026-10-02 16:29:06.791 (UTC+0000)] [32minfo/session[0m	SecureChannel 2 | Session "" | Session created
+[2026-10-02 16:29:06.792 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Created, ConnectStatus: Good
+[2026-10-02 16:29:06.793 (UTC+0000)] [32minfo/session[0m	SecureChannel 2 | Session "" | ActivateSession: Session activated
+[2026-10-02 16:29:06.793 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Activated, ConnectStatus: Good
+[2026-10-02 16:29:06.910 (UTC+0000)] [32minfo/session[0m	SecureChannel 2 | Session "" | Closing the Session
+[2026-10-02 16:29:06.912 (UTC+0000)] [32minfo/channel[0m	Connection 6 | SecureChannel 2 | CloseSecureChannel
+[2026-10-02 16:29:06.912 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Closed, SessionState: Closed, ConnectStatus: Good
+[2026-10-02 16:29:06.912 (UTC+0000)] [32minfo/network[0m	Connection 6 | Closed
+{"result":"PASS","scope":"real local open62541 server -> OPC UA client -> GatewayCore","checks":["connect","read","write","bad_nodeid","point_mapping","nodeid_metadata","command_route"]}
+[2026-10-02 16:29:06.965 (UTC+0000)] [32minfo/network[0m	Shutting down the TCP network layer

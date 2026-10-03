@@ -1,0 +1,1 @@
+{"status":"PASS","architecture":"aarch64","rtu_stream":"PASS","can_to_mqtt":"PASS","mqtt_to_can":"PASS","invalid_command":"PASS","broker_reconnect":"PASS","performance_sent":500,"performance_received":500,"loss":0,"elapsed_seconds":1}

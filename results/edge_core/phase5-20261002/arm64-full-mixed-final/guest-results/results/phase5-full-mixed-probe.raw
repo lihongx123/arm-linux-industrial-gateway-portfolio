@@ -1,0 +1,31 @@
+[2026-10-03 03:51:20.691 (UTC+0000)] [33mwarn/server[0m	AccessControl: Unconfigured AccessControl. Users have all permissions.
+[2026-10-03 03:51:20.693 (UTC+0000)] [32minfo/server[0m	AccessControl: Anonymous login is enabled
+[2026-10-03 03:51:20.693 (UTC+0000)] [32minfo/server[0m	AccessControl: x509 certificate user authentication is enabled
+[2026-10-03 03:51:20.693 (UTC+0000)] [33mwarn/server[0m	Username/Password Authentication configured, but no encrypting SecurityPolicy. This can leak credentials on the network.
+[2026-10-03 03:51:20.693 (UTC+0000)] [33mwarn/userland[0m	AcceptAll Certificate Verification. Any remote certificate will be accepted.
+[2026-10-03 03:51:20.699 (UTC+0000)] [32minfo/network[0m	TCP network layer listening on opc.tcp://buildroot:4840/
+[2026-10-03 03:51:20.712 (UTC+0000)] [33mwarn/userland[0m	AcceptAll Certificate Verification. Any remote certificate will be accepted.
+[2026-10-03 03:51:20.769 (UTC+0000)] [32minfo/network[0m	Connection 25 | New connection over TCP from 127.0.0.1
+[2026-10-03 03:51:20.772 (UTC+0000)] [32minfo/channel[0m	Connection 25 | SecureChannel 1 | SecureChannel opened with SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.00s
+[2026-10-03 03:51:20.773 (UTC+0000)] [32minfo/channel[0m	Connection 23 | SecureChannel 1 | SecureChannel opened with SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.00s
+[2026-10-03 03:51:20.773 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Closed, ConnectStatus: Good
+[2026-10-03 03:51:20.774 (UTC+0000)] [32minfo/client[0m	Use the EndpointURL opc.tcp://buildroot:4840/ returned from FindServers
+[2026-10-03 03:51:20.775 (UTC+0000)] [32minfo/channel[0m	Connection 25 | SecureChannel 1 | CloseSecureChannel
+[2026-10-03 03:51:20.775 (UTC+0000)] [32minfo/network[0m	Connection 25 | Closed
+[2026-10-03 03:51:20.776 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Closed, SessionState: Closed, ConnectStatus: Good
+[2026-10-03 03:51:20.776 (UTC+0000)] [32minfo/network[0m	Connection 25 | New connection over TCP from 127.0.0.1
+[2026-10-03 03:51:20.776 (UTC+0000)] [32minfo/channel[0m	Connection 25 | SecureChannel 2 | SecureChannel opened with SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.00s
+[2026-10-03 03:51:20.777 (UTC+0000)] [32minfo/channel[0m	Connection 23 | SecureChannel 2 | SecureChannel opened with SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.00s
+[2026-10-03 03:51:20.777 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Closed, ConnectStatus: Good
+[2026-10-03 03:51:20.777 (UTC+0000)] [32minfo/client[0m	Selected endpoint 0 in URL opc.tcp://buildroot:4840/ with SecurityMode None and SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None
+[2026-10-03 03:51:20.777 (UTC+0000)] [32minfo/client[0m	Selected UserTokenPolicy open62541-anonymous-policy with UserTokenType Anonymous and SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None
+[2026-10-03 03:51:20.778 (UTC+0000)] [32minfo/session[0m	SecureChannel 2 | Session "" | Session created
+[2026-10-03 03:51:20.779 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Created, ConnectStatus: Good
+[2026-10-03 03:51:20.780 (UTC+0000)] [32minfo/session[0m	SecureChannel 2 | Session "" | ActivateSession: Session activated
+[2026-10-03 03:51:20.780 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Open, SessionState: Activated, ConnectStatus: Good
+{"result":"PASS","label":"MIXED_SOFTWARE_INTEGRATION","devices":11,"peak_rss_kib":5076,"process_cpu_ms":165,"gateway_core":{"driver_messages":42,"dropped_messages":0,"commands_submitted":6,"commands_rejected":0,"mapping_failures":0},"can_errors":0,"s7:s701":{"connected":true,"reads":4,"writes":1,"errors":0,"reconnects":1,"timeouts":0,"consecutive_failures":0,"last_success_epoch_ms":1790999480931,"last_error_code":0},"opcua:opcua01":{"connected":true,"reads":4,"writes":1,"errors":0,"reconnects":1,"timeouts":0,"consecutive_failures":0,"last_success_epoch_ms":1790999480936,"last_error_code":0},"mc:mc01":{"connections":1,"disconnects":0,"timeouts":0,"malformed":0,"rejected":0,"connected":true,"last_success_epoch_ms":1790999480760,"last_error_code":0,"consecutive_failures":0,"reconnects":0},"rtu":{"responses":1,"timeouts":0,"unexpected":0,"rejected":0,"writes_confirmed":0,"crc_candidates_rejected":0,"bytes_discarded":0,"buffered_bytes":0},"uart:serial_sensor01":{"frames":4,"writes":1,"errors":1,"reopens":2,"oversized":1},"gpio:door01":{"reads":8,"writes":1,"errors":0,"samples":8,"healthy":true},"i2c:temp01":{"reads":8,"writes":0,"errors":0,"samples":8,"healthy":true},"generic_tcp:tcp01":{"connections":1,"disconnects":0,"timeouts":0,"malformed":0,"rejected":0,"connected":true,"last_success_epoch_ms":0,"last_error_code":0,"consecutive_failures":0,"reconnects":0},"modbus_tcp:plc01":{"connections":1,"disconnects":0,"timeouts":0,"malformed":0,"rejected":0,"connected":true,"last_success_epoch_ms":0,"last_error_code":0,"consecutive_failures":0,"reconnects":0},"spi:adc01":{"reads":4,"writes":1,"errors":1,"samples":3,"healthy":false},"acquisition_scheduler":{"runs":28,"late":0,"errors":0}}
+[2026-10-03 03:51:21.476 (UTC+0000)] [32minfo/session[0m	SecureChannel 2 | Session "" | Closing the Session
+[2026-10-03 03:51:21.477 (UTC+0000)] [32minfo/client[0m	Client Status: ChannelState: Closed, SessionState: Closed, ConnectStatus: Good
+[2026-10-03 03:51:21.477 (UTC+0000)] [32minfo/channel[0m	Connection 25 | SecureChannel 2 | CloseSecureChannel
+[2026-10-03 03:51:21.477 (UTC+0000)] [32minfo/network[0m	Connection 25 | Closed
+[2026-10-03 03:51:21.637 (UTC+0000)] [32minfo/network[0m	Shutting down the TCP network layer

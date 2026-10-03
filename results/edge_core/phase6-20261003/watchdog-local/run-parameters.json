@@ -1,0 +1,13 @@
+{
+  "command": [
+    "/tmp/mqmgateway-phase5-full/src/iot_gateway/mqmgateway_iot",
+    "--mqtt-port=35387",
+    "--can-interface=vcan0",
+    "--workers=1",
+    "--queue-capacity=8",
+    "--processing-delay-ms=500",
+    "--heartbeat-ms=50",
+    "--watchdog-queue-ms=150",
+    "--metrics-file=/mnt/c/Users/hello/Documents/Codex/2026-09-21/files-pasted-by-the-user-br-2/outputs/mqmgateway/results/edge_core/phase6-20261003/watchdog-local/gateway-metrics.json"
+  ]
+}

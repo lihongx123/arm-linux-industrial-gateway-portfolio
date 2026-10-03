@@ -1,0 +1,7 @@
+mode=tests
+qemu=/usr/bin/qemu-system-aarch64
+qemu_version=QEMU emulator version 8.2.2 (Debian 1:8.2.2+ds-0ubuntu1.18)
+elapsed_seconds=34.788
+guest_exit=FAIL
+debugfs_exit=0
+failure_reason=invalid opcua-driver-probe.json: Expecting ',' delimiter: line 1 column 6 (char 5)
